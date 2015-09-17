@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace NotiAPP\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -28,7 +28,8 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name','fathers_last_name','mothers_last_name','user_name',
+    'user_type', 'email', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.

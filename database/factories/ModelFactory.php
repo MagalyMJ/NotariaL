@@ -11,11 +11,15 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(NotiAPP\Models\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'name' => $faker->firstName($gender = null|'male'|'female'),
+        'fathers_last_name' => $faker->lastName,
+        'mothers_last_name' => $faker->lastName,
+        'user_name' => $faker->userName,
+        'user_type' => $faker->randomElement($array = array (3,2,1)),
         'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
+        'password' => bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });
