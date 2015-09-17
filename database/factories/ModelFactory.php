@@ -23,3 +23,17 @@ $factory->define(NotiAPP\Models\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(NotiAPP\Models\Address::class,function(Faker\Generator $faker){
+	return [
+		'street' => $faker->streetName,
+		'number' => $faker->buildingNumber,
+		'colony' => $faker->city,
+		'postal_code'=> $faker->postcode,
+		'observations' => $faker->sentence($nbWords = 15),
+	];
+});
+
+// $factory->define(NotiAPP\Models\Address::class,function(Faker\Generator $faker){
+// 	return [];
+// });
