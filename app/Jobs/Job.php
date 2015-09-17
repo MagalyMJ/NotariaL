@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace NotiAPP\Jobs;
 
 use Illuminate\Bus\Queueable;
 
