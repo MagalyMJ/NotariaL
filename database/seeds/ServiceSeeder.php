@@ -16,10 +16,10 @@ class ServiceSeeder extends Seeder
         factory(NotiAPP\Models\Service::class,10)->create()->each(function ($service){
             
             $expense = factory(NotiAPP\Models\Expense::class)->make();
-            // $documet = factory(NotiAPP\Models\Document::class)->make();
+          	$documet = factory(NotiAPP\Models\Document::class)->make();
             
-             $service->documents()->atach($expense);
-            // $service->expenses()->save($documet);
+             $service->documents()->save($expense);
+           $service->expenses()->save($documet);
         });
         echo "listo";
     }

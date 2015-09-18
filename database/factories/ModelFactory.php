@@ -58,7 +58,7 @@ $factory->define(NotiAPP\Models\Service::class,function(Faker\Generator $faker){
 $factory->define(NotiAPP\Models\Expense::class,function(Faker\Generator $faker){
  return [
     'expense_name' => $faker->word,
-    'cost'=> numberBetween($min = 1000, $max = 3000)
+    'cost'=> $faker->numberBetween($min = 1000, $max = 3000)
  ];
 });
 
