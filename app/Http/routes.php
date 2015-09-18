@@ -14,6 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', function () {
-    return view('login');
-});
+
+Route::get('login',[
+
+	'uses' => 'AuthController@index',
+
+	'as' =>'auth_show_path',
+ 	]);
+Route::post('login',[
+
+	'uses' => 'AuthController@store',
+
+	'as' =>'auth_store_path',
+ 	]);
