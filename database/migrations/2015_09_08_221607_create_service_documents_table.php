@@ -15,10 +15,8 @@ class CreateServiceDocumentsTable extends Migration {
 		// this table es the result of many to many between documents table and servcies table
 		Schema::create('service_documents', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->integer('service_id')->unsigned();
 			$table->integer('document_id')->unsigned();
-
-			$table->foreign('document_id')->references('id')->on('documents');
 			
 		});
 	}

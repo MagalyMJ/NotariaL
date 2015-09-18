@@ -15,10 +15,8 @@ class CreateServiceExpensesTable extends Migration {
 		// this table es the result of many to many between expenses table and servcies table
 		Schema::create('service_expenses', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->integer('service_id')->unsigned();
 			$table->integer('expenses_id')->unsigned();
-
-			$table->foreign('expenses_id')->references('id')->on('expenses');
 			
 		});
 	}

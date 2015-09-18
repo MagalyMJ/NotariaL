@@ -15,10 +15,10 @@ class CreateParticipantsTable extends Migration {
 		//
 		Schema::create('participants', function(Blueprint $table)
 		{
-			$table->increments('id');
+			
+			$table->integer('case_id')->unsigned();
 			
 			$table->integer('customer_id')->unsigned();
-			$table->foreign('customer_id')->references('id')->on('customer');
 
 			$table->string('participants_type');
 

@@ -17,6 +17,7 @@ class CreateCatalogExpensesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('expense_name');
+			$table->integer('cost')->unsigned();
 			$table->timestamps();
 		});
 	}

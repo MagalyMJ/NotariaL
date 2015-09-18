@@ -22,10 +22,8 @@ class CreateServiceTable extends Migration {
 
 
 			$table->integer('document_id')->unsigned();
-			$table->foreign('document_id')->references('id')->on('documents');
 			
 			$table->integer('expense_id')->unsigned();
-			$table->foreign('expense_id')->references('id')->on('expenses');
 
 			$table->timestamps();
 		});
