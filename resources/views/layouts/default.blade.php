@@ -10,7 +10,7 @@
 <!-- CSS
   ================================================== -->
 
-  <link rel="stylesheet" href="/css/all.css">
+  <link rel="stylesheet" href="{{ asset('css/all.css')}}">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
