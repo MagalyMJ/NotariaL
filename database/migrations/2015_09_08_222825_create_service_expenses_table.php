@@ -17,6 +17,7 @@ class CreateServiceExpensesTable extends Migration {
 		{
 			$table->integer('service_id')->unsigned();
 			$table->integer('expenses_id')->unsigned();
+			$table->integer('cost')->unsigned();
 			
 		});
 	}
