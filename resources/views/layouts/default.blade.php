@@ -213,9 +213,11 @@ a{
 
 .error {
   font-size: 13px;
-  background-color: #FFC2BD;
+  background-color: rgb(255,148,148);
   padding: 5px;
-  display: none;
+  display: block;
+  text-align: center;
+  color: rgb(172, 34, 34);
 }
 
 /*forms*/

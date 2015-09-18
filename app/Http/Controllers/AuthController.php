@@ -3,6 +3,7 @@
 namespace NotiAPP\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use NotiAPP\Http\Requests;
 use NotiAPP\Http\Controllers\Controller;
@@ -38,8 +39,19 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
+        //esto muestra lo que esta mandando el formulario
+        //dd($request->all());
+
+        $this->validate($request, [
+            'user_name'    => 'required',
+            'password' => 'required',
+        ]);
+
         //
-        dd($request->all());
+        if (!auth()->attempt($request->only(['user_name', 'password']))) {
+            return redirect()->route('auth_show_path')->withErrors('No se encontro al usuario');
+        }
+        return view('example');
     }
 
     /**

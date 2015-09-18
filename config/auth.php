@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => NotiAPP\User::class,
+    'model' => NotiAPP\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------
