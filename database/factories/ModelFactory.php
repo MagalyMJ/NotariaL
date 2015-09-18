@@ -48,6 +48,26 @@ $factory->define(NotiAPP\Models\Address::class,function(Faker\Generator $faker){
  	];
  });
 
+$factory->define(NotiAPP\Models\Service::class,function(Faker\Generator $faker){
+ return [
+    'name' => $faker->firstName($gender = null|'male'|'female'),
+    'service_type'=> $faker->randomElement($array = array (2,1)),
+ ];
+});
+
+$factory->define(NotiAPP\Models\Expense::class,function(Faker\Generator $faker){
+ return [
+    'expense_name' => $faker->word,
+    'cost'=> numberBetween($min = 1000, $max = 3000)
+ ];
+});
+
+$factory->define(NotiAPP\Models\Document::class,function(Faker\Generator $faker){
+ return [
+    'document_name' => $faker->word,
+ ];
+});
+
 // $factory->define(NotiAPP\Models\Address::class,function(Faker\Generator $faker){
 // 	return [];
 // });
