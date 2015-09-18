@@ -16,9 +16,6 @@ class CreateCustomerTable extends Migration {
 		Schema::create('customer', function(Blueprint $table)
 		{
 			$table->increments('id');
-			
-			$table->integer('address_id')->unsigned();
-			$table->foreign('address_id')->references('id')->on('address');
 
 			$table->string('name');
 			$table->string('fathers_last_name');
@@ -41,6 +38,7 @@ class CreateCustomerTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('customer');
 	}
 
 }

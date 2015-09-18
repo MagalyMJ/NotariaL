@@ -31,6 +31,7 @@ class CreateServiceDocumentsTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('service_documents');
 	}
 
 }

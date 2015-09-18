@@ -45,6 +45,7 @@ class CreateCaseTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('case');
 	}
 
 }

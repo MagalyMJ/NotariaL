@@ -33,6 +33,7 @@ class CreateParticipantsTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('participants');
 	}
 
 }

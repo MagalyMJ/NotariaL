@@ -31,6 +31,7 @@ class CreateServiceExpensesTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('service_expenses');
 	}
 
 }

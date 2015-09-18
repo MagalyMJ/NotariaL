@@ -29,6 +29,7 @@ class CreateCatalogExpensesTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('expenses');
 	}
 
 }

@@ -34,6 +34,20 @@ $factory->define(NotiAPP\Models\Address::class,function(Faker\Generator $faker){
 	];
 });
 
+
+ $factory->define(NotiAPP\Models\Custumer::class,function(Faker\Generator $faker){
+ 	return [
+ 		'name' => $faker->firstName($gender = null|'male'|'female'),
+        'fathers_last_name' => $faker->lastName,
+        'mothers_last_name' => $faker->lastName,
+        'rfc' => $faker->sentence($nbWords = 6),
+        'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
+        'marital_status' => $faker->randomElement($array = array (4,3,2,1)),
+        'occupation' => $faker->word,
+        'from' => $faker->country,
+ 	];
+ });
+
 // $factory->define(NotiAPP\Models\Address::class,function(Faker\Generator $faker){
 // 	return [];
 // });

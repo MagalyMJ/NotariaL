@@ -42,6 +42,7 @@ class CreateBudgetTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('budget');
 	}
 
 }

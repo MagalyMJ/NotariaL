@@ -29,6 +29,7 @@ class CreateCatalogDocumentsTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('documents');
 	}
 
 }

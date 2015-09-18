@@ -3,6 +3,7 @@
 namespace NotiAPP\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use NotiAPP\Models\Custumer;
 
 class Address extends Model
 {
@@ -22,4 +23,8 @@ class Address extends Model
     protected $fillable = ['street','number','colony','postal_code',
     'observations'];
 
+    public function custumer()
+    {
+        return $this->belongsTo(Custumer::class,'custumer_id');
+    }
 }

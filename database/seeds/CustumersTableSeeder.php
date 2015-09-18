@@ -14,9 +14,13 @@ class CustumersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        factory(NotiAPP\Models\Address::class,10)->create();
 
-        echo "Salio";
+        factory(NotiAPP\Models\Custumer::class,10)->create()->each(function ($custumer){
+            
+            $address = factory(NotiAPP\Models\Address::class)->make();
+            
+            $custumer->address()->save($address);
+        });
+
     }
 }
