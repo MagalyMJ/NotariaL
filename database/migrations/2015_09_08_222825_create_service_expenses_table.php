@@ -13,10 +13,10 @@ class CreateServiceExpensesTable extends Migration {
 	public function up()
 	{
 		// this table es the result of many to many between expenses table and servcies table
-		Schema::create('service_expenses', function(Blueprint $table)
+		Schema::create('expense_service', function(Blueprint $table)
 		{
 			$table->integer('service_id')->unsigned();
-			$table->integer('expenses_id')->unsigned();
+			$table->integer('expense_id')->unsigned();
 			$table->integer('cost')->unsigned();
 			
 		});
@@ -30,7 +30,7 @@ class CreateServiceExpensesTable extends Migration {
 	public function down()
 	{
 		//
-		Schema::drop('service_expenses');
+		Schema::drop('expense_service');
 	}
 
 }

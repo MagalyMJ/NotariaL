@@ -13,7 +13,7 @@ class CreateServiceDocumentsTable extends Migration {
 	public function up()
 	{
 		// this table es the result of many to many between documents table and servcies table
-		Schema::create('service_documents', function(Blueprint $table)
+		Schema::create('document_service', function(Blueprint $table)
 		{
 			$table->integer('service_id')->unsigned();
 			$table->integer('document_id')->unsigned();
@@ -29,7 +29,7 @@ class CreateServiceDocumentsTable extends Migration {
 	public function down()
 	{
 		//
-		Schema::drop('service_documents');
+		Schema::drop('document_service');
 	}
 
 }

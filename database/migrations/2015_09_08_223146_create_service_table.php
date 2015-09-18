@@ -20,11 +20,6 @@ class CreateServiceTable extends Migration {
 			$table->string('name');
 			$table->enum('service_type',['enagenante','no_enagenante']);
 
-
-			$table->integer('document_id')->unsigned();
-			
-			$table->integer('expense_id')->unsigned();
-
 			$table->timestamps();
 		});
 	}
