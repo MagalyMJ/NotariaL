@@ -27,3 +27,8 @@ Route::post('login',[
 
 	'as' =>'auth_store_path',
  	]);
+
+Route::get('testament',[
+	'uses' => 'TestamentController@index',
+	'as' => 'testament_show_path',
+	]);
