@@ -37,31 +37,35 @@ class TestamentController extends Controller
     public function addCustumer(Request $request)
     {
         // Aqui se creara un nuevo caso de testamento
-        dd($request->all());
+        //dd($request->all());
 
         $addCustumer = new Custumer;
         $addres = new Address;
-        $participant
 
-        // $addCustumer->name = $request->name;
-        // $addCustumer->fathers_last_name = $request->lasname;
-        // $addCustumer->from = $request->from;
-        // $addCustumer->occupation = $request->occupation;
-        // $addCustumer->marital_status = 1;
-        // $addCustumer->phone = $request->phone;
-
-        // $addCustumer->save();
+        $addCustumer->name = $request->name;
+        $addCustumer->fathers_last_name = $request->fathers_last_name;
+        $addCustumer->mothers_last_name = $request->mothers_last_name;
+        $addCustumer->rfc = $request->rfc;
+        $addCustumer->from = $request->from;
+        $addCustumer->birthdate = $request->birth_day;
+        $addCustumer->occupation = $request->occupation;
+        $addCustumer->marital_status = $request->marital_status;
+        $addCustumer->phone = $request->phone;
         
-        // $insertedId = $addCustumer->id;
 
-        // $addres->street = $request->street;
-        // $addres->number = $request->number;
-        // $addres->colony = $request->colony;
-        // $addres->postal_code = $request->postal_code;
 
-        // $post = Custumer::find($insertedId);
+        $addCustumer->save();
+        
+        $insertedId = $addCustumer->id;
 
-        // $addres = $post->address()->save($addres);   
+        $addres->street = $request->street;
+        $addres->number = $request->number;
+        $addres->colony = $request->colony;
+        $addres->postal_code = $request->postal_code;
+
+        $post = Custumer::find($insertedId);
+
+        $addres = $post->address()->save($addres);   
 
     }
 

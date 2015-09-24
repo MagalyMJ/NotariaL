@@ -11,8 +11,11 @@
      			<label for="name">Nombre</label> 
      			<input name="name" class="input long" id="name" type="text" autocomplete="off" />
      			 	
-     			<label for="lastname">Apellido</label> 
-     			<input name="lasname" class="input long" id="lastname" type="text" autocomplete="off" /> 
+     			<label for="fathers_last_name">Apellido Paterno</label> 
+          <input name="fathers_last_name" class="input long" id="fathers_last_name" type="text" autocomplete="off" /> 
+
+          <label for="mothers_last_name">Apellido Materno</label> 
+     			<input name="mothers_last_name" class="input long" id="lmothers_last_name" type="text" autocomplete="off" /> 
      			 	
      			<label for="from">Originario de</label> 
      			<input name="from" class="input long" id="from" type="text" autocomplete="off" /> 
@@ -20,8 +23,16 @@
      			<label for="birth_day">Fecha de Nacimiento</label> 
      			<input name="birth_day" class="input long" id="birth_day" type="date" autocomplete="off" /> 
      			 	
-     			<label for="marital_status">Estado Civil</label> 
-     			<input name="marital_status" class="input long" id="marital_status" type="text" autocomplete="off" /> 
+          <label for="marital_status">Estado Civil</label> 
+          <select name="marital_status">
+                <option value="1">soltero/a</option>
+                <option value="2">casado/a</option>
+                <option value="3">divorciado/a</option>
+                <option value="4">viudo/a</option>
+          </select>
+     			
+          <label for="rfc">RFC</label> 
+     			<input name="rfc" class="input long" id="marital_status" type="text" autocomplete="off" /> 
      			 	<!-- 
      			<label for="neighbor">Vecino De</label> 
      			<input name="neighbor" class="input long" id="neighbor" type="text" autocomplete="off" />  -->
@@ -75,7 +86,7 @@
 				  </label>
 			   	<input class="input" id="opertationValue" type="text" autocomplete="off" />
        </div>
-       
+
         <input type="submit" value="Registrar" class="input budget-button">
 
   </form>
