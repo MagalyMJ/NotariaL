@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use NotiAPP\Http\Requests;
 use NotiAPP\Http\Controllers\Controller;
 
+use NotiAPP\Models\Custumer;
+use NotiAPP\Models\Address;
+
 class TestamentController extends Controller
 {
     /**
@@ -29,6 +32,37 @@ class TestamentController extends Controller
     public function create()
     {
         // Aqui se creara un nuevo caso de testamento
+
+    }
+    public function addCustumer(Request $request)
+    {
+        // Aqui se creara un nuevo caso de testamento
+        dd($request->all());
+
+        $addCustumer = new Custumer;
+        $addres = new Address;
+        $participant
+
+        // $addCustumer->name = $request->name;
+        // $addCustumer->fathers_last_name = $request->lasname;
+        // $addCustumer->from = $request->from;
+        // $addCustumer->occupation = $request->occupation;
+        // $addCustumer->marital_status = 1;
+        // $addCustumer->phone = $request->phone;
+
+        // $addCustumer->save();
+        
+        // $insertedId = $addCustumer->id;
+
+        // $addres->street = $request->street;
+        // $addres->number = $request->number;
+        // $addres->colony = $request->colony;
+        // $addres->postal_code = $request->postal_code;
+
+        // $post = Custumer::find($insertedId);
+
+        // $addres = $post->address()->save($addres);   
+
     }
 
     /**

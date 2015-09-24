@@ -21,6 +21,7 @@ class CreateCustomerTable extends Migration {
 			$table->string('fathers_last_name');
 			$table->string('mothers_last_name');
 			$table->string('rfc');
+			$table->string('phone');
 			$table->date('birthdate');
 			$table->enum('marital_status',['soltero/a','casado/a','divorciado/a','viudo/a']);
 			$table->string('occupation');

@@ -4,64 +4,81 @@
 
 
  <div class="form_container"> 
- <form action="" id="general_data" class="form_data aling_block">
-				
+ 
+ <form action="{{route('testament_post_path') }}" method='post' class="form_data aling_block">  
+   {{csrf_field()}}
+
      			<label for="name">Nombre</label> 
-     			<input class="input long" id="name" type="text" autocomplete="off" />
+     			<input name="name" class="input long" id="name" type="text" autocomplete="off" />
      			 	
      			<label for="lastname">Apellido</label> 
-     			<input class="input long" id="lastname" type="text" autocomplete="off" /> 
+     			<input name="lasname" class="input long" id="lastname" type="text" autocomplete="off" /> 
      			 	
      			<label for="from">Originario de</label> 
-     			<input class="input long" id="from" type="text" autocomplete="off" /> 
+     			<input name="from" class="input long" id="from" type="text" autocomplete="off" /> 
      			 	
      			<label for="birth_day">Fecha de Nacimiento</label> 
-     			<input class="input long" id="birth_day" type="date" autocomplete="off" /> 
+     			<input name="birth_day" class="input long" id="birth_day" type="date" autocomplete="off" /> 
      			 	
      			<label for="marital_status">Estado Civil</label> 
-     			<input class="input long" id="marital_status" type="text" autocomplete="off" /> 
-     			 	
+     			<input name="marital_status" class="input long" id="marital_status" type="text" autocomplete="off" /> 
+     			 	<!-- 
      			<label for="neighbor">Vecino De</label> 
-     			<input class="input long" id="neighbor" type="text" autocomplete="off" /> 
-     			  
+     			<input name="neighbor" class="input long" id="neighbor" type="text" autocomplete="off" />  -->
+     			 
      			<label for="occupation">Ocupación</label> 
-     			<input class="input long" id="occupation" type="text" autocomplete="off" /> 
-     			 	
-     			<label for="domicile">Domicilio</label> 
-     			<input class="input long" id="domicile" type="text" autocomplete="off" /> 
-     			 	
-     			<label for="phone">Teléfon</label> 
-     			<input class="input long" id="phone" type="tel" autocomplete="off" /> 
+     			<input name="occupation" class="input long" id="occupation" type="text" autocomplete="off" />
 
-     			<form class="controls-stacked">
+          <label for="phone">Teléfon</label> 
+          <input name="phone" class="input long" id="phone" type="tel" autocomplete="off" /> 
+ 
+     			 	
+          <label for="street">Calle</label> 
+          <input name="street" class="input long" id="street" type="text" autocomplete="off" /> 
+         
+          <label for="number">Numero</label> 
+          <input name="number" class="input long" id="number" type="text" autocomplete="off" /> 
+     			
+          <label for="colony">Colonia</label> 
+          <input name="colony" class="input long" id="colony" type="text" autocomplete="off" /> 
+          
+          <label for="postal_code">CP</label> 
+     			<input name="postal_code" class="input long" id="postal_code" type="text" autocomplete="off" /> 
+     			 	
+  
+
+     			<div class="controls-stacked">
   					<label class="control radio">
-  						<input type="radio" id="testador" name="radio">
+  						<input name="testador" type="radio" id="testador">
    						Testador
 					</label>
 					<label class="control radio">
-  						<input type="radio" id="testigos" name="radio">
-  						Testigos
+  						<input name="testigo" type="radio" id="testigos" >
+  						Testigo
 					</label>
 					<textarea rows="4" cols="50" name="subject" placeholder="Observaciones" class="message_area" ></textarea>
-				</form>
-     			
- </form>
+				</div>
 
- <form class="controls-stacked form_data">
-  				<label class="control checkbox">
-  					<input type="checkbox" id="identificacion" name="checkbox">
-   					Identificacion
-				</label>
-				<label class="control checkbox">
-  					<input type="checkbox" id="escrituras" name="checkbox">
-  					Escrituras
-				</label>
-				<label  for="opertationValue"class="control checkbox">
-  					Valor de operacion
-				</label>
-				<input class="input" id="opertationValue" type="text" autocomplete="off" />
-				<a href="testamento_presupuesto.php" class="input budget-button">  Presupuesto </a>
- </form>
+       
+  		
+          <div class="controls-stacked form_data">
+  				  <label class="control checkbox">
+  					 <input type="checkbox" id="identificacion" name="checkbox">
+   				 	 Identificacion
+				  </label>
+				  <label class="control checkbox">
+  				  	<input type="checkbox" id="escrituras" name="checkbox">
+  				  	Escrituras
+				  </label>
+				  <label  for="opertationValue"class="control checkbox">
+  			 		Valor de operacion
+				  </label>
+			   	<input class="input" id="opertationValue" type="text" autocomplete="off" />
+       </div>
+       
+        <input type="submit" value="Registrar" class="input budget-button">
 
-</div>
+  </form>
+ </div> 
+
 @endsection

@@ -32,3 +32,8 @@ Route::get('testament',[
 	'uses' => 'TestamentController@index',
 	'as' => 'testament_show_path',
 	]);
+
+Route::post('testament',[
+	'uses' => 'TestamentController@addCustumer',
+	'as' => 'testament_post_path',
+	]);
