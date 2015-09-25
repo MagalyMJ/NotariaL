@@ -29,5 +29,9 @@ class Service extends Model
     {
         return $this->belongsToMany(Expense::class)->withPivot('cost');;
     }
+     public function budget()
+    {
+        return $this->belongsTo(Budget::class,'service_id');
+    }
 
 }
