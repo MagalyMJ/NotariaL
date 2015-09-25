@@ -17,8 +17,6 @@ class CreateCaseTable extends Migration {
 		{
 			$table->increments('id');
 			
-			$table->integer('participants_id')->unsigned();
-			
 			$table->integer('budget_id')->unsigned();
 
 			$table->string('place');

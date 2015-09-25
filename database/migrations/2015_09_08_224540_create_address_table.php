@@ -17,7 +17,7 @@ class CreateAddressTable extends Migration {
 		{
 			$table->increments('id');
 
-			$table->integer('custumer_id')->unsigned();
+			$table->integer('customer_id')->unsigned();
 
 			$table->string('street');
 			$table->string('number');

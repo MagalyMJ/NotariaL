@@ -20,7 +20,7 @@ class Budget extends Model
 
     public function case()
     {
-        return $this->belongsTo(Case::class,'budget_id');
+        return $this->belongsTo(CaseService::class,'budget_id');
     }
 
     public function service()

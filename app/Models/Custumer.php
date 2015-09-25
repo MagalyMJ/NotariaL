@@ -24,9 +24,14 @@ class Custumer extends Model
     'birthdate','marital_status','occupation','from','phone'];
 
     public function address(){
-        return $this->hasMany(Address::class,'custumer_id');
+        return $this->hasMany(Address::class,'customer_id');
     }
+    // public function participant(){
+    // 	return $this->hasMany(Participant::class,'customer_id');
+    // }
+
     public function participant(){
-    	return $this->hasMany(Participant::class,'custumer_id');
+
+        return $this->belongsToMany(CaseService::class,'participants','customer_id','case_id');
     }
 }

@@ -25,10 +25,10 @@ class Participant extends Model
 
     public function custumer()
     {
-        return $this->belongsTo(Custumer::class,'custumer_id');
+        return $this->belongsTo(Custumer::class,'customer_id');
     }
     
-    public function case(){
-    	return $this-hasOne(Case::class,'case_id');
+    public function caseservice(){
+    	return $this->hasOne(CaseService::class,'case_id');
     }
 }

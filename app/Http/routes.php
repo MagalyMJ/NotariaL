@@ -28,12 +28,14 @@ Route::post('login',[
 	'as' =>'auth_store_path',
  	]);
 
-Route::get('testament',[
-	'uses' => 'TestamentController@index',
-	'as' => 'testament_show_path',
+Route::get('servicio',[
+	'uses' => 'ServiceController@index',
+	'as' => 'service_show_path',
 	]);
 
-Route::post('testament',[
-	'uses' => 'TestamentController@addCustumer',
-	'as' => 'testament_post_path',
+Route::post('servicio',[
+	'uses' => 'ServiceController@addCustumer',
+	'as' => 'service_post_path',
 	]);
+
+Route::get('otros/{servicio}','ServiceController@service');

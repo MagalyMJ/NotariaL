@@ -21,7 +21,6 @@ class CreateParticipantsTable extends Migration {
 			$table->integer('customer_id')->unsigned();
 
 			$table->string('participants_type');
-
 		});
 	}
 

@@ -5,7 +5,7 @@
 
  <div class="form_container"> 
  
- <form action="{{route('testament_post_path') }}" method='post' class="form_data aling_block">  
+ <form action="{{route('service_post_path') }}" method='post' class="form_data aling_block">  
    {{csrf_field()}}
 
      			<label for="name">Nombre</label> 
