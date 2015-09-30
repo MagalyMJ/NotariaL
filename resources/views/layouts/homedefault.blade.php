@@ -24,25 +24,25 @@
     </div>
     <ul id="menu_services"  class = "menu_services">
         <il class="menu_service">
-            <a class="menu_service_link" href="views/testamento.php">
+            <a class="menu_service_link" href="{{url('servicio/testamento')}}">
                 <span class=" icon icon-file-text"></span>  
                 <p>Testamento</p>
             </a>
         </il>
         <il class="menu_service">
-            <a class="menu_service_link" href="views/contratoCompraVenta.php">
+            <a class="menu_service_link" href="{{url('servicio/contrato_compra_venta')}}">
                 <span class=" icon icon-file-text"></span>  
                 <p>Contrato Compra Venta</p>
             </a>
         </il>
         <il class="menu_service">
-            <a class="menu_service_link" href="views/page.php">
+            <a class="menu_service_link" href="{{url('servicio/donaciones')}}">
                 <span class=" icon icon-file-text"></span>  
                 <p>Donaciones</p>
             </a>
         </il>
         <il class="menu_service">
-            <a class="menu_service_link" href="views/page.php">
+            <a class="menu_service_link" href="{{url('servicio/acta_constitutiva')}}">
                 <span class=" icon icon-file-text"></span>  
                 <p>Acta Constitutiva</p>
             </a>

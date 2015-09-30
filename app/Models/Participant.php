@@ -23,9 +23,9 @@ class Participant extends Model
      */
     protected $fillable = ['participants_type'];
 
-    public function custumer()
+    public function customer()
     {
-        return $this->belongsTo(Custumer::class,'customer_id');
+        return $this->belongsTo(Customer::class,'customer_id');
     }
     
     public function caseservice(){

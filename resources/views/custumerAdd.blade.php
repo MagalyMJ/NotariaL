@@ -4,7 +4,7 @@
 
 
  <div class="form_container"> 
- 
+ <h1>{{ $name }}</h1>
  <form action="{{route('service_post_path') }}" method='post' class="form_data aling_block">  
    {{csrf_field()}}
 
@@ -77,14 +77,24 @@
   					 <input type="checkbox" id="identificacion" name="checkbox">
    				 	 Identificacion
 				  </label>
+
 				  <label class="control checkbox">
   				  	<input type="checkbox" id="escrituras" name="checkbox">
   				  	Escrituras
 				  </label>
+
+          @foreach ($documents as $user)
+               <label class="control checkbox">
+              <input type="checkbox" id="{{ $user->document_name }}" name="{{ $user->document_name }}">
+              {{ $user->document_name }}
+          </label>
+
+          @endforeach
+
 				  <label  for="opertationValue"class="control checkbox">
   			 		Valor de operacion
 				  </label>
-			   	<input class="input" id="opertationValue" type="text" autocomplete="off" />
+			   	<input class="input" id="opertationValue" type="text" autocomplete="off"/>
        </div>
 
         <input type="submit" value="Registrar" class="input budget-button">

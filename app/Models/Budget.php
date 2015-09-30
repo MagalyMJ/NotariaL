@@ -18,9 +18,9 @@ class Budget extends Model
     protected $fillable = ['approved','invoiced','payment_type','operatin_value',
     'cost','commission'];
 
-    public function case()
+    public function caseservice()
     {
-        return $this->belongsTo(CaseService::class,'budget_id');
+        return $this->belongsTo(CaseService::class);
     }
 
     public function service()

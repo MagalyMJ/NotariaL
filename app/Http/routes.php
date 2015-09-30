@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[ 
+	'uses' =>'HomeController@index',
+	'as' => 'home' ]);
 
 Route::get('login',[
 
@@ -21,6 +21,7 @@ Route::get('login',[
 
 	'as' =>'auth_show_path',
  	]);
+
 Route::post('login',[
 
 	'uses' => 'AuthController@store',
@@ -28,7 +29,7 @@ Route::post('login',[
 	'as' =>'auth_store_path',
  	]);
 
-Route::get('servicio',[
+Route::get('servicio/{servicio}',[
 	'uses' => 'ServiceController@index',
 	'as' => 'service_show_path',
 	]);
@@ -38,4 +39,10 @@ Route::post('servicio',[
 	'as' => 'service_post_path',
 	]);
 
-Route::get('otros/{servicio}','ServiceController@service');
+Route::get('nuevo/{servicio}','ServiceController@service');
+
+
+
+
+
+

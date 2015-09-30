@@ -4,7 +4,7 @@ namespace NotiAPP\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Custumer extends Model
+class Customer extends Model
 {
     //
      //

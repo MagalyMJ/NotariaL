@@ -16,7 +16,7 @@ class CreateParticipantsTable extends Migration {
 		Schema::create('participants', function(Blueprint $table)
 		{
 			
-			$table->integer('case_id')->unsigned();
+			$table->integer('case_service_id')->unsigned();
 			
 			$table->integer('customer_id')->unsigned();
 

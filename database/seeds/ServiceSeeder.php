@@ -12,7 +12,7 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         //
-        echo "Entra";
+       
         factory(NotiAPP\Models\Service::class,10)->create()->each(function ($service){
             
             $expense = factory(NotiAPP\Models\Expense::class)->make();
@@ -21,6 +21,6 @@ class ServiceSeeder extends Seeder
              $service->documents()->save($expense);
            $service->expenses()->save($documet);
         });
-        echo "listo";
+       
     }
 }

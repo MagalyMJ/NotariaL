@@ -51,7 +51,7 @@ class AuthController extends Controller
         if (!auth()->attempt($request->only(['user_name', 'password']))) {
             return redirect()->route('auth_show_path')->withErrors('No se encontro al usuario');
         }
-        return view('example');
+        return ('home');
     }
 
     /**
