@@ -18,7 +18,7 @@ class Budget extends Model
     protected $fillable = ['approved','invoiced','payment_type','operatin_value',
     'cost','commission'];
 
-    public function caseservice()
+    public function case_service()
     {
         return $this->belongsTo(CaseService::class);
     }
@@ -27,4 +27,6 @@ class Budget extends Model
     {
         return $this->hasOne(Service::class,'service_id');
     }
+
+
 }
