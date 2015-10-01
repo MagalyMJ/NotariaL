@@ -50,7 +50,7 @@ class ServiceController extends Controller
 
     
         //Request Para Obtener los casos en bace al servicio por edio del presupuesto 
-      $caso = CaseService::whereHas('budget', function($query,$id_service)
+      $caso = CaseService::whereHas('budget', function($query)
             {   
                 
                 $query->where('service_id', '=', '1');
