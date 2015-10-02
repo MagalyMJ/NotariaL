@@ -44,22 +44,33 @@ class ServiceController extends Controller
         }
 
       
-
+        // Request para Obtener los presupuestos en bace a un servicio
         $budgets = Budget::where('service_id', '=',$id_service)->get();
 
 
-    
-        //Request Para Obtener los casos en bace al servicio por edio del presupuesto 
-      $caso = CaseService::whereHas('budget', function($query)
+        //Request Para Obtener los casos en bace al servicio por pedio del presupuesto 
+        $cases = CaseService::whereHas('budget', function($query)
             {   
                 
                 $query->where('service_id', '=', '1');
 
                 })->get();
 
-        dd($caso,$budgets);
 
-       //return view('ServiceGetByIdService',['service' => $service->name]);
+       $client = Customer::wherehas('case_service.budget', function($query)
+            {   
+                
+                $query->where('budget.service_id', '=', '1');
+
+                })->get();
+
+       // $client = Customer::find(17);
+
+       //  $case = $client->participants();
+              
+        dd($cases,$client);
+
+       //return view('ServiceGetByIdService',['cases_services' => $cases ]);
     }
 
     /**
@@ -107,7 +118,6 @@ class ServiceController extends Controller
 
         $addCustumer = new Customer;
         $addres = new Address;
-        $participant = new Participant;
         $case = new CaseService; 
 
         $addCustumer->name = $request->name;
@@ -132,12 +142,6 @@ class ServiceController extends Controller
         $addres->colony = $request->colony;
         $addres->postal_code = $request->postal_code;
 
-        //intanciamos que va a ser un participante y le asignamos su rol 
-        if ($request->testador ='on') {
-           $participant->participants_type = 'testador'; 
-        } else {
-            $participant->participants_type = 'testigo'; 
-        }
         //instanciamos un caso 
         $case->place = 'Aguascalietnes';
         $case->progress = 2;
@@ -151,7 +155,7 @@ class ServiceController extends Controller
         // Como primer prametro se guarda el caso al que estara relacionado, y como segundo parametro
         // se pone un atributo de la tabla pibote entre estas dos con su valor asignado
         // la relacion es efectuada por eloquent 
-        $case = $custumer->participant()->save($case,['participants_type' => $participant->participants_type]);
+        $case = $custumer->participant()->save($case,['participants_type' => $request->participants_type]);
 
     }
 

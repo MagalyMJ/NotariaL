@@ -13,7 +13,7 @@ class CreateParticipantsTable extends Migration {
 	public function up()
 	{
 		//
-		Schema::create('participants', function(Blueprint $table)
+		Schema::create('case_service_customer', function(Blueprint $table)
 		{
 			
 			$table->integer('case_service_id')->unsigned();
@@ -32,7 +32,7 @@ class CreateParticipantsTable extends Migration {
 	public function down()
 	{
 		//
-		Schema::drop('participants');
+		Schema::drop('case_service_customer');
 	}
 
 }

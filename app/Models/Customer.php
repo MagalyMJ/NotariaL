@@ -30,8 +30,8 @@ class Customer extends Model
     // 	return $this->hasMany(Participant::class,'customer_id');
     // }
 
-    public function participant(){
+    public function case_service(){
 
-        return $this->belongsToMany(CaseService::class,'participants','customer_id','case_id');
+        return $this->belongsToMany(CaseService::class)->withPivot('participants_type');
     }
 }

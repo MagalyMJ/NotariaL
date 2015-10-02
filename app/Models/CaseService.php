@@ -16,9 +16,9 @@ class CaseService extends Model
      */
     protected $fillable = ['place','progress','colony','observations'];
 
-    public function participant()
+    public function participants()
     {
-        return $this->belongsToMany(Customer::class,'participants');
+        return $this->belongsToMany(Customer::class,'participants','customer_id','case_service_id');
     }
 
     public function budget()

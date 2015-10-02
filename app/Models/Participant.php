@@ -28,7 +28,7 @@ class Participant extends Model
         return $this->belongsTo(Customer::class,'customer_id');
     }
     
-    public function caseservice(){
+    public function case_service(){
     	return $this->hasOne(CaseService::class,'case_id');
     }
 }
