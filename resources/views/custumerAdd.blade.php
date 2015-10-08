@@ -4,8 +4,8 @@
 
 
  <div class="form_container"> 
- <h1>{{ $name }}</h1>
- <form action="{{route('service_post_path') }}" method='post' class="form_data aling_block">  
+
+ <form action="{{route('customer_post_path') }}" method='post' class="form_data aling_block">  
    {{csrf_field()}}
 
      			<label for="name">Nombre</label> 
@@ -56,7 +56,7 @@
           <label for="postal_code">CP</label> 
      			<input name="postal_code" class="input long" id="postal_code" type="text" autocomplete="off" /> 
      			 	
-  
+  <!-- 
 
      			<div class="controls-stacked">
   					<label class="control radio">
@@ -83,20 +83,13 @@
   				  	Escrituras
 				  </label>
 
-          @foreach ($documents as $user)
-               <label class="control checkbox">
-              <input type="checkbox" id="{{ $user->document_name }}" name="{{ $user->document_name }}">
-              {{ $user->document_name }}
-          </label>
-
-          @endforeach
 
 				  <label  for="opertationValue"class="control checkbox">
   			 		Valor de operacion
 				  </label>
 			   	<input class="input" id="opertationValue" type="text" autocomplete="off"/>
        </div>
-
+ -->
         <input type="submit" value="Registrar" class="input budget-button">
 
   </form>

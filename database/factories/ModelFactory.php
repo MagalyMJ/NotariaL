@@ -35,7 +35,7 @@ $factory->define(NotiAPP\Models\Address::class,function(Faker\Generator $faker){
 });
 
 
- $factory->define(NotiAPP\Models\Custumer::class,function(Faker\Generator $faker){
+ $factory->define(NotiAPP\Models\Customer::class,function(Faker\Generator $faker){
  	return [
  		'name' => $faker->firstName($gender = null|'male'|'female'),
         'fathers_last_name' => $faker->lastName,

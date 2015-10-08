@@ -24,7 +24,7 @@ class CreateBudgetTable extends Migration {
 			$table->boolean('approved');
 			$table->boolean('invoiced');
 			$table->enum('payment_type',['efectivo','transferencia','cheque']);
-			$table->float('operatin_value')->unsigned();
+			$table->float('operation_value')->unsigned();
 			$table->float('cost')->unsigned();
 			$table->float('commission')->unsigned();
 		

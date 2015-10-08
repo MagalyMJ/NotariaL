@@ -27,19 +27,61 @@ class ServiceController extends Controller
             switch ($servicio) {
 
              case "testamento":
-               $id_service = 1;
+                $id_service = 1;
+                //Request Para Obtener los casos en bace al servicio por pedio del presupuesto 
+                $cases = CaseService::whereHas('budget', function($query)
+                 {   
+                
+                     $query->where('service_id', '=', '1');
+
+                 })->get();
+
+                return view('ServiceGetByIdService',[ 'cases_services' => $cases , 'service_id' => $id_service ]);
              break;
+
              case "contrato_compra_venta":
                 $id_service = 2;
+                //Request Para Obtener los casos en bace al servicio por pedio del presupuesto 
+                $cases = CaseService::whereHas('budget', function($query)
+                    {   
+                
+                        $query->where('service_id', '=', '2');
+
+                    })->get();
+                return view('ServiceGetByIdService',[ 'cases_services' => $cases, 'service_id' => $id_service ]);
              break;
              case "donaciones":
                 $id_service = 3;
+                //Request Para Obtener los casos en bace al servicio por pedio del presupuesto 
+                $cases = CaseService::whereHas('budget', function($query)
+                {   
+                
+                    $query->where('service_id', '=', '3');
+
+                    })->get();
+                return view('ServiceGetByIdService',[ 'cases_services' => $cases , 'service_id' => $id_service ]);
              break;
              case "acta_constitutiva":
                 $id_service = 4;
+                //Request Para Obtener los casos en bace al servicio por pedio del presupuesto 
+                $cases = CaseService::whereHas('budget', function($query)
+                {   
+                
+                    $query->where('service_id', '=', '4');
+
+                })->get();
+                return view('ServiceGetByIdService',[ 'cases_services' => $cases , 'service_id' => $id_service ]);
              break;
              case "acta_constitutiva":
                 $id_service = 5;
+                //Request Para Obtener los casos en bace al servicio por pedio del presupuesto 
+                $cases = CaseService::whereHas('budget', function($query)
+                {   
+                
+                    $query->where('service_id', '=', '5');
+
+                })->get();
+                return view('ServiceGetByIdService',[ 'cases_services' => $cases , 'service_id' => $id_service ]);
              break;
         }
 
@@ -56,21 +98,29 @@ class ServiceController extends Controller
 
                 })->get();
 
-
-       $client = Customer::wherehas('case_service.budget', function($query)
+        $cases2 = CaseService::with(['customer.budget' => function($query)
             {   
                 
                 $query->where('budget.service_id', '=', '1');
 
-                })->get();
+                }])->get();
 
-       // $client = Customer::find(17);
+        $cases3 = CaseService::with(['customer'])->get();
 
-       //  $case = $client->participants();
-              
-        dd($cases,$client);
+        //para obtener los clientes de los casos en bace a el servicio
+       $customers = Customer::with(['case_service.budget' => function($query)
+            {   
+                
+                $query->where('budget.service_id', '=', '1');
 
-       //return view('ServiceGetByIdService',['cases_services' => $cases ]);
+                }])->get();
+
+
+       $customers2 = Customer::with('case_service')->get();
+
+        //dd($cases2,$customers2);
+
+    
     }
 
     /**
@@ -78,87 +128,28 @@ class ServiceController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create($id_service)
     {
         // Aqui se creara un nuevo caso de testamento
+     
+        dd($id_service);
 
-    }
-    public function service($servicio){
-            $id = 0;
-            switch ($servicio) {
-
-             case "testamento":
-                $id=1;
-             break;
-             case "contrato_compra_venta":
-                $id=2;
-             break;
-             case "donaciones":
-                $id=3;
-             break;
-             case "acta_constitutiva":
-                $id=4;
-             break;
-             case "acta_constitutiva":
-                $id=5;
-             break;
-        }
-
-        $documnets = Service::find($id)->documents;
-        $name = Service::find($id)->name;
-
-         //dd($documnets);
-         return view('custumerAdd',['name'=>$name,'documents'=>$documnets]);
-
-    }
-    public function addCustumer(Request $request)
-    {
-        // Aqui se creara un nuevo caso de testamento
-        //dd($request->all());
-
-        $addCustumer = new Customer;
-        $addres = new Address;
-        $case = new CaseService; 
-
-        $addCustumer->name = $request->name;
-        $addCustumer->fathers_last_name = $request->fathers_last_name;
-        $addCustumer->mothers_last_name = $request->mothers_last_name;
-        $addCustumer->rfc = $request->rfc;
-        $addCustumer->from = $request->from;
-        $addCustumer->birthdate = $request->birth_day;
-        $addCustumer->occupation = $request->occupation;
-        $addCustumer->marital_status = $request->marital_status;
-        $addCustumer->phone = $request->phone;
         
 
-        //se creo un cliente en la bd
-        $addCustumer->save();
-        //aun esta instanciado ais que tenemos su id 
-        $insertedId = $addCustumer->id;
-
-        //instanciamos una direccion 
-        $addres->street = $request->street;
-        $addres->number = $request->number;
-        $addres->colony = $request->colony;
-        $addres->postal_code = $request->postal_code;
-
-        //instanciamos un caso 
-        $case->place = 'Aguascalietnes';
-        $case->progress = 2;
-        $case->observations = $request->subject;
-
-         
-        //buscamos al cliente para asignarle su direcion y su id de partticipante, caso  
-        $custumer = Customer::find($insertedId);
-
-        $addres = $custumer->address()->save($addres);
-        // Como primer prametro se guarda el caso al que estara relacionado, y como segundo parametro
-        // se pone un atributo de la tabla pibote entre estas dos con su valor asignado
-        // la relacion es efectuada por eloquent 
-        $case = $custumer->participant()->save($case,['participants_type' => $request->participants_type]);
-
     }
 
+    public function service($id_service){
+
+
+        // $documnets = Service::find($id_service)->documents;
+        // $name = Service::find($id_service)->name;
+        $customers = Customer::all();
+
+        //dd($documnets);
+         //return view('custumerAdd',['name'=>$name,'documents'=>$documnets]);
+        return view('allClients',[ 'customers' => $customers , 'id_service' => $id_service]);
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
