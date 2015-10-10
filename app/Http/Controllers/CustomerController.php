@@ -80,10 +80,10 @@ public function addCustumer(Request $request)
         // la relacion es efectuada por eloquent 
         // $case = $custumer->participant()->save($case,['participants_type' => $request->participants_type]);
         
-        $customers = Customer::all();
+        
             //dd($customers);
 
-         return view('allClients',[ 'customers' => $customers ]);
+         return view('home');
     }
     public function addCustumerCase(Request $request)
     {
@@ -100,7 +100,7 @@ public function addCustumer(Request $request)
         
         //buscamos al cliente para asignarle su direcion y su id de partticipante, caso
         // hay que mandarlo por un parametro   
-        $custumer = Customer::find(8);
+        $custumer = Customer::find($request->idcustomer);
 
         // Como primer prametro se guarda el caso al que estara relacionado, y como segundo parametro
         // se pone un atributo de la tabla pibote entre estas dos con su valor asignado

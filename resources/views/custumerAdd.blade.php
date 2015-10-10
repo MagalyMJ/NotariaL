@@ -5,7 +5,7 @@
 
  <div class="form_container"> 
 
- <form action="{{route('customer_post_path') }}" method='post' class="form_data aling_block">  
+ <form action="{{ route('customer_new_path') }}" method='post' class="form_data aling_block">  
    {{csrf_field()}}
 
      			<label for="name">Nombre</label> 

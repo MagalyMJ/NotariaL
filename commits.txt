@@ -1,0 +1,149 @@
+commit 3f961ff4d45e63de4297d989f12afe624ed970c9
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Oct 1 13:23:55 2015 -0500
+
+    correccion de un parametro
+
+commit a1b8c101b63a4a2094c3555af4c9cb1c84198589
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Oct 1 13:20:52 2015 -0500
+
+    Consultas de Servicios,Manejo del controlador servicio
+
+commit 06a4e64710ff6f6865ccf77e1eb43fb4ce971e4c
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Wed Sep 30 16:11:59 2015 -0500
+
+    Correccion de traduccion de la clase customer, Obtenciones de datos por medio de eloquent
+
+commit 97fb0959fdef2c9226b14c0eebe23dbb1ab4e9fd
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 25 16:24:23 2015 -0500
+
+    registro desde formulario, creando clientes y casos correspondientes
+
+commit e1f8274ef8814f899d25817999acab731665dc54
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Sep 24 19:02:15 2015 -0500
+
+    Relacion entre modelos y datos de llenado
+
+commit 4deaf8305be8db888de576755702d93b492a59b4
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Sep 24 17:02:17 2015 -0500
+
+    captura de datos completa, fecha de nacimiento
+
+commit bc1ce938bff23b80150e370b61740b23ce930a1d
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Sep 24 16:15:04 2015 -0500
+
+    El formulario para agregar un cliente y su direccion estan funcionando
+
+commit 62afa2c80cb63a21f0892680ab70f09b299bff7e
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Sep 24 12:40:01 2015 -0500
+
+    vista de alta de cliente
+
+commit 4d5e01675cfb4dbe8c127a4ede1d067b4a18c784
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 18 12:49:18 2015 -0500
+
+    cambios en las migraciones, de servicio y manejos de ids
+
+commit a3ef8216eeb585acd8199f6f3930571a1ac05952
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 18 12:39:13 2015 -0500
+
+    supuestas relaciones de muchos a muchos
+
+commit b4391587beaa56d9b7431cb5492aac76ed7b89ba
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 18 12:25:32 2015 -0500
+
+    correcciones de sintaxys
+
+commit b74bfa649c72d5556bfb30afb82e77ce951f0ca2
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 18 11:40:09 2015 -0500
+
+     se intentan hacer un seeder de many to many con servicios y sus documentos y costos
+
+commit 60d758b1889fa3f056ade8674283cd738bca598b
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 18 11:38:16 2015 -0500
+
+    se cambian las migraciones para manejarlas como con custumer y address
+
+commit 0eb4b2c8c2452f3d8a55aee65e0db62b1cccc9f3
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 18 10:04:49 2015 -0500
+
+    se  mejoran estilos para el login
+
+commit f6913517cf7f2bf558d480965f6bb4b4da66dda7
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 18 10:00:55 2015 -0500
+
+    se obtiene la ruta del estilo
+
+commit df1ca275f8e9a59581c626bc3d30f41d54c7e878
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 18 09:52:52 2015 -0500
+
+     intento de optimizacion de estilos e integracion de iconos
+
+commit d8bb96f0ea9167cb67640ce72166eb2d03a24c99
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 18 00:18:15 2015 -0500
+
+    se hace un cambio en config-auth para que tome el nuevo namespace,del modelo user, se efectua validacion de usario por username y password, se agregan vistas del login, y de inicio
+
+commit c7487648cbe53705d9e6e532ee1e8231f9a07d70
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Sep 17 23:10:18 2015 -0500
+
+    Vista de login, obtencion de datos enviados por el formulario
+
+commit 04ffb2558cd31efae09803db37b48a7052173757
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Sep 17 19:42:58 2015 -0500
+
+    se gregan rollbacks para las tablas, se completa el seeder de custumers con sus direcciones
+
+commit 4cf37cf03024166e2af5f374f70017dc5efa77d1
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Sep 17 18:22:02 2015 -0500
+
+    seeder del modelo Adreess
+
+commit 06ea876584775e8f24fcb7a51efa6b2af9e9c512
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Sep 17 16:47:50 2015 -0500
+
+    seeder a la base de datos para usuarios(sin relacion )
+
+commit 6c6b6ce5a474b5751883a21343b7dee8f89daef6
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Sep 17 15:28:55 2015 -0500
+
+    estructura de tablas en migraciones
+
+commit efb5d80bd74cea64ce645d577257a454066719e8
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Thu Sep 17 15:27:43 2015 -0500
+
+    cambio de nameSpace por Notiapp
+
+commit 4491235771de77c2dd60694af342ecfd6b5af49c
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Mon Sep 14 15:42:39 2015 -0500
+
+    ingorando archivos de mac
+
+commit e6a4f0b282d00334d68c27477089ed4126c7ff3a
+Author: Alejandro Medina <5almero5@gmail.com>
+Date:   Fri Sep 11 12:40:36 2015 -0500
+
+    inicio de proyecto

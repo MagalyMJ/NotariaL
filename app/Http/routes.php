@@ -41,7 +41,6 @@ Route::post('servicio',[
 	]);
 
 
-Route::get('nuevo/servicio/{id_service}','ServiceController@create');
 
 
 // se deberia de poner el id del caso ? y del cliente a asignar ? 
@@ -50,15 +49,20 @@ Route::get('nuevo/{id_service}','ServiceController@service');
 
 Route::get('cliente/nuevo','CustomerController@index');
 
+Route::post('nuevo/crearcaso/{id_service}',[
 
-Route::post('nuevo/cliente',[
-	'uses' => 'CustomerController@addCustumer',
-	'as' => 'customer_post_path',
+	'uses' =>'ServiceController@create',
+	'as' => 'crearcaso',
 	]);
 
-Route::post('nuevo/cliente',[
+Route::post('cliente/nuevo',[
+	'uses' => 'CustomerController@addCustumer',
+	'as' => 'customer_new_path',
+	]);
+
+Route::post('cliente/caso/nuevo',[
 	'uses' => 'CustomerController@addCustumerCase',
-	'as' => 'customer_service_post_path',
+	'as' => 'customer_service_path',
 	]);
 
 

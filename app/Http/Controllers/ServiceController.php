@@ -14,6 +14,9 @@ use NotiAPP\Models\CaseService;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Budget;
 
+use Response;
+use Input;
+
 class ServiceController extends Controller
 {
     /**
@@ -128,14 +131,18 @@ class ServiceController extends Controller
      *
      * @return Response
      */
-    public function create($id_service)
+    public function create(Request $request,$id_service)
     {
-        // Aqui se creara un nuevo caso de testamento
-     
-        dd($id_service);
+        // Aqui se creara un nuevo caso
+        $idCustomer = $request->customers_selected[0];
 
-        
+       $customers = Customer::find($idCustomer);
 
+        $service  =  Service::find($id_service);
+
+         //dd($idCustomer, $id_service);
+       
+        return view('CustomerCaseService',[ 'customers' => $customers , 'id_service' => $id_service ,'documents'=> $service->documents ]);
     }
 
     public function service($id_service){

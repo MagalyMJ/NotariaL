@@ -10,9 +10,11 @@
 			<table class="table-fill">
 				<thead>
 					<tr>
-						<th class="text-left">Nº Caso</th>
-						<th class="text-left">Valor de Operacion</th>
-						<th class="text-left">Costo</th>
+						<th class="text-left">Nº Escritura</th>
+						<th class="text-left">Cliente</th>
+						<th class="text-left">Avance</th>
+						<th class="text-left">Observaciones</th>
+
 					</tr>
 				</thead>
 				<tbody class="table-hover">
@@ -21,6 +23,7 @@
     					<tr>
     						<td class="text-center"> {{ $case_service->id }} </td>
     						<td class="text-center"> {{ $case_service->budget->operation_value }} </td>
+    						<td class="text-center"> {{ $case_service->budget->cost }} </td>
     						<td class="text-center"> {{ $case_service->budget->cost }} </td>
     					</tr>
 					@endforeach
