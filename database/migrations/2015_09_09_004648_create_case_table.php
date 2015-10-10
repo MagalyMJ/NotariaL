@@ -22,6 +22,7 @@ class CreateCaseTable extends Migration {
 			$table->string('place');
 			$table->enum('progress',['0','25','33','50','66','75','99','100']);
 			$table->mediumText('observations');
+			$table->mediumText('service_detail');
 
 			$table->timestamps();
 			
