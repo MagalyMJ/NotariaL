@@ -21,9 +21,9 @@ class Document extends Model
      */
     protected $fillable = ['document_name'];
 
-    public function services()
+    public function document_service()
     {
-        return $this->belongsToMany(Service::class,'service_documents','service_id','document_id');
+        return $this->belongsToMany(Service::class,'document_service','service_id','document_id');
     }
     
 }

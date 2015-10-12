@@ -16,7 +16,30 @@ class DatabaseSeeder extends Seeder
 
             $this->call(UsersTableSeeder::class);
             $this->call(CustumersTableSeeder::class);
-            $this->call(ServiceSeeder::class);
+            $this->call(CatalogDocumentsSeeder::class);
+            $this->call(ServiceTestamentSeeder::class);
+            $this->call(ServiceCompraVentaSeed::class);
+            $this->call(ServiceDonacionesSeed::class);
+            $this->call(ServiceActaCosntitutivaSeed::class);
+            $this->call(ServiceContratoMutuoSeed::class);
+            $this->call(ServiceCancelacionHipotecaSeed::class);
+            $this->call(ServicePoderGeneralSeed::class);
+            $this->call(ServiceIntestamentariaSeed::class);
+            $this->call(ServiceTestamentariaSeed::class);
+            $this->call(ServiceMatrimonilesSeed::class);
+            $this->call(ServiceFedeHechosSeed::class);
+            $this->call(ServiceRevocacionPoderSeed::class);
+            $this->call(ServiceAdjudicacionTestamentariaSeed::class);
+            $this->call(ServiceAceptacionHerenciaSeed::class);
+            $this->call(ServiceCotejoCertificacionSeed::class);
+            $this->call(ServiceActaAsambleaSeed::class);
+            $this->call(ServiceProtocolizarSubdireccionSeed::class);
+            $this->call(ServiceDacionPagoSeed::class);
+            $this->call(ServicePermutasSeed::class);
+            $this->call(ServiceAdjudicacionJudicialSeed::class);
+            $this->call(ServiceRatificacionDocumentoSeed::class);
+           // $this->call(ServiceSeeder::class);
+           
 
         Model::reguard();
     }

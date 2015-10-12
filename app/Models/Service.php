@@ -21,9 +21,9 @@ class Service extends Model
      */
     protected $fillable = ['name','service_type'];
 
-     public function documents()
+     public function document_service()
     {
-        return $this->belongsToMany(Document::class);
+        return $this->belongsToMany(Document::class)->withPivot('participants_type');
     }
     public function expenses()
     {

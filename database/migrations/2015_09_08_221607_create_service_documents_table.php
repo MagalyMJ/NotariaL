@@ -17,6 +17,7 @@ class CreateServiceDocumentsTable extends Migration {
 		{
 			$table->integer('service_id')->unsigned();
 			$table->integer('document_id')->unsigned();
+			$table->string('participants_type');
 			
 		});
 	}
