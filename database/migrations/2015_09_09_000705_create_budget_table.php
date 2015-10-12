@@ -17,9 +17,7 @@ class CreateBudgetTable extends Migration {
 		{
 			$table->increments('id');
 			
-			$table->integer('service_id')->unsigned();
 			$table->integer('user_id')->unsigned();
-			$table->integer('case_service_id')->unsigned();
 
 			$table->boolean('approved');
 			$table->boolean('invoiced');

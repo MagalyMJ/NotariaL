@@ -15,18 +15,12 @@ class Budget extends Model
      *
      * @var array
      */
-    protected $fillable = ['approved','invoiced','payment_type','operatin_value',
+    protected $fillable = ['approved','invoiced','payment_type','operation_value',
     'cost','commission'];
 
     public function case_service()
     {
-        return $this->belongsTo(CaseService::class);
+        return $this->hasOne(CaseService::class);
     }
-
-    public function service()
-    {
-        return $this->hasOne(Service::class,'service_id');
-    }
-
 
 }

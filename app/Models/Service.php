@@ -29,9 +29,9 @@ class Service extends Model
     {
         return $this->belongsToMany(Expense::class)->withPivot('cost');;
     }
-     public function budget()
+     public function case_service()
     {
-        return $this->belongsTo(Budget::class,'service_id');
+        return $this->hasOne(CaseService::class);
     }
 
 }

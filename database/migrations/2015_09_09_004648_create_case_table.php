@@ -18,6 +18,8 @@ class CreateCaseTable extends Migration {
 			$table->increments('id');
 			
 			$table->integer('budget_id')->unsigned();
+			
+			$table->integer('service_id')->unsigned();
 
 			$table->string('place');
 			$table->enum('progress',['0','25','33','50','66','75','99','100']);

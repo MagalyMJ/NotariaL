@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             $this->call(ServicePermutasSeed::class);
             $this->call(ServiceAdjudicacionJudicialSeed::class);
             $this->call(ServiceRatificacionDocumentoSeed::class);
-           // $this->call(ServiceSeeder::class);
+            $this->call(Case_Budget_Service_Seed::class);
            
 
         Model::reguard();
