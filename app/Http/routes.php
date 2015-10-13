@@ -30,7 +30,7 @@ Route::post('login',[
  	]);
 
 
-Route::get('servicio/{servicio}',[
+Route::get('servicio/{id_service}',[
 	'uses' => 'ServiceController@index',
 	'as' => 'service_show_path',
 	]);
