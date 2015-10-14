@@ -6,6 +6,7 @@ use NotiAPP\Models\Service;
 use NotiAPP\Models\CaseService;
 use NotiAPP\Models\Budget;
 use NotiAPP\Models\Customer;
+use NotiAPP\Models\User;
 
 
 class Case_Budget_Service_Seed extends Seeder
@@ -54,6 +55,12 @@ class Case_Budget_Service_Seed extends Seeder
         $CaseBudget->commission = 0.08;
 
         $CaseBudget->save();
+
+        //el creador del prespupuesto tiene que ser un usuario
+        $user = User::find(rand(1,10));
+
+        $user->budget()->save($CaseBudget);
+
         // hacemos la relacion del presupuesto creado con el caso creado 
         $CreateCase = $CaseBudget->case_service()->save($CreateCase);
 
@@ -61,7 +68,8 @@ class Case_Budget_Service_Seed extends Seeder
         $customer = Customer::find(rand(1,10));
 
         $customer = $CreateCase->customer()->attach($customer->id,['participants_type' => 'Acredor']);
-
+        
+        
         }
 
      

@@ -22,5 +22,9 @@ class Budget extends Model
     {
         return $this->hasOne(CaseService::class);
     }
+     public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }
