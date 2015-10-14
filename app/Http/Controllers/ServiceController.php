@@ -27,15 +27,13 @@ class ServiceController extends Controller
     public function index($id_service)
     {
         //
-               
-
-                //Request Para Obtener los casos en bace al servicio
-                $cases = CaseService::where('service_id',$id_service)->get();
-                $service = Service::find($id_service);
+            //Request Para Obtener los casos en bace al servicio
+            $cases = CaseService::where('service_id',$id_service)->get();
+            $service = Service::find($id_service);
               
-                //dd($cases[0]->customer->all());
+            //dd($cases[0]->customer->all());
                 
-                return view('ServiceGetByIdService',[ 'cases_services' => $cases , 'service' => $service ]);
+            return view('CaseGetByIdService',[ 'cases_services' => $cases , 'service' => $service ]);
             
     }
 
@@ -46,28 +44,42 @@ class ServiceController extends Controller
      */
     public function create(Request $request,$id_service)
     {
-        // Aqui se creara un nuevo caso
-        $idCustomer = $request->customers_selected[0];
+       //  // Aqui se creara un nuevo caso
 
-       $customers = Customer::find($idCustomer);
+        $NewCase = new CaseService;
+        $NewCase->service_id = $id_service;
+        $NewCase->save();
+        $id_caseService = $NewCase->id;
 
-        $service  =  Service::find($id_service);
+        $service= Service::find($id_service);
+        /* los estoy expoliendo ya que los es toy pasando en un strign BUSCAR UNA MEJOR MANERA DE ESCOJERLOS*/
+        $Sleectedcustomers = explode(',',$request->customers_selected);
 
-         //dd($idCustomer, $id_service);
-       
-        return view('CustomerCaseService',[ 'customers' => $customers , 'id_service' => $id_service ,'documents'=> $service->documents ]);
+        $CreateCase = CaseService::find($id_caseService);
+
+        //creamos un presupuesto vacio y lo asignamos
+        $CaseBudget = new Budget;
+        $CaseBudget->save();
+        $CaseBudget->case_service()->save($CreateCase);
+
+
+        //Por cada id de cliente que nos proporcionen asignamos al caso 
+        foreach ($Sleectedcustomers as $customerSelect => $id) {
+            
+           $CreateCase->customer()->attach($id);
+        }
+
+
+        //dd($customers,$id_service,$id_caseService);
+        return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase, 'id_service' => $id_service ,'documents'=> $service->documents ]);
     }
 
     public function service($id_service){
 
-
-        // $documnets = Service::find($id_service)->documents;
-        // $name = Service::find($id_service)->name;
         $customers = Customer::all();
+      
 
-        //dd($documnets);
-         //return view('custumerAdd',['name'=>$name,'documents'=>$documnets]);
-        return view('allClients',[ 'customers' => $customers , 'id_service' => $id_service]);
+        return view('SelectCustomersforCase',[ 'customers' => $customers , 'id_service' => $id_service ]);
     }
     
     /**
@@ -80,6 +92,16 @@ class ServiceController extends Controller
     {
         //
     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function EditBudget(Request $request)
+    {
+        //
+    }
 
     /**
      * Display the specified resource.
@@ -87,9 +109,12 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($id_service,$id_caseService)
     {
         //
+        $CreateCase = CaseService::find($id_caseService);
+        return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase, 'id_service' => $id_service ,'documents'=> $service->documents ]);
+
     }
 
     /**

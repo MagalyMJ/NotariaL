@@ -1,4 +1,4 @@
-@extends('layouts.homedefault')
+  @extends('layouts.homedefault')
 
 @section('content') 
  <div class="form_container"> 

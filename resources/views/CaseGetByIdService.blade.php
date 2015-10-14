@@ -20,6 +20,7 @@
 				<tbody class="table-hover">
 					
 					@foreach ($cases_services as $case_service)
+					<a href="{{url('servicio/'.$service->id.'/caso/'.$case_service->id)}}">
     					<tr>
     						<td class="text-center"> {{ $case_service->id }} </td>
     						<td class="text-center"> {{ $case_service->progress }} %</td>
@@ -31,6 +32,7 @@
 							</td>
     						<td class="text-center"> {{ $case_service->observations }} </td>
     					</tr>
+    				</a>
 					@endforeach
 				</tbody>
 				</table>
@@ -39,5 +41,10 @@
 				  <a class="menu_service_link" href="{{url('nuevo/'.$service->id )}} "> Nuevo Caso </a>
 			</div>
 			</div>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+	
+</script>
 
 @stop

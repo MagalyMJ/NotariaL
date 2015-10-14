@@ -38,8 +38,8 @@
 	
 		
 			<div>
-				  <a class="menu_service_link" href="{{url('cliente/nuevo')}}"> Nuevo cliente </a>
-				  <input id="new_case_service" name="customers" type="submit" onClick="newCase()" value="Crear Caso" class="input budget-button">
+				  <!-- <a class="menu_service_link" href="{{url('cliente/nuevo')}}"> Nuevo cliente </a> -->
+				  <input id="new_case_service" name="customers" type="submit" onClick="newCase()" value="Asignar al Caso" class="input budget-button">
 				<!--   <a class="menu_service_link" onClick="newCase" href="{{url('crearcaso/'.$id_service)}}"> Crear Caso </a> 	 -->	   
 			</div>
 	</div>
@@ -50,6 +50,7 @@
 
 function newCase(){
 	var id_service = "<?php echo $id_service; ?>" ;
+
 	var customers_selected = new Array();
 
 	$("input:checkbox[name=select]:checked").each(function(){
@@ -58,22 +59,7 @@ function newCase(){
 
 	document.getElementById("customers_selected").value = customers_selected; 
 
-	
-
-	// var customers =  customers_selected;
-	//    $.ajax({
- //                    url: 'nuevo/crearcaso/' + id_service ,
- //                    type: 'POST',
- //                    data: { customers },
- //                    dataType: 'json',
-                    
- //                    success: function(info){
- //                        console.log(info);
- //                    }
-
- //                });
-
-	document.getElementById("select_customers").action = "crearcaso/" + id_service ;
+	document.getElementById("select_customers").action = "{{route('crearCaso',$id_service) }}";
 
 	document.getElementById("select_customers").submit(); 
 }
