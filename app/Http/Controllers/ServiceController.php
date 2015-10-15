@@ -113,8 +113,8 @@ class ServiceController extends Controller
     public function show($id_caseService)
     {
         //
-        $CreateCase = CaseService::find($id_caseService);
-        return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase]);
+        $ShowCase = CaseService::find($id_caseService);
+        return view('Service.serviceDetail',[ 'ServiceCase' => $ShowCase ]);
 
     }
 
@@ -126,7 +126,11 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 
+        $editCase = CaseService::find($id);
+
+        return view('Service.EditCaseService',[ 'ServiceCase' => $editCase]);
+
     }
 
     /**
@@ -139,6 +143,7 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         //
+        dd($request);
     }
 
     /**

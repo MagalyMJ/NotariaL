@@ -52,6 +52,16 @@ Route::get('caso/{id_caseService}',[
 	'uses' =>'ServiceController@show',
 	'as' => 'Show_Case_path',
 	]);
+//El formulario para editar el caso
+Route::get('caso/{id_caseService}/edit',[
+	'uses' =>'ServiceController@edit',
+	'as' => 'Edit_Case_path',
+	]);
+//Actualizamos los datos que nos manden 
+Route::post('caso/{id_caseService}/edit',[
+	'uses' =>'ServiceController@update',
+	'as' => 'Update_Case_path',
+	]);
 
 //Una ves asinado un cliente se puede crear un caso completo.
 Route::post('nuevo/{id_service}/caso/',[
