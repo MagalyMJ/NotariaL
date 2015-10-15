@@ -3,6 +3,7 @@
 namespace NotiAPP\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 use NotiAPP\Http\Requests;
 use NotiAPP\Http\Controllers\Controller;
@@ -69,9 +70,9 @@ class ServiceController extends Controller
            $CreateCase->customer()->attach($id);
         }
 
-
-        //dd($customers,$id_service,$id_caseService);
-        return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase, 'id_service' => $id_service ,'documents'=> $service->documents ]);
+        //Despues de escojer a los partisipantes, llenaremos el presupuesto
+        return Redirect::route('EditBudget', array('id_presupuesto' => $CaseBudget->id));
+        //return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase, 'id_service' => $id_service ,'documents'=> $service->documents ]);
     }
 
     public function service($id_service){
@@ -109,11 +110,11 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id_service,$id_caseService)
+    public function show($id_caseService)
     {
         //
         $CreateCase = CaseService::find($id_caseService);
-        return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase, 'id_service' => $id_service ,'documents'=> $service->documents ]);
+        return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase]);
 
     }
 

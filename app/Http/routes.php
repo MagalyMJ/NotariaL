@@ -30,6 +30,8 @@ Route::post('login',[
  	]);
 
 
+
+// Para mostrar todos los casos en base al servicio
 Route::get('servicio/{id_service}',[
 	'uses' => 'ServiceController@index',
 	'as' => 'service_show_path',
@@ -41,21 +43,37 @@ Route::post('servicio',[
 	]);
 
 
-
-
-// se deberia de poner el id del caso ? y del cliente a asignar ? 
+//Para generar un nuevo caso del servicio seleccionado
 Route::get('nuevo/{id_service}','ServiceController@service');
 
-Route::get('servicio/{id_service}/caso/{id_caseService}','ServiceController@show');
 
+//Para ver los detalles de un caso 
+Route::get('caso/{id_caseService}',[
+	'uses' =>'ServiceController@show',
+	'as' => 'Show_Case_path',
+	]);
 
-
-Route::get('cliente/nuevo','CustomerController@index');
-
-
+//Una ves asinado un cliente se puede crear un caso completo.
 Route::post('nuevo/{id_service}/caso/',[
 	'uses' =>'ServiceController@create',
 	'as' => 'crearCaso',
+	]);
+//Mostrar el formulario para registrar un cliente 
+Route::get('cliente/nuevo','CustomerController@index');
+
+//Registra al cliente
+Route::post('cliente/nuevo',[
+	'uses' => 'CustomerController@addCustumer',
+	'as' => 'customer_new_path',
+	]);
+
+Route::get('presupuesto/{id_presupuesto}',[
+	'uses' =>'BudgetController@edit',
+	'as' => 'EditBudget',
+	]);
+Route::post('presupuesto/{id_presupuesto}',[
+	'uses' =>'BudgetController@update',
+	'as' => 'UpdateBudget',
 	]);
 
 // Route::post('nuevo/{id_service}/caso/{id_caseService}',[
@@ -64,10 +82,6 @@ Route::post('nuevo/{id_service}/caso/',[
 // 	'as' => 'crearcaso',
 // 	]);
 
-Route::post('cliente/nuevo',[
-	'uses' => 'CustomerController@addCustumer',
-	'as' => 'customer_new_path',
-	]);
 
 // Route::post('cliente/caso/nuevo',[
 // 	'uses' => 'CustomerController@addCustumerCase',
