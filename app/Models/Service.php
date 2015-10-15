@@ -34,4 +34,9 @@ class Service extends Model
         return $this->hasOne(CaseService::class);
     }
 
+     public function participant_type_service()
+    {
+        return $this->belongsToMany(ParticipantType::class);;
+    }
+
 }

@@ -14,9 +14,13 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
+            //Clientes, Usualios de prueba
             $this->call(UsersTableSeeder::class);
             $this->call(CustumersTableSeeder::class);
+            //Catalogos , Documentos,Participantes
             $this->call(CatalogDocumentsSeeder::class);
+            $this->call(CatalogParticipantType::class);
+            //Envio de datos de servicios
             $this->call(ServiceTestamentSeeder::class);
             $this->call(ServiceCompraVentaSeed::class);
             $this->call(ServiceDonacionesSeed::class);
@@ -38,6 +42,7 @@ class DatabaseSeeder extends Seeder
             $this->call(ServicePermutasSeed::class);
             $this->call(ServiceAdjudicacionJudicialSeed::class);
             $this->call(ServiceRatificacionDocumentoSeed::class);
+            //Creacion de casos de prueva
             $this->call(Case_Budget_Service_Seed::class);
            
 
