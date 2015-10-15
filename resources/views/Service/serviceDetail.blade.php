@@ -7,6 +7,7 @@
 	<div class="block_container">
 
 		<h1>Escritura Nº {{$ServiceCase->id}}</h1>
+		<h3>{{$ServiceCase->service->name}}</h3>
 		<section id="partisipans_thisCase" >
 			<h3>Participantes</h3>
 			@foreach ($ServiceCase->customer as $customerSelect)
@@ -25,6 +26,7 @@
 			<p class="text-center">Progreso: {{ $ServiceCase->progress}} </p>		
 			<p class="text-center">Avisos: {{ $ServiceCase->notices}} </p>		
 			<p class="text-center">Observaciones: {{ $ServiceCase->observations}} </p>		
+			<a class="input budget-button"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> Editar </a> 		   
 
 		</section>
 
@@ -33,8 +35,11 @@
 			<p class="text-center">Aprovado: {{ $ServiceCase->budget->approved }} </p>		
 			<p class="text-center">Facturado: {{ $ServiceCase->budget->invoiced }} </p>		
 			<p class="text-center">Tipo de Pago: {{ $ServiceCase->budget->payment_type}} </p>		
-			<p class="text-center">Valor de Operacion: {{ $ServiceCase->budget->operation_value}} </p>		
-			<p class="text-center">Costo: {{ $ServiceCase->budget->cost}} </p>		
+			<p class="text-center">Valor de Operacion: $ {{ $ServiceCase->budget->operation_value}} </p>		
+			<p class="text-center">Costo: $ {{ $ServiceCase->budget->cost}} </p>		
+			<p class="text-center">Encargado: {{ $ServiceCase->budget->user->name." ".$ServiceCase->budget->user->fathers_last_name }} </p>		
+			<a class="input budget-button"  href="{{route('EditBudget',$ServiceCase->budget->id) }}"> Editar </a> 		   
+		
 		</section>
 
 

@@ -38,7 +38,7 @@
 				</table>
 
 			<div>
-				  <a class="menu_service_link" href="{{url('nuevo/'.$service->id )}} "> Nuevo Caso </a>
+				  <a class="input budget-button" href="{{url('nuevo/'.$service->id )}} "> Nuevo Caso </a>
 			</div>
 			</div>
 
