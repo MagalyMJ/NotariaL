@@ -19,6 +19,7 @@ function tipoPago(Pago){
   }
 }
  $( document ).ready(function() {
+   //cagamos los datos previos  
    var payment_type = "<?php echo $Budget->payment_type; ?>" ;
    var invoiced = "<?php echo $Budget->invoiced; ?>" ;
    var approved = "<?php echo $Budget->approved; ?>" ;
@@ -33,7 +34,7 @@ function tipoPago(Pago){
  function sText(){
     if ( document.getElementById("invoiced").value == 1 ) {
       var IVA = 0.16
-      var valorSinIVA = parseInt(document.getElementById("name").value)
+      var valorSinIVA = parseInt(document.getElementById("operation_value").value)
       var valorIVA = Math.round((valorSinIVA+(valorSinIVA * IVA)) * 100) / 100 
 
     document.getElementById("show_cost").innerHTML = '$'+ valorIVA 
@@ -41,20 +42,43 @@ function tipoPago(Pago){
     document.getElementById("cost").value = valorIVA 
     
     }else{
-       document.getElementById("show_cost").innerHTML = '$'+ parseInt(document.getElementById("name").value)
-      document.getElementById("cost").value = document.getElementById("name").value
+       document.getElementById("show_cost").innerHTML = '$'+ parseInt(document.getElementById("operation_value").value)
+      document.getElementById("cost").value = document.getElementById("operation_value").value
     }
   }
 
 </script>
 <div class="block_container">
- <div class="form_container"> 
 
+  <h1>Presupuesto de Escritura Nº {{ $Budget->case_service->id}}</h1>
+  <h1>{{ $Budget->case_service->service->name}}</h1>
+ <div class="form_container"> 
  <form id="Edit_budget" action="{{route('UpdateBudget',$Budget->id) }}" method='post' class="form_data aling_block">  
    {{csrf_field()}}
 
       <label for="operation_value">Valor de Operacion</label> 
-      <input name="operation_value" onBlur="sText();" class="input long" id="name" type="text" autocomplete="off" value="{{ $Budget->operation_value}}" />
+      <input name="operation_value" onBlur="sText();" class="input long" id="operation_value" type="text" autocomplete="off" value="{{ $Budget->operation_value}}" />
+      
+      <label for="discount">Descuento de Honorarios</label> 
+      <input name="discount" onBlur="sText();" class="input long" id="discount" type="text" autocomplete="off" value="{{ $Budget->discount}}" />
+      
+      <label for="travel_expenses">Gastos de Viaje</label> 
+      <input name="travel_expenses" onBlur="sText();" class="input long" id="travel_expenses" type="text" autocomplete="off" value="{{ $Budget->travel_expenses}}" />
+      
+      <label for="miscellaneous_expense">Varios</label> 
+      <input name="miscellaneous_expense" onBlur="sText();" class="input long" id="miscellaneous_expense" type="text" autocomplete="off" value="{{ $Budget->miscellaneous_expense}}" />
+      
+      <label for="advance_payment">Anticipo</label> 
+      <input name="advance_payment" onBlur="sText();" class="input long" id="advance_payment" type="text" autocomplete="off" value="{{ $Budget->advance_payment}}" />
+      
+      <label for="surcharges">Recargos</label> 
+      <input name="surcharges" onBlur="sText();" class="input long" id="surcharges" type="text" autocomplete="off" value="{{ $Budget->surcharges}}" />
+      
+      <label for="isnjin">ISNJIN</label> 
+      <input name="isnjin" onBlur="sText();" class="input long" id="isnjin" type="text" autocomplete="off" value="{{ $Budget->isnjin}}" />
+        
+      <label for="isr">ISR</label> 
+      <input name="isr" onBlur="sText();" class="input long" id="isr" type="text" autocomplete="off" value="{{ $Budget->isr}}" />
       
       <label for="payment_type">Forma de Pago </label>
       <select id="payment_type" name="payment_type" form="Edit_budget" >
@@ -84,7 +108,7 @@ function tipoPago(Pago){
 
       <h2>Costos Calculados</h2>
       <p>-----------------------</p>
-      <p id="show_cost" value="">{{$Budget->cost}} </p>
+      <p id="show_cost" value="">Costo:$ {{$Budget->cost}} </p>
       <input name="cost" id="cost" type="hidden"value="" />
       <p>-----------------------</p>
       

@@ -88,6 +88,13 @@ class BudgetController extends Controller
         $Upddate->cost = $request->cost;
         $Upddate->user_id = $request->user_id;
         $Upddate->invoiced = $request->invoiced;
+        $Upddate->discount = $request->discount;
+        $Upddate->travel_expenses = $request->travel_expenses;
+        $Upddate->miscellaneous_expense = $request->miscellaneous_expense;
+        $Upddate->advance_payment= $request->advance_payment;
+        $Upddate->surcharges= $request->surcharges;
+        $Upddate->isnjin= $request->isnjin;
+        $Upddate->isr = $request->isr;
         
         $Upddate->save();
 
