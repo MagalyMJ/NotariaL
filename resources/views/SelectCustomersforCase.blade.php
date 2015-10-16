@@ -38,7 +38,7 @@
 	
 		
 			<div>
-				  <!-- <a class="menu_service_link" href="{{url('cliente/nuevo')}}"> Nuevo cliente </a> -->
+				  <a class="menu_service_link" href="{{url('cliente/nuevo')}}"> Nuevo cliente </a>
 				  <input id="new_case_service" name="customers" type="submit" onClick="newCase()" value="Crear Caso" class="input budget-button">
 				<!--   <a class="menu_service_link" onClick="newCase" href="{{url('crearcaso/'.$id_service)}}"> Crear Caso </a> 	 -->	   
 			</div>

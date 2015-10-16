@@ -5,6 +5,8 @@ namespace NotiAPP\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Redirect;
+
 use NotiAPP\Http\Requests;
 use NotiAPP\Http\Controllers\Controller;
 
@@ -51,7 +53,7 @@ class AuthController extends Controller
         if (!auth()->attempt($request->only(['user_name', 'password']))) {
             return redirect()->route('auth_show_path')->withErrors('No se encontro al usuario');
         }
-        return ('home');
+        return view('home');
     }
 
     /**
