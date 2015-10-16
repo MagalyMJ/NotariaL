@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
 
 class ServiceFedeHechosSeed extends Seeder
 {
@@ -25,7 +26,8 @@ class ServiceFedeHechosSeed extends Seeder
        $IdentificationID = Document::where('document_name', 'Identificación')->get();
        $Identification = Document::find($IdentificationID[0]->id); 
 
-        
+       /*Obtenemos el tipo de participante que coresponde a este servicio */
+       $SolicitanteType = ParticipantType::where('name','Solicitante')->get(); 
 
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Fe de Hechos';
@@ -36,8 +38,9 @@ class ServiceFedeHechosSeed extends Seeder
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
 
-       
-        $Identification  = $serviceFind->document_service()->save($Identification ,['participants_type' => 'Solicitante']);
+         $serviceFind->participant_type_service()->attach( $SolicitanteType[0]->id );
+
+         $Identification  = $serviceFind->document_service()->save($Identification ,['participants_type' => $SolicitanteType[0]->name]);
 
     }
 }

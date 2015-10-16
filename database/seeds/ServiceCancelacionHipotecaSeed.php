@@ -5,6 +5,8 @@ use Illuminate\Database\Seeder;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
 
+use NotiAPP\Models\ParticipantType;
+
 class ServiceCancelacionHipotecaSeed extends Seeder
 {
     /**
@@ -30,6 +32,8 @@ class ServiceCancelacionHipotecaSeed extends Seeder
         $CartaNoAdeudoID = Document::where('document_name', 'Carta de No Adeudo')->get();
         $CartaNoAdeudo = Document::find($CartaNoAdeudoID[0]->id); 
         
+        /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $DeudorType = ParticipantType::where('name','Deudor')->get(); 
 
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Cancelacion de Hipoteca';
@@ -40,6 +44,8 @@ class ServiceCancelacionHipotecaSeed extends Seeder
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
 
+       
+        $serviceFind->participant_type_service()->attach($DeudorType[0]->id );
        
         $EscriturasCertificado  = $serviceFind->document_service()->save($EscriturasCertificado ,['participants_type' => 'Deudor']);
         $OrdendeCancelacion  = $serviceFind->document_service()->save($OrdendeCancelacion ,['participants_type' => 'Deudor']);

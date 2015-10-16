@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
 
 class ServiceTestamentSeeder extends Seeder
 {
@@ -29,6 +30,10 @@ class ServiceTestamentSeeder extends Seeder
 		$Identification= Document::find($IdentificationID[0]->id); 
 
 
+        /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $TestigoType = ParticipantType::where('name','Testigo')->get(); 
+        $TestadorType = ParticipantType::where('name','Testador')->get(); 
+
          $service->name = 'Testamento';
          $service->service_type = 2;
          $service->save();
@@ -36,6 +41,10 @@ class ServiceTestamentSeeder extends Seeder
          $serviceId = $service->id;
 
             $serviceFind = Service::find($serviceId);
+
+
+            $serviceFind->participant_type_service()->attach($TestigoType[0]->id );
+            $serviceFind->participant_type_service()->attach($TestadorType[0]->id );
 
 		    $Identification = $serviceFind->document_service()->save($Identification,['participants_type' => 'Testigo']);
 

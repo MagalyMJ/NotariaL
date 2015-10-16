@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
 
 class ServiceActaAsambleaSeed extends Seeder
 {
@@ -31,7 +32,8 @@ class ServiceActaAsambleaSeed extends Seeder
         $AntecedentesID = Document::where('document_name', 'Antecedentes' )->get();
         $Antecedentes = Document::find($AntecedentesID[0]->id); 
 
-
+        /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $SolicitanteType = ParticipantType::where('name','Solicitante')->get(); 
         /* Asignamos los datos para Crear el Servicio*/
 
          $service->name = 'Protocolización de Acta de Asamblea';
@@ -42,7 +44,8 @@ class ServiceActaAsambleaSeed extends Seeder
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
 
-       
+        $serviceFind->participant_type_service()->attach( $SolicitanteType[0]->id );
+
         $Identification = $serviceFind->document_service()->save($Identification,['participants_type' => 'Solicitante']);
         $ActaAsamblea = $serviceFind->document_service()->save($ActaAsamblea,['participants_type' => 'Solicitante']);
         $Antecedentes = $serviceFind->document_service()->save($Antecedentes,['participants_type' => 'Solicitante']);

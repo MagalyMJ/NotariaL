@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
+
 
 class ServiceRatificacionDocumentoSeed extends Seeder
 {
@@ -28,6 +30,8 @@ class ServiceRatificacionDocumentoSeed extends Seeder
         $DocumentosOriginalesID = Document::where('document_name', 'Documentos Originales')->get();
         $DocumentosOriginales = Document::find($DocumentosOriginalesID[0]->id); 
 
+        /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $SolicitanteType = ParticipantType::where('name','Solicitante')->get(); 
 
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Cotejo y Ratificacion';
@@ -37,6 +41,8 @@ class ServiceRatificacionDocumentoSeed extends Seeder
          $serviceId = $service->id;
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
+
+        $serviceFind->participant_type_service()->attach($SolicitanteType[0]->id );
 
         // Docuemtos que lleva el vendedor 
         $Identification = $serviceFind->document_service()->save($Identification,['participants_type' => 'Solicitante']);

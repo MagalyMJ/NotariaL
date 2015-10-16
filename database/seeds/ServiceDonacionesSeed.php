@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
 
 
 class ServiceDonacionesSeed extends Seeder
@@ -47,6 +48,10 @@ class ServiceDonacionesSeed extends Seeder
         $ActaNacimentoID = Document::where('document_name', 'Acta de Nacimiento' )->get();
         $ActaNacimento = Document::find($ActaNacimentoID[0]->id);   
 
+
+        /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $DonanteType = ParticipantType::where('name','Donante')->get(); 
+        $DonatarioType = ParticipantType::where('name','Donatario')->get(); 
         
 
         /* Asignamos los datos para Crear el Servicio*/
@@ -58,6 +63,8 @@ class ServiceDonacionesSeed extends Seeder
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
 
+        $serviceFind->participant_type_service()->attach($DonanteType[0]->id );
+        $serviceFind->participant_type_service()->attach($DonatarioType[0]->id );
         
         $Identification = $serviceFind->document_service()->save($Identification,['participants_type' => 'Donante']);
         $Escrituras = $serviceFind->document_service()->save($Escrituras,['participants_type' => 'Donante']);

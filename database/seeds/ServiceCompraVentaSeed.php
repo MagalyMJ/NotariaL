@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
 
 class ServiceCompraVentaSeed extends Seeder
 {
@@ -46,6 +47,10 @@ class ServiceCompraVentaSeed extends Seeder
         $AvaluoID = Document::where('document_name', 'Avaluo' )->get();
         $Avaluo = Document::find($AvaluoID [0]->id); 
 
+         /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $VendedorType = ParticipantType::where('name','Vendedor')->get(); 
+        $CompradorType = ParticipantType::where('name','Comprador')->get(); 
+
         
 
         /* Asignamos los datos para Crear el Servicio*/
@@ -56,6 +61,10 @@ class ServiceCompraVentaSeed extends Seeder
          $serviceId = $service->id;
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
+
+
+        $serviceFind->participant_type_service()->attach($VendedorType[0]->id );
+        $serviceFind->participant_type_service()->attach($CompradorType[0]->id );
 
         // Docuemtos que lleva el vendedor 
         $Identification = $serviceFind->document_service()->save($Identification,['participants_type' => 'Vendedor']);

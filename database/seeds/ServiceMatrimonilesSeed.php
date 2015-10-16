@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
 
 class ServiceMatrimonilesSeed extends Seeder
 {
@@ -35,6 +36,10 @@ class ServiceMatrimonilesSeed extends Seeder
 
         $CdLID = Document::where('document_name', 'Certificado De Libertad Degradable' )->get();
         $CdL = Document::find($CdLID[0]->id);  
+
+
+        /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $EsposoType = ParticipantType::where('name','Esposo/a')->get(); 
   
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Capitulaciones Matrimoniales';
@@ -44,6 +49,9 @@ class ServiceMatrimonilesSeed extends Seeder
          $serviceId = $service->id;
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
+
+
+        $serviceFind->participant_type_service()->attach($EsposoType[0]->id );
 
         $ActaMatrimonio = $serviceFind->document_service()->save( $ActaMatrimonio ,['participants_type' => 'Esposo/a']);
         $Predial = $serviceFind->document_service()->save( $Predial,['participants_type' => 'Esposo/a']);

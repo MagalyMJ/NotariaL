@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
+
 
 class ServiceCotejoCertificacionSeed extends Seeder
 {
@@ -29,6 +31,8 @@ class ServiceCotejoCertificacionSeed extends Seeder
         $CopiaDocumentosID = Document::where('document_name', 'Copia de Documentos' )->get();
         $CopiaDocumentos = Document::find($CopiaDocumentosID[0]->id); 
 
+        /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $SolicitanteType = ParticipantType::where('name','Solicitante')->get(); 
 
         /* Asignamos los datos para Crear el Servicio*/
 
@@ -40,7 +44,8 @@ class ServiceCotejoCertificacionSeed extends Seeder
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
 
-       
+        $serviceFind->participant_type_service()->attach($SolicitanteType[0]->id );
+
         $DocumentosOriginales= $serviceFind->document_service()->save($DocumentosOriginales,['participants_type' => 'Solicitante']);
         $CopiaDocumentos = $serviceFind->document_service()->save($CopiaDocumentos,['participants_type' => 'Solicitante']);
         

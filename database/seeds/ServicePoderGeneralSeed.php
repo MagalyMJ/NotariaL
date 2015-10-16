@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
 
 class ServicePoderGeneralSeed extends Seeder
 {
@@ -23,6 +24,10 @@ class ServicePoderGeneralSeed extends Seeder
        $IdentificationID = Document::where('document_name', 'Identificación')->get();
        $Identification = Document::find($IdentificationID[0]->id); 
 
+
+        /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $PoderdanteType = ParticipantType::where('name','Poderdante')->get(); 
+        $ApoderadoType = ParticipantType::where('name','Apoderado')->get(); 
         
 
         /* Asignamos los datos para Crear el Servicio*/
@@ -33,6 +38,10 @@ class ServicePoderGeneralSeed extends Seeder
          $serviceId = $service->id;
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
+
+
+        $serviceFind->participant_type_service()->attach($PoderdanteType[0]->id );
+        $serviceFind->participant_type_service()->attach($ApoderadoType[0]->id );
 
        
         $Identification  = $serviceFind->document_service()->save($Identification ,['participants_type' => 'Poderdante']);

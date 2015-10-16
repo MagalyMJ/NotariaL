@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
 
 class ServiceActaCosntitutivaSeed extends Seeder
 {
@@ -32,7 +33,8 @@ class ServiceActaCosntitutivaSeed extends Seeder
         $RegimendesociedadID = Document::where('document_name', 'Regimen de sociedad')->get();
         $Regimendesociedad= Document::find($RegimendesociedadID[0]->id); 
 
-        
+         /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $SocioType = ParticipantType::where('name','Socio')->get(); 
 
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Acta Constitutiva';
@@ -43,7 +45,9 @@ class ServiceActaCosntitutivaSeed extends Seeder
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
 
-        // Docuemtos que lleva el vendedor 
+         $serviceFind->participant_type_service()->attach( $SocioType[0]->id );
+
+        // Docuemtos que lleva el Socio 
         $Identification = $serviceFind->document_service()->save($Identification,['participants_type' => 'Socio']);
         $ObjetoSocial = $serviceFind->document_service()->save($ObjetoSocial,['participants_type' => 'Socio']);
         $MontodeCapital = $serviceFind->document_service()->save($MontodeCapital,['participants_type' => 'Socio']);

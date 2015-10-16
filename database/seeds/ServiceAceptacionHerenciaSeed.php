@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
+use NotiAPP\Models\ParticipantType;
 
 class ServiceAceptacionHerenciaSeed extends Seeder
 {
@@ -32,7 +33,9 @@ class ServiceAceptacionHerenciaSeed extends Seeder
         $TestamentoID = Document::where('document_name', 'Testamento')->get();
         $Testamento = Document::find($TestamentoID[0]->id);
 
-
+       /*Obtenemos el tipo de participante que coresponde a este servicio */
+       $HerederoType = ParticipantType::where('name','Heredero/a')->get(); 
+       $AlbaceaType = ParticipantType::where('name','Albacea')->get(); 
 
         /* Asignamos los datos para Crear el Servicio*/
 
@@ -44,6 +47,8 @@ class ServiceAceptacionHerenciaSeed extends Seeder
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
 
+         $serviceFind->participant_type_service()->attach( $HerederoType[0]->id );
+         $serviceFind->participant_type_service()->attach( $AlbaceaType[0]->id );
        
         $Identification= $serviceFind->document_service()->save($Identification,['participants_type' => 'Heredero/a']);
         $ActaNacimento = $serviceFind->document_service()->save( $ActaNacimento ,['participants_type' => 'Heredero/a']);

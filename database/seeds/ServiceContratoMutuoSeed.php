@@ -5,6 +5,8 @@ use Illuminate\Database\Seeder;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
 
+use NotiAPP\Models\ParticipantType;
+
 
 class ServiceContratoMutuoSeed extends Seeder
 {
@@ -39,6 +41,11 @@ class ServiceContratoMutuoSeed extends Seeder
         $PredialID= Document::where('document_name', 'Predial' )->get();
         $Predial = Document::find($PredialID[0]->id);  
 
+
+         /*Obtenemos el tipo de participante que coresponde a este servicio */
+        $AcreedorType = ParticipantType::where('name','Acreedor')->get(); 
+        $DeudorType = ParticipantType::where('name','Deudor')->get(); 
+
         
 
         /* Asignamos los datos para Crear el Servicio*/
@@ -49,6 +56,10 @@ class ServiceContratoMutuoSeed extends Seeder
          $serviceId = $service->id;
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
+
+
+        $serviceFind->participant_type_service()->attach($AcreedorType[0]->id );
+        $serviceFind->participant_type_service()->attach($DeudorType[0]->id );
 
         // Docuemtos que lleva el Acreedor
         $Identification = $serviceFind->document_service()->save($Identification,['participants_type' => 'Acreedor']);
