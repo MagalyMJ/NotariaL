@@ -25,7 +25,14 @@ class CreateBudgetTable extends Migration {
 			$table->float('operation_value')->unsigned();
 			$table->float('cost')->unsigned();
 			$table->float('commission')->unsigned();
-		
+			$table->float('travel_expenses')->unsigned();
+			$table->float('isr')->unsigned();
+			$table->float('miscellaneous_expense')->unsigned();
+			$table->float('advance_payment')->unsigned();
+			$table->float('surcharges')->unsigned();
+			$table->float('isnjin')->unsigned();
+			$table->float('discount')->unsigned();
+			
 			$table->timestamps();
 		});
 	}
