@@ -1,9 +1,7 @@
 @extends('layouts.homedefault')
 
 @section('content')
-<!-- Mostrara Todos los Casos Activos del servicio-Post  obtenido -->
-
-
+<!-- Parametros: Array Customer, $service->id as $id_service, -->
 	<div class="block_container">
 
 			<table id="customers_Table" class="table-fill">
@@ -38,9 +36,8 @@
 	
 		
 			<div>
-				  <a class="menu_service_link" href="{{url('cliente/nuevo')}}"> Nuevo cliente </a>
+				  <a class="input budget-button" href="{{route('New_Customer_path',$id_service) }}"> Nuevo cliente </a>
 				  <input id="new_case_service" name="customers" type="submit" onClick="newCase()" value="Crear Caso" class="input budget-button">
-				<!--   <a class="menu_service_link" onClick="newCase" href="{{url('crearcaso/'.$id_service)}}"> Crear Caso </a> 	 -->	   
 			</div>
 	</div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>

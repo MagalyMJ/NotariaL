@@ -1,9 +1,9 @@
 @extends('layouts.homedefault')
 
 @section('content')
-<!-- Mostrara Todos los Casos Activos del servicio-Post  obtenido -->
-
-
+<!-- Mostrara Todos los Casos Activos del servicio-Post  obtenido 
+	Parametros: Objeto Service encotrado por id, Array CaseService filtrado por atributo service_id,
+-->
 	<div class="block_container">
 
 		<h1>{{ $service->name }}</h1>
@@ -38,7 +38,7 @@
 				</table>
 
 			<div>
-				  <a class="input budget-button" href="{{url('nuevo/'.$service->id )}} "> Nuevo Caso </a>
+				  <a class="input budget-button" href="{{route('Select_Customers_toCase',$service->id) }}"> Nuevo Caso </a>
 			</div>
 			</div>
 

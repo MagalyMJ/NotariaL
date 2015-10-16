@@ -90,6 +90,8 @@
 			   	<input class="input" id="opertationValue" type="text" autocomplete="off"/>
        </div>
  -->
+
+        <input id="id_service" name="id_service" type="hidden" value="{{$id_service}}">
         <input type="submit" value="Registrar" class="input budget-button">
 
   </form>

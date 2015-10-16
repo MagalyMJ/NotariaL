@@ -44,7 +44,10 @@ Route::post('servicio',[
 
 
 //Para generar un nuevo caso del servicio seleccionado
-Route::get('nuevo/{id_service}','ServiceController@service');
+Route::get('clientes/{id_service}',[
+	'uses' => 'ServiceController@SelectCustomers',
+	'as' => 'Select_Customers_toCase'
+	]);
 
 
 //Para ver los detalles de un caso 
@@ -69,7 +72,9 @@ Route::post('nuevo/{id_service}/caso/',[
 	'as' => 'crearCaso',
 	]);
 //Mostrar el formulario para registrar un cliente 
-Route::get('cliente/nuevo','CustomerController@index');
+Route::get('cliente/nuevo/{id_service?}',[
+	'uses' => 'CustomerController@create',
+	'as' => 'New_Customer_path']);
 
 //Registra al cliente
 Route::post('cliente/nuevo',[

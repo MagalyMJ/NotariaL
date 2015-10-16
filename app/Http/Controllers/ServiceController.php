@@ -75,7 +75,7 @@ class ServiceController extends Controller
         //return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase, 'id_service' => $id_service ,'documents'=> $service->documents ]);
     }
 
-    public function service($id_service){
+    public function SelectCustomers($id_service){
 
         $customers = Customer::all();
       
@@ -113,8 +113,10 @@ class ServiceController extends Controller
     public function show($id_caseService)
     {
         //
+        //dd($id_caseService);
         $ShowCase = CaseService::find($id_caseService);
-        return view('Service.serviceDetail',[ 'ServiceCase' => $ShowCase ]);
+
+        return view('Service.serviceDetail',['ServiceCase' => $ShowCase ]);
 
     }
 
