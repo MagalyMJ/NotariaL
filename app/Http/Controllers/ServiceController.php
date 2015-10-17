@@ -113,10 +113,10 @@ class ServiceController extends Controller
     public function show($id_caseService)
     {
         //
-        //dd($id_caseService);
+        
         $ShowCase = CaseService::find($id_caseService);
-
-        return view('Service.serviceDetail',['ServiceCase' => $ShowCase ]);
+        //dd($ShowCase);
+        return view('Service.DetailCase',['ServiceCase' => $ShowCase ]);
 
     }
 

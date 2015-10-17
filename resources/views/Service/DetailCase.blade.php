@@ -5,7 +5,6 @@
 
 
 	<div class="block_container">
-
 		<h1>Escritura Nº {{$ServiceCase->id}}</h1>
 		<h3>{{$ServiceCase->service->name}}</h3>
 		<section id="partisipans_thisCase" >
@@ -36,14 +35,16 @@
 			<p class="text-center">Facturado: {{ $ServiceCase->budget->invoiced }} </p>		
 			<p class="text-center">Tipo de Pago: {{ $ServiceCase->budget->payment_type}} </p>		
 			<p class="text-center">Valor de Operacion: $ {{ $ServiceCase->budget->operation_value}} </p>		
-			<p class="text-center">Costo: $ {{ $ServiceCase->budget->cost}} </p>		
+			<p class="text-center">Costo: $ {{ $ServiceCase->budget->cost}} </p>
+
 			<p class="text-center">Descuento de Honorarios: $ {{ $ServiceCase->budget->discount}} </p>		
 			<p class="text-center">Gastos de Viaje: $ {{ $ServiceCase->budget->travel_expenses}} </p>		
 			<p class="text-center">Varios: $ {{ $ServiceCase->budget->miscellaneous_expense}} </p>		
 			<p class="text-center">Anticipo: $ {{ $ServiceCase->budget->advance_payment}} </p>		
 			<p class="text-center">Recargos: $ {{ $ServiceCase->budget->surcharges}} </p>		
 			<p class="text-center">ISNJIN: $ {{ $ServiceCase->budget->isnjin}} </p>		
-			<p class="text-center">ISR: $ {{ $ServiceCase->budget->isr}} </p>		
+			<p class="text-center">ISR: $ {{ $ServiceCase->budget->isr}} </p>
+
 			<p class="text-center">Encargado: {{ $ServiceCase->budget->user->name." ".$ServiceCase->budget->user->fathers_last_name }} </p>		
 			
 			<a class="input budget-button"  href="{{route('EditBudget',$ServiceCase->budget->id) }}"> Editar </a> 		   
