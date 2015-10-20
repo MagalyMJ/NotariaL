@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             $this->call(CustumersTableSeeder::class);
             //Catalogos , Documentos,Participantes
             $this->call(CatalogDocumentsSeeder::class);
+            //Catalogo de gastos que afectan el presupuesto
+            $this->call(CatalogExpensesSeed::class);
             $this->call(CatalogParticipantType::class);
             //Envio de datos de servicios
             $this->call(ServiceTestamentSeeder::class);

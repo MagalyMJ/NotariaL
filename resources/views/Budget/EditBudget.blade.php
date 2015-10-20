@@ -39,11 +39,11 @@ function tipoPago(Pago){
 
     document.getElementById("show_cost").innerHTML = '$'+ valorIVA 
 
-    document.getElementById("cost").value = valorIVA 
+    document.getElementById("total").value = valorIVA 
     
     }else{
        document.getElementById("show_cost").innerHTML = '$'+ parseInt(document.getElementById("operation_value").value)
-      document.getElementById("cost").value = document.getElementById("operation_value").value
+      document.getElementById("total").value = document.getElementById("operation_value").value
     }
   }
 
@@ -108,8 +108,8 @@ function tipoPago(Pago){
 
       <h2>Costos Calculados</h2>
       <p>-----------------------</p>
-      <p id="show_cost" value="">Costo:$ {{$Budget->cost}} </p>
-      <input name="cost" id="cost" type="hidden"value="" />
+      <p id="show_total" value="">Costo:$ {{$Budget->total}} </p>
+      <input name="total" id="total" type="hidden"value="" />
       <p>-----------------------</p>
       
 

@@ -19,19 +19,22 @@ class CreateBudgetTable extends Migration {
 			
 			$table->integer('user_id')->unsigned();
 
-			$table->boolean('approved');
-			$table->boolean('invoiced');
-			$table->enum('payment_type',['efectivo','transferencia','cheque']);
-			$table->float('operation_value')->unsigned();
-			$table->float('cost')->unsigned();
-			$table->float('commission')->unsigned();
-			$table->float('travel_expenses')->unsigned();
-			$table->float('isr')->unsigned();
-			$table->float('miscellaneous_expense')->unsigned();
-			$table->float('advance_payment')->unsigned();
-			$table->float('surcharges')->unsigned();
-			$table->float('isnjin')->unsigned();
-			$table->float('discount')->unsigned();
+			$table->boolean('approved');//Aprovado
+			$table->boolean('invoiced');//Facturado	
+			$table->enum('payment_type',['efectivo','transferencia','cheque']); //tipo de Pago 
+			$table->float('operation_value')->unsigned();//Valor de operacion
+			$table->float('discount')->unsigned();//Descuento de Honorarios
+			$table->float('advance_payment')->unsigned();//Antisipo
+			$table->float('fee')->unsigned();//Honorarios
+			$table->float('total')->unsigned();//Costo
+			$table->float('commission')->unsigned();//Comicion
+			$table->float('travel_expenses')->unsigned();//Gastos de Viaje
+			$table->float('isr')->unsigned();//ISR
+			$table->float('miscellaneous_expense')->unsigned();//Gastos Varios
+			
+			$table->float('surcharges')->unsigned();//Recargos
+			$table->float('isnjin')->unsigned();//ISNIJ
+			
 			
 			$table->timestamps();
 		});

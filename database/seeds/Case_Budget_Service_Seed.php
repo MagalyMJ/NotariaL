@@ -49,17 +49,17 @@ class Case_Budget_Service_Seed extends Seeder
 
         $CaseBudget->approved = 1;
         $CaseBudget->invoiced = 0;
-        $CaseBudget->payment_type = 2;
+        $CaseBudget->payment_type = rand(1,3);
         $CaseBudget->operation_value = 3232;
-        $CaseBudget->cost = 3421.8;
+        $CaseBudget->total = 3421.8;
         $CaseBudget->commission = 0.08;
         $CaseBudget->travel_expenses = 200;
-        $CaseBudget->isr = 120;
+        //$CaseBudget->isr = 120;
         $CaseBudget->miscellaneous_expense = 60;
         $CaseBudget->advance_payment = 1000;
         $CaseBudget->surcharges = 100;
-        $CaseBudget->isnjin = 90;
-        $CaseBudget->discount = 0.10;
+        //$CaseBudget->isnjin = 90;
+        $CaseBudget->discount = 100.50;
 
         $CaseBudget->save();
 

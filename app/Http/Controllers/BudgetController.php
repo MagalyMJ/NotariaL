@@ -85,7 +85,7 @@ class BudgetController extends Controller
         $Upddate->operation_value = $request->operation_value;
         $Upddate->payment_type = $request->payment_type;
         $Upddate->approved = $request->approved;
-        $Upddate->cost = $request->cost;
+        $Upddate->total = $request->total;
         $Upddate->user_id = $request->user_id;
         $Upddate->invoiced = $request->invoiced;
         $Upddate->discount = $request->discount;

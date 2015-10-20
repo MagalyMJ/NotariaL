@@ -16,7 +16,7 @@ class Budget extends Model
      * @var array
      */
     protected $fillable = ['approved','invoiced','payment_type','operation_value',
-    'cost','commission','discount','travel_expenses','isr','miscellaneous_expense','advance_payment','surcharges','isnjin'];
+    'total','commission','discount','travel_expenses','isr','miscellaneous_expense','advance_payment','surcharges','isnjin'];
 
     public function case_service()
     {
