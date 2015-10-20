@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
 use NotiAPP\Models\ParticipantType;
+use NotiAPP\Models\Expense;
 
 
 class ServiceRatificacionDocumentoSeed extends Seeder
@@ -33,6 +34,10 @@ class ServiceRatificacionDocumentoSeed extends Seeder
         /*Obtenemos el tipo de participante que coresponde a este servicio */
         $SolicitanteType = ParticipantType::where('name','Solicitante')->get(); 
 
+        /*Obtenemos los Cobros a considear para el Servicio*/
+        $Honorarios = Expense::where('expense_name','Honorarios')->first();
+        $ISNJIN = Expense::where('expense_name','ISNJIN')->first();
+
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Cotejo y Ratificacion';
          $service->service_type = 2; 
@@ -41,6 +46,11 @@ class ServiceRatificacionDocumentoSeed extends Seeder
          $serviceId = $service->id;
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
+
+        //El costo de honorarios es de 2400 para este servicio
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '2400'] );
+        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => ''] );
+
 
         $serviceFind->participant_type_service()->attach($SolicitanteType[0]->id );
 

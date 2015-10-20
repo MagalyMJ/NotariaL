@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
 use NotiAPP\Models\ParticipantType;
+use NotiAPP\Models\Expense;
 
 class ServiceTestamentSeeder extends Seeder
 {
@@ -34,6 +35,9 @@ class ServiceTestamentSeeder extends Seeder
         $TestigoType = ParticipantType::where('name','Testigo')->get(); 
         $TestadorType = ParticipantType::where('name','Testador')->get(); 
 
+         /*Obtenemos los Cobros a considear para el Servicio*/
+        $Honorarios = Expense::where('expense_name','Honorarios')->first();
+
          $service->name = 'Testamento';
          $service->service_type = 2;
          $service->save();
@@ -41,6 +45,9 @@ class ServiceTestamentSeeder extends Seeder
          $serviceId = $service->id;
 
             $serviceFind = Service::find($serviceId);
+
+        //El costo de honorarios es de 4500 para este servicio
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '3000'] );
 
 
             $serviceFind->participant_type_service()->attach($TestigoType[0]->id );

@@ -68,13 +68,13 @@
         <il class="menu_service">
              <a class="menu_service_link" href="{{url('servicio/8')}}">
                 <span class=" icon icon-file-text"></span>  
-                <p>Sucesión Intestamentaría</p>
+                <p>Sucesiónes Intestamentaría</p>
             </a>
         </il>
         <il class="menu_service">
              <a class="menu_service_link" href="{{url('servicio/9')}}">
                 <span class=" icon icon-file-text"></span>  
-                <p>Susecion Testamentaria</p>
+                <p>Sucesiónes Testamentaria</p>
             </a>
         </il>
         <il class="menu_service">
@@ -122,7 +122,7 @@
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/17')}}">
                 <span class=" icon icon-file-text"></span>  
-                <p>Protocolización de Subdireccion</p>
+                <p>Protocolización de Subdivisión</p>
             </a>
         </il>
         <il class="menu_service">

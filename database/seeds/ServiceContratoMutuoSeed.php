@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
-
+use NotiAPP\Models\Expense;
 use NotiAPP\Models\ParticipantType;
 
 
@@ -46,6 +46,14 @@ class ServiceContratoMutuoSeed extends Seeder
         $AcreedorType = ParticipantType::where('name','Acreedor')->get(); 
         $DeudorType = ParticipantType::where('name','Deudor')->get(); 
 
+         /*Obtenemos los Cobros a considear para el Servicio*/
+        $Honorarios = Expense::where('expense_name','Honorarios')->first();
+        $Catastral = Expense::where('expense_name','Avalúo Catastral')->first();
+        $Gestoria = Expense::where('expense_name','Gestoria de Escritura')->first();
+        $ISNJIN = Expense::where('expense_name','ISNJIN')->first();
+        $Certificacion = Expense::where('expense_name','Certificados')->first();
+        $Registro = Expense::where('expense_name','Gastos de Registro')->first();
+
         
 
         /* Asignamos los datos para Crear el Servicio*/
@@ -57,6 +65,16 @@ class ServiceContratoMutuoSeed extends Seeder
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
 
+        //El costo de honorarios se deja vacio porque se calcula en base al valor de operacion
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => ''] );
+        $serviceFind->expenses()->attach( $Catastral->id,['cost' => '120'] );
+        // Aplica a todos los municipios ( menos en la capital ) $1500  todos los servicios que la necesiten
+        $serviceFind->expenses()->attach( $Gestoria->id,['cost' => '1500'] );
+        //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
+        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => ''] );
+        //estos hay que multiplicarlos por el numero de certificados que se realizaran el cual es un dato de entrada
+        $serviceFind->expenses()->attach($Certificacion->id,['cost' => '200'] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '1000'] );
 
         $serviceFind->participant_type_service()->attach($AcreedorType[0]->id );
         $serviceFind->participant_type_service()->attach($DeudorType[0]->id );

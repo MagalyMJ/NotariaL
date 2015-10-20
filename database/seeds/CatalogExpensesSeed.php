@@ -23,11 +23,14 @@ class CatalogExpensesSeed extends Seeder
         	'ISR',
         	'ISABI',
         	'Edictos',
-        	'Certificacion',
+        	'Certificados',
         	'Recargos',
-        	'Avaluo Catastral',
-        	'Avaluo Comercial',
-
+        	'Avalúo Catastral',
+        	'Avalúo Comercial',
+        	'Honorarios Por Pernsona Moral',
+        	'Honorarios Por Pernsona Fisica',
+        	'Honorarios Por Hora Extra',
+        	'Honorarios Por Hoja Extra',
         	);
 
     	foreach ($expneses  as $expnese => $name){

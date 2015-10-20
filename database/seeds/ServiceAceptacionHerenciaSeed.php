@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Document;
 use NotiAPP\Models\ParticipantType;
+use NotiAPP\Models\Expense;
 
 class ServiceAceptacionHerenciaSeed extends Seeder
 {
@@ -37,6 +38,10 @@ class ServiceAceptacionHerenciaSeed extends Seeder
        $HerederoType = ParticipantType::where('name','Heredero/a')->get(); 
        $AlbaceaType = ParticipantType::where('name','Albacea')->get(); 
 
+       /*Obtenemos los Cobros a considear para el Servicio*/
+        $Honorarios = Expense::where('expense_name','Honorarios')->first();
+        $Edictos = Expense::where('expense_name','Edictos')->first();
+
         /* Asignamos los datos para Crear el Servicio*/
 
          $service->name = 'Reconocimiento y Aceptación de Herencia';
@@ -49,6 +54,9 @@ class ServiceAceptacionHerenciaSeed extends Seeder
 
          $serviceFind->participant_type_service()->attach( $HerederoType[0]->id );
          $serviceFind->participant_type_service()->attach( $AlbaceaType[0]->id );
+
+         $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '4500'] );
+         $serviceFind->expenses()->attach( $Edictos->id,['cost' => '1000'] );
        
         $Identification= $serviceFind->document_service()->save($Identification,['participants_type' => 'Heredero/a']);
         $ActaNacimento = $serviceFind->document_service()->save( $ActaNacimento ,['participants_type' => 'Heredero/a']);
