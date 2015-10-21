@@ -44,29 +44,29 @@ class Case_Budget_Service_Seed extends Seeder
         //realizamos la relacion del servicio y el caso generado
         $CreateCase = $Service->case_service()->save($CreateCase);
 
-        //Le asignamos un presupuesto
-        $CaseBudget = new Budget;
+        // //Le asignamos un presupuesto
+         $CaseBudget = new Budget;
 
-        $CaseBudget->approved = 1;
-        $CaseBudget->invoiced = 0;
-        $CaseBudget->payment_type = rand(1,3);
-        $CaseBudget->operation_value = 3232;
-        $CaseBudget->total = 3421.8;
-        $CaseBudget->commission = 0.08;
-        $CaseBudget->travel_expenses = 200;
-        //$CaseBudget->isr = 120;
-        $CaseBudget->miscellaneous_expense = 60;
-        $CaseBudget->advance_payment = 1000;
-        $CaseBudget->surcharges = 100;
-        //$CaseBudget->isnjin = 90;
-        $CaseBudget->discount = 100.50;
+        // $CaseBudget->approved = 1;
+        // $CaseBudget->invoiced = 0;
+        // $CaseBudget->payment_type = rand(1,3);
+        // $CaseBudget->operation_value = 3232;
+        // $CaseBudget->total = 3421.8;
+        // $CaseBudget->commission = 0.08;
+        // $CaseBudget->travel_expenses = 200;
+        // //$CaseBudget->isr = 120;
+        // $CaseBudget->miscellaneous_expense = 60;
+        // $CaseBudget->advance_payment = 1000;
+        // $CaseBudget->surcharges = 100;
+        // //$CaseBudget->isnjin = 90;
+        // $CaseBudget->discount = 100.50;
 
-        $CaseBudget->save();
+         $CaseBudget->save();
 
-        //el creador del prespupuesto tiene que ser un usuario
-        $user = User::find(rand(1,10));
+        // //el creador del prespupuesto tiene que ser un usuario
+         $user = User::find(rand(1,10));
 
-        $user->budget()->save($CaseBudget);
+         $user->budget()->save($CaseBudget);
 
         // hacemos la relacion del presupuesto creado con el caso creado 
         $CreateCase = $CaseBudget->case_service()->save($CreateCase);

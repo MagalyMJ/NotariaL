@@ -19,21 +19,26 @@ class CreateBudgetTable extends Migration {
 			
 			$table->integer('user_id')->unsigned();
 
+			$table->float('fee')->unsigned();//Honorarios
+
+			$table->float('commission')->unsigned();//Comicion
+
 			$table->boolean('approved');//Aprovado
 			$table->boolean('invoiced');//Facturado	
 			$table->enum('payment_type',['efectivo','transferencia','cheque']); //tipo de Pago 
-			$table->float('operation_value')->unsigned();//Valor de operacion
+			$table->float('miscellaneous_expense')->unsigned();//Gastos Varios
 			$table->float('discount')->unsigned();//Descuento de Honorarios
 			$table->float('advance_payment')->unsigned();//Antisipo
-			$table->float('fee')->unsigned();//Honorarios
-			$table->float('total')->unsigned();//Costo
-			$table->float('commission')->unsigned();//Comicion
 			$table->float('travel_expenses')->unsigned();//Gastos de Viaje
-			$table->float('isr')->unsigned();//ISR
-			$table->float('miscellaneous_expense')->unsigned();//Gastos Varios
-			
 			$table->float('surcharges')->unsigned();//Recargos
+			$table->float('total')->unsigned();//Total
+
+			$table->float('operation_value')->unsigned();//Valor de operacion
+			$table->float('isr')->unsigned();//ISR
+			$table->float('isabi')->unsigned();//ISABI 2% del Valor de Operación para todos los servicios  que lo necesiten (exepto en Donación en Aguascalientes hay es 0%) - conjugues parientes de primer grado no aplica
 			$table->float('isnjin')->unsigned();//ISNIJ
+			
+			
 			
 			
 			$table->timestamps();

@@ -45,7 +45,7 @@
 			<p class="text-center">ISNJIN: $ {{ $ServiceCase->budget->isnjin}} </p>		
 			<p class="text-center">ISR: $ {{ $ServiceCase->budget->isr}} </p>
 
-			<p class="text-center">Encargado: {{ $ServiceCase->budget->user->name." ".$ServiceCase->budget->user->fathers_last_name }} </p>		
+			<!-- <p class="text-center">Encargado: {{ $ServiceCase->budget->user->name." ".$ServiceCase->budget->user->fathers_last_name }} </p>		 -->
 			
 			<a class="input budget-button"  href="{{route('EditBudget',$ServiceCase->budget->id) }}"> Editar </a> 		   
 		
