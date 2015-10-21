@@ -39,7 +39,7 @@ class ServiceCotejoCertificacionSeed extends Seeder
         /*Obtenemos los Cobros a considear para el Servicio*/
         $Honorarios = Expense::where('expense_name','Honorarios')->first();
         $HhojaExtra = Expense::where('expense_name','Honorarios Por Hoja Extra')->first();
-        $ISNJIN = Expense::where('expense_name','ISNJIN')->first();
+        $HhojaExtraN = Expense::where('expense_name','Nº Hojas Extra')->first();
 
         /* Asignamos los datos para Crear el Servicio*/
 
@@ -52,11 +52,10 @@ class ServiceCotejoCertificacionSeed extends Seeder
          $serviceFind = Service::find($serviceId);
 
         //El costo de honorarios es de 100 Por la primera HOJA para este servicio 
-        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '100'] );
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '100', 'input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
         //A Partir de 2 hojas se cobran 30 extra de honoraros
-        $serviceFind->expenses()->attach( $HhojaExtra->id,['cost' => '30'] );
-        //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
-        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => ''] );
+        $serviceFind->expenses()->attach($HhojaExtra->id,['cost' => '30','input_name' => 'honorarios_HojaExtra','type_input' => 'checkbox'] );
+        $serviceFind->expenses()->attach($HhojaExtraN->id,['cost' => '0','input_name' => 'nhonorarios_HojaExtra','type_input' => 'number'] );
 
         $serviceFind->participant_type_service()->attach($SolicitanteType[0]->id );
 

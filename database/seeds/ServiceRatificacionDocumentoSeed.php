@@ -48,8 +48,8 @@ class ServiceRatificacionDocumentoSeed extends Seeder
          $serviceFind = Service::find($serviceId);
 
         //El costo de honorarios es de 2400 para este servicio
-        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '2400'] );
-        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => ''] );
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '2400','input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
+        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => '','input_name' => 'isnjin' ,'type_input' => 'text' ] );
 
 
         $serviceFind->participant_type_service()->attach($SolicitanteType[0]->id );

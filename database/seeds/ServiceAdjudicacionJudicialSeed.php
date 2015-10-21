@@ -39,14 +39,16 @@ class ServiceAdjudicacionJudicialSeed extends Seeder
         $AdquirienteType = ParticipantType::where('name','Adquiriente')->get(); 
 
 
-         /*Obtenemos los Cobros a considear para el Servicio*/
+          /*Obtenemos los Cobros a considear para el Servicio*/
         $Honorarios = Expense::where('expense_name','Honorarios')->first();
+        $ValorOperacion = Expense::where('expense_name','Valor de Operación')->first();
         $Catastral = Expense::where('expense_name','Avalúo Catastral')->first();
         $Gestoria = Expense::where('expense_name','Gestoria de Escritura')->first();
         $ISABI = Expense::where('expense_name','ISABI')->first();
         $Comercial = Expense::where('expense_name','Avalúo Comercial')->first();
         $ISR = Expense::where('expense_name','ISR')->first();
         $Certificacion = Expense::where('expense_name','Certificados')->first();
+        $CertifcadosN = Expense::where('expense_name','NºCertificados')->first();
 
 
         /* Asignamos los datos para Crear el Servicio*/
@@ -58,19 +60,27 @@ class ServiceAdjudicacionJudicialSeed extends Seeder
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
 
-        //El costo de honorarios se deja vacio porque se calcula en base al valor de operacion
-        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => ''] );
-        $serviceFind->expenses()->attach( $Catastral->id,['cost' => '120'] );
+          //El costo de honorarios se deja vacio porque se calcula en base al valor de operacion
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '','input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
+
+        //El valor de operacion se deja vacio porque se sera un dato de entrada
+        $serviceFind->expenses()->attach( $ValorOperacion->id,['cost' => '','input_name' => 'valor_operacion' ,'type_input' => 'text' ] );
+
+        $serviceFind->expenses()->attach( $Catastral->id,['cost' => '120','input_name' => 'avaluo_catastral','type_input' => 'checkbox' ] );
         // Aplica a todos los municipios ( menos en la capital ) $1500  todos los servicios que la necesiten
-        $serviceFind->expenses()->attach( $Gestoria->id,['cost' => '1500'] );
+        $serviceFind->expenses()->attach( $Gestoria->id,['cost' => '1500','input_name' => 'gestoria','type_input' => 'checkbox' ] );
         //este es requerido pero su valor sera dependiendo del valor de operacion ISABI = 2% del Valor de Operación todos los servicios (exepto en Donación en Aguascalientes hay es 0%) - conjugues parientes de primer grado no aplica
-        $serviceFind->expenses()->attach( $ISABI->id,['cost' => ''] );
+        $serviceFind->expenses()->attach( $ISABI->id,['cost' => '','input_name' => 'isabi','type_input' => 'text' ] );
         //Todos los servcios con ISABI llevan avaluo comercial
-        $serviceFind->expenses()->attach( $Comercial->id,['cost' => '1300'] );
+        $serviceFind->expenses()->attach( $Comercial->id,['cost' => '1300','input_name' => 'avaluo_comercial','type_input' => 'checkbox'] );
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
-        $serviceFind->expenses()->attach( $ISR->id,['cost' => ''] );
+        $serviceFind->expenses()->attach( $ISR->id,['cost' => '','input_name' => 'isr','type_input' => 'text' ] );
         //estos hay que multiplicarlos por el numero de certificados que se realizaran el cual es un dato de entrada
-        $serviceFind->expenses()->attach($Certificacion->id,['cost' => '200'] );
+        $serviceFind->expenses()->attach($Certificacion->id,['cost' => '200','input_name' => 'certificados','type_input' => 'checkbox' ] );
+        //numero de certificados
+        $serviceFind->expenses()->attach($CertifcadosN->id,['cost' => '0','input_name' => 'ncertificados','type_input' => 'number' ] );
+
+
 
          $serviceFind->participant_type_service()->attach($AdquirienteType[0]->id );
 

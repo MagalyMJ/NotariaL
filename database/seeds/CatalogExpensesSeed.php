@@ -19,6 +19,10 @@ class CatalogExpensesSeed extends Seeder
         	'Honorarios',
         	'Valor de Operación',
         	'Gastos de Registro',
+        	'Nº Propiedades',
+        	'Nº Lotes',
+        	'Cacelacion de Hipotecas',
+        	'Nº Hipotecas Canceladas',
         	'Gestoria de Escritura',
         	'ISNJIN',
         	'ISR',
@@ -32,7 +36,9 @@ class CatalogExpensesSeed extends Seeder
         	'Honorarios Por Pernsona Moral',
         	'Honorarios Por Pernsona Fisica',
         	'Honorarios Por Hora Extra',
+        	'Nº Hora Extra',
         	'Honorarios Por Hoja Extra',
+        	'Nº Hojas Extra',
         	);
 
     	foreach ($expneses  as $expnese => $name){

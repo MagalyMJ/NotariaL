@@ -45,6 +45,7 @@ class ServiceProtocolizarSubdireccionSeed extends Seeder
         $Honorarios = Expense::where('expense_name','Honorarios')->first();
         $ISNJIN = Expense::where('expense_name','ISNJIN')->first();
         $Registro = Expense::where('expense_name','Gastos de Registro')->first(); 
+        $RegistroN = Expense::where('expense_name','Nº Lotes')->first(); 
 
         /* Asignamos los datos para Crear el Servicio*/
 
@@ -57,11 +58,12 @@ class ServiceProtocolizarSubdireccionSeed extends Seeder
          $serviceFind = Service::find($serviceId);
 
         //El costo de honorarios es de 4500 para este servicio
-        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '4500'] );
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '4500','input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
-        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => ''] );
+        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => '','input_name' => 'isnjin','type_input' => 'text' ] );
         //Estos hay que Multiplicarlos por el numero de LOTEs que se tengan que Subdividir para resgistrarlos 
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '400'] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '400','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
+        $serviceFind->expenses()->attach($RegistroN->id,['cost' => '0','input_name' => 'ngastros_registro','type_input' => 'number'] );
 
 
         $serviceFind->participant_type_service()->attach($SolicitanteType[0]->id );

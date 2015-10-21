@@ -48,13 +48,13 @@ class ServiceContratoMutuoSeed extends Seeder
 
          /*Obtenemos los Cobros a considear para el Servicio*/
         $Honorarios = Expense::where('expense_name','Honorarios')->first();
+        $ValorOperacion = Expense::where('expense_name','Valor de Operación')->first();
         $Catastral = Expense::where('expense_name','Avalúo Catastral')->first();
         $Gestoria = Expense::where('expense_name','Gestoria de Escritura')->first();
         $ISNJIN = Expense::where('expense_name','ISNJIN')->first();
         $Certificacion = Expense::where('expense_name','Certificados')->first();
+        $CertifcadosN = Expense::where('expense_name','NºCertificados')->first();
         $Registro = Expense::where('expense_name','Gastos de Registro')->first();
-
-        
 
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Contrato mutuo con Interés y Garantía Hipotecaria';
@@ -66,15 +66,22 @@ class ServiceContratoMutuoSeed extends Seeder
          $serviceFind = Service::find($serviceId);
 
         //El costo de honorarios se deja vacio porque se calcula en base al valor de operacion
-        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => ''] );
-        $serviceFind->expenses()->attach( $Catastral->id,['cost' => '120'] );
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '','input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
+
+        //El valor de operacion se deja vacio porque se sera un dato de entrada
+        $serviceFind->expenses()->attach( $ValorOperacion->id,['cost' => '','input_name' => 'valor_operacion' ,'type_input' => 'text' ] );
+
+        $serviceFind->expenses()->attach( $Catastral->id,['cost' => '120','input_name' => 'avaluo_catastral','type_input' => 'checkbox' ] );
         // Aplica a todos los municipios ( menos en la capital ) $1500  todos los servicios que la necesiten
-        $serviceFind->expenses()->attach( $Gestoria->id,['cost' => '1500'] );
+        $serviceFind->expenses()->attach( $Gestoria->id,['cost' => '1500','input_name' => 'gestoria','type_input' => 'checkbox' ] );
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
-        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => ''] );
+        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => '','input_name' => 'isnjin' ,'type_input' => 'text' ] );
         //estos hay que multiplicarlos por el numero de certificados que se realizaran el cual es un dato de entrada
-        $serviceFind->expenses()->attach($Certificacion->id,['cost' => '200'] );
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '1000'] );
+        $serviceFind->expenses()->attach($Certificacion->id,['cost' => '200','input_name' => 'certificados','type_input' => 'checkbox' ] );
+        //numero de certificados
+        $serviceFind->expenses()->attach($CertifcadosN->id,['cost' => '0','input_name' => 'ncertificados','type_input' => 'number' ] );
+
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '1000','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
 
         $serviceFind->participant_type_service()->attach($AcreedorType[0]->id );
         $serviceFind->participant_type_service()->attach($DeudorType[0]->id );

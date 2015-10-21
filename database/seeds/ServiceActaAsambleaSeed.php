@@ -52,10 +52,10 @@ class ServiceActaAsambleaSeed extends Seeder
          $serviceFind = Service::find($serviceId);
 
         //El costo de honorarios es de 4500 para este servicio
-        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '4500'] );
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '4500','input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
-        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => ''] );
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '600'] );
+        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => '','input_name' => 'isnjin','type_input' => 'text' ] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '600','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
 
         $serviceFind->participant_type_service()->attach( $SolicitanteType[0]->id );
 

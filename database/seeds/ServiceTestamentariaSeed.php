@@ -48,12 +48,14 @@ class ServiceTestamentariaSeed extends Seeder
         /*Obtenemos el tipo de participante que coresponde a este servicio */
         $HerederoType = ParticipantType::where('name','Heredero/a')->get(); 
 
-        /*Obtenemos los Cobros a considear para el Servicio*/
+         /*Obtenemos los Cobros a considear para el Servicio*/
         $Honorarios = Expense::where('expense_name','Honorarios')->first();
+        $ValorOperacion = Expense::where('expense_name','Valor de Operación')->first();
         $ISABI = Expense::where('expense_name','ISABI')->first();
         $Comercial = Expense::where('expense_name','Avalúo Comercial')->first();
         $ISR = Expense::where('expense_name','ISR')->first();
         $Registro = Expense::where('expense_name','Gastos de Registro')->first();
+        $RegistroN = Expense::where('expense_name','Nº Propiedades')->first();
   
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Sucesiónes Testamentaría';
@@ -64,16 +66,22 @@ class ServiceTestamentariaSeed extends Seeder
          /* Una ves Registrado lo buscamos para hacer las viculaciones */
          $serviceFind = Service::find($serviceId);
 
-        //El costo de honorarios se deja vacio porque se calcula en base al valor de operacion
-        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => ''] );
+         //El costo de honorarios se deja vacio porque se calcula en base al valor de operacion
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '','input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
+
+        //El valor de operacion se deja vacio porque se sera un dato de entrada
+        $serviceFind->expenses()->attach( $ValorOperacion->id,['cost' => '','input_name' => 'valor_operacion' ,'type_input' => 'text' ] );
+
         //este es requerido pero su valor sera dependiendo del valor de operacion ISABI = 2% del Valor de Operación todos los servicios (exepto en Donación en Aguascalientes hay es 0%) - conjugues parientes de primer grado no aplica
-        $serviceFind->expenses()->attach( $ISABI->id,['cost' => ''] );
+        $serviceFind->expenses()->attach( $ISABI->id,['cost' => '','input_name' => 'isabi','type_input' => 'text' ] );
         //Todos los servcios con ISABI llevan avaluo comercial
-        $serviceFind->expenses()->attach( $Comercial->id,['cost' => '1300'] );
+        $serviceFind->expenses()->attach( $Comercial->id,['cost' => '1300','input_name' => 'avaluo_comercial','type_input' => 'checkbox'] );
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
-        $serviceFind->expenses()->attach( $ISR->id,['cost' => ''] );
-        //Estos hay que Multiplicarlos por el numero de Propiedades que se tengan que Registrar
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '500'] );
+        $serviceFind->expenses()->attach( $ISR->id,['cost' => '','input_name' => 'honorarios','type_input' => 'text' ] );
+
+        //los gastos de registro de este servicio dependen del numero de propiedades 
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '500','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
+        $serviceFind->expenses()->attach($RegistroN->id,['cost' => '0','input_name' => 'ngastos_resgistro','type_input' => 'number'] );
 
          
         $serviceFind->participant_type_service()->attach($HerederoType[0]->id );

@@ -47,7 +47,7 @@ class ServiceTestamentSeeder extends Seeder
             $serviceFind = Service::find($serviceId);
 
         //El costo de honorarios es de 4500 para este servicio
-        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '3000'] );
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '3000','input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
 
 
             $serviceFind->participant_type_service()->attach($TestigoType[0]->id );

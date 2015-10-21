@@ -34,6 +34,7 @@ class ServiceFedeHechosSeed extends Seeder
         /*Obtenemos los Cobros a considear para el Servicio*/
         $Honorarios = Expense::where('expense_name','Honorarios')->first();
         $HonorariosExtra = Expense::where('expense_name','Honorarios Por Hora Extra')->first();
+        $HonorariosExtraN = Expense::where('expense_name','Nº Hora Extra')->first();
         $ISNJIN = Expense::where('expense_name','ISNJIN')->first();
 
         /* Asignamos los datos para Crear el Servicio*/
@@ -46,11 +47,12 @@ class ServiceFedeHechosSeed extends Seeder
          $serviceFind = Service::find($serviceId);
 
         //El costo de honorarios es de 2000 por la primer hora 
-        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '2000'] );
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '2000','input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
         //El costo de honorarios despues de la primer hora se aplicaran 1000 Por cada Hora extra
-        $serviceFind->expenses()->attach( $HonorariosExtra->id,['cost' => '1000'] );
+        $serviceFind->expenses()->attach( $HonorariosExtra->id,['cost' => '1000','input_name' => 'hora_extra','type_input' => 'checkbox' ] );
+        $serviceFind->expenses()->attach( $HonorariosExtraN->id,['cost' => '0','input_name' => 'nhora_extra','type_input' => 'number' ] );
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
-        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => ''] );
+        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => '','input_name' => 'isnjin','type_input' => 'text' ] );
 
          $serviceFind->participant_type_service()->attach( $SolicitanteType[0]->id );
 

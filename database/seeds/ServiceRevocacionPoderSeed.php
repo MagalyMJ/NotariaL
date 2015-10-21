@@ -48,13 +48,12 @@ class ServiceRevocacionPoderSeed extends Seeder
          $serviceFind = Service::find($serviceId);
 
         //El costo de honorarios es de 2000 para este servicio
-        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '2000'] );
+        $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '2000','input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
         // Aplica a todos los municipios ( menos en la capital ) $1500  todos los servicios que la necesiten
-        $serviceFind->expenses()->attach( $Gestoria->id,['cost' => '1500'] );
+        $serviceFind->expenses()->attach( $Gestoria->id,['cost' => '1500','input_name' => 'gestoria','type_input' => 'checkbox' ] );
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
-        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => ''] );
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '600'] );
-
+        $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => '','input_name' => 'isnjin','type_input' => 'text' ] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '600','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
         $serviceFind->participant_type_service()->attach($PoderdanteType[0]->id );
         $serviceFind->participant_type_service()->attach($ApoderadoType[0]->id );
        
