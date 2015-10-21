@@ -18,6 +18,8 @@ class CreateServiceExpensesTable extends Migration {
 			$table->integer('service_id')->unsigned();
 			$table->integer('expense_id')->unsigned();
 			$table->integer('cost')->unsigned();
+			$table->string('input_name');
+			$table->string('type_input');
 			
 		});
 	}

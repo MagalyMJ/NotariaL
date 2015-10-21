@@ -14,6 +14,7 @@
 						<th class="text-left">Avance</th>
 						<th class="text-left">Cliente</th>
 						<th class="text-left">Observaciones</th>
+						<th class="text-left">Opcciones</th>
 
 					</tr>
 				</thead>
@@ -31,6 +32,7 @@
 								@endforeach
 							</td>
     						<td class="text-center"> {{ $case_service->observations }} </td>
+    						<td class="text-center"> <a class="input budget-button" href="{{route('Show_Case_path',$case_service->id) }}"> Detalles </a></td>
     					</tr>
     				</a>
 					@endforeach
@@ -39,6 +41,7 @@
 
 			<div>
 				  <a class="input budget-button" href="{{route('Select_Customers_toCase',$service->id) }}"> Nuevo Caso </a>
+				  
 			</div>
 			</div>
 

@@ -66,7 +66,7 @@ class BudgetController extends Controller
         //
         $users = User::where('user_type', 'manager' )->get();
         $Budget = Budget::find($id);
-        return view('Budget.EditBudget',[ 'Budget' => $Budget, 'users' =>$users]);
+        return view('Budget.NewEditBuget',[ 'Budget' => $Budget, 'users' =>$users]);
  
     }
 
@@ -80,6 +80,7 @@ class BudgetController extends Controller
     public function update(Request $request, $id)
     {
         //
+        dd($request);
         $Upddate = Budget::find($id);
 
         $Upddate->operation_value = $request->operation_value;

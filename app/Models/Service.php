@@ -27,7 +27,7 @@ class Service extends Model
     }
     public function expenses()
     {
-        return $this->belongsToMany(Expense::class)->withPivot('cost');;
+        return $this->belongsToMany(Expense::class)->withPivot('cost','input_name','type_input');;
     }
      public function case_service()
     {

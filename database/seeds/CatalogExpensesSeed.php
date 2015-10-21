@@ -17,6 +17,7 @@ class CatalogExpensesSeed extends Seeder
           //
         $expneses = array(
         	'Honorarios',
+        	'Valor de Operación',
         	'Gastos de Registro',
         	'Gestoria de Escritura',
         	'ISNJIN',
@@ -24,6 +25,7 @@ class CatalogExpensesSeed extends Seeder
         	'ISABI',
         	'Edictos',
         	'Certificados',
+        	'NºCertificados',
         	'Recargos',
         	'Avalúo Catastral',
         	'Avalúo Comercial',
