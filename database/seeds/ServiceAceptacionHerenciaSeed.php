@@ -56,7 +56,7 @@ class ServiceAceptacionHerenciaSeed extends Seeder
          $serviceFind->participant_type_service()->attach( $AlbaceaType[0]->id );
 
          $serviceFind->expenses()->attach( $Honorarios->id,['cost' => '4500','input_name' => 'honorarios' ,'type_input' => 'hidden' ] );
-         $serviceFind->expenses()->attach( $Edictos->id,['cost' => '1000','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
+         $serviceFind->expenses()->attach( $Edictos->id,['cost' => '1000','input_name' => 'edictos','type_input' => 'hidden'] );
        
         $Identification= $serviceFind->document_service()->save($Identification,['participants_type' => 'Heredero/a']);
         $ActaNacimento = $serviceFind->document_service()->save( $ActaNacimento ,['participants_type' => 'Heredero/a']);

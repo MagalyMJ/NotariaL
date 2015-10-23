@@ -50,8 +50,6 @@ class ServiceMatrimonilesSeed extends Seeder
         $ISABI = Expense::where('expense_name','ISABI')->first();
         $Comercial = Expense::where('expense_name','Avalúo Comercial')->first();
         $ISR = Expense::where('expense_name','ISR')->first();
-        $Certificacion = Expense::where('expense_name','Certificados')->first();
-        $CertifcadosN = Expense::where('expense_name','NºCertificados')->first();
         $Registro = Expense::where('expense_name','Gastos de Registro')->first();
         $RegistroN = Expense::where('expense_name','Nº Propiedades')->first();
   
@@ -74,13 +72,13 @@ class ServiceMatrimonilesSeed extends Seeder
         // Aplica a todos los municipios ( menos en la capital ) $1500  todos los servicios que la necesiten
         $serviceFind->expenses()->attach( $Gestoria->id,['cost' => '1500','input_name' => 'gestoria','type_input' => 'checkbox' ] );
         //este es requerido pero su valor sera dependiendo del valor de operacion ISABI = 2% del Valor de Operación todos los servicios (exepto en Donación en Aguascalientes hay es 0%) - conjugues parientes de primer grado no aplica
-        $serviceFind->expenses()->attach( $ISABI->id,['cost' => '','input_name' => 'isabi','type_input' => 'text' ] );
+        $serviceFind->expenses()->attach( $ISABI->id,['cost' => '','input_name' => 'isabi','type_input' => 'hidden' ] );
         //Todos los servcios con ISABI llevan avaluo comercial
         $serviceFind->expenses()->attach( $Comercial->id,['cost' => '1300','input_name' => 'avaluo_comercial','type_input' => 'checkbox'] );
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
         $serviceFind->expenses()->attach( $ISR->id,['cost' => '','input_name' => 'isr','type_input' => 'text' ] );
         //los gastos de registro de este servicio dependen del numero de propiedades 
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '500','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '500','input_name' => 'gastos_registro','type_input' => 'hidden'] );
         $serviceFind->expenses()->attach($RegistroN->id,['cost' => '0','input_name' => 'ngastos_resgistro','type_input' => 'number'] );
 
 

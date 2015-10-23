@@ -73,18 +73,18 @@ class ServiceIntestamentariaSeed extends Seeder
         $serviceFind->expenses()->attach( $ValorOperacion->id,['cost' => '','input_name' => 'valor_operacion' ,'type_input' => 'text' ] );
 
         //este es requerido pero su valor sera dependiendo del valor de operacion ISABI = 2% del Valor de Operación todos los servicios (exepto en Donación en Aguascalientes hay es 0%) - conjugues parientes de primer grado no aplica
-        $serviceFind->expenses()->attach( $ISABI->id,['cost' => '','input_name' => 'isabi','type_input' => 'text' ] );
+        $serviceFind->expenses()->attach( $ISABI->id,['cost' => '','input_name' => 'isabi','type_input' => 'hidden' ] );
         //Todos los servcios con ISABI llevan avaluo comercial
         $serviceFind->expenses()->attach( $Comercial->id,['cost' => '1300','input_name' => 'avaluo_comercial','type_input' => 'checkbox'] );
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
         $serviceFind->expenses()->attach( $ISR->id,['cost' => '','input_name' => 'isr','type_input' => 'text' ] );
         //estos hay que multiplicarlos por el numero de certificados que se realizaran el cual es un dato de entrada
-        $serviceFind->expenses()->attach($Certificacion->id,['cost' => '200','input_name' => 'certificados','type_input' => 'checkbox' ] );
+        $serviceFind->expenses()->attach($Certificacion->id,['cost' => '200','input_name' => 'certificados','type_input' => 'hidden' ] );
         //numero de certificados
         $serviceFind->expenses()->attach($CertifcadosN->id,['cost' => '0','input_name' => 'ncertificados','type_input' => 'number' ] );
 
         //los gastos de registro de este servicio dependen del numero de propiedades 
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '500','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '500','input_name' => 'gastos_registro','type_input' => 'hidden'] );
         $serviceFind->expenses()->attach($RegistroN->id,['cost' => '0','input_name' => 'ngastos_resgistro','type_input' => 'number'] );
 
 

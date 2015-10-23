@@ -80,7 +80,7 @@ class ServiceTestamentariaSeed extends Seeder
         $serviceFind->expenses()->attach( $ISR->id,['cost' => '','input_name' => 'honorarios','type_input' => 'text' ] );
 
         //los gastos de registro de este servicio dependen del numero de propiedades 
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '500','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '500','input_name' => 'gastos_registro','type_input' => 'hidden'] );
         $serviceFind->expenses()->attach($RegistroN->id,['cost' => '0','input_name' => 'ngastos_resgistro','type_input' => 'number'] );
 
          

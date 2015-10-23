@@ -39,6 +39,8 @@ class ServiceCancelacionHipotecaSeed extends Seeder
         $Honorarios = Expense::where('expense_name','Honorarios')->first();
         $ISNJIN = Expense::where('expense_name','ISNJIN')->first();
         $Registro = Expense::where('expense_name','Gastos de Registro')->first(); 
+        $RegistroN = Expense::where('expense_name','Nº Registros')->first();  
+
 
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Cancelacion de Hipoteca';
@@ -58,7 +60,9 @@ class ServiceCancelacionHipotecaSeed extends Seeder
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
         $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => '','input_name' => 'isnjin','type_input' => 'text' ] );
         //Esta relacioando con la Dacion en Pagos 
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '250','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '250','input_name' => 'gastos_registro','type_input' => 'hidden'] );
+        $serviceFind->expenses()->attach($RegistroN->id,['cost' => '1','input_name' => 'ngastos_resgistro','type_input' => 'hidden'] );
+
        
         $serviceFind->participant_type_service()->attach($DeudorType[0]->id );
        

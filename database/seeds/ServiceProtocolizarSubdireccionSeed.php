@@ -62,7 +62,7 @@ class ServiceProtocolizarSubdireccionSeed extends Seeder
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
         $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => '','input_name' => 'isnjin','type_input' => 'text' ] );
         //Estos hay que Multiplicarlos por el numero de LOTEs que se tengan que Subdividir para resgistrarlos 
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '400','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '400','input_name' => 'gastos_registro','type_input' => 'hidden'] );
         $serviceFind->expenses()->attach($RegistroN->id,['cost' => '0','input_name' => 'ngastros_registro','type_input' => 'number'] );
 
 

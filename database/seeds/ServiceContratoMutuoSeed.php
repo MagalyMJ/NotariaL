@@ -55,6 +55,7 @@ class ServiceContratoMutuoSeed extends Seeder
         $Certificacion = Expense::where('expense_name','Certificados')->first();
         $CertifcadosN = Expense::where('expense_name','NºCertificados')->first();
         $Registro = Expense::where('expense_name','Gastos de Registro')->first();
+        $RegistroN = Expense::where('expense_name','Nº Registros')->first();  
 
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Contrato mutuo con Interés y Garantía Hipotecaria';
@@ -77,11 +78,12 @@ class ServiceContratoMutuoSeed extends Seeder
         //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
         $serviceFind->expenses()->attach( $ISNJIN->id,['cost' => '','input_name' => 'isnjin' ,'type_input' => 'text' ] );
         //estos hay que multiplicarlos por el numero de certificados que se realizaran el cual es un dato de entrada
-        $serviceFind->expenses()->attach($Certificacion->id,['cost' => '200','input_name' => 'certificados','type_input' => 'checkbox' ] );
+        $serviceFind->expenses()->attach($Certificacion->id,['cost' => '200','input_name' => 'certificados','type_input' => 'hidden' ] );
         //numero de certificados
         $serviceFind->expenses()->attach($CertifcadosN->id,['cost' => '0','input_name' => 'ncertificados','type_input' => 'number' ] );
 
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '1000','input_name' => 'gastros_registro','type_input' => 'checkbox'] );
+        $serviceFind->expenses()->attach($RegistroN->id,['cost' => '1','input_name' => 'ngastos_resgistro','type_input' => 'hidden'] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '1000','input_name' => 'gastos_registro','type_input' => 'hidden'] );
 
         $serviceFind->participant_type_service()->attach($AcreedorType[0]->id );
         $serviceFind->participant_type_service()->attach($DeudorType[0]->id );

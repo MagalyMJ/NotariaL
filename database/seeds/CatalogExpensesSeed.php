@@ -20,6 +20,7 @@ class CatalogExpensesSeed extends Seeder
         	'Valor de Operación',
         	'Gastos de Registro',
         	'Nº Propiedades',
+        	'Nº Registros',
         	'Nº Lotes',
         	'Cacelacion de Hipotecas',
         	'Nº Hipotecas Canceladas',
