@@ -58,124 +58,13 @@ class BudgetController extends Controller
         $date = date('d-m-Y');
 
 
-        switch ($Budget->case_service->service->name) {
-
-            case 'Testamento':
-
-                $view =  \View::make('pdf.TestamentoBudget', compact('date','Budget'))->render();
-                break;
-            case 'Contrato Compra Venta':
-
-                $view =  \View::make('pdf.CompraVentaBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Donaciones':
-
-                $view =  \View::make('pdf.DonacionesBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Acta Constitutiva':
-
-                $view =  \View::make('pdf.ActaConstitutivaBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Contrato mutuo con Interés y Garantía Hipotecaria':
-
-                $view =  \View::make('pdf.MutuoInteresBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Cancelacion de Hipoteca':
-
-                $view =  \View::make('pdf.CancelacionHipotecaBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Poder General':
-
-                $view =  \View::make('pdf.PoderGeneralBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Sucesiónes Intestamentaría':
-
-                $view =  \View::make('pdf.SucesionesIntestamentariaBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Sucesiónes Testamentaría':
-
-            // NO ESTA TOMANDO SU VISTA DE PDF Call to undefined method DOMText::getAttribute()
-                $view =  \View::make('pdf.budgetPDF', compact('date','Budget'))->render();
-                break;
-
-            case 'Capitulaciones Matrimoniales':
-
-                $view =  \View::make('pdf.MatrimonialesBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Fe de Hechos':
-
-                $view =  \View::make('pdf.FedeHechosBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Revocación de Poder':
-
-                $view =  \View::make('pdf.RevocacionPoderBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Adjudicación Testamentaria':
-
-                $view =  \View::make('pdf.AdjudicacionTestamentariaBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Reconocimiento y Aceptación de Herencia':
-
-                $view =  \View::make('pdf.ReconocimientoAceptacionHerenciaBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Cotejo y Certificación':
-
-                $view =  \View::make('pdf.CotejoCertificacionBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Protocolización de Acta de Asamblea':
-
-                $view =  \View::make('pdf.ActaAsambleaBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Protocolización de Subdivisión':
-
-                $view =  \View::make('pdf.SubdivisionBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Dacion en Pago':
-
-                $view =  \View::make('pdf.DacionPagoBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Permutas':
-
-                $view =  \View::make('pdf.PermutasBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Adjudicación Judicial':
-
-                $view =  \View::make('pdf.AdjudicacionJudicialBudget', compact('date','Budget'))->render();
-                break;
-
-            case 'Cotejo y Ratificacion':
-
-                $view =  \View::make('pdf.CotejoRatificacionBudget', compact('date','Budget'))->render();
-                break;
-            
-            default:
-                
-                $view =  \View::make('pdf.budgetPDF', compact('date','Budget'))->render();
-                break;
-            }   
+        $view = $this->TypeServicePDF($Budget->case_service->service->name,$date,$Budget);
 
          
         
-         $pdf = \App::make('dompdf.wrapper');
+        $pdf = \App::make('dompdf.wrapper');
 
-         $pdf->loadHTML($view);
+        $pdf->loadHTML($view);
 
         return $pdf->stream('PDF');
     }
@@ -329,5 +218,126 @@ class BudgetController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+/**
+     * Escoje la vista del prespupesto en PDF dependiendo del servico  
+     *
+     * @param  string  $typeService, string $date, Model Objegt $Budget
+     * @return View
+     */
+    public function TypeServicePDF($typeService,$date,$Budget){
+         switch ($typeService) {
+
+            case 'Testamento':
+
+                return \View::make('pdf.TestamentoBudget', compact('date','Budget'))->render();
+                break;
+            case 'Contrato Compra Venta':
+
+                return  \View::make('pdf.CompraVentaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Donaciones':
+
+                return  \View::make('pdf.DonacionesBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Acta Constitutiva':
+
+                return  \View::make('pdf.ActaConstitutivaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Contrato mutuo con Interés y Garantía Hipotecaria':
+
+                return  \View::make('pdf.MutuoInteresBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Cancelacion de Hipoteca':
+
+                return  \View::make('pdf.CancelacionHipotecaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Poder General':
+
+                return  \View::make('pdf.PoderGeneralBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Sucesiónes Intestamentaría':
+
+                return  \View::make('pdf.SucesionesIntestamentariaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Sucesiónes Testamentaría':
+
+            // NO ESTA TOMANDO SU VISTA DE PDF Call to undefined method DOMText::getAttribute()
+                return  \View::make('pdf.SucesionesTestamentariaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Capitulaciones Matrimoniales':
+
+                return  \View::make('pdf.MatrimonialesBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Fe de Hechos':
+
+                return  \View::make('pdf.FedeHechosBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Revocación de Poder':
+
+                return  \View::make('pdf.RevocacionPoderBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Adjudicación Testamentaria':
+
+                $view =  \View::make('pdf.AdjudicacionTestamentariaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Reconocimiento y Aceptación de Herencia':
+
+                return  \View::make('pdf.ReconocimientoAceptacionHerenciaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Cotejo y Certificación':
+
+                return  \View::make('pdf.CotejoCertificacionBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Protocolización de Acta de Asamblea':
+
+                return  \View::make('pdf.ActaAsambleaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Protocolización de Subdivisión':
+
+                return  \View::make('pdf.SubdivisionBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Dacion en Pago':
+
+                return  \View::make('pdf.DacionPagoBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Permutas':
+
+                return  \View::make('pdf.PermutasBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Adjudicación Judicial':
+
+                return  \View::make('pdf.AdjudicacionJudicialBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Cotejo y Ratificacion':
+
+                return  \View::make('pdf.CotejoRatificacionBudget', compact('date','Budget'))->render();
+                break;
+            
+            default:
+                
+                $view =  \View::make('pdf.budgetPDF', compact('date','Budget'))->render();
+                break;
+            } 
     }
 }
