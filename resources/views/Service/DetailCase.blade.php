@@ -21,10 +21,10 @@
 		<section id="thisCase_Data">
 			<h3>Detalles de caso </h3>
 			<p class="text-center">Detalle de Servicio: {{ $ServiceCase->service_detail}} </p>		
-			<p class="text-center">Lugar: {{ $ServiceCase->place }} </p>		
-			<p class="text-center">Progreso: {{ $ServiceCase->progress}} </p>		
-			<p class="text-center">Avisos: {{ $ServiceCase->notices}} </p>		
+			<p class="text-center">Lugar: {{ $ServiceCase->place }} </p>
 			<p class="text-center">Observaciones: {{ $ServiceCase->observations}} </p>		
+			<p class="text-center">Progreso: {{ $ServiceCase->progress}} </p>		
+			<p class="text-center">Avisos: {{ $ServiceCase->notices}} </p>				
 			<a class="input budget-button"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> Editar </a> 		   
 
 		</section>
@@ -43,9 +43,8 @@
 			<p class="text-center">Varios: ${{ $ServiceCase->budget->miscellaneous_expense}} </p>		
 			<p class="text-center">Anticipo: $ {{ $ServiceCase->budget->advance_payment}} </p>		
 		
-
-			<!-- <p class="text-center">Encargado: {{ $ServiceCase->budget->user->name." ".$ServiceCase->budget->user->fathers_last_name }} </p>		 -->
-			
+			<a class="input budget-button"  href="{{route('PdfBuget',$ServiceCase->budget->id) }}" target="_blank">PDF</a>
+				<br>
 			<a class="input budget-button"  href="{{route('EditBudget',$ServiceCase->budget->id) }}"> Editar </a> 		   
 		
 		</section>

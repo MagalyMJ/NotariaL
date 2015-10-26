@@ -71,7 +71,7 @@ class ServiceController extends Controller
         }
 
         //Despues de escojer a los partisipantes, llenaremos el presupuesto
-        return Redirect::route('EditBudget', array('id_presupuesto' => $CaseBudget->id));
+        return Redirect::route('Edit_Case_path', array('id_presupuesto' => $CaseBudget->id));
         //return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase, 'id_service' => $id_service ,'documents'=> $service->documents ]);
     }
 
@@ -115,7 +115,7 @@ class ServiceController extends Controller
         //
         
         $ShowCase = CaseService::find($id_caseService);
-        //dd($ShowCase);
+        // dd($ShowCase);
         return view('Service.DetailCase',['ServiceCase' => $ShowCase ]);
 
     }
@@ -145,7 +145,15 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        dd($request);
+        $UpdateCase = CaseService::find($id);
+
+        $UpdateCase->place = $request->place;
+        $UpdateCase->service_detail = $request->service_detail;
+        $UpdateCase->observations = $request->observations;
+
+        $UpdateCase->save();
+
+        return Redirect::route('Show_Case_path', array('id_caseService' => $UpdateCase->id));
     }
 
     /**

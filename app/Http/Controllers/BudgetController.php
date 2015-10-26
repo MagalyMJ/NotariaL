@@ -45,7 +45,7 @@ class BudgetController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource in PDF Format
      *
      * @param  int  $id
      * @return Response
@@ -53,6 +53,131 @@ class BudgetController extends Controller
     public function show($id)
     {
         //
+        $Budget = Budget::find($id);
+
+        $date = date('d-m-Y');
+
+
+        switch ($Budget->case_service->service->name) {
+
+            case 'Testamento':
+
+                $view =  \View::make('pdf.TestamentoBudget', compact('date','Budget'))->render();
+                break;
+            case 'Contrato Compra Venta':
+
+                $view =  \View::make('pdf.CompraVentaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Donaciones':
+
+                $view =  \View::make('pdf.DonacionesBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Acta Constitutiva':
+
+                $view =  \View::make('pdf.ActaConstitutivaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Contrato mutuo con Interés y Garantía Hipotecaria':
+
+                $view =  \View::make('pdf.MutuoInteresBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Cancelacion de Hipoteca':
+
+                $view =  \View::make('pdf.CancelacionHipotecaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Poder General':
+
+                $view =  \View::make('pdf.PoderGeneralBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Sucesiónes Intestamentaría':
+
+                $view =  \View::make('pdf.SucesionesIntestamentariaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Sucesiónes Testamentaría':
+
+            // NO ESTA TOMANDO SU VISTA DE PDF Call to undefined method DOMText::getAttribute()
+                $view =  \View::make('pdf.budgetPDF', compact('date','Budget'))->render();
+                break;
+
+            case 'Capitulaciones Matrimoniales':
+
+                $view =  \View::make('pdf.MatrimonialesBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Fe de Hechos':
+
+                $view =  \View::make('pdf.FedeHechosBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Revocación de Poder':
+
+                $view =  \View::make('pdf.RevocacionPoderBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Adjudicación Testamentaria':
+
+                $view =  \View::make('pdf.AdjudicacionTestamentariaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Reconocimiento y Aceptación de Herencia':
+
+                $view =  \View::make('pdf.ReconocimientoAceptacionHerenciaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Cotejo y Certificación':
+
+                $view =  \View::make('pdf.CotejoCertificacionBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Protocolización de Acta de Asamblea':
+
+                $view =  \View::make('pdf.ActaAsambleaBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Protocolización de Subdivisión':
+
+                $view =  \View::make('pdf.SubdivisionBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Dacion en Pago':
+
+                $view =  \View::make('pdf.DacionPagoBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Permutas':
+
+                $view =  \View::make('pdf.PermutasBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Adjudicación Judicial':
+
+                $view =  \View::make('pdf.AdjudicacionJudicialBudget', compact('date','Budget'))->render();
+                break;
+
+            case 'Cotejo y Ratificacion':
+
+                $view =  \View::make('pdf.CotejoRatificacionBudget', compact('date','Budget'))->render();
+                break;
+            
+            default:
+                
+                $view =  \View::make('pdf.budgetPDF', compact('date','Budget'))->render();
+                break;
+            }   
+
+         
+        
+         $pdf = \App::make('dompdf.wrapper');
+
+         $pdf->loadHTML($view);
+
+        return $pdf->stream('PDF');
     }
 
     /**
@@ -80,6 +205,7 @@ class BudgetController extends Controller
     public function update(Request $request, $id)
     {
         //
+       
         $Upddate = Budget::find($id);
 
     /* -------------------- Calculo o Asignacion de Honorarios Base Y Excepciónes de ISABI ------------------------------------------------------------------------*/
@@ -112,20 +238,20 @@ class BudgetController extends Controller
         //Gastos de Registro e Hipotecas
          //Podemos hacer lo con el input que nos da el request o con esta consulta 
           //de igual forma para todos los  que ocupend un numero determidaod para calcular su todal (certificados,Gastos de Registro,Cancelaciones)
-          $Upddate->n_registration = $request->ngastos_registro;
-         //$Upddate->total_registration_costs = $request->ngastos_registro * $Upddate->case_service->service->expenses->where('expense_name', "Gastos de Registro")->first()->pivot->cost;
-         $Upddate->total_registration_costs = $request->gastos_registro * $request->ngastos_registro;
+          $Upddate->n_registration = $request->ngastos_resgistro;
+         //$Upddate->total_registration_costs = $request->ngastos_resgistro * $Upddate->case_service->service->expenses->where('expense_name', "Gastos de Registro")->first()->pivot->cost;
+         $Upddate->total_registration_costs = $request->gastos_registro * $request->ngastos_resgistro;
 
         $Upddate->n_certificates =  $request->ncertificados;
-        //$Upddate->total_registration_costs = $request->ngastos_registro * $Upddate->case_service->service->expenses->where('expense_name', "Certificados")->first()->pivot->cost;
+        //$Upddate->total_registration_costs = $request->ngastos_resgistro * $Upddate->case_service->service->expenses->where('expense_name', "Certificados")->first()->pivot->cost;
         $Upddate->total_certified_expenditure =  $request->ncertificados * $request->certificados;;
 
 
         if ($Upddate->case_service->service->name == 'Dacion en Pago') {
             // En dacion de Pagos se Puede registrar la dacion de pago de la propiedad y la cancelacion de hipoteca de la propiedad 
             $hipotecas = $request->ncancelacion_hipoteca * $request->cancelacion_hipoteca;
-            $registro = $request->gastos_registro * $request->ngastos_registro;
-            $Upddate->n_registration = $request->ncancelacion_hipoteca + $request->ngastos_registro;
+            $registro = $request->gastos_registro * $request->ngastos_resgistro;
+            $Upddate->n_registration = $request->ncancelacion_hipoteca + $request->ngastos_resgistro;
 
             $Upddate->total_registration_costs = $registro + $hipotecas;
         } 
@@ -147,6 +273,7 @@ class BudgetController extends Controller
         // PREGUNTAR SOBRE COMO SE MANJEAN LOS RECARGOS
         $Upddate->surcharges = $request->surcharges;
     /* --------------------------------------------------------------------------------------------*/
+    /* ------------------Calculos de IVA---------------------------------------------------------------*/
 
         switch ($Upddate->case_service->service->name) {
             case 'Fe de Hechos':
@@ -180,6 +307,7 @@ class BudgetController extends Controller
                 break;
         }
 
+    /* --------------------------------------------------------------------------------------------*/
          
 
         $Upddate->sub_total = $Upddate->SubTotal();

@@ -9,7 +9,7 @@
 		<h1>Escritura Nº {{$ServiceCase->id}}</h1>
 		<h3>{{$ServiceCase->service->name}}</h3>
 
-	 <form id="Edit_Case" action="{{route('UpdateBudget',$ServiceCase->id) }}" method='post' class="form_data aling_block">  
+	 <form id="Edit_Case" action="{{route('Update_Case_path',$ServiceCase->id) }}" method='post' class="form_data aling_block">  
    		{{csrf_field()}}
 		
 		<label for="service_detail">Detalle del Servicio</label> 

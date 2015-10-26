@@ -49,6 +49,7 @@ class ServiceIntestamentariaSeed extends Seeder
         $Honorarios = Expense::where('expense_name','Honorarios')->first();
         $ValorOperacion = Expense::where('expense_name','Valor de Operación')->first();
         $ISABI = Expense::where('expense_name','ISABI')->first();
+        $Catastral = Expense::where('expense_name','Avalúo Catastral')->first();
         $Comercial = Expense::where('expense_name','Avalúo Comercial')->first();
         $ISR = Expense::where('expense_name','ISR')->first();
         $Certificacion = Expense::where('expense_name','Certificados')->first();
@@ -71,7 +72,7 @@ class ServiceIntestamentariaSeed extends Seeder
 
         //El valor de operacion se deja vacio porque se sera un dato de entrada
         $serviceFind->expenses()->attach( $ValorOperacion->id,['cost' => '','input_name' => 'valor_operacion' ,'type_input' => 'text' ] );
-
+        $serviceFind->expenses()->attach( $Catastral->id,['cost' => '120','input_name' => 'avaluo_catastral','type_input' => 'checkbox' ] );
         //este es requerido pero su valor sera dependiendo del valor de operacion ISABI = 2% del Valor de Operación todos los servicios (exepto en Donación en Aguascalientes hay es 0%) - conjugues parientes de primer grado no aplica
         $serviceFind->expenses()->attach( $ISABI->id,['cost' => '','input_name' => 'isabi','type_input' => 'hidden' ] );
         //Todos los servcios con ISABI llevan avaluo comercial

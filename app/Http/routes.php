@@ -71,6 +71,7 @@ Route::post('nuevo/{id_service}/caso/',[
 	'uses' =>'ServiceController@create',
 	'as' => 'crearCaso',
 	]);
+
 //Mostrar el formulario para registrar un cliente 
 Route::get('cliente/nuevo/{id_service?}',[
 	'uses' => 'CustomerController@create',
@@ -82,6 +83,8 @@ Route::post('cliente/nuevo',[
 	'as' => 'customer_new_path',
 	]);
 
+
+//Muestra el formularo  para editar un presupesto
 Route::get('presupuesto/{id_presupuesto}',[
 	'uses' =>'BudgetController@edit',
 	'as' => 'EditBudget',
@@ -90,6 +93,14 @@ Route::post('presupuesto/{id_presupuesto}',[
 	'uses' =>'BudgetController@update',
 	'as' => 'UpdateBudget',
 	]);
+
+Route::get('Presupuestopdf/{id_presupuesto}', [
+		'uses' =>'BudgetController@show',
+		'as' => 'PdfBuget',]);
+
+// Route::get('Presupuestopdf', [
+// 		'uses' =>'PDFController@bugetPDF',
+// 		'as' => 'PdfBuget',]);
 
 // Route::post('nuevo/{id_service}/caso/{id_caseService}',[
 

@@ -61,7 +61,6 @@ class ServiceDonacionesSeed extends Seeder
         $Gestoria = Expense::where('expense_name','Gestoria de Escritura')->first();
         $ISABI = Expense::where('expense_name','ISABI')->first();
         $Comercial = Expense::where('expense_name','Avalúo Comercial')->first();
-        $ISR = Expense::where('expense_name','ISR')->first();
         $Certificacion = Expense::where('expense_name','Certificados')->first();
         $CertifcadosN = Expense::where('expense_name','NºCertificados')->first();
         $Registro = Expense::where('expense_name','Gastos de Registro')->first();
@@ -93,8 +92,7 @@ class ServiceDonacionesSeed extends Seeder
         $serviceFind->expenses()->attach( $ISABI->id,['cost' => '','input_name' => 'isabi','type_input' => 'hidden' ] );
         //Todos los servcios con ISABI llevan avaluo comercial
         $serviceFind->expenses()->attach( $Comercial->id,['cost' => '1300','input_name' => 'avaluo_comercial','type_input' => 'checkbox'] );
-        //Este es requerdio para el presupeusto de este tipo de servicios pero es un valor que nos van a integrar 
-        $serviceFind->expenses()->attach( $ISR->id,['cost' => '','input_name' => 'isr','type_input' => 'text' ] );
+
         //estos hay que multiplicarlos por el numero de certificados que se realizaran el cual es un dato de entrada
         $serviceFind->expenses()->attach($Certificacion->id,['cost' => '200','input_name' => 'certificados','type_input' => 'hidden' ] );
         //numero de certificados
