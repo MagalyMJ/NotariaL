@@ -31,4 +31,9 @@ class CaseService extends Model
         return $this->belongsTo(Service::class);
     }
 
+     public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
 }
