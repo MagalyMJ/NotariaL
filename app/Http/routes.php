@@ -98,6 +98,14 @@ Route::get('Presupuestopdf/{id_presupuesto}', [
 		'uses' =>'BudgetController@show',
 		'as' => 'PdfBuget',]);
 
+//Muestra el Formulario para crar un pago nuevo 
+Route::get('Pagos/{id_caseService}', [
+		'uses' =>'PaymentController@create',
+		'as' => 'Payment_Create',]);
+Route::post('Pagos/{id_caseService}', [
+		'uses' =>'PaymentController@store',
+		'as' => 'Payment_Store',]);
+
 // Route::get('Presupuestopdf', [
 // 		'uses' =>'PDFController@bugetPDF',
 // 		'as' => 'PdfBuget',]);

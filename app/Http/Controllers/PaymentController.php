@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use NotiAPP\Http\Requests;
 use NotiAPP\Http\Controllers\Controller;
 
+use NotiAPP\Models\CaseService;
+use NotiAPP\Models\Payment;
+
 class PaymentController extends Controller
 {
     /**
@@ -20,23 +23,35 @@ class PaymentController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * 
+     *@param  int $id_caseService
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id_caseService)
     {
         //
+         $ServiceCase = CaseService::find($id_caseService);
+
+         return view('Payment.CratePayment',[ 'ServiceCase' => $ServiceCase]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request , Int $id_caseService
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id_caseService, Request $request)
     {
         //
+        dd($id_caseService,$request);
+        // $newPayment = new Payment;
+        // $newPayment->name = $request->name;
+        // $newPayment->payment_type = $request->payment_type;
+        // $newPayment->amount_to_pay = $request->amount_to_pay;
+
+
+
     }
 
     /**
