@@ -14,7 +14,7 @@ class CaseService extends Model
      *
      * @var array
      */
-    protected $fillable = ['place','progress','observations','service_detail','notices'];
+    protected $fillable = ['place','progress','observations','service_detail','notices','remaining'];
 
     public function customer()
     {

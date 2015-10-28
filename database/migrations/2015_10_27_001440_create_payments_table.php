@@ -22,7 +22,6 @@ class CreatePaymentsTable extends Migration
             $table->enum('payment_type',['efectivo','transferencia','cheque']); //tipo de Pago 
             $table->float('amount_to_pay')->unsigned(); // monto a pagar
 
-            $table->float('remaining')->unsigned(); // Restante a pagar 
 
             $table->timestamps(); //fecha de creacion y ultima actualizacion 
             

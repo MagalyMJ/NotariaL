@@ -68,7 +68,7 @@ Route::post('caso/{id_caseService}/edit',[
 
 //Una ves asinado un cliente se puede crear un caso completo.
 Route::post('nuevo/{id_service}/caso/',[
-	'uses' =>'ServiceController@create',
+	'uses' =>'ServiceController@store',
 	'as' => 'crearCaso',
 	]);
 

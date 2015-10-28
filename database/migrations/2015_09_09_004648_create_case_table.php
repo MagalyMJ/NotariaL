@@ -17,15 +17,17 @@ class CreateCaseTable extends Migration {
 		{
 			$table->increments('id');
 			
-			$table->integer('budget_id')->unsigned();
+			$table->integer('budget_id')->unsigned(); //prespuesto 
 			
-			$table->integer('service_id')->unsigned();
+			$table->integer('service_id')->unsigned(); //tipo de servicio
 
-			$table->string('place');
-			$table->enum('progress',['0','25','33','50','66','75','99','100']);
-			$table->enum('notices',['Sin','Primer','Segundo']);
-			$table->mediumText('observations');
-			$table->mediumText('service_detail');
+			$table->string('place'); // Lugar donde se realiza 
+			$table->enum('progress',['0','25','33','50','66','75','99','100']); //progreso
+			$table->enum('notices',['Sin','Primer','Segundo']); // avisos al caso 
+			$table->mediumText('observations');//observaciones 
+			$table->mediumText('service_detail'); //detalles del servicio
+
+            $table->float('remaining')->unsigned(); // Restante a pagar (del total del prespuesto aprovado - los pagos y el atisipo)
 
 			$table->timestamps();
 			

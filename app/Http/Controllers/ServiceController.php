@@ -38,12 +38,14 @@ class ServiceController extends Controller
             
     }
 
-    /**
-     * Show the form for creating a new resource.
+    
+     /**
+     * Store a newly created resource in storage.
      *
+     * @param  Request  $request
      * @return Response
      */
-    public function create(Request $request,$id_service)
+    public function store(Request $request,$id_service)
     {
        //  // Aqui se creara un nuevo caso
 
@@ -83,13 +85,12 @@ class ServiceController extends Controller
         return view('SelectCustomersforCase',[ 'customers' => $customers , 'id_service' => $id_service ]);
     }
     
-    /**
-     * Store a newly created resource in storage.
+   /**
+     * Show the form for creating a new resource.
      *
-     * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function create()
     {
         //
     }

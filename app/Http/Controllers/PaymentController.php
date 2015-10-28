@@ -3,6 +3,8 @@
 namespace NotiAPP\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+
 use NotiAPP\Http\Requests;
 use NotiAPP\Http\Controllers\Controller;
 
@@ -44,13 +46,29 @@ class PaymentController extends Controller
     public function store($id_caseService, Request $request)
     {
         //
-        dd($id_caseService,$request);
-        // $newPayment = new Payment;
-        // $newPayment->name = $request->name;
-        // $newPayment->payment_type = $request->payment_type;
-        // $newPayment->amount_to_pay = $request->amount_to_pay;
+         
+         $newPayment = new Payment;
+         $newPayment->name = $request->name;
+         $newPayment->payment_type = $request->payment_type;
+         $newPayment->amount_to_pay = $request->amount_to_pay;
 
+         $newPayment->save();
 
+        //realizamos la relacion del pago con el caso correspondiente
+         $CaseService = CaseService::find($id_caseService);
+
+         $CaseService->payment()->save($newPayment);
+         //suma de todos los pagos hechos incluido este ultimo
+         $sumPayment = 0;
+
+         foreach ($CaseService->payment as $payment) {
+            $sumPayment += $payment->amount_to_pay;
+        }
+        //el saldo restante a apgar se guarda en el caso
+        $CaseService->remaining =  $CaseService->budget->total - $sumPayment ;
+
+        $CaseService->save();
+        return Redirect::route('Show_Case_path', array('id_caseService' => $CaseService->id));
 
     }
 
