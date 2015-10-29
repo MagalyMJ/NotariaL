@@ -47,7 +47,7 @@
 				<br>
 			<a class="input budget-button"  href="{{route('EditBudget',$ServiceCase->budget->id) }}"> Editar </a> 
 				<br>		   
-			<a class="input budget-button"  href="{{route('Payment_Create',$ServiceCase->id) }}"> Hacer Pago</a> 		   
+			<a class="input budget-button"  href="{{route('Case_Payments',$ServiceCase->id) }}"> Pagos </a> 		   
 		
 		</section>
 

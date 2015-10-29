@@ -1,8 +1,6 @@
 @extends('layouts.homedefault')
 
 @section('content')
-<!-- Mostrara Todos los Casos Activos del servicio-Post  obtenido -->
-
 
 	<div class="block_container">
 		<h1>hacer un pago </h1>
@@ -25,6 +23,9 @@
       
       		<input type="submit" value="Guardar" class="input budget-button">
    	 	</form>
+
+      <a class="input budget-button" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
+
 	</div>
 
 @stop

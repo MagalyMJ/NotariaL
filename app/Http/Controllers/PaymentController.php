@@ -18,9 +18,16 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id_caseService)
     {
         //
+         $ServiceCase = CaseService::find($id_caseService);
+         $ServiceCase->SumPayments();
+         return view('Payment.ListCasePayments',[ 
+            'ServiceCase' => $ServiceCase,
+            'SumPayments' => $ServiceCase->SumPayments(), 
+            'BudgetTotal'=> $ServiceCase->budget->total,
+            'DiffToPay' =>  $ServiceCase->budget->total - $ServiceCase->SumPayments() ]);
     }
 
     /**
@@ -58,14 +65,9 @@ class PaymentController extends Controller
          $CaseService = CaseService::find($id_caseService);
 
          $CaseService->payment()->save($newPayment);
-         //suma de todos los pagos hechos incluido este ultimo
-         $sumPayment = 0;
-
-         foreach ($CaseService->payment as $payment) {
-            $sumPayment += $payment->amount_to_pay;
-        }
+        
         //el saldo restante a apgar se guarda en el caso
-        $CaseService->remaining =  $CaseService->budget->total - $sumPayment ;
+        $CaseService->remaining =  $CaseService->budget->total - $CaseService->SumPayments() ;
 
         $CaseService->save();
         return Redirect::route('Show_Case_path', array('id_caseService' => $CaseService->id));

@@ -36,4 +36,14 @@ class CaseService extends Model
         return $this->hasMany(Payment::class);
     }
 
+    public function SumPayments(){
+         //suma de todos los pagos hechos
+         $sumPayment = 0;
+
+         foreach ($this->payment as $payment) {
+            $sumPayment += $payment->amount_to_pay;
+        }
+        return $sumPayment;
+    }
+
 }

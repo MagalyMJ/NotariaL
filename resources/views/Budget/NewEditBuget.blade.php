@@ -86,7 +86,7 @@ function tipoPago(Pago){
 
 
       <input type="submit" value="Guardar" class="input budget-button">
-      <td class="text-center"> <a class="input budget-button" href="{{route('Show_Case_path',$Budget->case_service->id) }}"> Cancelar </a>
+      <a class="input budget-button" href="{{route('Show_Case_path',$Budget->case_service->id) }}"> Cancelar </a>
 
     </form>
   </div> 
