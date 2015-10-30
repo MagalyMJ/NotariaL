@@ -55,41 +55,7 @@
           
           <label for="postal_code">CP</label> 
      			<input name="postal_code" class="input long" id="postal_code" type="text" autocomplete="off" /> 
-     			 	
-  <!-- 
-
-     			<div class="controls-stacked">
-  					<label class="control radio">
-  						<input name="testador" type="radio" id="testador">
-   						Testador
-					</label>
-					<label class="control radio">
-  						<input name="testigo" type="radio" id="testigos" >
-  						Testigo
-					</label>
-					<textarea rows="4" cols="50" name="subject" placeholder="Observaciones" class="message_area" ></textarea>
-				</div>
-
-       
-  		
-          <div class="controls-stacked form_data">
-  				  <label class="control checkbox">
-  					 <input type="checkbox" id="identificacion" name="checkbox">
-   				 	 Identificacion
-				  </label>
-
-				  <label class="control checkbox">
-  				  	<input type="checkbox" id="escrituras" name="checkbox">
-  				  	Escrituras
-				  </label>
-
-
-				  <label  for="opertationValue"class="control checkbox">
-  			 		Valor de operacion
-				  </label>
-			   	<input class="input" id="opertationValue" type="text" autocomplete="off"/>
-       </div>
- -->
+     	
 
         <input id="id_service" name="id_service" type="hidden" value="{{$id_service}}">
         <input type="submit" value="Registrar" class="input budget-button">

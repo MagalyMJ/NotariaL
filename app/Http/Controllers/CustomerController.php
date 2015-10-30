@@ -33,18 +33,19 @@ class CustomerController extends Controller
      *
      * @return Response
      */
-    public function create($id_service = null)
+    public function create($id_service)
     {
         //
-        return view('custumerAdd',['id_service'=>$id_service]);
+        return view('custumerAdd',['id_service'=> $id_service]);
     } 
     
 public function addCustumer(Request $request)
     {
         $addCustumer = new Customer;
         $addres = new Address;
-         if (empty($request->id_service)){  
-         //El Registro proviene de unar ruta de SelectCustomerForCase > No estaba registrado > Crear uno nuevo > Formulario  
+         if ( !empty($request->id_service) ){  
+         //El Registro proviene de unar ruta de SelectCustomerForCase > No estaba registrado > Crear uno nuevo > Formulario
+         //una ves registrado  le asignamos un caso dependiendo del servicio   
                 $addCustumer->name = $request->name;
                 $addCustumer->fathers_last_name = $request->fathers_last_name;
                 $addCustumer->mothers_last_name = $request->mothers_last_name;
@@ -83,7 +84,7 @@ public function addCustumer(Request $request)
                 //Le Relacionamos el Cliente que Se Registro
                 $CreateCase->customer()->attach($customer->id);
 
-                //Le Buscamos Un USUARIO (el primer con permiso de manager)
+                //Le Buscamos Un USUARIO (el primer con permiso de manager) Sustituri por quien tenga la secion.
                 $User = User::where('user_type','manager')->first();
 
 
@@ -95,53 +96,40 @@ public function addCustumer(Request $request)
                 //
 
                 return Redirect::route('Show_Case_path', array('id_caseService' => $CreateCase->id ));
+         }else{
+            //cuando no provenga de la creacion de un caso, si no de otro modulo, Solo registramos al cliente 
+            //no le asignamos un caso. 
+            $addCustumer->name = $request->name;
+                $addCustumer->fathers_last_name = $request->fathers_last_name;
+                $addCustumer->mothers_last_name = $request->mothers_last_name;
+                $addCustumer->rfc = $request->rfc;
+                $addCustumer->from = $request->from;
+                $addCustumer->birthdate = $request->birth_day;
+                $addCustumer->occupation = $request->occupation;
+                $addCustumer->marital_status = $request->marital_status;
+                $addCustumer->phone = $request->phone;
+        
+                $addCustumer->save();
+
+                //aun esta instanciado a si que tenemos su id 
+                $insertedId = $addCustumer->id;
+
+                //instanciamos una direccion 
+                $addres->street = $request->street;
+                $addres->number = $request->number;
+                $addres->colony = $request->colony;
+                $addres->postal_code = $request->postal_code;
+
+                //buscamos al cliente para asignarle su direcion y su id de partticipante, caso  
+                $customer = Customer::find($insertedId);
+
+                $addres = $customer->address()->save($addres);
+                return view('home'); 
          }
 
         
-        dd($request);
+        dd("CustomerController.addCustumer");
          
-    }
-    public function addCustumerCase(Request $request)
-    {
-        // Aqui se creara un nuevo caso de testamento
-        //dd($request->all());
-
-        $case = new CaseService; 
-        $buget = new Budget;
-
-        //instanciamos un caso 
-        $case->place = 'Aguascalietnes';
-        $case->progress = 1;
-        $case->observations = $request->subject;
-        
-        //buscamos al cliente para asignarle su direcion y su id de partticipante, caso
-        // hay que mandarlo por un parametro   
-        $custumer = Customer::find($request->idcustomer);
-
-        // Como primer prametro se guarda el caso al que estara relacionado, y como segundo parametro
-        // se pone un atributo de la tabla pibote entre estas dos con su valor asignado
-        // la relacion es efectuada por eloquent 
-
-       $case = $custumer->case_service()->save($case,['participants_type' => 'testigo'/*$request->participants_type*/ ]);
-
-        $newcase = CaseService::find($case->id);
-        //inicalizamos el presupuesto 
-        
-        $buget->service_id = 1;
-        $buget->user_id = 4;
-        $buget->approved = 0;
-        $buget->invoiced = 0;
-        $buget->payment_type = 1;
-        $buget->operation_value = $request->operationValue;
-        $buget->commission = 0.8;
-        $buget->cost = $request->operationValue + ($request->operationValue * 0.8);
-       
-
-        $buget = $newcase->budget()->save($buget);
-
-        $case->budget()->save($buget);
-       
-        return view('home');
     }
     /**
      * Store a newly created resource in storage.
