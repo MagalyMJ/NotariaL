@@ -97,7 +97,7 @@ class Budget extends Model
 
          return  $this->fee + $this->total_extra_hours - $this->discount 
                     + $this->travel_expenses + $this->miscellaneous_expense 
-                    + $this->surcharges + $this->isr + $this->isnjin + $this->isabi 
+                    + $this->surcharges + $this->isr + $this->isnjin + $this->isabi + $this->edicts 
                     + $this->property_valuation + $this->commercial_appraisal + $this->writing_management 
                     + $this->total_registration_costs + $this->total_certified_expenditure  + $this->total_extra_paper;
               
