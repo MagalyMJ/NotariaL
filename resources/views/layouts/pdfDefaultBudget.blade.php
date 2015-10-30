@@ -11,9 +11,8 @@
 
 <!-- Favicons
   ================================================== -->
-
-
 </head>
+  <img src="{{ asset('img/logo.png') }}" alt="">
 	<body>
 	<section>
 		<h2>Presupuesto de Escritura Nº {{ $Budget->case_service->id}}</h2>
@@ -71,6 +70,7 @@
     					<td class="text-center">$ {{$Budget->total}}</td>
     				</tr>
     	</table>
+      <h3>Solicitando un Anticipo de ${{$Budget->advance_payment}}</h3>
 	</section>
 
 	</body>
