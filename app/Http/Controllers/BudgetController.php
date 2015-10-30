@@ -356,103 +356,102 @@ class BudgetController extends Controller
                 break;
             case 'Contrato Compra Venta':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.CompraVentaEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Donaciones':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.DonacionesEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Acta Constitutiva':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.ActaConstitutivaEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Contrato mutuo con Interés y Garantía Hipotecaria':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.MutuoInteresEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Cancelacion de Hipoteca':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.CancelacionHipotecaEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Poder General':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.PoderGeneralEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Sucesiónes Intestamentaría':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.SucesionesIntestamentariaEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Sucesiónes Testamentaría':
 
-            // NO ESTA TOMANDO SU VISTA DE PDF Call to undefined method DOMText::getAttribute()
-                return "sin Vista";
+                return view('Budget.BudgetEdit.SucesionesTestamentariaEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Capitulaciones Matrimoniales':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.MatrimonialesEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Fe de Hechos':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.FeHechosEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Revocación de Poder':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.RevocacionPoderEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Adjudicación Testamentaria':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.AdjudicacionTestamentariaEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Reconocimiento y Aceptación de Herencia':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.AceptacionHerenciaEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Cotejo y Certificación':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.CotejoCertificacionEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Protocolización de Acta de Asamblea':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.ActaAsambleaEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Protocolización de Subdivisión':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.SubdivisionEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Dacion en Pago':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.DacionPagoEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Permutas':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.PermutasEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Adjudicación Judicial':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.AdjudicacionJudicialEditBudget',[ 'Budget' => $Budget ]);
                 break;
 
             case 'Cotejo y Ratificacion':
 
-                return "sin Vista";
+                return view('Budget.BudgetEdit.CotejoRatificacionEditBudget',[ 'Budget' => $Budget ]);
                 break;
             
             default:

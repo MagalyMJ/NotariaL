@@ -43,16 +43,8 @@ function tipoPago(Pago){
    {{csrf_field()}}
 
   
-      <!-- Inpust que se Quitaran dependiendo del servicio -->
+    <!-- Inpust que se Quitaran dependiendo del servicio -->
  
-      <!-- @foreach($Budget->case_service->service->expenses as $Expense )
-
-      <label for="">{{ $Expense->expense_name .': '.$Expense->pivot->cost }} </label> 
-      <input name="{{ $Expense->pivot->input_name }}" class="input long" id="" type="{{ $Expense->pivot->type_input }}" autocomplete="off" value="{{ $Expense->pivot->cost }}" />
-
-                    
-      @endforeach -->
-
       @yield('SpecialInputs')
 
   <!-- Inputs por default de un presupesto -->
