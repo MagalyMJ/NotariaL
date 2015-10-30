@@ -14,7 +14,7 @@ class CaseService extends Model
      *
      * @var array
      */
-    protected $fillable = ['place','progress','observations','service_detail','notices'];
+    protected $fillable = ['place','progress','observations','service_detail','notices','remaining'];
 
     public function customer()
     {
@@ -29,6 +29,21 @@ class CaseService extends Model
      public function service()
     {
         return $this->belongsTo(Service::class);
+    }
+
+     public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    public function SumPayments(){
+         //suma de todos los pagos hechos
+         $sumPayment = 0;
+
+         foreach ($this->payment as $payment) {
+            $sumPayment += $payment->amount_to_pay;
+        }
+        return $sumPayment;
     }
 
 }

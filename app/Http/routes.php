@@ -68,7 +68,7 @@ Route::post('caso/{id_caseService}/edit',[
 
 //Una ves asinado un cliente se puede crear un caso completo.
 Route::post('nuevo/{id_service}/caso/',[
-	'uses' =>'ServiceController@create',
+	'uses' =>'ServiceController@store',
 	'as' => 'crearCaso',
 	]);
 
@@ -97,6 +97,19 @@ Route::post('presupuesto/{id_presupuesto}',[
 Route::get('Presupuestopdf/{id_presupuesto}', [
 		'uses' =>'BudgetController@show',
 		'as' => 'PdfBuget',]);
+
+//Mostrar la Pagina de Pagos de un caso 
+Route::get('PagosdeCaso/{id_caseService}', [
+		'uses' =>'PaymentController@index',
+		'as' => 'Case_Payments',]);
+
+//Muestra el Formulario para crar un pago nuevo 
+Route::get('Pago/{id_caseService}', [
+		'uses' =>'PaymentController@create',
+		'as' => 'Payment_Create',]);
+Route::post('Pago/{id_caseService}', [
+		'uses' =>'PaymentController@store',
+		'as' => 'Payment_Store',]);
 
 // Route::get('Presupuestopdf', [
 // 		'uses' =>'PDFController@bugetPDF',
