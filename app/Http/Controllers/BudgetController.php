@@ -78,9 +78,9 @@ class BudgetController extends Controller
     public function edit($id)
     {
         //
-        $users = User::where('user_type', 'manager' )->get();
         $Budget = Budget::find($id);
-        return view('Budget.NewEditBuget',[ 'Budget' => $Budget, 'users' =>$users]);
+       
+       return $this->EditBugetTypeService($Budget->case_service->service->name,$Budget);
  
     }
 
@@ -97,7 +97,7 @@ class BudgetController extends Controller
        
         $Upddate = Budget::find($id);
 
-    /* -------------------- Calculo o Asignacion de Honorarios Base Y Excepciónes de ISABI ------------------------------------------------------------------------*/
+        /* -------------------- Calculo o Asignacion de Honorarios Base Y Excepciónes de ISABI ------------------------------------------------------------------------*/
         $Upddate->operation_value = $request->valor_operacion;
 
         //Calculamos o no Los honorarios
@@ -144,69 +144,69 @@ class BudgetController extends Controller
 
             $Upddate->total_registration_costs = $registro + $hipotecas;
         } 
-    /* --------------------------------------------------------------------------------------------*/
-    /* --------------------------------GENERALES---------------------------------------------------*/
+        /* --------------------------------------------------------------------------------------------*/
+        /* --------------------------------GENERALES---------------------------------------------------*/
 
-        $Upddate->property_valuation = $request->avaluo_catastral; //como es un checbox solo se agregara si esta seleccioando
-        $Upddate->commercial_appraisal = $request->avaluo_comercial; //como es un checbox solo se agregara si esta seleccioando
-        $Upddate->writing_management = $request->gestoria;  //como es un checbox solo se agregara si esta seleccioando
-        $Upddate->isr = $request->isr;
-        $Upddate->isnjin= $request->isnjin;
+            $Upddate->property_valuation = $request->avaluo_catastral; //como es un checbox solo se agregara si esta seleccioando
+            $Upddate->commercial_appraisal = $request->avaluo_comercial; //como es un checbox solo se agregara si esta seleccioando
+            $Upddate->writing_management = $request->gestoria;  //como es un checbox solo se agregara si esta seleccioando
+            $Upddate->isr = $request->isr;
+            $Upddate->isnjin= $request->isnjin;
 
-        $Upddate->advance_payment = $request->advance_payment;
-        $Upddate->payment_type = $request->payment_type;
-        $Upddate->discount = $request->discount;
-        $Upddate->miscellaneous_expense = $request->miscellaneous_expense;
-        $Upddate->travel_expenses = $request->travel_expenses;
+            $Upddate->advance_payment = $request->advance_payment;
+            $Upddate->payment_type = $request->payment_type;
+            $Upddate->discount = $request->discount;
+            $Upddate->miscellaneous_expense = $request->miscellaneous_expense;
+            $Upddate->travel_expenses = $request->travel_expenses;
 
-        // PREGUNTAR SOBRE COMO SE MANJEAN LOS RECARGOS
-        $Upddate->surcharges = $request->surcharges;
-    /* --------------------------------------------------------------------------------------------*/
-    /* ------------------Calculos de IVA---------------------------------------------------------------*/
+            // PREGUNTAR SOBRE COMO SE MANJEAN LOS RECARGOS
+            $Upddate->surcharges = $request->surcharges;
+        /* --------------------------------------------------------------------------------------------*/
+        /* ------------------Calculos de IVA---------------------------------------------------------------*/
 
-        switch ($Upddate->case_service->service->name) {
-            case 'Fe de Hechos':
-                        $Upddate->n_extra_hours = $request->nhora_extra;
-                        //los honorarios tiene un cosot fijo e incrementa por por el numero de horas extra 
-                        $Upddate->total_extra_hours = $request->hora_extra * $Upddate->n_extra_hours;
-                        if ($request->invoiced == '1') {
-                            //calculamos el iva a agregar en base a los honorarios 
-                            $Upddate->iva =  (($Upddate->fee + $Upddate->total_extra_hours) * 16)/100;
-                            $Upddate->invoiced =  $request->invoiced; //indicamos que el servicio va facturado en la bace de datos
-                        }
+            switch ($Upddate->case_service->service->name) {
+                case 'Fe de Hechos':
+                            $Upddate->n_extra_hours = $request->nhora_extra;
+                            //los honorarios tiene un cosot fijo e incrementa por por el numero de horas extra 
+                            $Upddate->total_extra_hours = $request->hora_extra * $Upddate->n_extra_hours;
+                            if ($request->invoiced == '1') {
+                                //calculamos el iva a agregar en base a los honorarios 
+                                $Upddate->iva =  (($Upddate->fee + $Upddate->total_extra_hours) * 16)/100;
+                                $Upddate->invoiced =  $request->invoiced; //indicamos que el servicio va facturado en la bace de datos
+                            }
+                    break;
+                
+                case 'Cotejo y Certificación':
+                            $Upddate->n_extra_paper = $request->nhonorarios_HojaExtra;
+                             //los honorarios tiene un cosot fijo e incrementa por el numero de hojas adicionales
+                            $Upddate->total_extra_paper = $request->honorarios_HojaExtra * $Upddate->n_extra_paper;
+                            if ($request->invoiced == '1') {
+                                 //calculamos el iva a agregar en base a los honorarios 
+                                $Upddate->iva =  (($Upddate->fee + $Upddate->total_extra_paper ) * 16)/100;
+                                $Upddate->invoiced =  $request->invoiced; //indicamos que el servicio va facturado en la bace de datos
+                            }
                 break;
-            
-            case 'Cotejo y Certificación':
-                        $Upddate->n_extra_paper = $request->nhonorarios_HojaExtra;
-                         //los honorarios tiene un cosot fijo e incrementa por el numero de hojas adicionales
-                        $Upddate->total_extra_paper = $request->honorarios_HojaExtra * $Upddate->n_extra_paper;
-                        if ($request->invoiced == '1') {
+                default:
+                    // Si se va a Facturar el Caso 
+                         if ($request->invoiced == '1') {
                              //calculamos el iva a agregar en base a los honorarios 
-                            $Upddate->iva =  (($Upddate->fee + $Upddate->total_extra_paper ) * 16)/100;
+                            $Upddate->iva =  ($Upddate->fee * 16)/100;
                             $Upddate->invoiced =  $request->invoiced; //indicamos que el servicio va facturado en la bace de datos
-                        }
-            break;
-            default:
-                // Si se va a Facturar el Caso 
-                     if ($request->invoiced == '1') {
-                         //calculamos el iva a agregar en base a los honorarios 
-                        $Upddate->iva =  ($Upddate->fee * 16)/100;
-                        $Upddate->invoiced =  $request->invoiced; //indicamos que el servicio va facturado en la bace de datos
-                      }
-                break;
-        }
+                          }
+                    break;
+            }
 
-    /* --------------------------------------------------------------------------------------------*/
-         
+        /* --------------------------------------------------------------------------------------------*/
+             
 
-        $Upddate->sub_total = $Upddate->SubTotal();
+            $Upddate->sub_total = $Upddate->SubTotal();
 
-        $Upddate->total = $Upddate->sub_total + $Upddate->iva;
+            $Upddate->total = $Upddate->sub_total + $Upddate->iva;
 
-        $Upddate->save();
+            $Upddate->save();
 
-        return Redirect::route('Show_Case_path', array('id_caseService' => $Upddate->case_service->id));
-        //dd($Upddate->case_service->id);
+            return Redirect::route('Show_Case_path', array('id_caseService' => $Upddate->case_service->id));
+            //dd($Upddate->case_service->id);
     }
 
     /**
@@ -337,6 +337,127 @@ class BudgetController extends Controller
             default:
                 
                 $view =  \View::make('pdf.budgetPDF', compact('date','Budget'))->render();
+                break;
+            } 
+    }
+    /**
+     * Escoje la vista del prespupesto  para el formualrio dependiendo del servico  
+     *
+     * @param  string  $typeService, string $date, Model Objegt $Budget
+     * @return View
+     */
+    public function EditBugetTypeService($typeService,$Budget){
+         switch ($typeService) {
+
+            case 'Testamento':
+
+                 return view('Budget.BudgetEdit.TestamentoEditBudget',[ 'Budget' => $Budget ]);
+                 
+                break;
+            case 'Contrato Compra Venta':
+
+                return "sin Vista";
+                break;
+
+            case 'Donaciones':
+
+                return "sin Vista";
+                break;
+
+            case 'Acta Constitutiva':
+
+                return "sin Vista";
+                break;
+
+            case 'Contrato mutuo con Interés y Garantía Hipotecaria':
+
+                return "sin Vista";
+                break;
+
+            case 'Cancelacion de Hipoteca':
+
+                return "sin Vista";
+                break;
+
+            case 'Poder General':
+
+                return "sin Vista";
+                break;
+
+            case 'Sucesiónes Intestamentaría':
+
+                return "sin Vista";
+                break;
+
+            case 'Sucesiónes Testamentaría':
+
+            // NO ESTA TOMANDO SU VISTA DE PDF Call to undefined method DOMText::getAttribute()
+                return "sin Vista";
+                break;
+
+            case 'Capitulaciones Matrimoniales':
+
+                return "sin Vista";
+                break;
+
+            case 'Fe de Hechos':
+
+                return "sin Vista";
+                break;
+
+            case 'Revocación de Poder':
+
+                return "sin Vista";
+                break;
+
+            case 'Adjudicación Testamentaria':
+
+                return "sin Vista";
+                break;
+
+            case 'Reconocimiento y Aceptación de Herencia':
+
+                return "sin Vista";
+                break;
+
+            case 'Cotejo y Certificación':
+
+                return "sin Vista";
+                break;
+
+            case 'Protocolización de Acta de Asamblea':
+
+                return "sin Vista";
+                break;
+
+            case 'Protocolización de Subdivisión':
+
+                return "sin Vista";
+                break;
+
+            case 'Dacion en Pago':
+
+                return "sin Vista";
+                break;
+
+            case 'Permutas':
+
+                return "sin Vista";
+                break;
+
+            case 'Adjudicación Judicial':
+
+                return "sin Vista";
+                break;
+
+            case 'Cotejo y Ratificacion':
+
+                return "sin Vista";
+                break;
+            
+            default:
+                
+                return "sin Vista";
                 break;
             } 
     }

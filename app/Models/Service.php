@@ -39,4 +39,22 @@ class Service extends Model
         return $this->belongsToMany(ParticipantType::class);;
     }
 
+     /**
+     * Escoje la vista del prespupesto  para el formualrio dependiendo del servico  
+     *
+     * @param  string  $typeService, string $date, Model Objegt $Budget
+     * @return View
+     */
+    public function findExpeseCostByName($ExpenseName) {
+
+        foreach ($this->expenses as $Expense ) {
+
+                if ($ExpenseName == $Expense->expense_name) {
+                    return $Expense->pivot->cost;
+                }
+            
+            }
+        
+    }
+
 }
