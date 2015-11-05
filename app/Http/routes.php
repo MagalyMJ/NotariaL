@@ -48,8 +48,6 @@ Route::get('clientes/{id_service}',[
 	'uses' => 'ServiceController@SelectCustomers',
 	'as' => 'Select_Customers_toCase'
 	]);
-
-
 //Para ver los detalles de un caso 
 Route::get('caso/{id_caseService}',[
 	'uses' =>'ServiceController@show',
@@ -83,6 +81,15 @@ Route::post('cliente/nuevo',[
 	'as' => 'customer_new_path',
 	]);
 
+//Mostrar el formulario para registrar los documentos y tipo de participante a un cliente
+Route::get('caso/{id_caseService}/cliente/{id_customer}',[
+	'uses' => 'ServiceController@editPariticipantData',
+	'as' => 'Edit_CustomerinCase']);
+//manda el request del formulario para registrar los documentos y tipo de participante a un cliente
+Route::post('caso/{id_caseService}/cliente/{id_customer}',[
+	'uses' => 'ServiceController@updatePariticipantData',
+	'as' => 'Update_CustomerinCase']);
+
 
 //Muestra el formularo  para editar un presupesto
 Route::get('presupuesto/{id_presupuesto}',[
@@ -115,17 +122,7 @@ Route::post('Pago/{id_caseService}', [
 // 		'uses' =>'PDFController@bugetPDF',
 // 		'as' => 'PdfBuget',]);
 
-// Route::post('nuevo/{id_service}/caso/{id_caseService}',[
 
-// 	'uses' =>'ServiceController@create',
-// 	'as' => 'crearcaso',
-// 	]);
-
-
-// Route::post('cliente/caso/nuevo',[
-// 	'uses' => 'CustomerController@addCustumerCase',
-// 	'as' => 'customer_service_path',
-// 	]);
 
 
 

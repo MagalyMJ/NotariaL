@@ -14,11 +14,11 @@ class CaseService extends Model
      *
      * @var array
      */
-    protected $fillable = ['place','progress','observations','service_detail','notices','remaining'];
+    protected $fillable = ['place','progress','observations','service_detail','notices','remaining','notices_one_date'];
 
     public function customer()
     {
-        return $this->belongsToMany(Customer::class);
+        return $this->belongsToMany(Customer::class)->withPivot('participants_type','documents_list');
     }
 
     public function budget()

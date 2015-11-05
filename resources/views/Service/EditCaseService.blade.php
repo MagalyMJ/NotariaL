@@ -20,10 +20,10 @@
     			<div>
     				
     			<p class="text-center"> {{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }} </p>
+				<a class="input budget-button" href="{{route('Edit_CustomerinCase',array($ServiceCase->id, $customerSelect->id) ) }}"> Documentos </a>
     			
     			</div>
 					@endforeach
-
 		<label for="place">Lugar:</label> 
       	<select name="place">
 			<option value="Aguascalientes">Aguascalientes</option>
@@ -38,7 +38,10 @@
 			<option value="El Llano">El Llano</option>
 			<option value="San Francisco de los Romo">San Francisco de los Romo</option>
 		</select>
-      	
+
+      	<label for="notices_one_date">Fecha de inicio de Registro Publico </label> 
+     	<input name="notices_one_date" class="input long" id="notices_one_date" type="date"/> 
+     			 	
       	<label for="observations">Observaciones:</label> 
    	    <textarea rows="4" cols="50" name="observations" placeholder="Observaciones" class="message_area" value="{{ $ServiceCase->observations}}"></textarea>
 
