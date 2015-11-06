@@ -29,7 +29,7 @@
 			<p class="text-center">Lugar: {{ $ServiceCase->place }} </p>
 			<p class="text-center">Observaciones: {{ $ServiceCase->observations}} </p>		
 			<p class="text-center">Progreso: {{ $ServiceCase->progress}} </p>		
-			<p class="text-center">Avisos: {{ $ServiceCase->notices}} </p>				
+			<p class="text-center">Avisos: {{ $ServiceCase->notices}} Dias Transcurridos: {{$ServiceCase->diffDateNotices()}}</p>				
 			<a class="input budget-button"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> Editar </a> 		   
 
 		</section>

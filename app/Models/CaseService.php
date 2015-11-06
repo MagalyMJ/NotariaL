@@ -72,9 +72,27 @@ class CaseService extends Model
                     }
                     return $progress ;
                 break;
+
             case 'enagenante':
-                
+                    //al editar la el presupuesto, se genera un total, por lo que alguien ya hiso un prespuesto y pasa al 25%
+                    if ( $this->budget->total > 0 ) {
+                        $progress = 1;
+                 //si todos los clientes ya entregaron (almenos un documento) o se a dado un pago pasa a la face 50 %
+                        if ( $this->CustomerDouments() || $this->payment->count() > 0 ) {
+                           $progress = 3;
+         //si ya entregaron documentos, se realizaron pago y se finiquito,                   
+                           if( $this->CustomerDouments() && $this->payment->count() > 0 && $this->remaining <= 0 ){
+
+                                $progress = 5;
+
+                                if ($this->signature = 1 ) {
+                                    $progress = 7;
+                                }
+                            }
+                        }
+                    }
                 break;
+
             default:
                    return "";
                 break;
@@ -92,5 +110,25 @@ class CaseService extends Model
         }
         return true;
     }
+
+    public function diffDateNotices(){
+
+        if($this->notices_one_date != '0000-00-00') {
+             
+             $dias   = (strtotime($this->notices_one_date)-strtotime(date("Y-m-d")))/86400; //86400 Segundos en un dia
+             $dias   = abs($dias); $dias = floor($dias); 
+            
+            if ($this->notices_two_date != '0000-00-00') {
+                $dias   = (strtotime($this->notices_one_date)-strtotime(date("Y-m-d")))/86400; //86400 Segundos en un dia
+                $dias   = abs($dias); $dias = floor($dias); 
+            }
+        }
+        if ($dias > 30 ) {
+                return " + de 30"
+         }  else{     
+            return (int)$dias;
+        }
+
+    }   
 
 }

@@ -151,6 +151,13 @@ class ServiceController extends Controller
         //Edicion de los avisos
         $UpdateCase->notices_one_date = $request->notices_one_date;
         $UpdateCase->notices_two_date = $request->notices_two_date;
+
+        if($UpdateCase->notices_one_date != '0000-00-00') {
+            $UpdateCase->notices = 1;
+            if ($UpdateCase->notices_two_date != '0000-00-00') {
+                 $UpdateCase->notices = 2;
+            }
+        }
         //si el contrato ya se firmo, 
         $UpdateCase->signature = $request->signature;
 
