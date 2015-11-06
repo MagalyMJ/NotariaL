@@ -14,7 +14,7 @@ class Payment extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','payment_type','amount_to_pay','remaining','total'];
+    protected $fillable = ['name','payment_type','amount_to_pay','remaining','total','concept'];
 
 
    public function case_service()

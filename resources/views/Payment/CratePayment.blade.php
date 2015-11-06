@@ -9,16 +9,19 @@
    			{{csrf_field()}}
    			
    			<label for="name">Nombre</label> 
-      		<input name="name" class="input long" id="name" type="text" autocomplete="off" value="" />
+        <input name="name" class="input long" id="name" type="text" autocomplete="off" value="" />
+        
+        <label for="concept">Concepto</label> 
+      	<input name="concept" class="input long" id="concept" type="text" autocomplete="off" value="" />
       
-			<label for="payment_type">Forma de Pago </label>
+			<label for="payment_type">Modo de Pago </label>
       		<select id="payment_type" name="payment_type" form="New_Payment" >
         		<option value="1">Efectivo</option>
         		<option value="2">Transferencia</option>
         		<option value="3">Cheque</option>
       		</select>
 
-      		<label for="amount_to_pay">Cantidad</label> 
+      		<label for="amount_to_pay">Monto</label> 
       		<input name="amount_to_pay" class="input long" id="amount_to_pay" type="number" step="0.01" autocomplete="off" value="" />
       
       		<input type="submit" value="Guardar" class="input budget-button">

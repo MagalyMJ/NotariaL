@@ -19,6 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('case_service_id')->unsigned(); //id del caso al que petenence
 
             $table->string('name'); //nombre de quien realiza el pago 
+            $table->string('concept'); //concepto del pago
             $table->enum('payment_type',['efectivo','transferencia','cheque']); //tipo de Pago 
             $table->float('amount_to_pay')->unsigned(); // monto a pagar
 

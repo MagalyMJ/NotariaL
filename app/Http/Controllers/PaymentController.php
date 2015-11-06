@@ -58,6 +58,7 @@ class PaymentController extends Controller
          $newPayment->name = $request->name;
          $newPayment->payment_type = $request->payment_type;
          $newPayment->amount_to_pay = $request->amount_to_pay;
+         $newPayment->concept = $request->concept;
 
          $newPayment->save();
 
