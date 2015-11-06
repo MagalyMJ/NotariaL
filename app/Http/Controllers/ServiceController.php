@@ -72,9 +72,8 @@ class ServiceController extends Controller
            $CreateCase->customer()->attach($id);
         }
 
-        //Despues de escojer a los partisipantes, llenaremos el presupuesto
-        return Redirect::route('Edit_Case_path', array('id_presupuesto' => $CaseBudget->id));
-        //return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase, 'id_service' => $id_service ,'documents'=> $service->documents ]);
+        //Despues de escojer a los partisipantes, iremos a los detalles del caso para llenar el presupuesto 
+        return Redirect::route('Show_Case_path', array('$ServiceCase' => $CreateCase->id));
     }
 
     public function SelectCustomers($id_service){
@@ -94,17 +93,6 @@ class ServiceController extends Controller
     {
         //
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function EditBudget(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      *
@@ -132,8 +120,15 @@ class ServiceController extends Controller
         // 
         $editCase = CaseService::find($id);
 
-        return view('Service.EditCaseService',[ 'ServiceCase' => $editCase]);
+        if ($editCase->service->service_type == 'no_enagenante') {
+            
+             return view('Service.Edit.EditCaseService',[ 'ServiceCase' => $editCase]);
+        }else{
 
+             return view('Service.Edit.EditEnagenanteCaseService',[ 'ServiceCase' => $editCase]);
+
+        }
+       
     }
 
     /**
@@ -155,6 +150,9 @@ class ServiceController extends Controller
 
         //Edicion de los avisos
         $UpdateCase->notices_one_date = $request->notices_one_date;
+        $UpdateCase->notices_two_date = $request->notices_two_date;
+        //si el contrato ya se firmo, 
+        $UpdateCase->signature = $request->signature;
 
         $UpdateCase->save();
 

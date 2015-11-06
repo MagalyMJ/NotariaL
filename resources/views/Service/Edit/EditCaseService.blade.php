@@ -1,8 +1,6 @@
 @extends('layouts.homedefault')
 
 @section('content')
-<!-- Mostrara Todos los Casos Activos del servicio-Post  obtenido -->
-
 
 	<div class="block_container">
 
@@ -19,8 +17,13 @@
 			@foreach ($ServiceCase->customer as $customerSelect)
     			<div>
     				
-    			<p class="text-center"> {{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }} </p>
-				<a class="input budget-button" href="{{route('Edit_CustomerinCase',array($ServiceCase->id, $customerSelect->id) ) }}"> Documentos </a>
+					<p class="text-center"> 
+						<strong>{{$customerSelect->pivot->participants_type}}: </strong>
+    					{{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }} 
+						<br> <strong>Documentos Entregados: </strong>
+						{{ $customerSelect->pivot->documents_list }}
+    				</p>				
+    				<a class="input budget-button" href="{{route('Edit_CustomerinCase',array($ServiceCase->id, $customerSelect->id) ) }}"> Documentos </a>
     			
     			</div>
 					@endforeach
@@ -38,13 +41,18 @@
 			<option value="El Llano">El Llano</option>
 			<option value="San Francisco de los Romo">San Francisco de los Romo</option>
 		</select>
+		
+		@yield('notices')
+     	
+		<label for="signature">Firmado:</label> 
+      	<select name="signature">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</select>
 
-      	<label for="notices_one_date">Fecha de inicio de Registro Publico </label> 
-     	<input name="notices_one_date" class="input long" id="notices_one_date" type="date"/> 
-     			 	
       	<label for="observations">Observaciones:</label> 
-   	    <textarea rows="4" cols="50" name="observations" placeholder="Observaciones" class="message_area" value="{{ $ServiceCase->observations}}"></textarea>
-
+   	    <textarea rows="4" cols="50" name="observations" placeholder="Observaciones" class="message_area" value="">{{ $ServiceCase->observations }}</textarea>
+		
       <input type="submit" value="Guardar" class="input budget-button">
 
     </form>
