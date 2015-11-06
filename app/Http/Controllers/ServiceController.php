@@ -104,7 +104,12 @@ class ServiceController extends Controller
         //
         
         $ShowCase = CaseService::find($id_caseService);
-        // dd($ShowCase);
+        //Al querer ver los detalles de caso,se actulaizara el progreso, llevado por los cambios hechos 
+        $ShowCase->progress = $ShowCase->Progress();
+        $ShowCase->save();
+
+        $ShowCase = CaseService::find($id_caseService);
+
         return view('Service.DetailCase',['ServiceCase' => $ShowCase ]);
 
     }
@@ -151,11 +156,12 @@ class ServiceController extends Controller
         //Edicion de los avisos
         $UpdateCase->notices_one_date = $request->notices_one_date;
         $UpdateCase->notices_two_date = $request->notices_two_date;
-
+        //enum(1=> 'Sin', 2=> 'Primer', 3=>'Segundo')
         if($UpdateCase->notices_one_date != '0000-00-00') {
-            $UpdateCase->notices = 1;
+            $UpdateCase->notices = 2;
+
             if ($UpdateCase->notices_two_date != '0000-00-00') {
-                 $UpdateCase->notices = 2;
+                 $UpdateCase->notices = 3;
             }
         }
         //si el contrato ya se firmo, 
