@@ -21,6 +21,7 @@
     			
     			</div>
 					@endforeach
+			<a class="input budget-button"  href="{{route('Select_customer_InExisting_Case',$ServiceCase->id) }}">+ Participantes</a> 		   
 		</section>
 
 		<section id="thisCase_Data">
