@@ -33,7 +33,7 @@ class CreateBudgetTable extends Migration {
 			$table->float('sub_total')->unsigned();// subtotal es la suma de los honorarios mas el iva (aun no se agregan los demas gastos)
 
 			$table->float('fee')->unsigned();//Honorarios
-			$table->float('operation_value')->unsigned();//Valor de operacion
+			$table->integer('operation_value')->unsigned();//Valor de operacion
 
 			$table->float('isr')->unsigned();//ISR
 			$table->float('isnjin')->unsigned();//ISNIJ
