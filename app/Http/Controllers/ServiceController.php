@@ -156,6 +156,8 @@ class ServiceController extends Controller
         //Edicion de los avisos
         $UpdateCase->notices_one_date = $request->notices_one_date;
         $UpdateCase->notices_two_date = $request->notices_two_date;
+        $UpdateCase->public_register = $request->public_register;
+       
         //enum(1=> 'Sin', 2=> 'Primer', 3=>'Segundo')
         if($UpdateCase->notices_one_date != '0000-00-00') {
             $UpdateCase->notices = 2;

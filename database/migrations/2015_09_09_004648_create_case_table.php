@@ -31,6 +31,7 @@ class CreateCaseTable extends Migration {
             
             $table->date('notices_one_date'); //fecha del primer aviso 
             $table->date('notices_two_date'); //fecha del segundo aviso
+            $table->date('public_register'); //fecha de registro
 
             $table->boolean('signature'); //booleano de comprovacion de firma
 
