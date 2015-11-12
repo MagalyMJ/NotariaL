@@ -38,6 +38,7 @@
 			<div>
 				  <a class="input budget-button" href="{{route('New_Customer_path',$id_service) }}"> Nuevo cliente </a>
 				  <input id="new_case_service" name="customers" type="submit" onClick="newCase()" value="Crear Caso" class="input budget-button">
+				  <a class="input budget-button" href="{{route('home') }}"> Cancelar </a>
 			</div>
 	</div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>

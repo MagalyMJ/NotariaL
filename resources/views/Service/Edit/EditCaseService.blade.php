@@ -54,6 +54,7 @@
    	    <textarea rows="4" cols="50" name="observations" placeholder="Observaciones" class="message_area" value="">{{ $ServiceCase->observations }}</textarea>
 		
       <input type="submit" value="Guardar" class="input budget-button">
+      <a class="input budget-button" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
 
     </form>
 	</div>
