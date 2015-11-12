@@ -57,6 +57,8 @@
      			<input name="postal_code" class="input long" id="postal_code" type="text" autocomplete="off" /> 
      	  
         <input type="submit" value="Registrar" class="input budget-button">
+        <a class="input budget-button" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
+
 
   </form>
  </div> 

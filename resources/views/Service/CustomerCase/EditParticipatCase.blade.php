@@ -33,6 +33,7 @@
 	
 		<div>
     	  <input type="submit" value="Guardar" class="input budget-button" onClick="UpdateDocuments()">
+    	  <a class="input budget-button" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
 		</div>
    
 	</div>
