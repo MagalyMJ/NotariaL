@@ -48,8 +48,6 @@ Route::get('clientes/{id_service}',[
 	'uses' => 'ServiceController@SelectCustomers',
 	'as' => 'Select_Customers_toCase'
 	]);
-
-
 //Para ver los detalles de un caso 
 Route::get('caso/{id_caseService}',[
 	'uses' =>'ServiceController@show',
@@ -72,16 +70,55 @@ Route::post('nuevo/{id_service}/caso/',[
 	'as' => 'crearCaso',
 	]);
 
-//Mostrar el formulario para registrar un cliente 
+//Mostrar el formulario para registrar un Nuevo cliente a un Nuevo Caso
 Route::get('cliente/nuevo/{id_service?}',[
-	'uses' => 'CustomerController@create',
+	'uses' => 'CustomerController@createNewInNewCase',
 	'as' => 'New_Customer_path']);
+
+//Mostrar el formulario para registrar un Nuevo cliente;
+Route::get('cliente/nuevo/',[
+	'uses' => 'CustomerController@create',
+	'as' => 'New_Customer']);
+	//Mostrar el formulario para registrar un Nuevo cliente;
+Route::get('cliente/nuevo/',[
+	'uses' => 'CustomerController@store',
+	'as' => 'New_Customer_Store']);
+
+//Mostrar el formulario para registrar un Nuevo cliente en un caso exitente,;
+Route::get('cliente/nuevo/caso/{id_caseService}',[
+	'uses' => 'CustomerController@createNewToCase',
+	'as' => 'New_Customer_inCase']);
+//Mostrar el formulario para registrar un Nuevo cliente en un caso exitente,;
+Route::post('cliente/nuevo/caso/{id_caseService}',[
+	'uses' => 'CustomerController@storeNewToCase',
+	'as' => 'New_Customer_inCase']);
+
 
 //Registra al cliente
 Route::post('cliente/nuevo',[
 	'uses' => 'CustomerController@addCustumer',
 	'as' => 'customer_new_path',
 	]);
+//la vista en la cual se peude seleccionar uno o varios participantes al caso seleccionado
+Route::get('clientes/caso/{id_caseService}',[
+	'uses' => 'CustomerController@AddCustomersToCase',
+	'as' => 'Select_customer_InExisting_Case'
+	]);
+//Para guardar uno o varios participantes al caso seleccionado
+Route::post('clientes/caso/{id_caseService}',[
+	'uses' => 'CustomerController@UpdateCustomersInCase',
+	'as' => 'Update_customer_InExisting_Case'
+	]);
+
+
+//Mostrar el formulario para registrar los documentos y tipo de participante a un cliente
+Route::get('caso/{id_caseService}/cliente/{id_customer}',[
+	'uses' => 'ServiceController@editPariticipantData',
+	'as' => 'Edit_CustomerinCase']);
+//manda el request del formulario para registrar los documentos y tipo de participante a un cliente
+Route::post('caso/{id_caseService}/cliente/{id_customer}',[
+	'uses' => 'ServiceController@updatePariticipantData',
+	'as' => 'Update_CustomerinCase']);
 
 
 //Muestra el formularo  para editar un presupesto
@@ -115,17 +152,7 @@ Route::post('Pago/{id_caseService}', [
 // 		'uses' =>'PDFController@bugetPDF',
 // 		'as' => 'PdfBuget',]);
 
-// Route::post('nuevo/{id_service}/caso/{id_caseService}',[
 
-// 	'uses' =>'ServiceController@create',
-// 	'as' => 'crearcaso',
-// 	]);
-
-
-// Route::post('cliente/caso/nuevo',[
-// 	'uses' => 'CustomerController@addCustumerCase',
-// 	'as' => 'customer_service_path',
-// 	]);
 
 
 

@@ -28,6 +28,11 @@ class CreateCaseTable extends Migration {
 			$table->mediumText('service_detail'); //detalles del servicio
 
             $table->float('remaining')->unsigned(); // Restante a pagar (del total del prespuesto aprovado - los pagos y el atisipo)
+            
+            $table->date('notices_one_date'); //fecha del primer aviso 
+            $table->date('notices_two_date'); //fecha del segundo aviso
+
+            $table->boolean('signature'); //booleano de comprovacion de firma
 
 			$table->timestamps();
 			

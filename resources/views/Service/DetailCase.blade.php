@@ -12,10 +12,16 @@
 			@foreach ($ServiceCase->customer as $customerSelect)
     			<div>
     				
-    			<p class="text-center"> {{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }} </p>
+    			<p class="text-center"> 
+					<strong>{{$customerSelect->pivot->participants_type}}: </strong>
+    				{{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }} 
+					<br> <strong>Documentos Entregados: </strong>
+					{{ $customerSelect->pivot->documents_list }}
+    			</p>
     			
     			</div>
 					@endforeach
+			<a class="input budget-button"  href="{{route('Select_customer_InExisting_Case',$ServiceCase->id) }}">+ Participantes</a> 		   
 		</section>
 
 		<section id="thisCase_Data">
@@ -23,8 +29,9 @@
 			<p class="text-center">Detalle de Servicio: {{ $ServiceCase->service_detail}} </p>		
 			<p class="text-center">Lugar: {{ $ServiceCase->place }} </p>
 			<p class="text-center">Observaciones: {{ $ServiceCase->observations}} </p>		
-			<p class="text-center">Progreso: {{ $ServiceCase->progress}} </p>		
-			<p class="text-center">Avisos: {{ $ServiceCase->notices}} </p>				
+			<p class="text-center">Progreso: %{{ $ServiceCase->progress}} </p>		
+			<p class="text-center">Avisos: {{ $ServiceCase->notices}} - Dias Transcurridos: {{$ServiceCase->diffDateNotices()}}</p>				
+			<p class="text-center">Firma: {{$ServiceCase->signature}} </p>
 			<a class="input budget-button"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> Editar </a> 		   
 
 		</section>
