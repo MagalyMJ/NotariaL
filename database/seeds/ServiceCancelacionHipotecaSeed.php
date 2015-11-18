@@ -23,7 +23,7 @@ class ServiceCancelacionHipotecaSeed extends Seeder
           los buscamos para no generar duplisidad y lo vinculamos 
          */  
 
-        $EscriturasCertificadoID = Document::where('document_name', 'Escrituras de Certificado de Gradaben')->get();
+        $EscriturasCertificadoID = Document::where('document_name', 'Escrituras de Certificado de Gravamen')->get();
         $EscriturasCertificado = Document::find($EscriturasCertificadoID[0]->id); 
 
         $OrdendeCancelacionID = Document::where('document_name', 'Orden de Cancelacion')->get();

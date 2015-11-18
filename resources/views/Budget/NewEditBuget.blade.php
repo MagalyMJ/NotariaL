@@ -50,19 +50,19 @@ function tipoPago(Pago){
   <!-- Inputs por default de un presupesto -->
       
       <label for="discount">Descuento de Honorarios</label> 
-      <input name="discount"  class="input long" id="discount" type="text" autocomplete="off" value="" />
+      <input name="discount"  class="input long" id="discount" type="text" autocomplete="off" value="{{$Budget->discount}}" />
       
       <label for="travel_expenses">Gastos de Viaje</label> 
-      <input name="travel_expenses"  class="input long" id="travel_expenses" type="text" autocomplete="off" value="" />
+      <input name="travel_expenses"  class="input long" id="travel_expenses" type="text" autocomplete="off" value="{{$Budget->travel_expenses}}" />
       
       <label for="miscellaneous_expense">Varios</label> 
-      <input name="miscellaneous_expense"  class="input long" id="miscellaneous_expense" type="text" autocomplete="off" value="" />
+      <input name="miscellaneous_expense"  class="input long" id="miscellaneous_expense" type="text" autocomplete="off" value="{{$Budget->miscellaneous_expense}}" />
       
       <label for="advance_payment">Anticipo</label> 
-      <input name="advance_payment" class="input long" id="advance_payment" type="text" autocomplete="off" value="" />
+      <input name="advance_payment" class="input long" id="advance_payment" type="text" autocomplete="off" value="{{$Budget->advance_payment}}" />
 
       <label for="surcharges">Recargos</label> 
-      <input name="surcharges" class="input long" id="surcharges" type="text" autocomplete="off" value="" />
+      <input name="surcharges" class="input long" id="surcharges" type="text" autocomplete="off" value="{{$Budget->surcharges}}" />
      
 <!-- Inputs por default de un presupesto -->
       <label for="payment_type">Forma de Pago </label>
@@ -70,6 +70,12 @@ function tipoPago(Pago){
         <option value="1">Efectivo</option>
         <option value="2">Transferencia</option>
         <option value="3">Cheque</option>
+      </select>
+
+      <label for="approved">Aprobado</label>
+      <select id="approved" name="approved" form="Edit_budget" >
+        <option value="0">NO</option>
+        <option value="1">SI</option>
       </select>
 
       <label for="invoiced">Facturado</label>

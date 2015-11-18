@@ -158,14 +158,15 @@ class ServiceController extends Controller
         $UpdateCase->notices_two_date = $request->notices_two_date;
         $UpdateCase->public_register = $request->public_register;
        
-        //enum(1=> 'Sin', 2=> 'Primer', 3=>'Segundo')
-        if($UpdateCase->notices_one_date != '0000-00-00') {
+        //enum(1=> 'Sin', 2=> 'Primer', 3=>'Segundo') aviso
+        $UpdateCase->notices = 1;
+        // dd($UpdateCase->notices_one_date );
+         if( $UpdateCase->notices_one_date =! null || $UpdateCase->notices_one_date != '') {
             $UpdateCase->notices = 2;
-
-            if ($UpdateCase->notices_two_date != '0000-00-00') {
-                 $UpdateCase->notices = 3;
-            }
-        }
+            if ($UpdateCase->notices_two_date =! null || $UpdateCase->notices_two_date != '') {
+                  $UpdateCase->notices = 3;
+             }
+         }
         //si el contrato ya se firmo, 
         $UpdateCase->signature = $request->signature;
 

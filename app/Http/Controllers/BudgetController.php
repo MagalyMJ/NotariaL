@@ -159,6 +159,8 @@ class BudgetController extends Controller
             $Upddate->miscellaneous_expense = $request->miscellaneous_expense;
             $Upddate->travel_expenses = $request->travel_expenses;
 
+            $Upddate->approved = $request->approved;
+            
             // PREGUNTAR SOBRE COMO SE MANJEAN LOS RECARGOS
             $Upddate->surcharges = $request->surcharges;
         /* --------------------------------------------------------------------------------------------*/

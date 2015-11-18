@@ -22,7 +22,7 @@ class CreateCaseTable extends Migration {
 			$table->integer('service_id')->unsigned(); //tipo de servicio
 
 			$table->string('place'); // Lugar donde se realiza 
-			$table->enum('progress',['0','25','33','50','66','75','99','100']); //progreso
+			$table->enum('progress',['0','10','25','33','50','66','75','99','100']); //progreso
 			$table->enum('notices',['Sin','Primer','Segundo']); // avisos al caso 
 			$table->mediumText('observations');//observaciones 
 			$table->mediumText('service_detail'); //detalles del servicio

@@ -50,6 +50,9 @@
 			<option value="1">Si</option>
 		</select>
 
+		<label for="public_register">Fecha de Registro (registro publico):{{$ServiceCase->notices_two_date}} </label> 
+     	<input name="public_register" class="input long" id="public_register" type="date" value="{{$ServiceCase->public_register}}"/> 
+
       	<label for="observations">Observaciones:</label> 
    	    <textarea rows="4" cols="50" name="observations" placeholder="Observaciones" class="message_area" value="">{{ $ServiceCase->observations }}</textarea>
 		
