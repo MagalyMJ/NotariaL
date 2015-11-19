@@ -45,48 +45,56 @@ class Budget extends Model
         }elseif ($OperationValue > 100000 && $OperationValue <= 250000) {
             $cuotaFija = 4500;
             $TMEI = 1.5;
-            $fee = (($TMEI * $OperationValue )/100) + $cuotaFija;
+            $diff = $OperationValue - 100000;
+            $fee = (($TMEI * $diff )/100) + $cuotaFija;
             return $fee;
 
         }elseif ($OperationValue > 250000 && $OperationValue <= 500000) {
             $cuotaFija = 8000;
             $TMEI = 1.2;
-            $fee = (($TMEI * $OperationValue )/100)  + $cuotaFija;
+            $diff = $OperationValue - 250000;
+            $fee = (($TMEI * $diff )/100)  + $cuotaFija;
             return $fee;
 
         }elseif ($OperationValue > 500000 && $OperationValue <= 750000) {
             $cuotaFija = 12000;
             $TMEI = 1.0;
-            $fee = (($TMEI * $OperationValue )/100)  + $cuotaFija;
+            $diff = $OperationValue - 500000;
+            $fee = (($TMEI * $diff) /100)  + $cuotaFija;
             return $fee;
 
         }elseif ($OperationValue > 750000 && $OperationValue <= 1000000) {
             $cuotaFija = 16000;
             $TMEI = 0.8;
-            $fee = (($TMEI * $OperationValue )/100)  + $cuotaFija;
+            $diff = $OperationValue - 750000;
+            $fee = (($TMEI * $diff  )/100)  + $cuotaFija;
             return $fee;
 
         }elseif ($OperationValue > 1000000 && $OperationValue <= 2000000) {
             $cuotaFija = 24000;
             $TMEI = 0.6;
+            $diff = $OperationValue - 1000000 ;
             $fee = (($TMEI * $OperationValue )/100) + $cuotaFija;
             return $fee;
 
         }elseif ($OperationValue > 2000000 && $OperationValue <= 5000000) {
             $cuotaFija = 45000;
             $TMEI = 0.4;
+            $diff = $OperationValue - 2000000;
             $fee = (($TMEI * $OperationValue )/100)  + $cuotaFija;
             return $fee;
 
         }elseif ($OperationValue > 5000000 && $OperationValue <= 10000000) {
             $cuotaFija = 60000;
             $TMEI = 0.2;
+            $diff = $OperationValue - 5000000;
             $fee = (($TMEI * $OperationValue )/100) + $cuotaFija;
             return $fee;
 
         }elseif ($OperationValue > 10000000 ) {
             $cuotaFija = 750000;
             $TMEI = 0.1;
+            $diff = $OperationValue - 10000000 ;
             $fee = (($TMEI * $OperationValue )/100)  + $cuotaFija;
             return $fee;
 
