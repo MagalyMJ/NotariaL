@@ -5,7 +5,7 @@
 
  <div class="form_container"> 
 
- <form action="{{ route('customer_new_path') }}" method='post' class="form_data aling_block">  
+ <form action="{{ route('New_Customer_inCase',$id_caseService) }}" method='post' class="form_data aling_block">  
    {{csrf_field()}}
 
      			<label for="name">Nombre</label> 
@@ -55,10 +55,10 @@
           
           <label for="postal_code">CP</label> 
      			<input name="postal_code" class="input long" id="postal_code" type="text" autocomplete="off" /> 
-     	
-
-        <input id="id_service" name="id_service" type="hidden" value="{{$id_service}}">
+     	  
         <input type="submit" value="Registrar" class="input budget-button">
+        <a class="input budget-button" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
+
 
   </form>
  </div> 

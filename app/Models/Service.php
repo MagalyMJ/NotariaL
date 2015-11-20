@@ -40,10 +40,10 @@ class Service extends Model
     }
 
      /**
-     * Escoje la vista del prespupesto  para el formualrio dependiendo del servico  
+     * Busca el costo de un Gasto  
      *
-     * @param  string  $typeService, string $date, Model Objegt $Budget
-     * @return View
+     * @param  string  $ExpenseName, 
+     * @return int 
      */
     public function findExpeseCostByName($ExpenseName) {
 
@@ -55,6 +55,17 @@ class Service extends Model
             
             }
         
+    }
+
+    /**
+     * Buscamos los documentos en base al ripo de participante 
+     *
+     * @param  string  $TypeParticipantName, 
+     * @return Collection
+     */
+    public function findDocumentsByParticipant($TypeParticipantName) {
+
+       return $this->document_service->where('pivot.participants_type', $TypeParticipantName);
     }
 
 }

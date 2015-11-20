@@ -55,10 +55,10 @@
           
           <label for="postal_code">CP</label> 
      			<input name="postal_code" class="input long" id="postal_code" type="text" autocomplete="off" /> 
-     	
-
-        <input id="id_service" name="id_service" type="hidden" value="{{$id_service}}">
+     	  
         <input type="submit" value="Registrar" class="input budget-button">
+        <a class="input budget-button" href="{{route('home') }}"> Cancelar </a>
+
 
   </form>
  </div> 

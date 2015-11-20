@@ -5,7 +5,8 @@
  <label for="">Honorarios: ${{$Budget->case_service->service->findExpeseCostByName('Honorarios')}} </label> 
  <input name="honorarios"  class="input long" id="honorarios" type="hidden" value="{{$Budget->case_service->service->findExpeseCostByName('Honorarios')}}" />
  <label for="">Honorarios Por Hora Extra: ${{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Hora Extra')}} </label> 
- <input name="hora_extra"  class="input long" id="hora_extra" type="checkbox" autocomplete="off" value="{{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Hora Extra')}}" />
+ <input name="hora_extra"  class="input long" id="hora_extra" type="checkbox" autocomplete="off" value="{{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Hora Extra')}}" 
+ @if($Budget->n_extra_hours != 0 ){{ "checked" }} @endif/>
  <label for="">Nº Hora Extra: {{$Budget->n_extra_hours}} </label> 
  <input name="nhora_extra"  class="input long" id="nhora_extra" type="number" autocomplete="off" value="{{$Budget->n_extra_hours}}" />
 <!-- Para que muestre el ISNJIN actualmente registrado y modificarlo -->

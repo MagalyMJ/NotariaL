@@ -42,7 +42,7 @@ class ServiceController extends Controller
      /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request  $request ,int, id_service
      * @return Response
      */
     public function store(Request $request,$id_service)
@@ -59,7 +59,7 @@ class ServiceController extends Controller
         $Sleectedcustomers = explode(',',$request->customers_selected);
 
         $CreateCase = CaseService::find($id_caseService);
-
+        $CreateCase->place = 'Aguascalientes'; // al crear un coaso le asignamos el municipio de ags por defecto. 
         //creamos un presupuesto vacio y lo asignamos
         $CaseBudget = new Budget;
         $CaseBudget->save();
@@ -72,9 +72,8 @@ class ServiceController extends Controller
            $CreateCase->customer()->attach($id);
         }
 
-        //Despues de escojer a los partisipantes, llenaremos el presupuesto
-        return Redirect::route('Edit_Case_path', array('id_presupuesto' => $CaseBudget->id));
-        //return view('Service.serviceDetail',[ 'ServiceCase' => $CreateCase, 'id_service' => $id_service ,'documents'=> $service->documents ]);
+        //Despues de escojer a los partisipantes, iremos a los detalles del caso para llenar el presupuesto 
+        return Redirect::route('Show_Case_path', array('$ServiceCase' => $CreateCase->id));
     }
 
     public function SelectCustomers($id_service){
@@ -95,17 +94,6 @@ class ServiceController extends Controller
         //
     }
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function EditBudget(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -116,7 +104,12 @@ class ServiceController extends Controller
         //
         
         $ShowCase = CaseService::find($id_caseService);
-        // dd($ShowCase);
+        //Al querer ver los detalles de caso,se actulaizara el progreso, llevado por los cambios hechos 
+        $ShowCase->progress = $ShowCase->Progress();
+        $ShowCase->save();
+
+        $ShowCase = CaseService::find($id_caseService);
+
         return view('Service.DetailCase',['ServiceCase' => $ShowCase ]);
 
     }
@@ -132,8 +125,15 @@ class ServiceController extends Controller
         // 
         $editCase = CaseService::find($id);
 
-        return view('Service.EditCaseService',[ 'ServiceCase' => $editCase]);
+        if ($editCase->service->service_type == 'no_enagenante') {
+            
+             return view('Service.Edit.EditCaseService',[ 'ServiceCase' => $editCase]);
+        }else{
 
+             return view('Service.Edit.EditEnagenanteCaseService',[ 'ServiceCase' => $editCase]);
+
+        }
+       
     }
 
     /**
@@ -146,16 +146,34 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //dd($request);
         $UpdateCase = CaseService::find($id);
 
         $UpdateCase->place = $request->place;
         $UpdateCase->service_detail = $request->service_detail;
         $UpdateCase->observations = $request->observations;
 
+        //Edicion de los avisos
+        $UpdateCase->notices_one_date = $request->notices_one_date;
+        $UpdateCase->notices_two_date = $request->notices_two_date;
+        $UpdateCase->public_register = $request->public_register;
+       
+        //enum(1=> 'Sin', 2=> 'Primer', 3=>'Segundo') aviso
+        $UpdateCase->notices = 1;
+        // dd($UpdateCase->notices_one_date );
+         if( $UpdateCase->notices_one_date != null || $UpdateCase->notices_one_date != '') {
+            $UpdateCase->notices = 2;
+            if ($UpdateCase->notices_two_date != null || $UpdateCase->notices_two_date != '') {
+                  $UpdateCase->notices = 3;
+             }
+         }
+        //si el contrato ya se firmo, 
+        $UpdateCase->signature = $request->signature;
+
         $UpdateCase->save();
 
         return Redirect::route('Show_Case_path', array('id_caseService' => $UpdateCase->id));
-    }
+     }
 
     /**
      * Remove the specified resource from storage.
@@ -167,4 +185,43 @@ class ServiceController extends Controller
     {
         //
     }
+
+    /**
+     * Show the form for editing the specified a Customer documents .
+     *
+     * @param  int  $id_caseService,$id_customer
+     * @return Response
+     */
+    public function editPariticipantData($id_caseService ,$id_customer)
+    {
+        //
+         $editCase = CaseService::find($id_caseService);
+        
+         $customerSelect = $editCase->customer->where('pivot.customer_id', (int)$id_customer)->first();
+         
+         // dd($editCase ,$customerSelect);
+
+        return view('Service.CustomerCase.EditParticipatCase',[ 'ServiceCase' => $editCase ,'customerSelect' => $customerSelect]);
+
+
+    }   
+     /**
+     * Show the form for editing the specified a Customer documents .
+     *
+     * @param  int  $id_caseService,$id_customer 
+     * @param  Request  $request
+     * @return Response
+     */
+    public function updatePariticipantData(Request $request,$id_caseService ,$id_customer)
+    {
+        //se Modifican los atributos de la tabla pivote 
+
+         $UpdateCase = CaseService::find($id_caseService);
+
+         $UpdateCase->customer()->updateExistingPivot( (int)$id_customer, array('participants_type' => $request->participant_type ,'documents_list' => $request->documents_selected)); 
+         
+         //dd($customerSelect);
+         return Redirect::route('Edit_Case_path', array('id_caseService' => $UpdateCase->id));
+    }
+
 }

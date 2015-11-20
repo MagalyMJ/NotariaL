@@ -96,9 +96,9 @@ class BudgetController extends Controller
         //
        
         $Upddate = Budget::find($id);
-
+        
         /* -------------------- Calculo o Asignacion de Honorarios Base Y Excepciónes de ISABI ------------------------------------------------------------------------*/
-        $Upddate->operation_value = $request->valor_operacion;
+        $Upddate->operation_value = (int)$request->valor_operacion;
 
         //Calculamos o no Los honorarios
         if ($Upddate->case_service->service->service_type == 'enagenante') {
@@ -159,6 +159,8 @@ class BudgetController extends Controller
             $Upddate->miscellaneous_expense = $request->miscellaneous_expense;
             $Upddate->travel_expenses = $request->travel_expenses;
 
+            $Upddate->approved = $request->approved;
+            
             // PREGUNTAR SOBRE COMO SE MANJEAN LOS RECARGOS
             $Upddate->surcharges = $request->surcharges;
         /* --------------------------------------------------------------------------------------------*/

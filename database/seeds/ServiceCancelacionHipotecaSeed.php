@@ -23,7 +23,7 @@ class ServiceCancelacionHipotecaSeed extends Seeder
           los buscamos para no generar duplisidad y lo vinculamos 
          */  
 
-        $EscriturasCertificadoID = Document::where('document_name', 'Escrituras de Certificado de Gradaben')->get();
+        $EscriturasCertificadoID = Document::where('document_name', 'Escrituras de Certificado de Gravamen')->get();
         $EscriturasCertificado = Document::find($EscriturasCertificadoID[0]->id); 
 
         $OrdendeCancelacionID = Document::where('document_name', 'Orden de Cancelacion')->get();
@@ -36,7 +36,7 @@ class ServiceCancelacionHipotecaSeed extends Seeder
         $DeudorType = ParticipantType::where('name','Deudor')->get(); 
 
         /*Obtenemos los Cobros a considear para el Servicio*/
-        $Honorarios1 = Expense::where('expense_name','Honorarios Por Pernsona Fisica')->first();
+        $Honorarios1 = Expense::where('expense_name','Honorarios Por Persona Fisica')->first();
         $Honorarios2 = Expense::where('expense_name','Honorarios Por Cancelacion Banco')->first();
         $Honorarios3 = Expense::where('expense_name','Honorarios Por Cancelacion Infonavit')->first();
         $ISNJIN = Expense::where('expense_name','ISNJIN')->first();

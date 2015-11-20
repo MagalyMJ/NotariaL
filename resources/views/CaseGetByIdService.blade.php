@@ -13,6 +13,7 @@
 						<th class="text-left">Nº Escritura</th>
 						<th class="text-left">Avance</th>
 						<th class="text-left">Cliente</th>
+						<th class="text-left">Total de Operación</th>
 						<th class="text-left">Observaciones</th>
 						<th class="text-left">Opcciones</th>
 
@@ -31,6 +32,7 @@
     								<br>
 								@endforeach
 							</td>
+    						<td class="text-center"> ${{ $case_service->budget->total }} </td>
     						<td class="text-center"> {{ $case_service->observations }} </td>
     						<td class="text-center"> <a class="input budget-button" href="{{route('Show_Case_path',$case_service->id) }}"> Detalles </a></td>
     					</tr>

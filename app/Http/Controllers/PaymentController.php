@@ -10,6 +10,7 @@ use NotiAPP\Http\Controllers\Controller;
 
 use NotiAPP\Models\CaseService;
 use NotiAPP\Models\Payment;
+use NotiAPP\Models\Budget;
 
 class PaymentController extends Controller
 {
@@ -58,6 +59,7 @@ class PaymentController extends Controller
          $newPayment->name = $request->name;
          $newPayment->payment_type = $request->payment_type;
          $newPayment->amount_to_pay = $request->amount_to_pay;
+         $newPayment->concept = $request->concept;
 
          $newPayment->save();
 
@@ -65,7 +67,10 @@ class PaymentController extends Controller
          $CaseService = CaseService::find($id_caseService);
 
          $CaseService->payment()->save($newPayment);
-        
+         //Por ende se Aprobo el prespuesto, 
+         $ApprovedBuget = Budget::find($CaseService->budget->id);  
+         $ApprovedBuget->approved = 1 ; 
+         $ApprovedBuget->save();
         //el saldo restante a apgar se guarda en el caso
         $CaseService->remaining =  $CaseService->budget->total - $CaseService->SumPayments() ;
 

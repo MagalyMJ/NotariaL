@@ -32,6 +32,6 @@ class Customer extends Model
 
     public function case_service(){
 
-        return $this->belongsToMany(CaseService::class)->withPivot('participants_type');
+        return $this->belongsToMany(CaseService::class)->withPivot('participants_type','documents_list');
     }
 }

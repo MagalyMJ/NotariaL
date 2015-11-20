@@ -36,9 +36,9 @@
 	
 		
 			<div>
-				  <a class="input budget-button" href="{{route('New_Customer_path',$id_service) }}"> Nuevo cliente </a>
-				  <input id="new_case_service" name="customers" type="submit" onClick="newCase()" value="Crear Caso" class="input budget-button">
-				  <a class="input budget-button" href="{{route('home') }}"> Cancelar </a>
+				  <a class="input budget-button" href="{{route('New_Customer_inCase',$id_caseService) }}"> Nuevo cliente </a>
+				  <input id="more_cusotmers_inThis" name="customers" type="submit" onClick="more_customers_inThisCase()" value="Asignar al Caso" class="input budget-button">				  
+				  <a class="input budget-button" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
 			</div>
 	</div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -46,8 +46,8 @@
 
 
 
-function newCase(){
-	var id_service = "<?php echo $id_service; ?>" ;
+function more_customers_inThisCase(){
+	var id_caseService = "<?php echo $id_caseService; ?>" ;
 
 	var customers_selected = new Array();
 
@@ -57,7 +57,7 @@ function newCase(){
 
 	document.getElementById("customers_selected").value = customers_selected; 
 
-	document.getElementById("select_customers").action = "{{route('crearCaso',$id_service) }}";
+	document.getElementById("select_customers").action = "{{route('Update_customer_InExisting_Case',$id_caseService) }}";
 
 	document.getElementById("select_customers").submit(); 
 }
