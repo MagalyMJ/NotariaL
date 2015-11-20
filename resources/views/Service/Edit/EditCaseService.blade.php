@@ -29,28 +29,28 @@
 					@endforeach
 		<label for="place">Lugar:</label> 
       	<select name="place">
-			<option value="Aguascalientes">Aguascalientes</option>
-			<option value="Asientos">Asientos</option>
-			<option value="Calvillo">Calvillo</option>
-			<option value="Cosio">Cosio</option>
-			<option value="Jesus Maria">Jesus Maria</option>
-			<option value="Pabellon de Arteaga">Pabellon de Arteaga</option>
-			<option value="Rincon de Romos">Rincon de Romos</option>
-			<option value="San Jose de Gracia">San Jose de Gracia</option>
-			<option value="Tepezala">Tepezala</option>
-			<option value="El Llano">El Llano</option>
-			<option value="San Francisco de los Romo">San Francisco de los Romo</option>
+			<option value="Aguascalientes" @if($ServiceCase->place == 'Aguascalientes'){{ "selected" }} @endif>Aguascalientes</option>
+			<option value="Asientos" @if($ServiceCase->place == 'Asientos'){{ "selected" }} @endif >Asientos</option>
+			<option value="Calvillo" @if($ServiceCase->place == 'Calvillo'){{ "selected" }} @endif >Calvillo</option>
+			<option value="Cosio" @if($ServiceCase->place == 'Cosio'){{ "selected" }} @endif >Cosio</option>
+			<option value="Jesus Maria" @if($ServiceCase->place == 'Jesus Maria'){{ "selected" }} @endif >Jesus Maria</option>
+			<option value="Pabellon de Arteaga" @if($ServiceCase->place == 'Pabellon de Arteaga'){{ "selected" }} @endif >Pabellon de Arteaga</option>
+			<option value="Rincon de Romos" @if($ServiceCase->place == 'Rincon de Romos'){{ "selected" }} @endif >Rincon de Romos</option>
+			<option value="San Jose de Gracia" @if($ServiceCase->place == 'San Jose de Gracia'){{ "selected" }} @endif >San Jose de Gracia</option>
+			<option value="Tepezala" @if($ServiceCase->place == 'Tepezala'){{ "selected" }} @endif >Tepezala</option>
+			<option value="El Llano" @if($ServiceCase->place == 'El Llano'){{ "selected" }} @endif >El Llano</option>
+			<option value="San Francisco de los Romo" @if($ServiceCase->place == 'San Francisco de los Romo'){{ "selected" }} @endif >San Francisco de los Romo</option>
 		</select>
 		
 		@yield('notices')
      	
 		<label for="signature">Firmado:</label> 
       	<select name="signature">
-			<option value="0">No</option>
-			<option value="1">Si</option>
+			<option value="0" @if($ServiceCase->signature == 0){{ "selected" }} @endif >No</option>
+			<option value="1" @if($ServiceCase->signature == 1){{ "selected" }} @endif >Si</option>
 		</select>
 
-		<label for="public_register">Fecha de Registro (registro publico):{{$ServiceCase->notices_two_date}} </label> 
+		<label for="public_register">Fecha de Registro (registro publico):{{$ServiceCase->public_register}} </label> 
      	<input name="public_register" class="input long" id="public_register" type="date" value="{{$ServiceCase->public_register}}"/> 
 
       	<label for="observations">Observaciones:</label> 

@@ -161,9 +161,9 @@ class ServiceController extends Controller
         //enum(1=> 'Sin', 2=> 'Primer', 3=>'Segundo') aviso
         $UpdateCase->notices = 1;
         // dd($UpdateCase->notices_one_date );
-         if( $UpdateCase->notices_one_date =! null || $UpdateCase->notices_one_date != '') {
+         if( $UpdateCase->notices_one_date != null || $UpdateCase->notices_one_date != '') {
             $UpdateCase->notices = 2;
-            if ($UpdateCase->notices_two_date =! null || $UpdateCase->notices_two_date != '') {
+            if ($UpdateCase->notices_two_date != null || $UpdateCase->notices_two_date != '') {
                   $UpdateCase->notices = 3;
              }
          }
