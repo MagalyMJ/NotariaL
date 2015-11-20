@@ -31,8 +31,8 @@ class ServicePoderGeneralSeed extends Seeder
         $ApoderadoType = ParticipantType::where('name','Apoderado')->get(); 
          
         /*Obtenemos los Cobros a considear para el Servicio*/
-        $HMoral = Expense::where('expense_name','Honorarios Por Pernsona Moral')->first();
-        $HFisica = Expense::where('expense_name','Honorarios Por Pernsona Fisica')->first();
+        $HMoral = Expense::where('expense_name','Honorarios Por Persona Moral')->first();
+        $HFisica = Expense::where('expense_name','Honorarios Por Persona Fisica')->first();
         $Gestoria = Expense::where('expense_name','Gestoria de Escritura')->first();
         $ISNJIN = Expense::where('expense_name','ISNJIN')->first();
         $Registro = Expense::where('expense_name','Gastos de Registro')->first();
