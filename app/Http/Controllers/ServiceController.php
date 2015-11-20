@@ -59,7 +59,7 @@ class ServiceController extends Controller
         $Sleectedcustomers = explode(',',$request->customers_selected);
 
         $CreateCase = CaseService::find($id_caseService);
-
+        $CreateCase->place = 'Aguascalientes'; // al crear un coaso le asignamos el municipio de ags por defecto. 
         //creamos un presupuesto vacio y lo asignamos
         $CaseBudget = new Budget;
         $CaseBudget->save();
