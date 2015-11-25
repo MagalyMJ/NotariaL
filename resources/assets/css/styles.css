@@ -12,14 +12,14 @@ a{
 
 .input{
     font-size: 18px;
-    height:30px;
+    height:2rem;
     outline:0px;
-    display: block;
 }
 .input:focus{
   -webkit-box-shadow:  0px 0px 8px rgb(105,105,105);
   box-shadow:  0px 0px 8px rgb(105,105,105);
 }
+
 /* Menu Services */
 
 #detection
@@ -80,6 +80,46 @@ a{
   color:rgb(245,245,245);
 }
 
+/*Detail Case*/
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+.caseDetail{
+  margin: 10px;
+  border: solid black;
+}
+
+.Detail-participants{
+  width: 300px;
+  height: 300px;
+  overflow: auto;
+  }
+.Detail-general{
+  width: 550px;
+  height: 300px;
+  overflow: auto;
+
+}
+.Detail-budeget{
+  width: 700px;
+  height: 200px;
+
+}
+.observation{
+  width: 200px;
+}
+
 
 /* main section */
 .mainsection{
@@ -100,6 +140,7 @@ a{
 .block_container{
   margin-left: 30px;
   padding-top: 20px;
+  width: 1050px;
 }
 .block{
   width: 300px;
@@ -206,19 +247,21 @@ a{
   width: 100%;
   margin: 20px;
 
-  display: -ms-flex;
-  display: -webkit-flex;
-  display: flex;
-}
-.form_container .form_data{
-  width: 50%;
-  padding: 10px;
 }
 .form_data {
   text-align: left;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .form_data .input {
-  margin: 10px;
+  margin: 10px 0 10px 10px;
   border: 1px solid #bbb;
 }
 .long{
@@ -227,6 +270,43 @@ a{
 .form_data label {
   margin: 10px;
   display: block;
+}
+.form_data_select label{
+  margin: 10px;
+  display: inline-block;
+}
+.form_data_general{
+  width: 400px;
+  border: solid black;
+}
+.form_data_special{
+  width: 450px;
+  border: solid black;
+}
+.form_data_participant_type{
+  margin: 10px;
+}
+.form_data_participant_type ul {
+  list-style-type:none;
+}
+.form_data_participant_type_name{
+  margin: 20px;
+}
+
+.form_data_special .check{ 
+  display: inline-block;
+}
+.form_data_payment .check{ 
+  display: inline-block;
+}
+.form_data_participans{
+  width: 450px;
+}
+.form_data_participans_detail{
+  display: inline-block;
+}
+.form_data_observations{
+  width: 80%;
 }
 
 .message_area{
@@ -240,11 +320,19 @@ a{
     -webkit-box-shadow:  0px 0px 8px rgb(105,105,105);
   box-shadow:  0px 0px 8px rgb(105,105,105);
 }
+.action_buttons{
+  padding: 15px 0px 0px 15px;
+  margin-left: 20px;
+  display: block;
+}
+
 .budget-button{
   background-color: rgb(59,60,54);
   color: rgb(235, 235, 235);
   width: 120px;
   text-align: center;
+  float: left;
+  margin: 15px 30px;
   border-radius: 5px;
 }
 /*Tablas*/

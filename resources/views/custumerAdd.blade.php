@@ -5,9 +5,9 @@
 
  <div class="form_container"> 
 
- <form action="{{ route('customer_new_path') }}" method='post' class="form_data aling_block">  
+ <form action="{{ route('customer_new_path') }}" method='post' class="form_data">  
    {{csrf_field()}}
-
+        <div class="form_data_general">
      			<label for="name">Nombre</label> 
      			<input name="name" class="input long" id="name" type="text" autocomplete="off" />
      			 	
@@ -30,7 +30,9 @@
                 <option value="3">divorciado/a</option>
                 <option value="4">viudo/a</option>
           </select>
-     			
+     		</div>
+
+        <div class="form_data_general">
           <label for="rfc">RFC</label> 
      			<input name="rfc" class="input long" id="marital_status" type="text" autocomplete="off" /> 
      			 	<!-- 
@@ -55,11 +57,13 @@
           
           <label for="postal_code">CP</label> 
      			<input name="postal_code" class="input long" id="postal_code" type="text" autocomplete="off" /> 
-     	
+     	  </div>
 
-        <input id="id_service" name="id_service" type="hidden" value="{{$id_service}}">
-        <input type="submit" value="Registrar" class="input budget-button">
-
+      <section class = "action_buttons">
+          <input id="id_service" name="id_service" type="hidden" value="{{$id_service}}">
+          <input type="submit" value="Registrar" class="input budget-button">
+          <a class="input budget-button" href="{{route('home') }}"> Cancelar </a>
+      </section>
   </form>
  </div> 
 

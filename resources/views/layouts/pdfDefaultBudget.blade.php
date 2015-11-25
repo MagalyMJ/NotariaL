@@ -8,23 +8,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 </style>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+  <link rel="stylesheet" href="{{ asset('css/pdf.css')}}">
 <!-- Favicons
   ================================================== -->
 </head>
-  <img src="{{ asset('img/logo.png') }}" alt="">
+  <div class="logo">
+    <img src="{{ asset('img/logo.png') }}" alt="">
+  </div>
 	<body>
-	<section>
+	<section class="header">
 		<h2>Presupuesto de Escritura Nº {{ $Budget->case_service->id}}</h2>
 		<div>
-			<p>{{ $date }}</p>
- 			<h3>{{ $Budget->case_service->service->name}}</h1>
+      <p><strong>Fecha:</strong> {{ $date }}</p>			
+    <h3>{{ $Budget->case_service->service->name}}</h1>
 		</div>
-		<p>Para:</p>
+    <div class="participants">
+		<h3>De:</h3>
 		<p>{{ $Budget->case_service->customer->first()->name .' '.$Budget->case_service->customer->first()->fathers_last_name .' '. $Budget->case_service->customer->first()->mothers_last_name }}</p>
-		<p id='invoice' ></p>
-		<p id='payment_type' ></p>
-	</section>
+	 </div>
+  </section>
 	
 		 @yield('content')
 

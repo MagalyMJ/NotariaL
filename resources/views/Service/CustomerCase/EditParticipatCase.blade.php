@@ -13,28 +13,35 @@
 
 		<h3>Participante</h3>
 
-    		 
- 		<form  id='customerDocuments' method='POST' >  
+    	<h3 class="text-center"> <strong>{{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }}</strong></h3>
+    			 
+ 		<form  id='customerDocuments' method='POST'>  
  	  		{{csrf_field()}}
-    			<p class="text-center"> <strong>{{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }}</strong></p>
-    			
+
+    		
     			@foreach ($ServiceCase->service->participant_type_service as $participat)
-      				<div>
-      					<label for="participant_type">{{$participat->name}}</label> 
-      					<input name="participant_type" type="radio" value="{{$participat->name}}" />
-      					@foreach ($ServiceCase->service->findDocumentsByParticipant($participat->name) as $document )
-							<input name="document_participant_type" type="checkbox" value="{{$document->document_name}}" />
-							<label for="document_participant_type">{{ $document->document_name }} </label> 
-      					@endforeach
+      				<div class="form_data_participant_type">
+						<div class="form_data_participant_type_name">
+      						<label for="participant_type" class="check">{{$participat->name}}</label> 
+      						<input name="participant_type" type="radio" value="{{$participat->name}}" />
+						</div>
+      					<ul>
+      						@foreach ($ServiceCase->service->findDocumentsByParticipant($participat->name) as $document )
+							<li>
+									<input name="document_participant_type" type="checkbox" value="{{$document->document_name}}" />
+									<label for="document_participant_type">{{ $document->document_name }} </label> 	
+      						</li>
+      						@endforeach
+      					</ul>
       				</div>
       			@endforeach
       			<input id="documents_selected" name="documents_selected" type="hidden" value="">		
     		</form>
 	
-		<div>
+		<section class = "action_buttons">
     	  <input type="submit" value="Guardar" class="input budget-button" onClick="UpdateDocuments()">
     	  <a class="input budget-button" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
-		</div>
+		</section>
    
 	</div>
 
