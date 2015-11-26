@@ -22,8 +22,8 @@
     			@foreach ($ServiceCase->service->participant_type_service as $participat)
       				<div class="form_data_participant_type">
 						<div class="form_data_participant_type_name">
-      						<label for="participant_type" class="check">{{$participat->name}}</label> 
       						<input name="participant_type" type="radio" value="{{$participat->name}}" />
+      						<label for="participant_type" class="check">{{$participat->name}}</label> 
 						</div>
       					<ul>
       						@foreach ($ServiceCase->service->findDocumentsByParticipant($participat->name) as $document )
