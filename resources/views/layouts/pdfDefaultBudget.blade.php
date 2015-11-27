@@ -12,25 +12,32 @@
 <!-- Favicons
   ================================================== -->
 </head>
-  <div class="logo">
-    <img src="{{ asset('img/logo.png') }}" alt="">
-  </div>
+
 	<body>
-	<section class="header">
-		<h2>Presupuesto de Escritura Nº {{ $Budget->case_service->id}}</h2>
-		<div>
-      <p><strong>Fecha:</strong> {{ $date }}</p>			
-    <h3>{{ $Budget->case_service->service->name}}</h1>
-		</div>
-    <div class="participants">
-		<h3>De:</h3>
-		<p>{{ $Budget->case_service->customer->first()->name .' '.$Budget->case_service->customer->first()->fathers_last_name .' '. $Budget->case_service->customer->first()->mothers_last_name }}</p>
-	 </div>
-  </section>
+  <header class="clearfix">
+      <div id="logo">
+        <img src="{{ asset('img/logo.png') }}" alt="">
+      </div>
+      <h1>Presupuesto de Escritura Nº {{ $Budget->case_service->id}}</h1>
+      <div id="company" class="clearfix">
+        <div>Notaria Publica 55</div>
+        <div> Montes Himalaya 304<br /> Fraccionamiento Los Bosques</div>
+        <div>Tel:0000000</div>
+        <div><a href="mailto:company@example.com">company@example.com</a></div>
+      </div>
+      <div id="project">
+        <div><span>Servicio</span> {{ $Budget->case_service->service->name}} </div>
+        <div><span>Cliente</span> {{ $Budget->case_service->customer->first()->name .' '.$Budget->case_service->customer->first()->fathers_last_name .' '. $Budget->case_service->customer->first()->mothers_last_name }}</div>
+       <!--  <div><span>ADDRESS</span>Calle, </div>
+        <div><span>EMAIL</span></div> -->
+        <div><span>Fecha</span> {{ $date }} </div>
+      </div>
+    </header>
 	
 		 @yield('content')
 
 	<section>
+
 		<table class="table-fill" >
 				<thead>
 					<tr class="tablehead">
