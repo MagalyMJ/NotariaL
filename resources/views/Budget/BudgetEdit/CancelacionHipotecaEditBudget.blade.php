@@ -2,14 +2,14 @@
 @section('SpecialInputs') 
 
 	<!--  El costo de honorarios es un valor fijo para este servicio Pero entre 3 opcciones diferentes -->
-	 <label for="">Honorarios Por Cancelacion de Infonavit: ${{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Infonavit')}} </label> 
-	 <input name="honorarios"  class="input long" id="honorarios" type="radio" value="{{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Infonavit')}}" 
+	 <label for="" class="check">Honorarios Por Cancelacion de Infonavit: ${{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Infonavit')}} </label> 
+	 <input name="honorarios"  class="input" id="honorarios" type="radio" value="{{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Infonavit')}}" 
 	 @if($Budget->fee == $Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Infonavit') ){{ "checked" }} @endif/>
-	 <label for="">Honorarios Por Persona Fisica: ${{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Persona Fisica')}} </label> 
-	 <input name="honorarios"  class="input long" id="honorarios" type="radio" value="{{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Persona Fisica')}}" 
+	 <label for="" class="check">Honorarios Por Persona Fisica: ${{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Persona Fisica')}} </label> 
+	 <input name="honorarios"  class="input" id="honorarios" type="radio" value="{{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Persona Fisica')}}" 
 	 @if($Budget->fee == $Budget->case_service->service->findExpeseCostByName('Honorarios Por Persona Fisica') ){{ "checked" }} @endif/>
-	 <label for="">Honorarios Por Cancelacion de Banco: ${{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Banco')}} </label> 
-	 <input name="honorarios"  class="input long" id="honorarios" type="radio" value="{{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Banco')}}" 
+	 <label for="" class="check">Honorarios Por Cancelacion de Banco: ${{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Banco')}} </label> 
+	 <input name="honorarios"  class="input" id="honorarios" type="radio" value="{{$Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Banco')}}" 
 	 @if($Budget->fee == $Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Banco') ){{ "checked" }} @endif/>
 	<!-- Para que muestre el ISNJIN actualmente registrado y modificarlo -->
 	 <label for="">ISNJIN: ${{$Budget->isnjin}}</label> 

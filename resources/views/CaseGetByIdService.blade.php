@@ -41,10 +41,11 @@
 				</tbody>
 				</table>
 
-			<div>
+			<section class = "action_buttons">
+			
 				  <a class="input budget-button" href="{{route('Select_Customers_toCase',$service->id) }}"> Nuevo Caso </a>
 				  
-			</div>
+			</section>
 			</div>
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>

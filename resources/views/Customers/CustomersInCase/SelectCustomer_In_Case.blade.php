@@ -35,11 +35,11 @@
 				</table>
 	
 		
-			<div>
+			<section class = "action_buttons">
 				  <a class="input budget-button" href="{{route('New_Customer_inCase',$id_caseService) }}"> Nuevo cliente </a>
 				  <input id="more_cusotmers_inThis" name="customers" type="submit" onClick="more_customers_inThisCase()" value="Asignar al Caso" class="input budget-button">				  
 				  <a class="input budget-button" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
-			</div>
+			</section>
 	</div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
