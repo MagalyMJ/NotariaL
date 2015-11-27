@@ -20,12 +20,14 @@
             </h3>
         </div>
         <div class = "block shadow aling_block">    
-            <div class="module_icon">
-                <span class="icon-drawer"></span>
-            </div>  
-            <h3 class="title_module">
-                Casos
-            </h3>
+            <a href="{{route('Out_Standing_Payments') }}">
+                <div class="module_icon">
+                    <span class="icon-drawer"></span>
+                </div>  
+                <h3 class="title_module">
+                    Pendientes de Pago
+                </h3>
+            </a>
         </div>
         <div class = "block shadow aling_block">    
             <div class="module_icon">

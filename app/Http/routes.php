@@ -140,6 +140,11 @@ Route::get('PagosdeCaso/{id_caseService}', [
 		'uses' =>'PaymentController@index',
 		'as' => 'Case_Payments',]);
 
+//Mostrar la Pagina de todos casos con Pagos Pendientes 
+Route::get('PagosPendientes/', [
+		'uses' =>'PaymentController@OutStandingPayments',
+		'as' => 'Out_Standing_Payments',]);
+
 //Muestra el Formulario para crar un pago nuevo 
 Route::get('Pago/{id_caseService}', [
 		'uses' =>'PaymentController@create',

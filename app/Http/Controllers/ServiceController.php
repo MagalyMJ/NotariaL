@@ -106,6 +106,8 @@ class ServiceController extends Controller
         $ShowCase = CaseService::find($id_caseService);
         //Al querer ver los detalles de caso,se actulaizara el progreso, llevado por los cambios hechos 
         $ShowCase->progress = $ShowCase->Progress();
+        //el saldo restante a apagar se guarda en el caso 
+        $ShowCase->remaining =  $ShowCase->budget->total - $ShowCase->SumPayments() ;
         $ShowCase->save();
 
         $ShowCase = CaseService::find($id_caseService);

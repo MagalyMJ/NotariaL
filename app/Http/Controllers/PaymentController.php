@@ -122,5 +122,16 @@ class PaymentController extends Controller
     public function destroy($id)
     {
         //
+    } 
+    /**
+     * obtenemos todos los casos que que faltan de pagar.
+     *
+     * 
+     * @return collection Case
+     */
+    public function OutStandingPayments()
+    {
+        $ServicesCases = CaseService::where('remaining','>',0)->get();
+        return view('Payment.OutStandingPayments',[ 'ServicesCases' => $ServicesCases ]);
     }
 }
