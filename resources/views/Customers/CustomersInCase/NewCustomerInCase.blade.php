@@ -1,8 +1,8 @@
 @extends('layouts.homedefault')
 
 @section('content')
-
-
+<div class="block_container">
+<h1>Registro de Nuevo Cliente para un tramite exitente</h1>
  <div class="form_container"> 
 
  <form action="{{ route('New_Customer_inCase',$id_caseService) }}" method='post' class="form_data aling_block">  
@@ -42,14 +42,14 @@
           <label for="occupation">Ocupación</label> 
           <input name="occupation" class="input long" id="occupation" type="text" autocomplete="off" />
 
-          <label for="phone">Teléfon</label> 
+          <label for="phone">Teléfono</label> 
           <input name="phone" class="input long" id="phone" type="tel" autocomplete="off" /> 
  
             
           <label for="street">Calle</label> 
           <input name="street" class="input long" id="street" type="text" autocomplete="off" /> 
          
-          <label for="number">Numero</label> 
+          <label for="number">Número</label> 
           <input name="number" class="input long" id="number" type="text" autocomplete="off" /> 
           
           <label for="colony">Colonia</label> 
@@ -64,6 +64,7 @@
         </section>
 
   </form>
+ </div> 
  </div> 
 
 @endsection

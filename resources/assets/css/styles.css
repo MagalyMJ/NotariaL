@@ -26,9 +26,7 @@ select {
 
 .input{
     font-size: 14px;
-    height:1.5rem;
     padding-top: 10px;
-
 }
 .input:focus{
   -webkit-box-shadow:  0px 0px 8px rgb(105,105,105);
@@ -373,12 +371,17 @@ select {
   width: 80%;
 }
 .form_data label {
-  margin: 10px;
+  margin: 0px;
   display: block;
 }
 .form_data_select label{
   margin: 5px;
   display: inline-block;
+}
+.formborder {
+  border: solid ;
+  border-color: rgba(0,0,0, 0.25);
+  border-radius: 20px;
 }
 .form_data_general{
   width: 400px;
@@ -387,6 +390,7 @@ select {
   border-radius: 20px;
   padding: 10px;
 }
+
 .form_data_special{
   width: 500px;
   border: solid ;

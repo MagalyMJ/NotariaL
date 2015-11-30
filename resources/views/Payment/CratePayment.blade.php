@@ -3,11 +3,11 @@
 @section('content')
 
 	<div class="block_container">
-		<h1>hacer un pago </h1>
+		<h1>Generar Pago</h1>
 		<h2>Para de la Escritura Nº {{$ServiceCase->id}}</h2>
 		<form id="New_Payment" action="{{route('Payment_Store',$ServiceCase->id) }}" method='post' class="form_data">  
    			{{csrf_field()}}
-   			<div class="form_data_payment">
+   			<div class="form_data_payment formborder">
           <div>
    			<label for="name">Nombre</label> 
         <input name="name" class="input long" id="name" type="text" autocomplete="off" value="" />

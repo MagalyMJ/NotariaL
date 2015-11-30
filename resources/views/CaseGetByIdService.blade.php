@@ -43,7 +43,7 @@
 
 			<section class = "action_buttons">
 			
-				  <a class="input budget-button" href="{{route('Select_Customers_toCase',$service->id) }}"> Nuevo Caso </a>
+				  <a class="input budget-button" href="{{route('Select_Customers_toCase',$service->id) }}">Nuevo Tramite</a>
 				  
 			</section>
 			</div>
