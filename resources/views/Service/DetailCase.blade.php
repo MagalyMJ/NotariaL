@@ -60,7 +60,7 @@
 				<h3>Datos generales de presupuesto</h3>
 				<div class="flex-container">
 					<div>
-						<p class="text-center"><strong>Honorarios:</strong> {{ $ServiceCase->budget->fee }} </p>		
+						<p class="text-center"><strong>Honorarios:</strong> ${{ $ServiceCase->budget->fee }} </p>		
 						<p class="text-center"><strong>Aprovado:</strong>  {{ $ServiceCase->budget->approved }} </p>		
 						<p class="text-center"><strong>Facturado:</strong>  {{ $ServiceCase->budget->invoiced }} </p>		
 						<p class="text-center"><strong>IVA:</strong>  ${{ $ServiceCase->budget->iva }} </p>		

@@ -22,18 +22,14 @@
           @foreach ($ServicesCases as $Case )
               <tr>
                 <td class="text-center"> {{ $Case->id }} </td>
-                <td class="text-center"> {{ $Case->budget->total }} </td>
-                <td class="text-center"> {{ $Case->remaining }} </td>
+                <td class="text-center">$ {{ $Case->budget->total }} </td>
+                <td class="text-center">$ {{ $Case->remaining }} </td>
                 <td class="text-center"> <a class="input budget-button"  href="{{route('Case_Payments',$Case->id) }}">Detalles</a></td>
               </tr>
           @endforeach
           
         </tbody>
         </table>
-
-         
-          <br>
-      <a class="input budget-button" href="{{route('home') }}">Home</a>
   </div>
 
 @stop
