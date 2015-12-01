@@ -13,11 +13,11 @@
 	 @if($Budget->fee == $Budget->case_service->service->findExpeseCostByName('Honorarios Por Cancelacion Banco') ){{ "checked" }} @endif/>
 	<!-- Para que muestre el ISNJIN actualmente registrado y modificarlo -->
 	 <label for="">ISNJIN: ${{$Budget->isnjin}}</label> 
-	 <input name="isnjin"  class="input long" id="isnjin" type="number" step="0.01"  value="{{$Budget->isnjin}}" />
+	 <input name="isnjin"  class="input medium" id="isnjin" type="number" step="0.01"  value="{{$Budget->isnjin}}" />
 	<!-- Mostramos el costo que tienen los Gastos de Registro Para este Servicio -->
 	<label for="">Gastos de Registro: ${{$Budget->case_service->service->findExpeseCostByName('Gastos de Registro')}}</label> 
-	<input name="gastos_registro"  class="input long" id="gastos_registro" type="hidden" value="{{$Budget->case_service->service->findExpeseCostByName('Gastos de Registro')}}" />
+	<input name="gastos_registro"  class="input medium" id="gastos_registro" type="hidden" value="{{$Budget->case_service->service->findExpeseCostByName('Gastos de Registro')}}" />
 	<!-- Por default se tieen que registrar por eso el value es 1-->
 	<label for="">Nº Registros: 1 </label> 
-	<input name="ngastos_resgistro"  class="input long" id="ngastos_resgistro" type="hidden" value="1" />	
+	<input name="ngastos_resgistro"  class="input medium" id="ngastos_resgistro" type="hidden" value="1" />	
 @stop

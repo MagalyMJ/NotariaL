@@ -4,7 +4,7 @@
 	<!--  El costo de honorarios es determinado por el vaor de operacion  
 	Mostramos el valor de onorarios actualmete registrados -->
 	<label for="">Honorarios: ${{$Budget->fee}} </label> 
-	<input name="honorarios"  class="input long" id="honorarios" type="hidden" value="" />
+	<input name="honorarios"  class="input medium" id="honorarios" type="hidden" value="" />
 	<!-- Para que muestre el valor de operacion actualmente registrado y modificarlo -->
 	<label for="" class="check">Valor de Operación: ${{$Budget->operation_value}} </label> 
 	<input name="valor_operacion"  class="input" id="valor_operacion" type="number" step="0.01" value="{{$Budget->operation_value}}" />
@@ -13,15 +13,15 @@
 	<input name="avaluo_comercial"  class="input" id="avaluo_comercial" type="checkbox" value="{{$Budget->case_service->service->findExpeseCostByName('Avalúo Comercial')}}" 
 	@if($Budget->commercial_appraisal == $Budget->case_service->service->findExpeseCostByName('Avalúo Comercial') ){{ "checked" }} @endif />
 	<label for="">ISABI: ${{$Budget->isabi}}</label> 
-	<input name="isabi"  class="input long" id="isabi" type="hidden" value="" />
+	<input name="isabi"  class="input medium" id="isabi" type="hidden" value="" />
 	<!-- Para que muestre el ISR actualmente registrado y modificarlo -->
 	<label for="">ISR: ${{$Budget->isr}}</label> 
-	<input name="isr"  class="input long" id="isr" type="number" step="0.01"  value="{{$Budget->isr}}" />
+	<input name="isr"  class="input medium" id="isr" type="number" step="0.01"  value="{{$Budget->isr}}" />
 	<!-- Mostramos el costo que tienen los Gastos de Registro Para este Servicio -->
 	<label for="">Gastos de Registro: ${{$Budget->case_service->service->findExpeseCostByName('Gastos de Registro')}}</label> 
-	<input name="gastos_registro"  class="input long" id="gastos_registro" type="hidden" value="{{$Budget->case_service->service->findExpeseCostByName('Gastos de Registro')}}" />
+	<input name="gastos_registro"  class="input medium" id="gastos_registro" type="hidden" value="{{$Budget->case_service->service->findExpeseCostByName('Gastos de Registro')}}" />
 	<!-- Numero de propiedades a registrar-->
 	<label for="">Nº Propiedades: {{$Budget->n_registration}}</label> 
-	<input name="ngastos_resgistro"  class="input long" id="ngastos_resgistro" type="number" value="{{$Budget->n_registration}}" />
+	<input name="ngastos_resgistro"  class="input medium" id="ngastos_resgistro" type="number" value="{{$Budget->n_registration}}" />
 	
 @stop

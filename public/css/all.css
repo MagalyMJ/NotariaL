@@ -793,8 +793,14 @@ select {
 .long{
   width: 80%;
 }
+.medium {
+  width:150px;
+}
+.small {
+  width:40%;
+}
 .form_data label {
-  margin: 0px;
+  margin: 5px;
   display: block;
 }
 .form_data_select label{
@@ -807,7 +813,7 @@ select {
   border-radius: 20px;
 }
 .form_data_general{
-  width: 400px;
+  width: 300px;
   border: solid ;
   border-color: rgba(0,0,0, 0.25);
   border-radius: 20px;
@@ -815,7 +821,7 @@ select {
 }
 
 .form_data_special{
-  width: 500px;
+  width: 300px;
   border: solid ;
   border-color: rgba(0,0,0, 0.25);
   border-radius: 20px;
@@ -862,6 +868,17 @@ select {
   padding: 15px 0px 0px 15px;
   margin-left: 20px;
   display: block;
+}
+.action_buttons_buget{
+  width: 600px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .budget-button{

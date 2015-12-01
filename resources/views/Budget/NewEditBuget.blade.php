@@ -26,19 +26,19 @@
     <div class="form_data_general">
 
       <label for="discount">Descuento de Honorarios</label> 
-      <input name="discount"  class="input long" id="discount" type="number" step="0.01" autocomplete="off" value="{{$Budget->discount}}" />
+      <input name="discount"  class="input medium" id="discount" type="number" step="0.01" autocomplete="off" value="{{$Budget->discount}}" />
       
       <label for="travel_expenses">Gastos de Viaje</label> 
-      <input name="travel_expenses"  class="input long" id="travel_expenses" type="number" step="0.01"autocomplete="off" value="{{$Budget->travel_expenses}}" />
+      <input name="travel_expenses"  class="input medium" id="travel_expenses" type="number" step="0.01"autocomplete="off" value="{{$Budget->travel_expenses}}" />
       
       <label for="miscellaneous_expense">Varios</label> 
-      <input name="miscellaneous_expense"  class="input long" id="miscellaneous_expense" type="number" step="0.01" autocomplete="off" value="{{$Budget->miscellaneous_expense}}" />
+      <input name="miscellaneous_expense"  class="input medium" id="miscellaneous_expense" type="number" step="0.01" autocomplete="off" value="{{$Budget->miscellaneous_expense}}" />
       
       <label for="advance_payment">Anticipo</label> 
-      <input name="advance_payment" class="input long" id="advance_payment" type="number" step="0.01" autocomplete="off" value="{{$Budget->advance_payment}}" />
+      <input name="advance_payment" class="input medium" id="advance_payment" type="number" step="0.01" autocomplete="off" value="{{$Budget->advance_payment}}" />
 
       <label for="surcharges">Recargos</label> 
-      <input name="surcharges" class="input long" id="surcharges" type="number" step="0.01" autocomplete="off" value="{{$Budget->surcharges}}" />
+      <input name="surcharges" class="input medium" id="surcharges" type="number" step="0.01" autocomplete="off" value="{{$Budget->surcharges}}" />
 
       <div class="form_data_select">
       <label for="payment_type">Forma de Pago </label>
@@ -66,8 +66,10 @@
  
 
     <section class = "action_buttons">
+      <div class="action_buttons_buget">
         <input type="submit" value="Guardar" class="input budget-button ">
         <a class="input budget-button button_normal" href="{{route('Show_Case_path',$Budget->case_service->id) }}"> Cancelar </a>
+      </div>
     </section>
     </form>
   </div> 

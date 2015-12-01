@@ -57,7 +57,7 @@ function tipoPago(Pago){
    {{csrf_field()}}
 
       <label for="operation_value">Valor de Operacion</label> 
-      <input name="operation_value" onBlur="sText();" class="input long" id="operation_value" type="text" autocomplete="off" value="{{ $Budget->operation_value}}" />
+      <input name="operation_value" onBlur="sText();" class="input medium" id="operation_value" type="text" autocomplete="off" value="{{ $Budget->operation_value}}" />
       
       <label for="discount">Descuento de Honorarios</label> 
       <input name="discount" onBlur="sText();" class="input long" id="discount" type="text" autocomplete="off" value="{{ $Budget->discount}}" />
