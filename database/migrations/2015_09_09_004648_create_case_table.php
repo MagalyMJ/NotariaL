@@ -34,6 +34,8 @@ class CreateCaseTable extends Migration {
             $table->date('public_register'); //fecha de registro
 
             $table->boolean('signature'); //booleano de comprovacion de firma
+			
+			$table->integer('N_write')->unsigned(); //Numero de escritura
 
 			$table->timestamps();
 			

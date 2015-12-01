@@ -42,6 +42,7 @@
 							<p class="text-center"><strong> Detalle de Servicio:</strong>  {{ $ServiceCase->service_detail}} </p>		
 							<p class="text-center"><strong> Lugar:</strong>  {{ $ServiceCase->place }} </p>
 							<p class="text-center"><strong> Progreso:</strong>  %{{ $ServiceCase->progress}} </p>	
+							<p class="text-center"><strong> Nº de Escritura:</strong>  {{$ServiceCase->N_write}} </p>	
 						</div>
 						<div>
 							<p class="text-center"><strong> Avisos:</strong>  {{ $ServiceCase->notices}} - Dias Transcurridos: {{$ServiceCase->diffDateNotices()}}</p>				

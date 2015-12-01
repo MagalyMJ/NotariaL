@@ -9,10 +9,10 @@
 
 	 <form id="Edit_Case" action="{{route('Update_Case_path',$ServiceCase->id) }}" method='post' class="form_data">  
    		{{csrf_field()}}
-		
-		<label for="service_detail">Detalle del Servicio</label> 
-      	<input name="service_detail"class="input long" id="service_detail" type="text" autocomplete="off" value="{{ $ServiceCase->service_detail}}" />
-      
+		<div class="long">
+			<label for="service_detail">Detalle del Servicio</label> 
+      		<input name="service_detail"class="input long" id="service_detail" type="text" autocomplete="off" value="{{ $ServiceCase->service_detail}}" />
+     	</div>
       <div class="form_data_participans">
 		<h3>Participantes</h3>
 			@foreach ($ServiceCase->customer as $customerSelect)
@@ -28,7 +28,7 @@
     			</div>
 					@endforeach
 		</div>
-		<div class="">
+		<div class="form_caseDetail">
 			<label for="place">Lugar:</label> 
 	      	<select name="place">
 				<option value="Aguascalientes" @if($ServiceCase->place == 'Aguascalientes'){{ "selected" }} @endif>Aguascalientes</option>
@@ -51,6 +51,9 @@
 				<option value="0" @if($ServiceCase->signature == 0){{ "selected" }} @endif >No</option>
 				<option value="1" @if($ServiceCase->signature == 1){{ "selected" }} @endif >Si</option>
 			</select>
+		
+			<label for="N_write">Número de Escritura</label>
+	     	<input name="N_write" class="input long" id="N_write" type="number" value="{{$ServiceCase->N_write}}"/> 
 
 			<label for="public_register">Fecha de Registro (registro publico):{{$ServiceCase->public_register}} </label> 
 	     	<input name="public_register" class="input long" id="public_register" type="date" value="{{$ServiceCase->public_register}}"/> 
