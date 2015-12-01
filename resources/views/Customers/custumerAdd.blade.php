@@ -60,9 +60,11 @@
      	  </div>
 
       <section class = "action_buttons">
-          <input id="id_service" name="id_service" type="hidden" value="{{$id_service}}">
-          <input type="submit" value="Registrar" class="input budget-button button_normal">
-          <a class="input budget-button button_normal" href="{{route('home') }}"> Cancelar </a>
+          <div class="action_buttons_diplay">
+            <input id="id_service" name="id_service" type="hidden" value="{{$id_service}}">
+            <input type="submit" value="Registrar" class="input budget-button button_normal">
+            <a class="input budget-button button_normal" href="{{route('home') }}"> Cancelar </a>
+          </div>
       </section>
   </form>
  </div> 

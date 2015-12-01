@@ -66,7 +66,7 @@
  
 
     <section class = "action_buttons">
-      <div class="action_buttons_buget">
+      <div class="action_buttons_diplay">
         <input type="submit" value="Guardar" class="input budget-button ">
         <a class="input budget-button button_normal" href="{{route('Show_Case_path',$Budget->case_service->id) }}"> Cancelar </a>
       </div>
