@@ -24,7 +24,7 @@
                 <td class="text-center"> {{ $Case->id }} </td>
                 <td class="text-center">$ {{ $Case->budget->total }} </td>
                 <td class="text-center">$ {{ $Case->remaining }} </td>
-                <td class="text-center"> <a class="input budget-button"  href="{{route('Case_Payments',$Case->id) }}">Detalles</a></td>
+                <td class="text-center"> <a class="input budget-button button_normal"  href="{{route('Case_Payments',$Case->id) }}">Detalles</a></td>
               </tr>
           @endforeach
           

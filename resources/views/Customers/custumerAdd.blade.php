@@ -61,8 +61,8 @@
 
       <section class = "action_buttons">
           <input id="id_service" name="id_service" type="hidden" value="{{$id_service}}">
-          <input type="submit" value="Registrar" class="input budget-button">
-          <a class="input budget-button" href="{{route('home') }}"> Cancelar </a>
+          <input type="submit" value="Registrar" class="input budget-button button_normal">
+          <a class="input budget-button button_normal" href="{{route('home') }}"> Cancelar </a>
       </section>
   </form>
  </div> 

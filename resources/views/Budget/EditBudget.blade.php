@@ -113,7 +113,7 @@ function tipoPago(Pago){
       <p>-----------------------</p>
       
 
-      <input type="submit" value="Guardar" class="input budget-button">
+      <input type="submit" value="Guardar" class="input budget-button button_normal">
 
     </form>
   </div> 

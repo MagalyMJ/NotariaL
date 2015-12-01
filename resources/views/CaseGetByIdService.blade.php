@@ -34,7 +34,7 @@
 							</td>
     						<td class="text-center"> ${{ $case_service->budget->total }} </td>
     						<td class="text-center"> {{ $case_service->observations }} </td>
-    						<td class="text-center"> <a class="input budget-button" href="{{route('Show_Case_path',$case_service->id) }}"> Detalles </a></td>
+    						<td class="text-center"> <a class="input budget-button button_normal" href="{{route('Show_Case_path',$case_service->id) }}"> Detalles </a></td>
     					</tr>
     				</a>
 					@endforeach
@@ -43,7 +43,7 @@
 
 			<section class = "action_buttons">
 			
-				  <a class="input budget-button" href="{{route('Select_Customers_toCase',$service->id) }}">Nuevo Tramite</a>
+				  <a class="input budget-button button_normal" href="{{route('Select_Customers_toCase',$service->id) }}">Nuevo Tramite</a>
 				  
 			</section>
 			</div>

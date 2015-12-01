@@ -59,8 +59,8 @@
           <input name="postal_code" class="input long" id="postal_code" type="text" autocomplete="off" /> 
         </div>
         <section class = "action_buttons">
-          <input type="submit" value="Registrar" class="input budget-button">
-          <a class="input budget-button" href="{{route('home') }}"> Cancelar </a>
+          <input type="submit" value="Registrar" class="input budget-button button_normal">
+          <a class="input budget-button button_normal" href="{{route('home') }}"> Cancelar </a>
         </section>
   </form>
  </div> 

@@ -28,7 +28,7 @@
 					@endforeach
 			</div>
 			<section class = "action_buttons">
-				<a class="input budget-button"  href="{{route('Select_customer_InExisting_Case',$ServiceCase->id) }}">+ Participantes</a> 		   
+				<a class="input budget-button button_normal"  href="{{route('Select_customer_InExisting_Case',$ServiceCase->id) }}">+ Participantes</a> 		   
 			</section>
 		</section>
 		<section class="caseDetail" >
@@ -50,7 +50,7 @@
 			</div>
 
 			<section class = "action_buttons">
-				<a class="input budget-button"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> Editar </a> 		   
+				<a class="input budget-button button_normal"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> Editar </a> 		   
 			</section>
 		</section>
 
@@ -80,11 +80,11 @@
 			
 			<section class = "action_buttons">
 
-				<a class="input budget-button"  href="{{route('PdfBuget',$ServiceCase->budget->id) }}" target="_blank">PDF</a>
+				<a class="input budget-button button_normal"  href="{{route('PdfBuget',$ServiceCase->budget->id) }}" target="_blank">PDF</a>
 				
-				<a class="input budget-button"  href="{{route('EditBudget',$ServiceCase->budget->id) }}">CrearPresupuesto</a> 
+				<a class="input budget-button button_big"  href="{{route('EditBudget',$ServiceCase->budget->id) }}">Crear Presupuesto</a> 
 						   
-				<a class="input budget-button"  href="{{route('Case_Payments',$ServiceCase->id) }}"> Pagos </a> 		   
+				<a class="input budget-button button_normal"  href="{{route('Case_Payments',$ServiceCase->id) }}"> Pagos </a> 		   
 		
 			</section>
 		</section>

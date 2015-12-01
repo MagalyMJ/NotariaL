@@ -24,7 +24,7 @@
 						<br> <strong>Documentos Entregados: </strong>
 						{{ $customerSelect->pivot->documents_list }}
     				</p>				
-    				<a class="input budget-button" href="{{route('Edit_CustomerinCase',array($ServiceCase->id, $customerSelect->id) ) }}"> Documentos </a>
+    				<a class="input budget-button button_normal" href="{{route('Edit_CustomerinCase',array($ServiceCase->id, $customerSelect->id) ) }}"> Documentos </a>
     			</div>
 					@endforeach
 		</div>
@@ -62,8 +62,8 @@
 		</div>
 
 		<section class = "action_buttons">	
-    	  <input type="submit" value="Guardar" class="input budget-button">
-    	  <a class="input budget-button" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
+    	  <input type="submit" value="Guardar" class="input budget-button button_normal">
+    	  <a class="input budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
 		</section>
     </form>
 	</div>

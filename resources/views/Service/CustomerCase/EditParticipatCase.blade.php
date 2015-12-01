@@ -39,8 +39,8 @@
     		</form>
 	
 		<section class = "action_buttons">
-    	  <input type="submit" value="Guardar" class="input budget-button" onClick="UpdateDocuments()">
-    	  <a class="input budget-button" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
+    	  <input type="submit" value="Guardar" class="input budget-button button_normal" onClick="UpdateDocuments()">
+    	  <a class="input budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
 		</section>
    
 	</div>

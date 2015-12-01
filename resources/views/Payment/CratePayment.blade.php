@@ -26,8 +26,8 @@
       		<input name="amount_to_pay" class="input" id="amount_to_pay" type="number" step="0.01" autocomplete="off" value="" />
      </div>
       <section class = "action_buttons">  
-      	<input type="submit" value="Guardar" class="input budget-button">
-        <a class="input budget-button" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
+      	<input type="submit" value="Guardar" class="input budget-button button_normal">
+        <a class="input budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
       </section>
    </div>
    </form>

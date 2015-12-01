@@ -41,7 +41,7 @@
            <input id="idcustomer" name="idcustomer" type="hidden" value="{{$customers->id}}">
        </div>
 
-        <input type="submit" value="Registrar" class="input budget-button">
+        <input type="submit" value="Registrar" class="input budget-button button_normal">
 
   </form>
  </div> 
