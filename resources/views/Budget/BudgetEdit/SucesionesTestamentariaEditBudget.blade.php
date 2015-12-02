@@ -2,13 +2,13 @@
 @section('SpecialInputs') 
 
 	<!--  El costo de honorarios es determinado por el vaor de operacion  
-	Mostramos el valor de onorarios actualmete registrados -->
-	<label for="">Honorarios: ${{$Budget->fee}} </label> 
-	<input name="honorarios"  class="input medium" id="honorarios" type="hidden" value="" />
-	<!-- Para que muestre el valor de operacion actualmente registrado y modificarlo -->
-	<label for="" class="check">Valor de Operación: ${{$Budget->operation_value}} </label> 
-	<input name="valor_operacion"  class="input" id="valor_operacion" type="number" step="0.01" value="{{$Budget->operation_value}}" />
-	<!-- Mostratos el costo de un Avalúo Comercial registrado para este servicio lo ponemos en el input por si es requerido -->
+    Mostramos el valor de onorarios actualmete registrados -->
+    <label for="" id="labelfee" >Honorarios: ${{$Budget->fee}} </label> 
+    <input name="honorarios"  class="input medium" id="honorarios" type="hidden" value="" />
+    <!-- Para que muestre el valor de operacion actualmente registrado y modificarlo -->
+    <label for="">Valor de Operación: ${{$Budget->operation_value}} </label> 
+    <input name="valor_operacion"  class="input medium" onkeyup="operationValue()" id="valor_operacion" type="number" step="0.01" value="{{$Budget->operation_value}}" />
+    <!-- Mostratos el costo de un Avalúo Comercial registrado para este servicio lo ponemos en el input por si es requerido -->
 	<label for="" class="check">Avalúo Comercial: ${{$Budget->case_service->service->findExpeseCostByName('Avalúo Comercial')}}</label> 
 	<input name="avaluo_comercial"  class="input" id="avaluo_comercial" type="checkbox" value="{{$Budget->case_service->service->findExpeseCostByName('Avalúo Comercial')}}" 
 	@if($Budget->commercial_appraisal == $Budget->case_service->service->findExpeseCostByName('Avalúo Comercial') ){{ "checked" }} @endif />
