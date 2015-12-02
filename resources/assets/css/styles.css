@@ -32,6 +32,9 @@ select {
   -webkit-box-shadow:  0px 0px 8px rgb(105,105,105);
   box-shadow:  0px 0px 8px rgb(105,105,105);
 }
+ input[type="submit"]{
+    height: 35px
+ }
  input[type="checkbox"], input[type="radio"] {
   display: inline-block;
   vertical-align: middle;
