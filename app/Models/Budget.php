@@ -74,28 +74,28 @@ class Budget extends Model
             $cuotaFija = 24000;
             $TMEI = 0.6;
             $diff = $OperationValue - 1000000 ;
-            $fee = (($TMEI * $OperationValue )/100) + $cuotaFija;
+            $fee = (($TMEI * $diff )/100) + $cuotaFija;
             return $fee;
 
         }elseif ($OperationValue > 2000000 && $OperationValue <= 5000000) {
             $cuotaFija = 45000;
             $TMEI = 0.4;
             $diff = $OperationValue - 2000000;
-            $fee = (($TMEI * $OperationValue )/100)  + $cuotaFija;
+            $fee = (($TMEI * $diff )/100)  + $cuotaFija;
             return $fee;
 
         }elseif ($OperationValue > 5000000 && $OperationValue <= 10000000) {
             $cuotaFija = 60000;
             $TMEI = 0.2;
             $diff = $OperationValue - 5000000;
-            $fee = (($TMEI * $OperationValue )/100) + $cuotaFija;
+            $fee = (($TMEI * $diff )/100) + $cuotaFija;
             return $fee;
 
         }elseif ($OperationValue > 10000000 ) {
             $cuotaFija = 750000;
             $TMEI = 0.1;
             $diff = $OperationValue - 10000000 ;
-            $fee = (($TMEI * $OperationValue )/100)  + $cuotaFija;
+            $fee = (($TMEI * $diff )/100)  + $cuotaFija;
             return $fee;
 
         }

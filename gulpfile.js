@@ -24,3 +24,6 @@ elixir(function(mix) {
         "pdf.css"
     ], 'public/css/pdf.css');
 });
+elixir(function(mix) {
+    mix.scripts(['enajenanteSript.js'], 'public/js/Budget.js')
+});

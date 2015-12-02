@@ -1,12 +1,6 @@
  @extends('layouts.homedefault')
 
 @section('content') 
-
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script>
- 
-
-</script>
 <div class="block_container">
 
   <h1>Presupuesto del Folio Nº {{ $Budget->case_service->id}}</h1>
@@ -74,6 +68,5 @@
     </form>
   </div> 
  </div> 
-
-
+<script src="{{ asset('js/Budget.js')}}" language="javascript" type="text/javascript"></script>
  @stop
