@@ -36,6 +36,11 @@ Route::get('servicio/{id_service}',[
 	'uses' => 'ServiceController@index',
 	'as' => 'service_show_path',
 	]);
+// Para mostrar todos los casos en base al servicio
+Route::get('casos/',[
+	'uses' => 'ServiceController@AllCaseindex',
+	'as' => 'show_all_case',
+	]);
 
 Route::post('servicio',[
 	'uses' => 'ServiceController@addCustumer',

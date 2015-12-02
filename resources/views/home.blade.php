@@ -4,12 +4,14 @@
     <section id="mainsection" class = "mainsection main_left">
         <div class="block_container">
         <div class = "block shadow aling_block">    
-            <div class="module_icon">
-                <span class="icon-file-play"></span>
-            </div>  
-            <h3 class="title_module">
-                Avances 
-            </h3>
+            <a href="{{ route('show_all_case') }}">
+                <div class="module_icon">
+                    <span class="icon-file-play"></span>
+                </div>  
+                <h3 class="title_module">
+                    Avances 
+                </h3>
+            </a>
         </div>
         <div class = "block shadow aling_block">    
             <div class="module_icon">

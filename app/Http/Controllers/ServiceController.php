@@ -21,7 +21,7 @@ use Input;
 class ServiceController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Despliega una lista de casos en base al servico.
      *
      * @return Response
      */
@@ -33,16 +33,42 @@ class ServiceController extends Controller
         
         //Usamos un scope para traer los caso del Tipo de servico y filtrados por id , o por numero de escritura 
         if ($request->id != null) {
-                 $cases = CaseService::SearchById($request->id,$id_service)->orderBy('id','DESC')->get();
+                 $cases = CaseService::SearchByIdAndService($request->id,$id_service)->orderBy('id','DESC')->get();
             }
         elseif ($request->N_write != null ) {
-                $cases = CaseService::SearchByNwrite($request->N_write,$id_service)->orderBy('id','DESC')->get();
+                $cases = CaseService::SearchByNwriteAndService($request->N_write,$id_service)->orderBy('id','DESC')->get();
             }
             else{
                 $cases = CaseService::where('service_id',$id_service)->orderBy('id','DESC')->get();
             }
 
-            return view('CaseGetByIdService',[ 'cases_services' => $cases , 'service' => $service ]);
+            return view('Service.CaseGetByIdService',[ 'cases_services' => $cases , 'service' => $service ]);
+            
+    }
+    
+    /**
+     * Despliega una lista de todos los casos
+     *
+     * @return Response
+     */
+    public function AllCaseindex (Request $request)
+    {
+        //
+         
+          $cases;  
+        
+        //Usamos un scope para traer todos caso filtrados por id , o por numero de escritura 
+        if ($request->id != null) {
+                 $cases = CaseService::SearchById($request->id)->orderBy('progress','ASC')->get();
+            }
+        elseif ($request->N_write != null ) {
+                 $cases = CaseService::SearchByNwrite($request->N_write)->orderBy('progress','ASC')->get();
+            }
+            else{
+                $cases = CaseService::orderBy('progress','ASC')->get();
+            }
+
+            return view('Service.AllCase',[ 'cases_services' => $cases ]);
             
     }
 
