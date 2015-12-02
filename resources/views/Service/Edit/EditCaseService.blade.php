@@ -4,7 +4,7 @@
 
 	<div class="block_container">
 
-		<h1>Escritura Nº {{$ServiceCase->id}}</h1>
+		<h1>Folio Nº {{$ServiceCase->id}}</h1>
 		<h3>{{$ServiceCase->service->name}}</h3>
 
 	 <form id="Edit_Case" action="{{route('Update_Case_path',$ServiceCase->id) }}" method='post' class="form_data">  
@@ -60,7 +60,6 @@
 		</div>
 
 		<div class="form_data_observations">
-      		<label for="observations">Observaciones:</label> 
    	    	<textarea rows="4" cols="50" name="observations" placeholder="Observaciones" class="message_area" value="">{{ $ServiceCase->observations }}</textarea>
 		</div>
 

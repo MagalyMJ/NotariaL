@@ -6,7 +6,7 @@
 
 	<div class="block_container">
 
-		<h1>Escritura Nº {{$ServiceCase->id}}</h1>
+		<h1>Folio Nº {{$ServiceCase->id}}</h1>
 		<h3>{{$ServiceCase->service->name}}</h3>
 
    

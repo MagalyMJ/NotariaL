@@ -18,7 +18,7 @@
       <div id="logo">
         <img src="{{ asset('img/logo.png') }}" alt="">
       </div>
-      <h1>Presupuesto de Escritura Nº {{ $Budget->case_service->id}}</h1>
+      <h1>Presupuesto</h1>
       <div id="company" class="clearfix">
         <div>Notaria Publica 55</div>
         <div> Montes Himalaya 304<br /> Fraccionamiento Los Bosques</div>

@@ -9,6 +9,7 @@
         <thead>
           <tr>
 
+            <th class="text-left">Nº Folio</th>
             <th class="text-left">Nº Escritura</th>
             <th class="text-left">Total a Pagar</th>
             <th class="text-left">Adeudo</th>
@@ -22,6 +23,7 @@
           @foreach ($ServicesCases as $Case )
               <tr>
                 <td class="text-center"> {{ $Case->id }} </td>
+                <td class="text-center"> {{ $Case->N_write}} </td>
                 <td class="text-center">$ {{ $Case->budget->total }} </td>
                 <td class="text-center">$ {{ $Case->remaining }} </td>
                 <td class="text-center"> <a class="input budget-button button_normal"  href="{{route('Case_Payments',$Case->id) }}">Detalles</a></td>

@@ -50,7 +50,7 @@ function tipoPago(Pago){
 </script>
 <div class="block_container">
 
-  <h1>Presupuesto de Escritura Nº {{ $Budget->case_service->id}}</h1>
+  <h1>Presupuesto de Folio Nº {{ $Budget->case_service->id}}</h1>
   <h1>{{ $Budget->case_service->service->name}}</h1>
  <div class="form_container"> 
  <form id="Edit_budget" action="{{route('UpdateBudget',$Budget->id) }}" method='post' class="form_data aling_block">  

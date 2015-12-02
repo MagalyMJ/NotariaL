@@ -142,6 +142,11 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
+        * Para el manjeo de HTML
+        */
+        Collective\Html\HtmlServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         NotiAPP\Providers\AppServiceProvider::class,
@@ -199,6 +204,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         
         'PDF'      => Barryvdh\DomPDF\ServiceProvider::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'HtmlCollective' => Collective\Html\HtmlFacade::class,
 
     ],
 

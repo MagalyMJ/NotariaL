@@ -25,15 +25,23 @@ class ServiceController extends Controller
      *
      * @return Response
      */
-    public function index($id_service)
+    public function index($id_service, Request $request)
     {
         //
-            //Request Para Obtener los casos en bace al servicio
-            $cases = CaseService::where('service_id',$id_service)->get();
-            $service = Service::find($id_service);
-              
-            //dd($cases[0]->customer->all());
-                
+          $service = Service::find($id_service);
+          $cases;  
+        
+        //Usamos un scope para traer los caso del Tipo de servico y filtrados por id , o por numero de escritura 
+        if ($request->id != null) {
+                 $cases = CaseService::SearchById($request->id,$id_service)->orderBy('id','DESC')->get();
+            }
+        elseif ($request->N_write != null ) {
+                $cases = CaseService::SearchByNwrite($request->N_write,$id_service)->orderBy('id','DESC')->get();
+            }
+            else{
+                $cases = CaseService::where('service_id',$id_service)->orderBy('id','DESC')->get();
+            }
+
             return view('CaseGetByIdService',[ 'cases_services' => $cases , 'service' => $service ]);
             
     }

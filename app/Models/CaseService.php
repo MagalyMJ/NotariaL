@@ -257,6 +257,25 @@ class CaseService extends Model
             return (int)$dias;
         }
 
-    }   
+    } 
+
+    /**
+    * Scope para hacer una busqueda de casos por id 
+    * @param Query $query , int $id, int $id_service
+    * @return 
+    */
+    public function scopeSearchById($query, $id, $id_service){
+
+        return $query->where('id','LIKE',"%$id%")->where('service_id',$id_service);
+    }  
+    /**
+    * Scope para hacer una busqueda de casos por numero de Escritura
+    * @param Query $query , int $N_write, int $id_service
+    * @return 
+    */
+    public function scopeSearchByNwrite($query, $N_write, $id_service){
+
+        return $query->where('N_write','LIKE',"%$N_write%")->where('service_id',$id_service);
+    }  
 
 }

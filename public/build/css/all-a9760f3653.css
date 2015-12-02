@@ -770,6 +770,18 @@ select {
 }
 
 /*forms*/
+.navbar_seach{
+  width: 50px;
+}
+.form_search{
+  display: block;
+}
+.form_input_search{
+  display: block;
+  width: 100px;
+  font-size: 14px;
+  color: black;
+}
 .form_container{
   color: rgb(59,60,54);
   width: 100%;
@@ -821,7 +833,6 @@ select {
   border-radius: 20px;
   padding: 10px;
 }
-
 .form_data_special{
   width: 300px;
   border: solid ;
@@ -921,6 +932,7 @@ th {
   border-right: 1px solid #343a45;
   font-size:23px;
   font-weight: 100;
+  width: 200px;
   padding:24px;
   text-align:left;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);

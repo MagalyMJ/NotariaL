@@ -9,7 +9,7 @@
 </script>
 <div class="block_container">
 
-  <h1>Presupuesto de Escritura Nº {{ $Budget->case_service->id}}</h1>
+  <h1>Presupuesto del Folio Nº {{ $Budget->case_service->id}}</h1>
   <h1>{{ $Budget->case_service->service->name}}</h1>
 
  <div class="form_container"> 

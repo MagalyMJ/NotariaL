@@ -10,7 +10,23 @@
 			<table class="table-fill">
 				<thead>
 					<tr>
-						<th class="text-left">Nº Escritura</th>
+						<th class="text-left"> 
+							<p>Nº Folio</p> 
+						<!-- Buscador por Folio -->
+						{!! Form::open(array('route' =>array('service_show_path',$service->id ),'method' => 'Get','class' => 'form_search')) !!}
+							<div class="navbar_seach">
+								{!! Form::number('id',null,['class' => 'form_input_search' ,'placeholder' => 'Id' ]) !!}
+							</div>
+						{!! Form::close() !!}
+						</th>
+						<th class="text-left"> <p> Nº Escritura</p> 
+						<!-- Buscador por Numero de Escritura -->
+						{!! Form::open(array('route' =>array('service_show_path',$service->id ),'method' => 'Get','class' => 'form_search')) !!}
+							<div class="navbar_seach">
+								{!! Form::number('N_write',null,['class' => 'form_input_search' ,'placeholder' => 'Nº Escritura' ]) !!}
+							</div>
+						{!! Form::close() !!}
+						</th>
 						<th class="text-left">Avance</th>
 						<th class="text-left">Cliente</th>
 						<th class="text-left">Total de Operación</th>
@@ -25,6 +41,7 @@
 					<a href="{{url('servicio/'.$service->id.'/caso/'.$case_service->id)}}">
     					<tr>
     						<td class="text-center"> {{ $case_service->id }} </td>
+                			<td class="text-center"> {{ $case_service->N_write}} </td>
     						<td class="text-center"> {{ $case_service->progress }} %</td>
 							<td class="text-center"> 
 								@foreach($case_service->customer->all() as $customerCase )
