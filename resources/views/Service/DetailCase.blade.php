@@ -13,8 +13,8 @@
 		<section class="caseDetail" >
 
 			<div id="partisipans_thisCase" class="Detail_participants" >
-			<h3>Participantes</h3>
-			@foreach ($ServiceCase->customer as $customerSelect)
+			<h2>Participantes</h2>
+			@foreach ($ServiceCase->customer()->orderBy('participants_type')->get() as $customerSelect)
     			<div>
     				
     			<p class="text-center"> 

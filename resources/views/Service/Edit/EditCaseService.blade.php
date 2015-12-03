@@ -15,7 +15,7 @@
      	</div>
       <div class="form_data_participans">
 		<h3>Participantes</h3>
-			@foreach ($ServiceCase->customer as $customerSelect)
+			@foreach ($ServiceCase->customer()->orderBy('participants_type')->get() as $customerSelect)
     			<div class="form_data_participans_detail">
     				
 					<p class="text-center"> 
