@@ -19,13 +19,15 @@
         <img src="{{ asset('img/logo.png') }}" alt="">
       </div>
       <h1>Presupuesto</h1>
-      <div id="company" class="clearfix">
-        <div>Notaria Publica 55</div>
-        <div> Montes Himalaya 304<br /> Fraccionamiento Los Bosques</div>
-        <div>Tel:0000000</div>
-        <div><a href="mailto:company@example.com">company@example.com</a></div>
-      </div>
       <div id="project">
+
+       
+          <div>Notaria Publica 55</div>
+          <div><span>Lugar:</span> Montes Himalaya 304 Fraccionamiento Los Bosques</div>
+          <div><span>Tel:</span>0000000</div>
+          <div><span>EMAIL</span><a href="mailto:company@example.com">company@example.com</a></div>
+  
+
         <div><span>Servicio</span> {{ $Budget->case_service->service->name}} </div>
         <div><span>Cliente</span> {{ $Budget->case_service->customer->first()->name .' '.$Budget->case_service->customer->first()->fathers_last_name .' '. $Budget->case_service->customer->first()->mothers_last_name }}</div>
        <!--  <div><span>ADDRESS</span>Calle, </div>
@@ -36,7 +38,7 @@
 	
 		 @yield('content')
 
-	<section>
+	<section class="general_content">
 
 		<table class="table-fill" >
 				<thead>
