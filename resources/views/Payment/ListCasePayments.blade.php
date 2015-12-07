@@ -21,6 +21,7 @@
             <th class="text-left">Modo</th>
             <th class="text-left">Monto</th>
             <th class="text-left">Fecha</th>
+            <th class="text-left">Imprimir</th>
           </tr>
         </thead>
         <tbody id="body_table" class="table-hover">
@@ -35,6 +36,8 @@
                 <td class="text-center"> {{ $payment->payment_type }} </td>
                 <td class="text-center"> ${{ $payment->amount_to_pay }} </td>
                 <td class="text-center"> {{ $payment->created_at }} </td>
+                <td class="text-center"> <a class="input budget-button button_normal" href="{{route('PdfPayment',$payment->id ) }}" target="_blank" >Imprimir</a></td>
+
               </tr>
           @endforeach
           

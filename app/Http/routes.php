@@ -158,6 +158,11 @@ Route::post('Pago/{id_caseService}', [
 		'uses' =>'PaymentController@store',
 		'as' => 'Payment_Store',]);
 
+// Muestra en formato PDF los datos de un pago.
+Route::get('Pago/PDF/{id_presupuesto}', [
+		'uses' =>'PaymentController@show',
+		'as' => 'PdfPayment',]);
+
 // Route::get('Presupuestopdf', [
 // 		'uses' =>'PDFController@bugetPDF',
 // 		'as' => 'PdfBuget',]);

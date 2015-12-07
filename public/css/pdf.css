@@ -443,7 +443,9 @@ body {
   font-size: 12px; 
   font-family: Arial;
 }
-
+.payment_leyent{
+  width: 650px;
+}
 header {
   padding: 10px 0;
   margin-bottom: 30px;
