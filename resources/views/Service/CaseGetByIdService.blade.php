@@ -10,8 +10,8 @@
 			<table class="table-fill">
 				<thead>
 					<tr>
-						<th class="text-left"> 
-							<p>Nº Folio</p> 
+						<th class="text-center"> 
+							<p>NºFolio</p> 
 						<!-- Buscador por Folio -->
 						{!! Form::open(array('route' =>array('service_show_path',$service->id ),'method' => 'Get','class' => 'form_search')) !!}
 							<div class="navbar_seach">
@@ -19,7 +19,7 @@
 							</div>
 						{!! Form::close() !!}
 						</th>
-						<th class="text-left"> <p> Nº Escritura</p> 
+						<th class="text-center"> <p>NºEscritura</p> 
 						<!-- Buscador por Numero de Escritura -->
 						{!! Form::open(array('route' =>array('service_show_path',$service->id ),'method' => 'Get','class' => 'form_search')) !!}
 							<div class="navbar_seach">
@@ -27,11 +27,11 @@
 							</div>
 						{!! Form::close() !!}
 						</th>
-						<th class="text-left">Avance</th>
-						<th class="text-left">Cliente</th>
-						<th class="text-left">Total de Operación</th>
-						<th class="text-left">Observaciones</th>
-						<th class="text-left">Opcciones</th>
+						<th class="text-center">Avance</th>
+						<th class="text-center th_big">Cliente</th>
+						<th class="text-center">Total de Operación</th>
+						<th class="text-center th_medium">Observaciones</th>
+						<th class="text-center">Detalles</th>
 
 					</tr>
 				</thead>

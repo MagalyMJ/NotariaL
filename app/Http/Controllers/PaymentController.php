@@ -76,7 +76,8 @@ class PaymentController extends Controller
 
         $CaseService->save();
 
-        return Redirect::route('Show_Case_path', array('id_caseService' => $CaseService->id));
+        // return Redirect::route('Show_Case_path', array('id_caseService' => $CaseService->id));
+        return Redirect::route('Case_Payments', array('id_caseService' => $CaseService->id));
 
     }
 

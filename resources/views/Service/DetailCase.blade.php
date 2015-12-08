@@ -6,7 +6,7 @@
 
 <div class="block_container">
 		
-		<h1>Folio Nº {{$ServiceCase->id}}</h1>
+		<h1>Nº Folio{{$ServiceCase->id}}</h1>
 		<h3>{{$ServiceCase->service->name}}</h3>
 	<div class="flex-container">
 
@@ -36,7 +36,7 @@
 			<section class="caseDetail " >
 				<div id="thisCase_Data" class="Detail_general " >
 				
-					<h3>Detalles de caso </h3>
+					<h3>Detalles de Tramite</h3>
 					<div class="flex-container">
 						<div>
 							<p class="text-center"><strong> Detalle de Servicio:</strong>  {{ $ServiceCase->service_detail}} </p>		
@@ -61,11 +61,11 @@
 			<section class="caseDetail" >
 				<div id="budget_thisCase" class="Detail_budeget" >
 				
-					<h3>Datos generales de presupuesto</h3>
+					<h3>Datos Generales de Presupuesto</h3>
 					<div class="flex-container">
 						<div>
 							<p class="text-center"><strong>Honorarios:</strong> ${{ $ServiceCase->budget->fee }} </p>		
-							<p class="text-center"><strong>Aprovado:</strong>  {{ $ServiceCase->budget->approved }} </p>		
+							<p class="text-center"><strong>Aprobado:</strong>  {{ $ServiceCase->budget->approved }} </p>		
 							<p class="text-center"><strong>Facturado:</strong>  {{ $ServiceCase->budget->invoiced }} </p>		
 							<p class="text-center"><strong>IVA:</strong>  ${{ $ServiceCase->budget->iva }} </p>		
 							<p class="text-center"><strong>Tipo de Pago:</strong>  {{ $ServiceCase->budget->payment_type}} </p>		

@@ -9,11 +9,11 @@
         <thead>
           <tr>
 
-            <th class="text-left">Nº Folio</th>
-            <th class="text-left">Nº Escritura</th>
-            <th class="text-left">Total a Pagar</th>
-            <th class="text-left">Adeudo</th>
-            <th class="text-left">Pagos</th>
+            <th class="text-center">NºFolio</th>
+            <th class="text-center">NºEscritura</th>
+            <th class="text-center">Total a Pagar</th>
+            <th class="text-center">Adeudo</th>
+            <th class="text-center">Pagos</th>
           </tr>
         </thead>
         <tbody id="body_table" class="table-hover">

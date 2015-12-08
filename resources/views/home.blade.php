@@ -13,7 +13,7 @@
                 </h3>
             </a>
         </div>
-        <div class = "block shadow aling_block">    
+        <div class = "block disabled aling_block">    
             <div class="module_icon">
                 <span class="icon-bubbles2"></span>
             </div>  
@@ -31,7 +31,7 @@
                 </h3>
             </a>
         </div>
-        <div class = "block shadow aling_block">    
+        <div class = "block disabled aling_block">    
             <div class="module_icon">
                 <span class="icon-address-book"></span>
             </div>  
@@ -39,15 +39,15 @@
                 Agenda
             </h3>
         </div>
-        <div class = "block shadow aling_block">    
+        <div class = "block disabled  aling_block">    
             <div class="module_icon">
                 <span class="icon-address-book"></span>
             </div>  
             <h3 class="title_module">
-                Comisiónes
+                Comisiones
             </h3>
         </div>
-        <div class = "block shadow aling_block">    
+        <div class = "block disabled aling_block">    
             <div class="module_icon">
                 <span class="icon-folder-open"></span>
             </div>  

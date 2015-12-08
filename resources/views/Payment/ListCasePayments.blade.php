@@ -4,7 +4,7 @@
 
   <div class="block_container">
     <h1>Pagos </h1>
-    <h2>De la Escritura Nº {{$ServiceCase->id}}</h2>
+    <h2>Del Folio Nº {{$ServiceCase->id}}</h2>
     <ul>
       <il>Total en Pagos: <strong>${{$SumPayments}}</strong></il>
       <il>Total a Pagar: <strong>${{$BudgetTotal}}</strong></il>
@@ -15,13 +15,13 @@
         <thead>
           <tr>
 
-            <th class="text-left">Folio de Pago</th>
-            <th class="text-left">Nombre</th>
-            <th class="text-left">Concepto</th>
-            <th class="text-left">Modo</th>
-            <th class="text-left">Monto</th>
-            <th class="text-left">Fecha</th>
-            <th class="text-left">Imprimir</th>
+            <th class="text-center">Folio de Pago</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Concepto</th>
+            <th class="text-center">Modo</th>
+            <th class="text-center">Monto</th>
+            <th class="text-center th_big">Fecha</th>
+            <th class="text-center">Imprimir</th>
           </tr>
         </thead>
         <tbody id="body_table" class="table-hover">

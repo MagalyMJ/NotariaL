@@ -686,6 +686,16 @@ select {
   text-align: center;
 }
 .block:hover .module_icon{
+  color:rgb(102,102,102);
+}
+
+.disabled .module_icon {
+   color:rgb(192,192,192);
+}
+.disabled:hover .module_icon {
+   color:rgb(192,192,192);
+}
+.disabled .title_module{
   color:rgb(192,192,192);
 }
 .title_module{
@@ -936,11 +946,19 @@ th {
   border-right: 1px solid #343a45;
   font-size:20px;
   font-weight: 100;
-  width: 200px;
-  padding:24px;
+  padding:10px;
   text-align:left;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align:middle;
+}
+
+.th_big{
+  padding-left: 70px;
+  padding-right: 70px;
+}
+.th_medium{
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 th:first-child {
@@ -956,13 +974,13 @@ tr {
   border-top: 1px solid #C1C3D1;
   border-bottom-: 1px solid #C1C3D1;
   color:#666B85;
-  font-size:16px;
+  font-size:14px;
   font-weight:normal;
   text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 }
  
 tr:hover td {
-  background:rgb(59,60,54);
+  background:rgb(19,10,14);
   color:#FFFFFF;
   border-top: 1px solid #22262e;
   border-bottom: 1px solid #22262e;
@@ -981,7 +999,7 @@ tr:nth-child(odd) td {
 }
  
 tr:nth-child(odd):hover td {
-  background:rgb(59,60,54);
+  background:rgb(19,10,14);
 }
 
 tr:last-child td:first-child {
@@ -994,7 +1012,7 @@ tr:last-child td:last-child {
  
 td {
   background:#FFFFFF;
-  padding:20px;
+  padding:5px;
   text-align:left;
   vertical-align:middle;
   font-weight:300;

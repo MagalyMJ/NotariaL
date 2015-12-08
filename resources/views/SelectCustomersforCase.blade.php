@@ -8,10 +8,10 @@
 				<thead>
 					<tr>
 
-						<th class="text-left">selcted</th>
-						<th class="text-left">id</th>
-						<th class="text-left">Nombre</th>
-						<th class="text-left">rfc</th>
+						<th class="text-center">Selcted</th>
+						<th class="text-center">Id</th>
+						<th class="text-center">Nombre</th>
+						<th class="text-center">RFC</th>
 					</tr>
 				</thead>
 				<tbody id="body_table" class="table-hover">
@@ -37,7 +37,7 @@
 		
 			<section class = "action_buttons">
 
-				  <a class="input budget-button button_normal" href="{{route('New_Customer_path',$id_service) }}"> Nuevo cliente </a>
+				  <a class="input budget-button button_normal" href="{{route('New_Customer_path',$id_service) }}"> Nuevo Cliente </a>
 				  <input id="new_case_service" name="customers" type="submit" onClick="newCase()" value="Crear Caso" class="input budget-button button_normal">
 				  <a class="input budget-button button_normal" href="{{route('home') }}"> Cancelar </a>
 				  

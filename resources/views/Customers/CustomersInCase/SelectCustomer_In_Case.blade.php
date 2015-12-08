@@ -8,10 +8,10 @@
 				<thead>
 					<tr>
 
-						<th class="text-left">selcted</th>
-						<th class="text-left">id</th>
-						<th class="text-left">Nombre</th>
-						<th class="text-left">rfc</th>
+						<th class="text-center">Selcted</th>
+						<th class="text-center">Id</th>
+						<th class="text-center">Nombre</th>
+						<th class="text-center">RFC</th>
 					</tr>
 				</thead>
 				<tbody id="body_table" class="table-hover">
