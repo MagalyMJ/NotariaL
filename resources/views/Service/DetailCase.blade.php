@@ -6,7 +6,7 @@
 
 <div class="block_container">
 		
-		<h1>Nº Folio{{$ServiceCase->id}}</h1>
+		<h1>Nº Folio {{$ServiceCase->id}}</h1>
 		<h3>{{$ServiceCase->service->name}}</h3>
 	<div class="flex-container">
 
