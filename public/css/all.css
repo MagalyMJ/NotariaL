@@ -736,7 +736,11 @@ select {
 .tiny{
   font-size: 11px;
 }
-
+.ags_backgraund {
+    background-image: url("../img/backgraund_ags.jpg");
+    height: 100vh;
+    width: 100vw;
+}
 .middle {
   font-size: 15px;
   border: 1px solid #999;
