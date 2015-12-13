@@ -15,9 +15,6 @@
 
 	<body>
   <header class="clearfix">
-      <div id="logo">
-        <img src="{{ asset('img/logo.png') }}" alt="">
-      </div>
       <h1>Presupuesto</h1>
       <div id="project">
 

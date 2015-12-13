@@ -20,9 +20,9 @@
 	<label for="" class="check">Gestoria de Escritura: ${{$Budget->case_service->service->findExpeseCostByName('Gestoria de Escritura')}}</label> 
 	<input name="gestoria"  class="input medium" id="gestoria" type="checkbox" value="{{$Budget->case_service->service->findExpeseCostByName('Gestoria de Escritura')}}" 
 	@if($Budget->writing_management == $Budget->case_service->service->findExpeseCostByName('Gestoria de Escritura') ){{ "checked" }} @endif />
-	<!-- Este es un dato calculado en base al valor de operacion solo mostramos el valor actualmente registrado -->
+	<!-- Este es un dato calculado en base al 2% del valor de operacion pero se desea dejarlo avierto a cambios el usuario tiene que ingresarlo -->
 	<label for="">ISABI: ${{$Budget->isabi}}</label> 
-	<input name="isabi"  class="input medium" id="isabi" type="hidden" value="" />
+	<input name="isabi"  class="input medium" id="isabi" type="number" value="{{$Budget->isabi}}" />
 	<!-- Para que muestre el ISR actualmente registrado y modificarlo -->
 	<label for="">ISR: ${{$Budget->isr}}</label> 
 	<input name="isr"  class="input medium" id="isr" type="number" step="0.01"  value="{{$Budget->isr}}" />

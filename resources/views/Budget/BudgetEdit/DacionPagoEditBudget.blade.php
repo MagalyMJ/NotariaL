@@ -16,9 +16,9 @@
 	<label for="" class="check">Avalúo Comercial: ${{$Budget->case_service->service->findExpeseCostByName('Avalúo Comercial')}}</label> 
 	<input name="avaluo_comercial"  class="input" id="avaluo_comercial" type="checkbox" value="{{$Budget->case_service->service->findExpeseCostByName('Avalúo Comercial')}}" 
 	@if($Budget->commercial_appraisal == $Budget->case_service->service->findExpeseCostByName('Avalúo Comercial') ){{ "checked" }} @endif />
-	<!-- Este es un dato calculado en base al valor de operacion solo mostramos el valor actualmente registrado -->
+	<!-- Este es un dato calculado en base al 2% del valor de operacion pero se desea dejarlo avierto a cambios el usuario tiene que ingresarlo -->
 	<label for="">ISABI: ${{$Budget->isabi}}</label> 
-	<input name="isabi"  class="input medium" id="isabi" type="hidden" value="" />
+	<input name="isabi"  class="input medium" id="isabi" type="number" value="{{$Budget->isabi}}" />
 	<!-- Para que muestre el ISR actualmente registrado y modificarlo -->
 	<label for="">ISR: ${{$Budget->isr}}</label> 
 	<input name="isr"  class="input medium" id="isr" type="number" step="0.01"  value="{{$Budget->isr}}" />
