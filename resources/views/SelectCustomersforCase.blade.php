@@ -38,7 +38,7 @@
 			<section class = "action_buttons">
 
 				  <a class="input budget-button button_normal" href="{{route('New_Customer_path',$id_service) }}"> Nuevo Cliente </a>
-				  <input id="new_case_service" name="customers" type="submit" onClick="newCase()" value="Crear Caso" class="input budget-button button_normal">
+				  <input id="new_case_service" name="customers" type="submit" onClick="newCase()" value="Crear Tramite" class="input budget-button button_normal">
 				  <a class="input budget-button button_normal" href="{{route('home') }}"> Cancelar </a>
 				  
 			</section>

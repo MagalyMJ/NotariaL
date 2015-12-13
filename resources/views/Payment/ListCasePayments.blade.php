@@ -43,10 +43,10 @@
           
         </tbody>
         </table>
-
+    <section class = "action_buttons">
       <a class="input budget-button button_normal"  href="{{route('Payment_Create',$ServiceCase->id) }}"> Hacer Pago </a>        
-          <br>
       <a class="input budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}">Detalles Caso</a>
+    </section>
   </div>
 
 @stop

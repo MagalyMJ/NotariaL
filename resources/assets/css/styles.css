@@ -576,7 +576,7 @@ tr:last-child {
 }
  
 tr:nth-child(odd) td {
-  background:#EBEBEB;
+  background:rgb(135,206,250);
 }
  
 tr:nth-child(odd):hover td {
@@ -592,7 +592,7 @@ tr:last-child td:last-child {
 }
  
 td {
-  background:#FFFFFF;
+  background:rgb(248,248,255);
   padding:5px;
   text-align:left;
   vertical-align:middle;

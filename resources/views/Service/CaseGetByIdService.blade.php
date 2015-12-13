@@ -7,6 +7,11 @@
 	<div class="block_container">
 
 		<h1>{{ $service->name }}</h1>
+		<section class = "action_buttons">
+			
+				  <a class="input budget-button button_normal" href="{{route('Select_Customers_toCase',$service->id) }}">Nuevo Tramite</a>
+				  
+		</section>
 			<table class="table-fill">
 				<thead>
 					<tr>
@@ -57,12 +62,6 @@
 					@endforeach
 				</tbody>
 				</table>
-
-			<section class = "action_buttons">
-			
-				  <a class="input budget-button button_normal" href="{{route('Select_Customers_toCase',$service->id) }}">Nuevo Tramite</a>
-				  
-			</section>
 			</div>
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
