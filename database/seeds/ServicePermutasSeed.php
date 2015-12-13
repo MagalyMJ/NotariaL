@@ -39,7 +39,7 @@ class ServicePermutasSeed extends Seeder
         $RamantID = Document::where('document_name', 'Recibo de Mantenimiento' )->get();
         $Ramant = Document::find($RamantID[0]->id);   
 
-        $CdLID = Document::where('document_name', 'Certificado De Libertad Degradable' )->get();
+        $CdLID = Document::where('document_name', 'Certificado Libertad de Gravamen' )->get();
         $CdL = Document::find($CdLID[0]->id);  
 
         $ActaNacimentoID = Document::where('document_name', 'Acta de Nacimiento' )->get();

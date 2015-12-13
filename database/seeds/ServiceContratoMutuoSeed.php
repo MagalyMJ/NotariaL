@@ -32,7 +32,7 @@ class ServiceContratoMutuoSeed extends Seeder
         $EscriturasID = Document::where('document_name', 'Escrituras')->get();
         $Escrituras = Document::find($EscriturasID[0]->id); 
 
-        $CdLID = Document::where('document_name', 'Certificado De Libertad Degradable' )->get();
+        $CdLID = Document::where('document_name', 'Certificado Libertad de Gravamen' )->get();
         $CdL = Document::find($CdLID[0]->id);  
 
         $TerminosContratoID = Document::where('document_name', 'Terminos de Contrato' )->get();
