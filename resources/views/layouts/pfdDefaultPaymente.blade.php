@@ -18,7 +18,7 @@
       <div id="logo">
         <img src="{{ asset('img/logo.png') }}" alt="">
       </div>
-      <h1>Recibo</h1>
+      <h1>Recibo de Pago</h1>
       <div id="project">
 
           <div>Notaria Publica 55</div>
@@ -39,7 +39,10 @@
     <div class="payment_leyent" >
         <p>RECIBO</p>
         <p>  Yo, Licenciado ADRIAN VENTURA DÁVILA, Notario Público Número CINCUENTA Y CINCO de las 
-          del Estado, con despacho ubicado en la calle Montes Himalaya trescientos cuatro,Fraccionamiento Los Bosques de esta Ciudad, RECIBI POR CONCEPTO DE HONORARIOS LA CANTIDAD DE: <strong>${{ $Payment->amount_to_pay}}</strong> MN POR PARTE DE <strong>{{ $Payment->name}}</strong> POR LOS SIGUIENTES CONCEPTOS: <strong>{{ $Payment->concept }}</strong> </p>
+          del Estado, con despacho ubicado en la calle Montes Himalaya trescientos cuatro,Fraccionamiento Los Bosques de esta Ciudad, 
+          RECIBI POR CONCEPTO DE HONORARIOS LA CANTIDAD DE: <strong>${{ $Payment->amount_to_pay}}</strong> MN POR PARTE DE <strong>{{ $Payment->name}}</strong> 
+          POR LOS SIGUIENTES CONCEPTOS: <strong>{{ $Payment->concept }}</strong> </p>
+        <p> Teniendo un adeudo de :<strong> ${{ $ServiceCase->remaining}}</strong></p>
     </div>
   
 	</section>
