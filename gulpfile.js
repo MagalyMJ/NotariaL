@@ -17,3 +17,13 @@ elixir(function(mix) {
         'styleicon.css'
     ]).version('public/css/all.css');
 });
+
+elixir(function(mix) {
+    mix.styles([
+        "normalize.css",
+        "pdf.css"
+    ], 'public/css/pdf.css');
+});
+elixir(function(mix) {
+    mix.scripts(['enajenanteSript.js'], 'public/js/Budget.js')
+});

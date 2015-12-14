@@ -39,7 +39,7 @@ class CatalogDocumentsSeeder extends Seeder
         	'Alineamiento',
         	'Antecendentes de Credito',
         	'Certificado de Cadanen',
-        	'Escrituras de Certificado de Gravamen',
+        	'Certificado Libertad de Gravamen',
         	'Orden de Cancelacion',
         	'Carta de No Adeudo',
         	'Expediente del Jusgado',

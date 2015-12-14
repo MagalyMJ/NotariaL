@@ -21,20 +21,54 @@ use Input;
 class ServiceController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Despliega una lista de casos en base al servico.
      *
      * @return Response
      */
-    public function index($id_service)
+    public function index($id_service, Request $request)
     {
         //
-            //Request Para Obtener los casos en bace al servicio
-            $cases = CaseService::where('service_id',$id_service)->get();
-            $service = Service::find($id_service);
-              
-            //dd($cases[0]->customer->all());
-                
-            return view('CaseGetByIdService',[ 'cases_services' => $cases , 'service' => $service ]);
+          $service = Service::find($id_service);
+          $cases;  
+        
+        //Usamos un scope para traer los caso del Tipo de servico y filtrados por id , o por numero de escritura 
+        if ($request->id != null) {
+                 $cases = CaseService::SearchByIdAndService($request->id,$id_service)->orderBy('id','DESC')->get();
+            }
+        elseif ($request->N_write != null ) {
+                $cases = CaseService::SearchByNwriteAndService($request->N_write,$id_service)->orderBy('id','DESC')->get();
+            }
+            else{
+                $cases = CaseService::where('service_id',$id_service)->orderBy('id','DESC')->get();
+            }
+
+            return view('Service.CaseGetByIdService',[ 'cases_services' => $cases , 'service' => $service ]);
+            
+    }
+    
+    /**
+     * Despliega una lista de todos los casos
+     *
+     * @return Response
+     */
+    public function AllCaseindex (Request $request)
+    {
+        //
+         
+          $cases;  
+        
+        //Usamos un scope para traer todos caso filtrados por id , o por numero de escritura 
+        if ($request->id != null) {
+                 $cases = CaseService::SearchById($request->id)->orderBy('progress','ASC')->get();
+            }
+        elseif ($request->N_write != null ) {
+                 $cases = CaseService::SearchByNwrite($request->N_write)->orderBy('progress','ASC')->get();
+            }
+            else{
+                $cases = CaseService::orderBy('progress','ASC')->get();
+            }
+
+            return view('Service.AllCase',[ 'cases_services' => $cases ]);
             
     }
 
@@ -106,6 +140,8 @@ class ServiceController extends Controller
         $ShowCase = CaseService::find($id_caseService);
         //Al querer ver los detalles de caso,se actulaizara el progreso, llevado por los cambios hechos 
         $ShowCase->progress = $ShowCase->Progress();
+        //el saldo restante a apagar se guarda en el caso 
+        $ShowCase->remaining =  $ShowCase->budget->total - $ShowCase->SumPayments() ;
         $ShowCase->save();
 
         $ShowCase = CaseService::find($id_caseService);
@@ -157,6 +193,7 @@ class ServiceController extends Controller
         $UpdateCase->notices_one_date = $request->notices_one_date;
         $UpdateCase->notices_two_date = $request->notices_two_date;
         $UpdateCase->public_register = $request->public_register;
+        $UpdateCase->N_write = $request->N_write;
        
         //enum(1=> 'Sin', 2=> 'Primer', 3=>'Segundo') aviso
         $UpdateCase->notices = 1;

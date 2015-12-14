@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-<div class="center">
+<div class="center ags_backgraund">
   <div class="login">
   <div class="top">
   
@@ -30,7 +30,7 @@
     </form>
   </div>
   <div class="bottom">
-    <span>Copyright &copy; All Rights Reserved.</span>
+    <span>Lion Systems Solutions</span>
   </div>
   </div>
 </div>

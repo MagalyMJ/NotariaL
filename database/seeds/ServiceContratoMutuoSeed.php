@@ -32,7 +32,7 @@ class ServiceContratoMutuoSeed extends Seeder
         $EscriturasID = Document::where('document_name', 'Escrituras')->get();
         $Escrituras = Document::find($EscriturasID[0]->id); 
 
-        $CdLID = Document::where('document_name', 'Certificado De Libertad Degradable' )->get();
+        $CdLID = Document::where('document_name', 'Certificado Libertad de Gravamen' )->get();
         $CdL = Document::find($CdLID[0]->id);  
 
         $TerminosContratoID = Document::where('document_name', 'Terminos de Contrato' )->get();
@@ -83,7 +83,7 @@ class ServiceContratoMutuoSeed extends Seeder
         $serviceFind->expenses()->attach($CertifcadosN->id,['cost' => '0','input_name' => 'ncertificados','type_input' => 'number' ] );
 
         $serviceFind->expenses()->attach($RegistroN->id,['cost' => '1','input_name' => 'ngastos_resgistro','type_input' => 'hidden'] );
-        $serviceFind->expenses()->attach($Registro->id,['cost' => '1000','input_name' => 'gastos_registro','type_input' => 'hidden'] );
+        $serviceFind->expenses()->attach($Registro->id,['cost' => '1050','input_name' => 'gastos_registro','type_input' => 'hidden'] );
 
         $serviceFind->participant_type_service()->attach($AcreedorType[0]->id );
         $serviceFind->participant_type_service()->attach($DeudorType[0]->id );

@@ -8,27 +8,35 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 </style>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+  <link rel="stylesheet" href="{{ asset('css/pdf.css')}}">
 <!-- Favicons
   ================================================== -->
 </head>
-  <img src="{{ asset('img/logo.png') }}" alt="">
+
 	<body>
-	<section>
-		<h2>Presupuesto de Escritura Nº {{ $Budget->case_service->id}}</h2>
-		<div>
-			<p>{{ $date }}</p>
- 			<h3>{{ $Budget->case_service->service->name}}</h1>
-		</div>
-		<p>Para:</p>
-		<p>{{ $Budget->case_service->customer->first()->name .' '.$Budget->case_service->customer->first()->fathers_last_name .' '. $Budget->case_service->customer->first()->mothers_last_name }}</p>
-		<p id='invoice' ></p>
-		<p id='payment_type' ></p>
-	</section>
+  <header class="clearfix">
+      <h1>Presupuesto</h1>
+      <div id="project">
+
+       
+          <div>Notaria Publica 55</div>
+          <div><span>Lugar:</span> Montes Himalaya 304 Fraccionamiento Los Bosques</div>
+          <div><span>Tel:</span>0000000</div>
+          <div><span>EMAIL</span><a href="mailto:company@example.com">company@example.com</a></div>
+  
+
+        <div><span>Servicio</span> {{ $Budget->case_service->service->name}} </div>
+        <div><span>Cliente</span> {{ $Budget->case_service->customer->first()->name .' '.$Budget->case_service->customer->first()->fathers_last_name .' '. $Budget->case_service->customer->first()->mothers_last_name }}</div>
+       <!--  <div><span>ADDRESS</span>Calle, </div>
+        <div><span>EMAIL</span></div> -->
+        <div><span>Fecha</span> {{ $date }} </div>
+      </div>
+    </header>
 	
 		 @yield('content')
 
-	<section>
+	<section class="general_content">
+
 		<table class="table-fill" >
 				<thead>
 					<tr class="tablehead">

@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="block_container">
-<h1>Registro de Nuevo Cliente para un tramite exitente</h1>
+<h1>Registro de Nuevo Cliente</h1>
  <div class="form_container"> 
 
- <form action="{{ route('New_Customer_inCase',$id_caseService) }}" method='post' class="form_data aling_block">  
+ <form action="{{ route('customer_new_path') }}" method='post' class="form_data">  
    {{csrf_field()}}
-       <div class="form_data_general">
+      <div class="form_data_general">
           <label for="name">Nombre</label> 
           <input name="name" class="input long" id="name" type="text" autocomplete="off" />
             
@@ -61,10 +61,9 @@
         <section class = "action_buttons">
           <div class="action_buttons_diplay">
             <input type="submit" value="Registrar" class="input budget-button button_normal">
-            <a class="input budget-button button_normal" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
+            <a class="input budget-button button_normal" href="{{route('home') }}"> Cancelar </a>
           </div>
         </section>
-
   </form>
  </div> 
  </div> 

@@ -24,6 +24,12 @@
     </div>
     <ul id="menu_services"  class = "menu_services">
         <il class="menu_service">
+            <a class="menu_service_link" href="{{route('home') }}">
+                <span class=" icon icon-home"></span>  
+                <p>HOME</p>
+            </a>
+        </il>
+        <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/1')}}">
                 <span class=" icon icon-file-text"></span>  
                 <p>Testamento</p>

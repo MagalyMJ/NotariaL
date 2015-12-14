@@ -97,21 +97,14 @@ class BudgetController extends Controller
        
         $Upddate = Budget::find($id);
         
-        /* -------------------- Calculo o Asignacion de Honorarios Base Y Excepciónes de ISABI ------------------------------------------------------------------------*/
+        /* -------------------- Calculo o Asignacion de Honorarios Base ------------------------------------------------------------------------*/
         $Upddate->operation_value = (int)$request->valor_operacion;
 
-        //Calculamos o no Los honorarios
+        //En algunos servicios los honorarios ya estan por defecto, en otros son basados por el valor de operacion.
         if ($Upddate->case_service->service->service_type == 'enagenante') {
 
             $Upddate->fee = $Upddate->FeeByOpertationVaule($Upddate->operation_value);
-            //ISABI es 2% del Valor de Operación para todos los servicios  que lo necesiten (exepto en Donación en Aguascalientes hay es 0%)
-            if ( ($Upddate->case_service->service->name == 'Donaciones' && $Upddate->case_service->place == 'Aguascalientes') || ( $Upddate->case_service->service->name == 'Contrato mutuo con Interés y Garantía Hipotecaria') ) {
-                
-                $Upddate->isabi = 0;
 
-            }else{
-                $Upddate->isabi = (($Upddate->operation_value * 2 )/ 100 ); 
-            }
         }
         else{
             $Upddate->fee = $request->honorarios;
@@ -128,11 +121,11 @@ class BudgetController extends Controller
          //Podemos hacer lo con el input que nos da el request o con esta consulta 
           //de igual forma para todos los  que ocupend un numero determidaod para calcular su todal (certificados,Gastos de Registro,Cancelaciones)
           $Upddate->n_registration = $request->ngastos_resgistro;
-         //$Upddate->total_registration_costs = $request->ngastos_resgistro * $Upddate->case_service->service->expenses->where('expense_name', "Gastos de Registro")->first()->pivot->cost;
+
          $Upddate->total_registration_costs = $request->gastos_registro * $request->ngastos_resgistro;
 
         $Upddate->n_certificates =  $request->ncertificados;
-        //$Upddate->total_registration_costs = $request->ngastos_resgistro * $Upddate->case_service->service->expenses->where('expense_name', "Certificados")->first()->pivot->cost;
+
         $Upddate->total_certified_expenditure =  $request->ncertificados * $request->certificados;;
 
 
@@ -151,8 +144,8 @@ class BudgetController extends Controller
             $Upddate->commercial_appraisal = $request->avaluo_comercial; //como es un checbox solo se agregara si esta seleccioando
             $Upddate->writing_management = $request->gestoria;  //como es un checbox solo se agregara si esta seleccioando
             $Upddate->isr = $request->isr;
-            $Upddate->isnjin= $request->isnjin;
-
+            $Upddate->isnjin= $request->isnjin; // ISNJIN un campo abierto porque varia a la peticiones
+            $Upddate->isabi = $request->isabi; // El ISABI es el 2% del valor de operacion para, pero se deja como un acampo abierto a peticion de los usuarios
             $Upddate->advance_payment = $request->advance_payment;
             $Upddate->payment_type = $request->payment_type;
             $Upddate->discount = $request->discount;
@@ -161,7 +154,7 @@ class BudgetController extends Controller
 
             $Upddate->approved = $request->approved;
             
-            // PREGUNTAR SOBRE COMO SE MANJEAN LOS RECARGOS
+            // Los recargos varian por lo que es un campo abierto. 
             $Upddate->surcharges = $request->surcharges;
         /* --------------------------------------------------------------------------------------------*/
         /* ------------------Calculos de IVA---------------------------------------------------------------*/

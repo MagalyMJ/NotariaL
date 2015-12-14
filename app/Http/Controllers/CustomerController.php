@@ -85,7 +85,7 @@ class CustomerController extends Controller
     public function createNewInNewCase ($id_service)
     {
         //
-        return view('custumerAdd',['id_service'=> $id_service]);
+        return view('Customers.custumerAdd',['id_service'=> $id_service]);
     } 
     
     public function addCustumer(Request $request)

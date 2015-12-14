@@ -50,14 +50,14 @@ function tipoPago(Pago){
 </script>
 <div class="block_container">
 
-  <h1>Presupuesto de Escritura Nº {{ $Budget->case_service->id}}</h1>
+  <h1>Presupuesto de Folio Nº {{ $Budget->case_service->id}}</h1>
   <h1>{{ $Budget->case_service->service->name}}</h1>
  <div class="form_container"> 
  <form id="Edit_budget" action="{{route('UpdateBudget',$Budget->id) }}" method='post' class="form_data aling_block">  
    {{csrf_field()}}
 
       <label for="operation_value">Valor de Operacion</label> 
-      <input name="operation_value" onBlur="sText();" class="input long" id="operation_value" type="text" autocomplete="off" value="{{ $Budget->operation_value}}" />
+      <input name="operation_value" onBlur="sText();" class="input medium" id="operation_value" type="text" autocomplete="off" value="{{ $Budget->operation_value}}" />
       
       <label for="discount">Descuento de Honorarios</label> 
       <input name="discount" onBlur="sText();" class="input long" id="discount" type="text" autocomplete="off" value="{{ $Budget->discount}}" />
@@ -113,7 +113,7 @@ function tipoPago(Pago){
       <p>-----------------------</p>
       
 
-      <input type="submit" value="Guardar" class="input budget-button">
+      <input type="submit" value="Guardar" class="input budget-button button_normal">
 
     </form>
   </div> 

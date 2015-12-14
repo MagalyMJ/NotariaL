@@ -36,6 +36,11 @@ Route::get('servicio/{id_service}',[
 	'uses' => 'ServiceController@index',
 	'as' => 'service_show_path',
 	]);
+// Para mostrar todos los casos en base al servicio
+Route::get('casos/',[
+	'uses' => 'ServiceController@AllCaseindex',
+	'as' => 'show_all_case',
+	]);
 
 Route::post('servicio',[
 	'uses' => 'ServiceController@addCustumer',
@@ -140,6 +145,11 @@ Route::get('PagosdeCaso/{id_caseService}', [
 		'uses' =>'PaymentController@index',
 		'as' => 'Case_Payments',]);
 
+//Mostrar la Pagina de todos casos con Pagos Pendientes 
+Route::get('PagosPendientes/', [
+		'uses' =>'PaymentController@OutStandingPayments',
+		'as' => 'Out_Standing_Payments',]);
+
 //Muestra el Formulario para crar un pago nuevo 
 Route::get('Pago/{id_caseService}', [
 		'uses' =>'PaymentController@create',
@@ -147,6 +157,11 @@ Route::get('Pago/{id_caseService}', [
 Route::post('Pago/{id_caseService}', [
 		'uses' =>'PaymentController@store',
 		'as' => 'Payment_Store',]);
+
+// Muestra en formato PDF los datos de un pago.
+Route::get('Pago/PDF/{id_presupuesto}', [
+		'uses' =>'PaymentController@show',
+		'as' => 'PdfPayment',]);
 
 // Route::get('Presupuestopdf', [
 // 		'uses' =>'PDFController@bugetPDF',

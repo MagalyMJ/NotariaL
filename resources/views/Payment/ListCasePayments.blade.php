@@ -4,7 +4,7 @@
 
   <div class="block_container">
     <h1>Pagos </h1>
-    <h2>De la Escritura Nº {{$ServiceCase->id}}</h2>
+    <h2>Del Folio Nº {{$ServiceCase->id}}</h2>
     <ul>
       <il>Total en Pagos: <strong>${{$SumPayments}}</strong></il>
       <il>Total a Pagar: <strong>${{$BudgetTotal}}</strong></il>
@@ -15,12 +15,13 @@
         <thead>
           <tr>
 
-            <th class="text-left">Folio de Pago</th>
-            <th class="text-left">Nombre</th>
-            <th class="text-left">Concepto</th>
-            <th class="text-left">Modo</th>
-            <th class="text-left">Monto</th>
-            <th class="text-left">Fecha</th>
+            <th class="text-center">Folio de Pago</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Concepto</th>
+            <th class="text-center">Modo</th>
+            <th class="text-center">Monto</th>
+            <th class="text-center th_big">Fecha</th>
+            <th class="text-center">Imprimir</th>
           </tr>
         </thead>
         <tbody id="body_table" class="table-hover">
@@ -35,15 +36,17 @@
                 <td class="text-center"> {{ $payment->payment_type }} </td>
                 <td class="text-center"> ${{ $payment->amount_to_pay }} </td>
                 <td class="text-center"> {{ $payment->created_at }} </td>
+                <td class="text-center"> <a class="input budget-button button_normal" href="{{route('PdfPayment',$payment->id ) }}" target="_blank" >Imprimir</a></td>
+
               </tr>
           @endforeach
           
         </tbody>
         </table>
-
-      <a class="input budget-button"  href="{{route('Payment_Create',$ServiceCase->id) }}"> Hacer Pago </a>        
-          <br>
-      <a class="input budget-button" href="{{route('Show_Case_path',$ServiceCase->id) }}">Detalles Caso</a>
+    <section class = "action_buttons">
+      <a class="input budget-button button_normal"  href="{{route('Payment_Create',$ServiceCase->id) }}"> Hacer Pago </a>        
+      <a class="input budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}">Detalles Caso</a>
+    </section>
   </div>
 
 @stop

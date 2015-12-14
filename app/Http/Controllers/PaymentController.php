@@ -75,20 +75,36 @@ class PaymentController extends Controller
         $CaseService->remaining =  $CaseService->budget->total - $CaseService->SumPayments() ;
 
         $CaseService->save();
-        return Redirect::route('Show_Case_path', array('id_caseService' => $CaseService->id));
+
+        // return Redirect::route('Show_Case_path', array('id_caseService' => $CaseService->id));
+        return Redirect::route('Case_Payments', array('id_caseService' => $CaseService->id));
 
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource in PDF Format
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
         //
+        $Payment = Payment::find($id);
+
+        $date = $Payment->created_at;
+
+        $ServiceCase = CaseService::find($Payment->case_service_id);
+
+        $view = \View::make('layouts.pfdDefaultPaymente', compact('date','Payment','ServiceCase'))->render();
+                 
+        $pdf = \App::make('dompdf.wrapper');
+
+        $pdf->loadHTML($view);
+
+        return $pdf->stream('Recibo de pago');
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -122,5 +138,16 @@ class PaymentController extends Controller
     public function destroy($id)
     {
         //
+    } 
+    /**
+     * obtenemos todos los casos que que faltan de pagar.
+     *
+     * 
+     * @return collection Case
+     */
+    public function OutStandingPayments()
+    {
+        $ServicesCases = CaseService::where('remaining','>',0)->get();
+        return view('Payment.OutStandingPayments',[ 'ServicesCases' => $ServicesCases ]);
     }
 }

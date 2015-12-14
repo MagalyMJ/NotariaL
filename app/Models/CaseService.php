@@ -15,7 +15,7 @@ class CaseService extends Model
      * @var array
      */
     protected $fillable = ['place','progress','observations','service_detail','notices',
-    'remaining','notices_one_date','notices_two_date','public_register','signature'];
+    'remaining','notices_one_date','notices_two_date','public_register','signature','N_write'];
 
     public function customer()
     {
@@ -257,6 +257,44 @@ class CaseService extends Model
             return (int)$dias;
         }
 
-    }   
+    } 
+
+    /**
+    * Scope para hacer una busqueda de casos por id 
+    * @param Query $query , int $id, int $id_service
+    * @return 
+    */
+    public function scopeSearchById($query, $id){
+
+        return $query->where('id','LIKE',"%$id%");
+    }  
+    /**
+    * Scope para hacer una busqueda de casos por numero de Escritura
+    * @param Query $query , int $N_write, int $id_service
+    * @return 
+    */
+    public function scopeSearchByNwrite($query, $N_write){
+
+        return $query->where('N_write','LIKE',"%$N_write%");
+    }  
+    
+    /**
+    * Scope para hacer una busqueda de casos por id y el tipo de servicio
+    * @param Query $query , int $id, int $id_service
+    * @return 
+    */
+    public function scopeSearchByIdAndService($query, $id, $id_service){
+
+        return $query->where('id','LIKE',"%$id%")->where('service_id',$id_service);
+    }  
+    /**
+    * Scope para hacer una busqueda de casos por numero de Escritura y el tipo de servicio
+    * @param Query $query , int $N_write, int $id_service
+    * @return 
+    */
+    public function scopeSearchByNwriteAndService($query, $N_write, $id_service){
+
+        return $query->where('N_write','LIKE',"%$N_write%")->where('service_id',$id_service);
+    }  
 
 }

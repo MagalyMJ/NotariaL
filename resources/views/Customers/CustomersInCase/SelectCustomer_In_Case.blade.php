@@ -8,10 +8,10 @@
 				<thead>
 					<tr>
 
-						<th class="text-left">selcted</th>
-						<th class="text-left">id</th>
-						<th class="text-left">Nombre</th>
-						<th class="text-left">rfc</th>
+						<th class="text-center">Selcted</th>
+						<th class="text-center">Id</th>
+						<th class="text-center">Nombre</th>
+						<th class="text-center">RFC</th>
 					</tr>
 				</thead>
 				<tbody id="body_table" class="table-hover">
@@ -35,11 +35,11 @@
 				</table>
 	
 		
-			<div>
-				  <a class="input budget-button" href="{{route('New_Customer_inCase',$id_caseService) }}"> Nuevo cliente </a>
-				  <input id="more_cusotmers_inThis" name="customers" type="submit" onClick="more_customers_inThisCase()" value="Asignar al Caso" class="input budget-button">				  
-				  <a class="input budget-button" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
-			</div>
+			<section class = "action_buttons">
+				  <a class="input budget-button button_normal" href="{{route('New_Customer_inCase',$id_caseService) }}"> Nuevo cliente </a>
+				  <input id="more_cusotmers_inThis" name="customers" type="submit" onClick="more_customers_inThisCase()" value="Asignar al Tramite" class="input budget-button">				  
+				  <a class="input budget-button button_normal" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
+			</section>
 	</div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
