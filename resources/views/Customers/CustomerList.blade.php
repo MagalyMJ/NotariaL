@@ -1,0 +1,44 @@
+@extends('layouts.homedefault')
+
+@section('content')
+<!-- Mostrara Todos los Clientes Activos
+	Parametros: 
+-->
+	<div class="block_container">
+
+		<h1>Clientes</h1>
+		<section class = "action_buttons">
+			
+				  <a class="input budget-button button_normal" href="{{ route('Create_Customer') }}">Nuevo Cliente</a>
+				  
+		</section>
+			<table class="table-fill">
+				<thead>
+					<tr>
+						
+						<th class="text-center">Id Cliente</th>
+						<th class="text-center th_medium">Nombre</th>
+						<th class="text-center">Tramites</th>
+
+					</tr>
+				</thead>
+				<tbody class="table-hover">
+					
+					@foreach ($customers as $customer)
+    					<tr>
+    						<td class="text-center"> {{ $customer->id }} </td>
+                			<td class="text-center"> {{ $customer->name." ".$customer->fathers_last_name." ".$customer->mothers_last_name }} </td>
+    						<td class="text-center"> <a class="input budget-button button_normal" href="">Tramites</a></td>
+    					</tr>
+    			
+					@endforeach
+				</tbody>
+				</table>
+			</div>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+	
+</script>
+
+@stop

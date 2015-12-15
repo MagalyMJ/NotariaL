@@ -24,8 +24,8 @@ class CustomerController extends Controller
     public function index()
     {
         //
-
-        
+        $customers = Customer::All();
+        return view('Customers.CustomerList',['customers'=> $customers]);
     }
 
   /**
@@ -33,10 +33,10 @@ class CustomerController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function createNew()
     {
         //
-        return view('Customers.NewCustomer');
+       return view('Customers.CreateCustomer');
     } 
     /**
      * Store a newly created resource in storage.

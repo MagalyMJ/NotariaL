@@ -47,13 +47,15 @@
                 Comisiones
             </h3>
         </div>
-        <div class = "block disabled aling_block">    
-            <div class="module_icon">
-                <span class="icon-folder-open"></span>
-            </div>  
-            <h3 class="title_module">
-                Terceros
-            </h3>
+        <div class = "block shadow aling_block">    
+           <a href="{{ route('Customer_List') }}">
+                <div class="module_icon">
+                    <span class="icon-folder-open"></span>
+                </div>  
+                <h3 class="title_module">
+                    Clientes
+                </h3>
+            </a>
         </div>
         </div>
     </section>
