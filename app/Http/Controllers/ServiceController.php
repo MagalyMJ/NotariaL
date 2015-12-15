@@ -31,12 +31,14 @@ class ServiceController extends Controller
           $service = Service::find($id_service);
           $cases;  
         
-        //Usamos un scope para traer los caso del Tipo de servico y filtrados por id , o por numero de escritura 
+        //Usamos un scope para traer los caso del Tipo de servico y filtrados por id , o por numero de escritura o Cliente 
         if ($request->id != null) {
                  $cases = CaseService::SearchByIdAndService($request->id,$id_service)->orderBy('id','DESC')->get();
             }
         elseif ($request->N_write != null ) {
                 $cases = CaseService::SearchByNwriteAndService($request->N_write,$id_service)->orderBy('id','DESC')->get();
+            }elseif ($request->FullName_write != null ) {
+                $cases = CaseService::SearchByFullNameCustomerAndService($request->FullName_write,$id_service)->orderBy('id','DESC')->get();
             }
             else{
                 $cases = CaseService::where('service_id',$id_service)->orderBy('id','DESC')->get();
@@ -57,12 +59,14 @@ class ServiceController extends Controller
          
           $cases;  
         
-        //Usamos un scope para traer todos caso filtrados por id , o por numero de escritura 
+        //Usamos un scope para traer todos caso filtrados por id , o por numero de escritura o Cliente
         if ($request->id != null) {
                  $cases = CaseService::SearchById($request->id)->orderBy('progress','ASC')->get();
             }
         elseif ($request->N_write != null ) {
                  $cases = CaseService::SearchByNwrite($request->N_write)->orderBy('progress','ASC')->get();
+            }elseif ($request->FullName_write != null ) {
+                $cases = CaseService::SearchByFullNameCustomer($request->FullName_write)->orderBy('progress','ASC')->get();
             }
             else{
                 $cases = CaseService::orderBy('progress','ASC')->get();

@@ -28,7 +28,14 @@
 						{!! Form::close() !!}
 						</th>
 						<th class="text-center">Avance</th>
-						<th class="text-center th_big">Cliente</th>
+						<th class="text-center th_big"> <p>Cliente</p>
+							<!-- Buscador por Nombre o apellidos -->
+						{!! Form::open(array('route' =>'show_all_case','method' => 'Get','class' => 'form_search')) !!}
+							<div class="navbar_seach">
+								{!! Form::text('FullName_write',null,['class' => 'form_input_search th_medium' ,'placeholder' => 'Nombre o apellido' ]) !!}
+							</div>
+						{!! Form::close() !!}
+						</th>
 						<th class="text-center">Trámite</th>
 						<th class="text-center">Total de Operación</th>
 						<th class="text-center th_medium">Observaciones</th>

@@ -279,6 +279,33 @@ class CaseService extends Model
     }  
     
     /**
+    * Scope para hacer una busqueda de casos por Nombre de Cliente
+    * @param Query $query , int $FullName_write,
+    * @return 
+    */
+    public function scopeSearchByFullNameCustomer($query,$FullName_write){
+
+        return $query->join('case_service_customer AS CsC', 'CsC.case_service_id', '=', 'case.id')
+                            ->join('customer AS c','c.id','=','CsC.customer_id')
+                            ->select('case.*')
+                            ->where('c.name','LIKE',"$FullName_write%")
+                            ->orWhere( 'c.fathers_last_name','LIKE',"$FullName_write%")
+                            ->orwhere('c.mothers_last_name','LIKE',"$FullName_write%");
+    } /**
+    * Scope para hacer una busqueda de casos por Nombre de Cliente
+    * @param Query $query , int $FullName_write,
+    * @return 
+    */
+    public function scopeSearchByFullNameCustomerAndService($query,$FullName_write,$id_service){
+
+        return $query->join('case_service_customer AS CsC', 'CsC.case_service_id', '=', 'case.id')
+                            ->join('customer AS c','c.id','=','CsC.customer_id')
+                            ->select('case.*')->where('case.service_id',$id_service)
+                            ->where('c.name','LIKE',"$FullName_write%")
+                            ->orWhere( 'c.fathers_last_name','LIKE',"$FullName_write%")
+                            ->orwhere('c.mothers_last_name','LIKE',"$FullName_write%");
+    } 
+    /**
     * Scope para hacer una busqueda de casos por id y el tipo de servicio
     * @param Query $query , int $id, int $id_service
     * @return 

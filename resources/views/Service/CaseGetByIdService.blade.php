@@ -33,7 +33,15 @@
 						{!! Form::close() !!}
 						</th>
 						<th class="text-center">Avance</th>
-						<th class="text-center th_big">Cliente</th>
+						<th class="text-center th_big"> <p>Cliente</p> 
+						<!-- Buscador por el nombre de algun cliente relacionado -->
+						{!! Form::open(array('route' =>array('service_show_path',$service->id ),'method' => 'Get','class' => 'form_search')) !!}
+							<div class="navbar_seach">
+								{!! Form::text('FullName_write',null,['class' => 'form_input_search' ,'placeholder' => 'Nombre' ]) !!}
+							</div>
+						{!! Form::close() !!}
+
+						</th>
 						<th class="text-center">Total de Operación</th>
 						<th class="text-center th_medium">Observaciones</th>
 						<th class="text-center">Detalles</th>
@@ -43,7 +51,7 @@
 				<tbody class="table-hover">
 					
 					@foreach ($cases_services as $case_service)
-					<a href="{{url('servicio/'.$service->id.'/caso/'.$case_service->id)}}">
+					
     					<tr>
     						<td class="text-center"> {{ $case_service->id }} </td>
                 			<td class="text-center"> {{ $case_service->N_write}} </td>
@@ -58,7 +66,7 @@
     						<td class="text-center"> {{ $case_service->observations }} </td>
     						<td class="text-center"> <a class="input budget-button button_normal" href="{{route('Show_Case_path',$case_service->id) }}"> Detalles </a></td>
     					</tr>
-    				</a>
+
 					@endforeach
 				</tbody>
 				</table>
