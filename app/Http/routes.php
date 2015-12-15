@@ -79,6 +79,10 @@ Route::post('nuevo/{id_service}/caso/',[
 Route::get('clientes/',[
 	'uses' => 'CustomerController@index',
 	'as' => 'Customer_List']);
+//Mostrar el datos especificos del cliente
+Route::get('cliente/{id_customer}',[
+	'uses' => 'CustomerController@show',
+	'as' => 'Customer_Show_path']);
 
 //Mostrar el formulario para registrar un Nuevo cliente a un Nuevo Caso
 Route::get('cliente/nuevo/{id_service?}',[

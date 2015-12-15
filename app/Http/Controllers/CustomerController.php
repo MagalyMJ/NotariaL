@@ -21,10 +21,18 @@ class CustomerController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $customers = Customer::All();
+        $customers;
+
+        if ($request->FullName_write != null) {
+                 $customers = Customer::SearchByFullName($request->FullName_write)->orderBy('name','ASC')->get();
+            }
+            else{
+                $customers = Customer::orderBy('name','ASC')->get();
+            }
+
         return view('Customers.CustomerList',['customers'=> $customers]);
     }
 
@@ -263,6 +271,10 @@ class CustomerController extends Controller
     public function show($id)
     {
         //
+        $customer = Customer::find($id);
+        $cases_services = $customer->case_service;
+
+       return view('Customers.CustomersInCase.CustomerCasesServices',[ 'customer' => $customer, 'cases_services' => $cases_services]);
     }
 
     /**

@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Mostrara Todos los Clientes Activos
-	Parametros: 
+	Parametros: $customers Customer::Array 
 -->
 	<div class="block_container">
 
@@ -17,7 +17,15 @@
 					<tr>
 						
 						<th class="text-center">Id Cliente</th>
-						<th class="text-center th_medium">Nombre</th>
+						<th class="text-center th_medium">
+							<p>Nombre Completo</p>
+							<!-- Buscador por Nombre Completo -->
+						{!! Form::open(array('route' =>'Customer_List','method' => 'Get','class' => 'form_search')) !!}
+							<div class="navbar_seach">
+								{!! Form::text('FullName_write',null,['class' => 'form_input_search th_medium' ,'placeholder' => 'Nombre o Apellidos' ]) !!}
+							</div>
+						{!! Form::close() !!}
+						</th>
 						<th class="text-center">Tramites</th>
 
 					</tr>
@@ -28,7 +36,7 @@
     					<tr>
     						<td class="text-center"> {{ $customer->id }} </td>
                 			<td class="text-center"> {{ $customer->name." ".$customer->fathers_last_name." ".$customer->mothers_last_name }} </td>
-    						<td class="text-center"> <a class="input budget-button button_normal" href="">Tramites</a></td>
+    						<td class="text-center"> <a class="input budget-button button_normal" href="{{ route('Customer_Show_path',$customer->id ) }}">Tramites</a></td>
     					</tr>
     			
 					@endforeach
