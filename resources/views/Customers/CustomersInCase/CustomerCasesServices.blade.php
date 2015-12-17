@@ -20,11 +20,12 @@
 		</section>
 		<section class = "action_buttons">
 			
-				  <a class="input budget-button button_normal" href="">Editar</a>
-				  <a class="input budget-button button_normal" href="">Eliminar </a>
+			<!-- 	  <a class="input budget-button button_normal" href="">Editar</a>
+				  <a class="input budget-button button_normal" href="">Eliminar </a> -->
 				  
 		</section>
 			<table class="table-fill">
+				<caption class="text-center"> <h2>Tramites de {{ $customer->name." ".$customer->fathers_last_name." ".$customer->mothers_last_name }}</h2></caption>
 				<thead>
 					<tr>
 						<th class="text-center"> 

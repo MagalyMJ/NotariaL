@@ -280,7 +280,7 @@ class CaseService extends Model
     
     /**
     * Scope para hacer una busqueda de casos por Nombre de Cliente
-    * @param Query $query , int $FullName_write,
+    * @param Query $query , string $FullName_write,
     * @return 
     */
     public function scopeSearchByFullNameCustomer($query,$FullName_write){
@@ -292,8 +292,8 @@ class CaseService extends Model
                             ->orWhere( 'c.fathers_last_name','LIKE',"$FullName_write%")
                             ->orwhere('c.mothers_last_name','LIKE',"$FullName_write%");
     } /**
-    * Scope para hacer una busqueda de casos por Nombre de Cliente
-    * @param Query $query , int $FullName_write,
+    * Scope para hacer una busqueda de casos por Nombre de Cliente y el servicio 
+    * @param Query $query , string $FullName_write, int $id_service
     * @return 
     */
     public function scopeSearchByFullNameCustomerAndService($query,$FullName_write,$id_service){

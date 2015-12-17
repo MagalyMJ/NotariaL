@@ -13,7 +13,7 @@
 						<th class="text-center"> 
 							<p>NºFolio</p> 
 						<!-- Buscador por Folio -->
-						{!! Form::open(array('route' =>'show_all_case','method' => 'Get','class' => 'form_search')) !!}
+						{!! Form::open(array('route' =>'show_all_case_by_progres','method' => 'Get','class' => 'form_search')) !!}
 							<div class="navbar_seach">
 								{!! Form::number('id',null,['class' => 'form_input_search' ,'placeholder' => 'Id' ]) !!}
 							</div>
@@ -21,7 +21,7 @@
 						</th>
 						<th class="text-center"> <p> NºEscritura</p> 
 						<!-- Buscador por Numero de Escritura -->
-						{!! Form::open(array('route' =>'show_all_case','method' => 'Get','class' => 'form_search')) !!}
+						{!! Form::open(array('route' =>'show_all_case_by_progres','method' => 'Get','class' => 'form_search')) !!}
 							<div class="navbar_seach">
 								{!! Form::number('N_write',null,['class' => 'form_input_search' ,'placeholder' => 'Nº Escritura' ]) !!}
 							</div>
@@ -30,7 +30,7 @@
 						<th class="text-center">Avance</th>
 						<th class="text-center th_big"> <p>Cliente</p>
 							<!-- Buscador por Nombre o apellidos -->
-						{!! Form::open(array('route' =>'show_all_case','method' => 'Get','class' => 'form_search')) !!}
+						{!! Form::open(array('route' =>'show_all_case_by_progres','method' => 'Get','class' => 'form_search')) !!}
 							<div class="navbar_seach">
 								{!! Form::text('FullName_write',null,['class' => 'form_input_search th_medium' ,'placeholder' => 'Nombre o apellido' ]) !!}
 							</div>

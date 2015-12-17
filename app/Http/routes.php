@@ -37,9 +37,15 @@ Route::get('servicio/{id_service}',[
 	'as' => 'service_show_path',
 	]);
 // Para mostrar todos los casos en base al servicio
-Route::get('casos/',[
-	'uses' => 'ServiceController@AllCaseindex',
-	'as' => 'show_all_case',
+Route::get('tramites/avances',[
+	'uses' => 'ServiceController@AllCaseByProgres',
+	'as' => 'show_all_case_by_progres',
+	]);
+
+// Para mostrar todos los casos en base al servicio
+Route::get('tramites/avisos',[
+	'uses' => 'ServiceController@AllCaseByNotice',
+	'as' => 'show_all_case_by_notice',
 	]);
 
 Route::post('servicio',[
