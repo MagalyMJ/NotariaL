@@ -31,12 +31,14 @@ class ServiceController extends Controller
           $service = Service::find($id_service);
           $cases;  
         
-        //Usamos un scope para traer los caso del Tipo de servico y filtrados por id , o por numero de escritura 
+        //Usamos un scope para traer los caso del Tipo de servico y filtrados por id , o por numero de escritura o Cliente 
         if ($request->id != null) {
                  $cases = CaseService::SearchByIdAndService($request->id,$id_service)->orderBy('id','DESC')->get();
             }
         elseif ($request->N_write != null ) {
                 $cases = CaseService::SearchByNwriteAndService($request->N_write,$id_service)->orderBy('id','DESC')->get();
+            }elseif ($request->FullName_write != null ) {
+                $cases = CaseService::SearchByFullNameCustomerAndService($request->FullName_write,$id_service)->orderBy('id','DESC')->get();
             }
             else{
                 $cases = CaseService::where('service_id',$id_service)->orderBy('id','DESC')->get();
@@ -48,28 +50,53 @@ class ServiceController extends Controller
     
     /**
      * Despliega una lista de todos los casos
-     *
+     * Request $request proviene de los formularios de filtros
      * @return Response
      */
-    public function AllCaseindex (Request $request)
+    public function AllCaseByProgres(Request $request)
     {
         //
          
-          $cases;  
-        
-        //Usamos un scope para traer todos caso filtrados por id , o por numero de escritura 
+         
+         $cases = $this->queryFilterCaseService('progress','ASC',$request);  
+         return view('Service.AllCasebyProgres',[ 'cases_services' => $cases ]);
+            
+    } 
+    
+    /**
+     * Despliega una lista de todos los casos
+     *  Request $request proviene de los formularios de filtros
+     * @return Response
+     */
+    public function AllCaseByNotice(Request $request)
+    {
+        //
+         
+         $cases = $this->queryFilterCaseService('notices','ASC',$request);  
+         return view('Service.AllCasebyNotice',[ 'cases_services' => $cases ]);
+            
+    }
+
+     /**
+     * Metodo de filtrados y delpligue de casos.
+     *
+     * @return Response
+     */
+    private function queryFilterCaseService($orderBy , $order, $request ){
+
+        //Usamos un scope para traer todos caso filtrados por id , o por numero de escritura o Cliente
         if ($request->id != null) {
-                 $cases = CaseService::SearchById($request->id)->orderBy('progress','ASC')->get();
+                 return CaseService::SearchById($request->id)->orderBy($orderBy,$order)->get();
             }
         elseif ($request->N_write != null ) {
-                 $cases = CaseService::SearchByNwrite($request->N_write)->orderBy('progress','ASC')->get();
+                 return  CaseService::SearchByNwrite($request->N_write)->orderBy($orderBy,$order)->get();
+            }elseif ($request->FullName_write != null ) {
+                return   CaseService::SearchByFullNameCustomer($request->FullName_write)->orderBy($orderBy,$order)->get();
             }
             else{
-                $cases = CaseService::orderBy('progress','ASC')->get();
+                return  CaseService::orderBy($orderBy ,$order)->get();
             }
 
-            return view('Service.AllCase',[ 'cases_services' => $cases ]);
-            
     }
 
     

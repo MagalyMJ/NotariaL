@@ -34,4 +34,16 @@ class Customer extends Model
 
         return $this->belongsToMany(CaseService::class)->withPivot('participants_type','documents_list');
     }
+
+      /**
+    * Scope para hacer una busqueda de casos por numero de Escritura
+    * @param Query $query , int $N_write, int $id_service
+    * @return 
+    */
+    public function scopeSearchByFullName($query, $FullName_write){
+
+        return $query->where('name','LIKE',"$FullName_write%")
+                    ->orWhere( 'fathers_last_name','LIKE',"$FullName_write%")
+                    ->orwhere('mothers_last_name','LIKE',"$FullName_write%");
+    }  
 }

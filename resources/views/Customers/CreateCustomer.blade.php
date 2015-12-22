@@ -5,7 +5,7 @@
 <h1>Registro de Nuevo Cliente</h1>
  <div class="form_container"> 
 
- <form action="{{ route('customer_new_path') }}" method='post' class="form_data">  
+ <form action="{{ route('Create_Customer_Store') }}" method='post' class="form_data">  
    {{csrf_field()}}
       <div class="form_data_general">
           <label for="name">Nombre</label> 
@@ -61,7 +61,7 @@
         <section class = "action_buttons">
           <div class="action_buttons_diplay">
             <input type="submit" value="Registrar" class="input budget-button button_normal">
-            <a class="input budget-button button_normal" href="{{route('home') }}"> Cancelar </a>
+            <a class="input budget-button button_normal" href="{{route('Customer_List') }}"> Cancelar </a>
           </div>
         </section>
   </form>

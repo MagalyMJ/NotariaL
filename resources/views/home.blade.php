@@ -4,7 +4,7 @@
     <section id="mainsection" class = "mainsection main_left">
         <div class="block_container">
         <div class = "block shadow aling_block">    
-            <a href="{{ route('show_all_case') }}">
+            <a href="{{ route('show_all_case_by_progres') }}">
                 <div class="module_icon">
                     <span class="icon-file-play"></span>
                 </div>  
@@ -13,13 +13,15 @@
                 </h3>
             </a>
         </div>
-        <div class = "block disabled aling_block">    
-            <div class="module_icon">
-                <span class="icon-bubbles2"></span>
-            </div>  
-            <h3 class="title_module">
-                Avisos
-            </h3>
+        <div class = "block shadow aling_block">    
+            <a href="{{ route('show_all_case_by_notice') }}">
+                <div class="module_icon">
+                    <span class="icon-bubbles2"></span>
+                </div>  
+                <h3 class="title_module">
+                    Avisos
+                </h3>
+            </a>
         </div>
         <div class = "block shadow aling_block">    
             <a href="{{route('Out_Standing_Payments') }}">
@@ -47,13 +49,15 @@
                 Comisiones
             </h3>
         </div>
-        <div class = "block disabled aling_block">    
-            <div class="module_icon">
-                <span class="icon-folder-open"></span>
-            </div>  
-            <h3 class="title_module">
-                Terceros
-            </h3>
+        <div class = "block shadow aling_block">    
+           <a href="{{ route('Customer_List') }}">
+                <div class="module_icon">
+                    <span class="icon-folder-open"></span>
+                </div>  
+                <h3 class="title_module">
+                    Clientes
+                </h3>
+            </a>
         </div>
         </div>
     </section>

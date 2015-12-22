@@ -37,9 +37,15 @@ Route::get('servicio/{id_service}',[
 	'as' => 'service_show_path',
 	]);
 // Para mostrar todos los casos en base al servicio
-Route::get('casos/',[
-	'uses' => 'ServiceController@AllCaseindex',
-	'as' => 'show_all_case',
+Route::get('tramites/avances',[
+	'uses' => 'ServiceController@AllCaseByProgres',
+	'as' => 'show_all_case_by_progres',
+	]);
+
+// Para mostrar todos los casos en base al servicio
+Route::get('tramites/avisos',[
+	'uses' => 'ServiceController@AllCaseByNotice',
+	'as' => 'show_all_case_by_notice',
 	]);
 
 Route::post('servicio',[
@@ -75,19 +81,30 @@ Route::post('nuevo/{id_service}/caso/',[
 	'as' => 'crearCaso',
 	]);
 
+//Mostrar el listado de los clientes 
+Route::get('clientes/',[
+	'uses' => 'CustomerController@index',
+	'as' => 'Customer_List']);
+//Mostrar el datos especificos del cliente
+Route::get('cliente/{id_customer}',[
+	'uses' => 'CustomerController@show',
+	'as' => 'Customer_Show_path']);
+
 //Mostrar el formulario para registrar un Nuevo cliente a un Nuevo Caso
 Route::get('cliente/nuevo/{id_service?}',[
 	'uses' => 'CustomerController@createNewInNewCase',
 	'as' => 'New_Customer_path']);
 
 //Mostrar el formulario para registrar un Nuevo cliente;
-Route::get('cliente/nuevo/',[
-	'uses' => 'CustomerController@create',
-	'as' => 'New_Customer']);
+Route::get('registro/cliente/',[
+	'uses' => 'CustomerController@createNew',
+	'as' => 'Create_Customer']);
+
 	//Mostrar el formulario para registrar un Nuevo cliente;
-Route::get('cliente/nuevo/',[
+Route::post('registro/cliente/',[
 	'uses' => 'CustomerController@store',
-	'as' => 'New_Customer_Store']);
+	'as' => 'Create_Customer_Store']);
+
 
 //Mostrar el formulario para registrar un Nuevo cliente en un caso exitente,;
 Route::get('cliente/nuevo/caso/{id_caseService}',[
