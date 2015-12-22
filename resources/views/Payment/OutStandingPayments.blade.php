@@ -9,8 +9,8 @@
         <thead>
           <tr>
 
-            <th class="text-center">NºFolio</th>
-            <th class="text-center">NºEscritura</th>
+            <th class="text-center">Nº Folio</th>
+            <th class="text-center">Nº Escritura</th>
             <th class="text-center">Total a Pagar</th>
             <th class="text-center">Adeudo</th>
             <th class="text-center">Pagos</th>

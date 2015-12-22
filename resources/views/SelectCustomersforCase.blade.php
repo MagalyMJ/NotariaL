@@ -3,7 +3,7 @@
 @section('content')
 <!-- Parametros: Array Customer, $service->id as $id_service, -->
 	<div class="block_container">
-
+		<h2>Seleccionar cliente para un nuevo Tramite</h2>
 			<table id="customers_Table" class="table-fill">
 				<thead>
 					<tr>

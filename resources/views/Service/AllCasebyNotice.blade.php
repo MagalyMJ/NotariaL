@@ -10,30 +10,29 @@
 			<table class="table-fill">
 				<thead>
 					<tr>
-						<th class="text-center"> 
-							<p>NºFolio</p> 
+						<th class="text-center"> Nº Folio
 						<!-- Buscador por Folio -->
 						{!! Form::open(array('route' =>'show_all_case_by_notice','method' => 'Get','class' => 'form_search')) !!}
-							<div class="navbar_seach">
-								{!! Form::number('id',null,['class' => 'form_input_search' ,'placeholder' => 'Id' ]) !!}
-							</div>
+							
+							{!! Form::number('id',null,['class' => 'form_input_search small' ,'placeholder' => 'Id' ]) !!}
+							
 						{!! Form::close() !!}
 						</th>
-						<th class="text-center"> <p> NºEscritura</p> 
+						<th class="text-center">  Nº Escritura
 						<!-- Buscador por Numero de Escritura -->
 						{!! Form::open(array('route' =>'show_all_case_by_notice','method' => 'Get','class' => 'form_search')) !!}
-							<div class="navbar_seach">
-								{!! Form::number('N_write',null,['class' => 'form_input_search' ,'placeholder' => 'Nº Escritura' ]) !!}
-							</div>
+							
+							{!! Form::number('N_write',null,['class' => 'form_input_search small' ,'placeholder' => 'Nº Escritura' ]) !!}
+							
 						{!! Form::close() !!}
 						</th>
 						<th class="text-center">Avance</th>
-						<th class="text-center th_big"> <p>Cliente</p>
+						<th class="text-center th_big"> Cliente
 							<!-- Buscador por Nombre o apellidos -->
 						{!! Form::open(array('route' =>'show_all_case_by_notice','method' => 'Get','class' => 'form_search')) !!}
-							<div class="navbar_seach">
-								{!! Form::text('FullName_write',null,['class' => 'form_input_search th_medium' ,'placeholder' => 'Nombre o apellido' ]) !!}
-							</div>
+							
+							{!! Form::text('FullName_write',null,['class' => 'form_input_search th_medium' ,'placeholder' => 'Nombre o Apellido' ]) !!}
+							
 						{!! Form::close() !!}
 						</th>
 						<th class="text-center">Trámite</th>

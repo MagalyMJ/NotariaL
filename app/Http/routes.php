@@ -96,12 +96,12 @@ Route::get('cliente/nuevo/{id_service?}',[
 	'as' => 'New_Customer_path']);
 
 //Mostrar el formulario para registrar un Nuevo cliente;
-Route::get('cliente/registro/',[
+Route::get('registro/cliente/',[
 	'uses' => 'CustomerController@createNew',
 	'as' => 'Create_Customer']);
 
 	//Mostrar el formulario para registrar un Nuevo cliente;
-Route::post('cliente/registro/',[
+Route::post('registro/cliente/',[
 	'uses' => 'CustomerController@store',
 	'as' => 'Create_Customer_Store']);
 

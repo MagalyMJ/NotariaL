@@ -791,17 +791,16 @@ select {
 
 /*forms*/
 .navbar_seach{
-  width: 50px;
 }
 .form_search{
   display: block;
 }
-.form_input_search{
+.form_input_search {
   display: block;
-  width: 100px;
   font-size: 14px;
   color: black;
 }
+
 .form_container{
   color: rgb(59,60,54);
   width: 100%;
@@ -830,8 +829,11 @@ select {
 .medium {
   width:150px;
 }
-.small {
+.small { 
   width:40%;
+}
+.form_search .small { 
+  width:100px;
 }
 .form_data label {
   margin: 2px;
@@ -966,6 +968,10 @@ th {
   padding-left: 40px;
   padding-right: 40px;
 }
+.th_small{
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 th:first-child {
   border-top-left-radius:3px;
@@ -1037,6 +1043,7 @@ th.text-left {
 
 th.text-center {
   text-align: center;
+  vertical-align: text-top;
 }
 
 th.text-right {

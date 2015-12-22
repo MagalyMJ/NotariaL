@@ -16,14 +16,13 @@
 				<thead>
 					<tr>
 						
-						<th class="text-center">Id Cliente</th>
-						<th class="text-center th_medium">
-							<p>Nombre Completo</p>
+						<th class="text-center th_small">Id Cliente</th>
+						<th class="text-center th_medium"> Nombre Completo
 							<!-- Buscador por Nombre Completo -->
 						{!! Form::open(array('route' =>'Customer_List','method' => 'Get','class' => 'form_search')) !!}
-							<div class="navbar_seach">
-								{!! Form::text('FullName_write',null,['class' => 'form_input_search th_medium' ,'placeholder' => 'Nombre o Apellidos' ]) !!}
-							</div>
+
+							{!! Form::text('FullName_write',null,['class' => 'form_input_search th_medium' ,'placeholder' => 'Nombre o Apellidos' ]) !!}
+						
 						{!! Form::close() !!}
 						</th>
 						<th class="text-center">Tramites</th>
