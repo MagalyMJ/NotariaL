@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
             //Clientes, Usualios de prueba
-            $this->call(UsersTableSeeder::class);
-            $this->call(CustumersTableSeeder::class);
+            //$this->call(UsersTableSeeder::class);
+            //$this->call(CustumersTableSeeder::class);
             //Catalogos , Documentos,Participantes
             $this->call(CatalogDocumentsSeeder::class);
             //Catalogo de gastos que afectan el presupuesto
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             $this->call(ServiceAdjudicacionJudicialSeed::class);
             $this->call(ServiceRatificacionDocumentoSeed::class);
             //Creacion de casos de prueva
-            $this->call(Case_Budget_Service_Seed::class);
+            //$this->call(Case_Budget_Service_Seed::class);
            
 
         Model::reguard();
