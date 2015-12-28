@@ -26,6 +26,9 @@
 	<!-- Para que muestre el ISR actualmente registrado y modificarlo -->
 	<label for="">ISR: ${{$Budget->isr}}</label> 
 	<input name="isr"  class="input medium" id="isr" type="number" step="0.01"  value="{{$Budget->isr}}" />
+	<!-- Para que muestre el Iva sobre construccion actualmente registrado y modificarlo -->
+	<label for="">IVA Sobre Construcción: ${{$Budget->iva_construction}}</label> 
+	<input name="iva_construction"  class="input medium" id="isr" type="number" step="0.01"  value="{{$Budget->iva_construction}}" />
 	<!-- Mostramos el costo que tienen los Gastos de Registro Para este Servicio -->
 	<label for="">Gastos de Registro: ${{$Budget->case_service->service->findExpeseCostByName('Gastos de Registro')}}</label> 
 	<input name="gastos_registro"  class="input medium" id="gastos_registro" type="hidden" value="{{$Budget->case_service->service->findExpeseCostByName('Gastos de Registro')}}" />
