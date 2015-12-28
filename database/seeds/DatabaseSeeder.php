@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
             //Clientes, Usualios de prueba
-            //$this->call(UsersTableSeeder::class);
+            $this->call(UsersTableSeeder::class);
             //$this->call(CustumersTableSeeder::class);
             //Catalogos , Documentos,Participantes
             $this->call(CatalogDocumentsSeeder::class);

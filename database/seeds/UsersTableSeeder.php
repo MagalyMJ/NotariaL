@@ -17,12 +17,18 @@ class UsersTableSeeder extends Seeder
         // seria para siempre tener un numero determinado 
         // User::truncate();
 
-        factory(NotiAPP\Models\User::class,10)->create();
+        //factory(NotiAPP\Models\User::class,10)->create();
 
         // Insercion Directa 
-        //DB::table('users')->insert([
-        // 	'name' => 'Alex',
-        // 	'fathers_last_name' => 'Medina'
-        // 	]);
+        DB::table('users')->insert([
+        'name' => 'tester',
+        'fathers_last_name' => 'tester',
+        'mothers_last_name' => 'tester',
+        'user_name' => 'tester',
+        'user_type' => 1,
+        'email' => 'tester@gmail.com',
+        'password' => bcrypt('123456789'),
+        'remember_token' => str_random(10),
+         	]);
     }
 }
