@@ -13,6 +13,14 @@ use NotiAPP\Models\User;
 
 class BudgetController extends Controller
 {
+     /**
+    * Create a new authentication controller instance.
+    *
+    * @return void
+    */
+   public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -166,7 +174,7 @@ class BudgetController extends Controller
                             $Upddate->total_extra_hours = $request->hora_extra * $Upddate->n_extra_hours;
                             if ($request->invoiced == '1') {
                                 //calculamos el iva a agregar en base a los honorarios 
-                                $Upddate->iva =  (($Upddate->fee + $Upddate->total_extra_hours) * 16)/100;
+                                $Upddate->iva =  (($Upddate->fee + $Upddate->total_extra_hours - $Upddate->discount) * 16)/100;
                                 $Upddate->invoiced =  $request->invoiced; //indicamos que el servicio va facturado en la bace de datos
                             }
                     break;
@@ -177,7 +185,7 @@ class BudgetController extends Controller
                             $Upddate->total_extra_paper = $request->honorarios_HojaExtra * $Upddate->n_extra_paper;
                             if ($request->invoiced == '1') {
                                  //calculamos el iva a agregar en base a los honorarios 
-                                $Upddate->iva =  (($Upddate->fee + $Upddate->total_extra_paper ) * 16)/100;
+                                $Upddate->iva =  (($Upddate->fee + $Upddate->total_extra_paper - $Upddate->discount) * 16)/100;
                                 $Upddate->invoiced =  $request->invoiced; //indicamos que el servicio va facturado en la bace de datos
                             }
                 break;
@@ -185,12 +193,12 @@ class BudgetController extends Controller
                     // Si se va a Facturar el Caso 
                          if ($request->invoiced == '1') {
                              //calculamos el iva a agregar en base a los honorarios 
-                            $Upddate->iva =  ($Upddate->fee * 16)/100;
+                            $Upddate->iva =  (($Upddate->fee - $Upddate->discount)* 16)/100;
                             $Upddate->invoiced =  $request->invoiced; //indicamos que el servicio va facturado en la bace de datos
                           }
                     break;
             }
-
+            $Upddate->iva_construction = $request->iva_construction;
         /* --------------------------------------------------------------------------------------------*/
              
 

@@ -12,7 +12,17 @@ use NotiAPP\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
-    /**
+      /**
+     * Create a new authentication controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => 'getLogout']);
+    }
+
+/**
      * Display a listing of the resource.
      *
      * @return Response
@@ -53,7 +63,7 @@ class AuthController extends Controller
         if (!auth()->attempt($request->only(['user_name', 'password']))) {
             return redirect()->route('auth_show_path')->withErrors('No se encontro al usuario');
         }
-        return view('home');
+        return Redirect::route('home');
     }
 
     /**

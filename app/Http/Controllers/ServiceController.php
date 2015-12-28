@@ -20,6 +20,14 @@ use Input;
 
 class ServiceController extends Controller
 {
+     /**
+    * Create a new authentication controller instance.
+    *
+    * @return void
+    */
+   public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Despliega una lista de casos en base al servico.
      *
