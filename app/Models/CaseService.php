@@ -221,7 +221,7 @@ class CaseService extends Model
     }
 
     /**
-     * //Evalua a todos los clientes asignados a este caso, y si lla entregaron algun documento.
+     * //Evalua a todos los clientes asignados a este caso, y si ya entregaron algun documento.
      *
      * @return boolean
      */
@@ -266,7 +266,7 @@ class CaseService extends Model
     */
     public function scopeSearchById($query, $id){
 
-        return $query->where('id','LIKE',"%$id%");
+        return $query->where('id','LIKE',"$id%");
     }  
     /**
     * Scope para hacer una busqueda de casos por numero de Escritura
@@ -275,7 +275,16 @@ class CaseService extends Model
     */
     public function scopeSearchByNwrite($query, $N_write){
 
-        return $query->where('N_write','LIKE',"%$N_write%");
+        return $query->where('N_write','LIKE',"$N_write%");
+    } 
+    /**
+    * Scope para hacer una busqueda de casos por numero de Escritura
+    * @param Query $query , int $N_write, int $id_service
+    * @return 
+    */
+    public function scopeSearchByProgress($query, $progress){
+
+        return $query->where('progress','=',"$progress");
     }  
     
     /**
@@ -312,7 +321,7 @@ class CaseService extends Model
     */
     public function scopeSearchByIdAndService($query, $id, $id_service){
 
-        return $query->where('id','LIKE',"%$id%")->where('service_id',$id_service);
+        return $query->where('id','LIKE',"$id%")->where('service_id',$id_service);
     }  
     /**
     * Scope para hacer una busqueda de casos por numero de Escritura y el tipo de servicio
@@ -321,7 +330,7 @@ class CaseService extends Model
     */
     public function scopeSearchByNwriteAndService($query, $N_write, $id_service){
 
-        return $query->where('N_write','LIKE',"%$N_write%")->where('service_id',$id_service);
+        return $query->where('N_write','LIKE',"$N_write%")->where('service_id',$id_service);
     }  
 
 }
