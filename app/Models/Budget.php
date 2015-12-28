@@ -17,7 +17,7 @@ class Budget extends Model
      */
     protected $fillable = ['approved','invoiced','payment_type','discount',
     'advance_payment','total','commission','travel_expenses','miscellaneous_expense',
-    'surcharges','iva','sub_total','fee','operation_value','isr','isnjin',
+    'surcharges','iva','iva_construction','sub_total','fee','operation_value','isr','isnjin',
     'isabi','property_valuation','commercial_appraisal','writing_management','n_registration'
     ,'total_registration_costs','n_certificates','total_certified_expenditure',
     'edicts','n_extra_hours','n_extra_paper'];
@@ -105,16 +105,10 @@ class Budget extends Model
 
          return  $this->fee + $this->total_extra_hours - $this->discount 
                     + $this->travel_expenses + $this->miscellaneous_expense 
-                    + $this->surcharges + $this->isr + $this->isnjin + $this->isabi + $this->edicts 
+                    + $this->surcharges + $this->isr + $this->isnjin + $this->isabi + $this->edicts + $this->iva_construction 
                     + $this->property_valuation + $this->commercial_appraisal + $this->writing_management 
                     + $this->total_registration_costs + $this->total_certified_expenditure  + $this->total_extra_paper;
-              
-        /*el Subtotal = Honorarios + el total de horas extra (Fe de hechos) - el descuento de honorarios + 
-                            Gastos de viaje + Gastos varios + recargos + isr + isnjin + isabi +
-                            Avaluo catastral + Avalauo comercial + Gestoria de Escritura 
-                            Gastros de registro + gastos de certificados + hojas extra (Cotejo y certificacion)
-                            
-                */
+       
     }
 
 }

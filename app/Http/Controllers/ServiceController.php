@@ -20,6 +20,14 @@ use Input;
 
 class ServiceController extends Controller
 {
+     /**
+    * Create a new authentication controller instance.
+    *
+    * @return void
+    */
+   public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Despliega una lista de casos en base al servico.
      *
@@ -92,6 +100,8 @@ class ServiceController extends Controller
                  return  CaseService::SearchByNwrite($request->N_write)->orderBy($orderBy,$order)->get();
             }elseif ($request->FullName_write != null ) {
                 return   CaseService::SearchByFullNameCustomer($request->FullName_write)->orderBy($orderBy,$order)->get();
+            }elseif ($request->progress_Select != null) {
+                return   CaseService::SearchByProgress($request->progress_Select)->orderBy($orderBy,$order)->get();
             }
             else{
                 return  CaseService::orderBy($orderBy ,$order)->get();
@@ -137,12 +147,18 @@ class ServiceController extends Controller
         return Redirect::route('Show_Case_path', array('$ServiceCase' => $CreateCase->id));
     }
 
-    public function SelectCustomers($id_service){
+    public function SelectCustomers($id_service , Request $request){
 
-        $customers = Customer::all();
-      
+        $customers;
 
-        return view('SelectCustomersforCase',[ 'customers' => $customers , 'id_service' => $id_service ]);
+         if ($request->FullName_write != null) {
+                 $customers = Customer::SearchByFullName($request->FullName_write)->orderBy('name','ASC')->get();
+            }
+            else{
+                $customers = Customer::orderBy('name','ASC')->get();
+            }
+
+        return view('Customers.SelectCustomersforNewCase',[ 'customers' => $customers , 'id_service' => $id_service ]);
     }
     
    /**

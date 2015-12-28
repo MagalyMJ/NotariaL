@@ -1,16 +1,28 @@
 @extends('layouts.homedefault')
 
 @section('content')
-<!-- Parametros: Array Customer, $service->id as $id_service, -->
+<!-- Parametros: Array Customers, $id_caseService, -->
 	<div class="block_container">
 	<h2>Seleccionar cliente para un Tramite existente</h2>
+	<section class = "action_buttons">
+		<a class="input budget-button button_normal" href="{{route('New_Customer_inCase',$id_caseService) }}"> Nuevo cliente </a>
+		<input id="more_cusotmers_inThis" name="customers" type="submit" onClick="more_customers_inThisCase()" value="Asignar al Tramite" class="input budget-button">				  
+		<a class="input budget-button button_normal" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
+	</section>
 			<table id="customers_Table" class="table-fill">
 				<thead>
 					<tr>
 
 						<th class="text-center">Selcted</th>
 						<th class="text-center">Id</th>
-						<th class="text-center">Nombre</th>
+						<th class="text-center th_medium">Nombre
+								<!-- Buscador por Nombre Completo -->
+							{!! Form::open(array('route' => array('Select_customer_InExisting_Case' , $id_caseService) ,'method' => 'Get','class' => 'form_search')) !!}
+
+								{!! Form::text('FullName_write',null,['class' => 'form_input_search th_medium' ,'placeholder' => 'Nombre o Apellidos' ]) !!}
+						
+							{!! Form::close() !!}
+						</th>
 						<th class="text-center">RFC</th>
 					</tr>
 				</thead>
@@ -31,15 +43,9 @@
 					 <input id="customers_selected" name="customers_selected" type="hidden" value="">
 				  
 				</form>
-				</tbody>
-				</table>
+			</tbody>
+		</table>
 	
-		
-			<section class = "action_buttons">
-				  <a class="input budget-button button_normal" href="{{route('New_Customer_inCase',$id_caseService) }}"> Nuevo cliente </a>
-				  <input id="more_cusotmers_inThis" name="customers" type="submit" onClick="more_customers_inThisCase()" value="Asignar al Tramite" class="input budget-button">				  
-				  <a class="input budget-button button_normal" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
-			</section>
 	</div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>

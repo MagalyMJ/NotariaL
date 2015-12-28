@@ -44,6 +44,10 @@
    						<td class="text-center">Gastos de Certificados</td>
     					<td class="text-center">$ {{$Budget->total_certified_expenditure}}</td>
     				</tr>
+            <tr>
+              <td class="text-center">IVA Sobre Construcción</td>
+              <td class="text-center">$ {{$Budget->iva_construction}}</td>
+            </tr>
 				
 				</tbody>
 				</table>

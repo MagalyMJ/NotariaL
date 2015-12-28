@@ -29,7 +29,8 @@ class CreateBudgetTable extends Migration {
 			$table->float('travel_expenses')->unsigned();//Gastos de Viaje
 			$table->float('miscellaneous_expense')->unsigned();//Gastos Varios
 			$table->float('surcharges')->unsigned();//Recargos
-			$table->float('iva')->unsigned();// el iva que se necesitara si tiene que star facturado
+			$table->float('iva')->unsigned();// el iva que se necesitara si tiene que star facturado IVA sobre Honorarios
+			$table->float('iva_construction')->unsigned();// el iva que se genera por una construccion, IVA sobre Construccion
 			$table->float('sub_total')->unsigned();// subtotal es la suma de los honorarios mas el iva (aun no se agregan los demas gastos)
 
 			$table->float('fee')->unsigned();//Honorarios

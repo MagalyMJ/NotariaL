@@ -27,7 +27,14 @@
 							
 						{!! Form::close() !!}
 						</th>
-						<th class="text-center">Avance</th>
+						<th class="text-center"> Avance
+							<!-- Buscador por Avance Registrado -->
+						{!! Form::open(array('route' =>'show_all_case_by_progres','method' => 'Get','class' => 'form_search')) !!}
+							{!! Form::number('progress_Select',null,['class' => 'form_input_search small' ,'placeholder' => 'Avance' ]) !!}
+							<!-- {!! Form::select('progress_Select', array('' => null, 1=>'0', 2=>'10', 3=>'25', 4=>'33', 5=>'50', 6=>'66', 7=>'75', 8=>'99', 9=>'100'), '', ['class' => 'form_input_search small']) !!} -->
+						{!! Form::close() !!}
+
+						</th>
 						<th class="text-center th_big"> Cliente
 							<!-- Buscador por Nombre o apellidos -->
 						{!! Form::open(array('route' =>'show_all_case_by_progres','method' => 'Get','class' => 'form_search')) !!}

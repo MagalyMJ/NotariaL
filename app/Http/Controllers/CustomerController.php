@@ -16,6 +16,14 @@ use NotiAPP\Models\User;
 
 class CustomerController extends Controller
 {
+     /**
+    * Create a new authentication controller instance.
+    *
+    * @return void
+    */
+   public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -162,10 +170,16 @@ class CustomerController extends Controller
      * @param  Int $id_caseService
      * @return Response
      */
-    public function AddCustomersToCase($id_caseService)
-    {
-        //
-        $customers = Customer::all();
+    public function AddCustomersToCase($id_caseService, Request $request){
+
+        $customers;
+
+         if ($request->FullName_write != null) {
+                 $customers = Customer::SearchByFullName($request->FullName_write)->orderBy('name','ASC')->get();
+            }
+            else{
+                $customers = Customer::orderBy('name','ASC')->get();
+            }
 
         return view('Customers.CustomersInCase.SelectCustomer_In_Case',[ 'customers' => $customers , 'id_caseService' => $id_caseService ]);
     }

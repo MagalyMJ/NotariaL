@@ -43,6 +43,10 @@
    						<td class="text-center">Gastos de Registro</td>
     					<td class="text-center">$ {{$Budget->total_registration_costs}}</td>
     				</tr>
+            <tr>
+              <td class="text-center">IVA Sobre Construcción</td>
+              <td class="text-center">$ {{$Budget->iva_construction}}</td>
+            </tr>
 				
 				</tbody>
 				</table>
