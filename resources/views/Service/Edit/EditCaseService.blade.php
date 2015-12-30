@@ -54,9 +54,16 @@
 		
 			<label for="N_write">Número de Escritura</label>
 	     	<input name="N_write" class="input long" id="N_write" type="number" value="{{$ServiceCase->N_write}}"/> 
-
+			
 			<label for="public_register">Fecha de Registro (registro publico):{{$ServiceCase->public_register}} </label> 
 	     	<input name="public_register" class="input long" id="public_register" type="date" value="{{$ServiceCase->public_register}}"/> 
+			
+			<label for="voucher">Número de Volante</label>
+	     	<input name="voucher" class="input long" id="voucher" type="number" value="{{$ServiceCase->voucher}}"/> 
+
+			<label for="voucher_date">Fecha del Volante (registro publico):{{$ServiceCase->voucher_date}} </label> 
+	     	<input name="voucher_date" class="input long" id="voucher_date" type="date" value="{{$ServiceCase->voucher_date}}"/> 
+		
 		</div>
 
 		<div class="form_data_observations">

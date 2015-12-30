@@ -32,6 +32,8 @@ class CreateCaseTable extends Migration {
             $table->date('notices_one_date'); //fecha del primer aviso 
             $table->date('notices_two_date'); //fecha del segundo aviso
             $table->date('public_register'); //fecha de registro
+            $table->integer('voucher')->unsigned(); //Nº de volante que dan en el registro publico
+            $table->date('voucher_date'); //fecha de acuse de registro
 
             $table->boolean('signature'); //booleano de comprovacion de firma
 			
