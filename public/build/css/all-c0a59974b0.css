@@ -948,18 +948,17 @@ select {
   background-color: rgb(59,60,54);
   color: rgb(235, 235, 235);
   border-radius: 5px;
-
-  margin: 15px 30px;
+  
   text-align: center;
   float: left;
-  display: flex;
-  align-items: center;
+  margin: 15px 30px;
 }
 .button_normal{
-  width: 100px;
+  width: 120px;
+  height: 1.5rem;
 }
 .button_big{
-   width: 130px;
+   width: 100px;
    height: 3rem;
 }
 /*Tablas*/

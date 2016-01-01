@@ -34,7 +34,10 @@
 					@endforeach
 			</div>
 			<section class = "action_buttons">
-				<a class="input budget-button button_normal"  href="{{route('Select_customer_InExisting_Case',$ServiceCase->id) }}">+ Participantes</a> 		   
+				<a class="budget-button button_big"  href="{{route('Select_customer_InExisting_Case',$ServiceCase->id) }}">
+					<img class="title_icon" src="{{ asset('img/icons/system/mas_Participantes.ico') }}" alt="Agregar más Participantes">
+					<p>Agregar Participantes</p>
+				</a>
 			</section>
 		</section>
 
@@ -59,7 +62,11 @@
 						</div>
 					</div>
 					<section class = "action_buttons">
-						<a class="input budget-button button_normal"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> Editar </a> 		   
+						<a class="budget-button button_normal"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> 
+							<img class="title_icon" src="{{ asset('img/icons/system/edit_file.ico') }}" alt="Editar Datos del Tramite">
+							<p>Editar</p> 
+						</a> 		   
+					
 					</section>
 				</div>
 
@@ -91,11 +98,20 @@
 				
 					<section class = "action_buttons">
 
-						<a class="input budget-button button_normal"  href="{{route('PdfBuget',$ServiceCase->budget->id) }}" target="_blank">PDF</a>
+						<a class="budget-button button_normal"  href="{{route('PdfBuget',$ServiceCase->budget->id) }}" target="_blank">
+							<img class="title_icon" src="{{ asset('img/icons/system/pdf.ico') }}" alt="Generar PDF">
+							<p>PDF</p> 
+						</a>
 						
-						<a class="input budget-button button_big"  href="{{route('EditBudget',$ServiceCase->budget->id) }}">Crear Presupuesto</a> 
+						<a class="budget-button button_big"  href="{{route('EditBudget',$ServiceCase->budget->id) }}">
+							<img class="title_icon" src="{{ asset('img/icons/system/edit_Presupuesto.ico') }}" alt="Editar Datos del Presupuesto">
+							<p>Editar Presupuesto</p> 
+						</a> 
 							   
-						<a class="input budget-button button_normal"  href="{{route('Case_Payments',$ServiceCase->id) }}"> Pagos </a> 		   
+						<a class="budget-button button_normal"  href="{{route('Case_Payments',$ServiceCase->id) }}"> 
+							<img class="title_icon" src="{{ asset('img/icons/system/pago.ico') }}" alt="Editar Datos del Presupuesto">
+							<p>Pagos</p> 
+						</a> 		   
 					</section>
 
 				</div>	
