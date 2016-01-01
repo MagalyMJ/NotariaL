@@ -3,7 +3,10 @@
 @section('content')
 <!-- Parametros: Array Customers, $id_caseService, -->
 	<div class="block_container">
-	<h2>Seleccionar cliente para un Tramite existente</h2>
+	<section class="title_continer">
+		<img class="title_icon" src="{{ asset('img/icons/system/selectcustomer.ico') }}" alt=""> 
+		<h2 class="title">Seleccionar Cliente para un Tramite Existente</h2>
+	</section>	
 	<section class = "action_buttons">
 		<a class="input budget-button button_normal" href="{{route('New_Customer_inCase',$id_caseService) }}"> Nuevo cliente </a>
 		<input id="more_cusotmers_inThis" name="customers" type="submit" onClick="more_customers_inThisCase()" value="Asignar al Tramite" class="input budget-button">				  

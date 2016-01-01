@@ -25,7 +25,7 @@
     <ul id="menu_services"  class = "menu_services">
         <il class="menu_service">
             <a class="menu_service_link" href="{{route('home') }}">
-                <img class="menu_service_img" src="{{ asset('img/icons/home.ico') }}" alt="">
+                <img class="menu_service_img" src="{{ asset('img/icons/system/home.ico') }}" alt="">
                 <p>HOME</p>
             </a>
         </il>

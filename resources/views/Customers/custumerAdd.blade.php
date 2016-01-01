@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="block_container">
- <h1>Registro de Nuevo Cliente para un nuevo Tramite</h1>
+ <h1>Registro de Nuevo Cliente para un Nuevo Tramite</h1>
  <div class="form_container"> 
 
  <form action="{{ route('customer_new_path') }}" method='post' class="form_data">  

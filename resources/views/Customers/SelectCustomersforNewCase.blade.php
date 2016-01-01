@@ -4,8 +4,10 @@
 <!-- Parametros: Array Customer, $service->id as $id_service, -->
 	
 	<div class="block_container">
-		
-		<h2>Seleccionar cliente para un nuevo Tramite</h2>
+		<section class="title_continer">
+			<img class="title_icon" src="{{ asset('img/icons/system/selectcustomer.ico') }}" alt="">
+			<h2 class="title">Seleccionar Cliente para un Nuevo Tramite</h2>
+		</section >
 
 			<section class = "action_buttons">
 

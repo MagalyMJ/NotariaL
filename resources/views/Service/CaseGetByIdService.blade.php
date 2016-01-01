@@ -5,8 +5,12 @@
 	Parametros: Objeto Service encotrado por id, Array CaseService filtrado por atributo service_id,
 -->
 	<div class="block_container">
-
-		<h1> <img class="title_icon" src="{{ asset($service->icon_path) }}" alt=""> {{ $service->name }}</h1>
+		
+		<section class="title_continer">
+			<img class="title_icon" src="{{ asset($service->icon_path) }}" alt=""> 
+			<h1>{{ $service->name }}</h1>
+		</section>
+		
 		<section class = "action_buttons">
 			
 				  <a class="input budget-button button_normal" href="{{route('Select_Customers_toCase',$service->id) }}">Nuevo Tramite</a>
