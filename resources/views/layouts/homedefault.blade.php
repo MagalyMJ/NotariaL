@@ -25,142 +25,141 @@
     <ul id="menu_services"  class = "menu_services">
         <il class="menu_service">
             <a class="menu_service_link" href="{{route('home') }}">
-                <span class=" icon icon-home"></span>  
+                <img class="menu_service_img" src="{{ asset('img/icons/home.ico') }}" alt="">
                 <p>HOME</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/1')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img" src="{{ asset('img/icons/services/testamento.ico') }}" alt="">
                 <p>Testamento</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/2')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/compra_Venta.ico') }}" alt="">
                 <p>Contrato Compra Venta</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/3')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/donaciones.ico') }}" alt="">
                 <p>Donaciones</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/4')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img" src="{{ asset('img/icons/services/acta_Constitutiva.ico') }}" alt="">
                 <p>Acta Constitutiva</p>
             </a>
         </il>
         <il class="menu_service">
              <a class="menu_service_link" href="{{url('servicio/5')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/contrato_Mutuo.ico') }}" alt=""> 
                 <p>Contrato mutuo con Interés y Garantía Hipotecaria</p>
             </a>
         </il>
         <il class="menu_service">
              <a class="menu_service_link" href="{{url('servicio/6')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/cancelacion_Hipoteca.ico') }}" alt=""> 
                 <p>Cancelacion de Hipoteca</p>
             </a>
         </il>
         <il class="menu_service">
              <a class="menu_service_link" href="{{url('servicio/7')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/poder_General.ico') }}" alt="">  
                 <p>Poder general</p>
             </a>
         </il>
         <il class="menu_service">
              <a class="menu_service_link" href="{{url('servicio/8')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/sucesion_Intestamentaria.ico') }}" alt="">  
                 <p>Sucesiónes Intestamentaría</p>
             </a>
         </il>
         <il class="menu_service">
              <a class="menu_service_link" href="{{url('servicio/9')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/sucesion_Testamentaria.ico') }}" alt="">   
                 <p>Sucesiónes Testamentaria</p>
             </a>
         </il>
         <il class="menu_service">
              <a class="menu_service_link" href="{{url('servicio/10')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/capitulaciones_Matrimoniales.ico') }}" alt="">     
                 <p>Capitulaciones Matrimoniales</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/11')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/fe_de_Hechos.ico') }}" alt="">       
                 <p>Fe de Hechos</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/12')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/rebocacion_de_Poder.ico') }}" alt="">        
                 <p>Revocación de Poder</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/13')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/adjudicacion_Testamentaria.ico') }}" alt="">         
                 <p>Adjudicación Testamentaria</p>
             </a>
         </il>
         <il class="menu_service">
            <a class="menu_service_link" href="{{url('servicio/14')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/reconocimiento_Herencia.ico') }}" alt="">         
                 <p>Reconocimiento y Aceptación de Herencia</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/15')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/cotejo_y_Certificacion.ico') }}" alt="">         
                 <p>Cotejo y Certificación</p>
             </a>
         </il>
         <il class="menu_service">
            <a class="menu_service_link" href="{{url('servicio/16')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/protocolizacion_Asamblea.ico') }}" alt="">         
                 <p>Protocolización de Acta de Asamblea</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/17')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/protocolizacion_Subdivision.ico') }}" alt="">         
                 <p>Protocolización de Subdivisión</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/18')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/dacion_en_Pago.ico') }}" alt="">         
                 <p>Dacion en Pago</p>
             </a>
         </il>
         <il class="menu_service">
            <a class="menu_service_link" href="{{url('servicio/19')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/permutas.ico') }}" alt="">         
                 <p>Permutas</p>
             </a>
         </il>
         <il class="menu_service">
             <a class="menu_service_link" href="{{url('servicio/20')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/adjudicacion_Judicial.ico') }}" alt="">          
                 <p>Adjudicación Judicial</p>
             </a>
         </il>
         <il class="menu_service">
            <a class="menu_service_link" href="{{url('servicio/21')}}">
-                <span class=" icon icon-file-text"></span>  
+                <img class="menu_service_img"  src="{{ asset('img/icons/services/cotejo_y_Ratificacion.ico') }}" alt="">           
                 <p>Cotejo y Ratificacion</p>
             </a>
         </il>
     </ul>
-  <section id="mainsection" class = "mainsection main_left">
-   
-
-	 @yield('content')
-
+  <section id="mainsection" class = "mainsection main_left background">
+    <div class="watermarkc">
+	   @yield('content')
+    </div>
  </section>
      
  
