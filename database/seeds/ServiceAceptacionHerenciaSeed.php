@@ -46,6 +46,7 @@ class ServiceAceptacionHerenciaSeed extends Seeder
 
          $service->name = 'Reconocimiento y Aceptación de Herencia';
          $service->service_type = 2; 
+         $service->icon_path = 'img/icons/services/reconocimiento_Herencia.ico';   
          $service->save();
 
          $serviceId = $service->id;

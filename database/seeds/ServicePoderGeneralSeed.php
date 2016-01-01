@@ -42,6 +42,7 @@ class ServicePoderGeneralSeed extends Seeder
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Poder General';
          $service->service_type = 2; 
+         $service->icon_path = 'img/icons/services/poder_General.ico';  
          $service->save();
 
          $serviceId = $service->id;

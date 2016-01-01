@@ -43,6 +43,7 @@ class ServiceRevocacionPoderSeed extends Seeder
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Revocación de Poder';
          $service->service_type = 2; 
+         $service->icon_path = 'img/icons/services/rebocacion_de_Poder.ico';   
          $service->save();
 
          $serviceId = $service->id;

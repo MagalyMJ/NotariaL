@@ -19,6 +19,7 @@ class CreateServiceTable extends Migration {
 
 			$table->string('name');
 			$table->enum('service_type',['enagenante','no_enagenante']);
+			$table->string('icon_path');
 
 			$table->timestamps();
 		});

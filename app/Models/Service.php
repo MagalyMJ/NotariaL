@@ -19,7 +19,7 @@ class Service extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','service_type'];
+    protected $fillable = ['name','service_type','icon_path'];
 
      public function document_service()
     {

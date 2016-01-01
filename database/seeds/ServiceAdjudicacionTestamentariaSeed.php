@@ -62,6 +62,7 @@ class ServiceAdjudicacionTestamentariaSeed extends Seeder
         // Lo mismo que en Intestamentaria pero si expediente
          $service->name = 'Adjudicación Testamentaria';
          $service->service_type = 1; 
+         $service->icon_path = 'img/icons/services/adjudicacion_Testamentaria.ico';   
          $service->save();
 
          $serviceId = $service->id;

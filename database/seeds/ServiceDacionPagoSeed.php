@@ -55,6 +55,7 @@ class ServiceDacionPagoSeed extends Seeder
 
          $service->name = 'Dacion en Pago';
          $service->service_type = 1; 
+         $service->icon_path = 'img/icons/services/dacion_en_Pago.ico';  
          $service->save();
 
          $serviceId = $service->id;

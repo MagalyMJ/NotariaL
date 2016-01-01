@@ -51,6 +51,7 @@ class ServiceProtocolizarSubdireccionSeed extends Seeder
 
          $service->name = 'Protocolización de Subdivisión';
          $service->service_type = 2; 
+         $service->icon_path = 'img/icons/services/protocolizacion_Subdivision.ico';  
          $service->save();
 
          $serviceId = $service->id;
