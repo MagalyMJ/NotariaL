@@ -236,7 +236,12 @@ class ServiceController extends Controller
         $UpdateCase->notices_one_date = $request->notices_one_date;
         $UpdateCase->notices_two_date = $request->notices_two_date;
         $UpdateCase->public_register = $request->public_register;
+        //numero de escritura
         $UpdateCase->N_write = $request->N_write;
+        
+        $UpdateCase->voucher_date = $request->voucher_date;
+        $UpdateCase->voucher = $request->voucher;
+
        
         //enum(1=> 'Sin', 2=> 'Primer', 3=>'Segundo') aviso
         $UpdateCase->notices = 1;

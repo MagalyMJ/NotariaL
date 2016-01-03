@@ -56,6 +56,7 @@ class ServiceMatrimonilesSeed extends Seeder
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Capitulaciones Matrimoniales';
          $service->service_type = 1; 
+         $service->icon_path = 'img/icons/services/capitulaciones_Matrimoniales.ico';   
          $service->save();
 
          $serviceId = $service->id;

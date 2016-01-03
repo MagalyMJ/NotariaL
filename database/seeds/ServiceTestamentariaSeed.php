@@ -60,6 +60,7 @@ class ServiceTestamentariaSeed extends Seeder
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Sucesiónes Testamentaría';
          $service->service_type = 1; 
+         $service->icon_path = 'img/icons/services/sucesion_Testamentaria.ico';   
          $service->save();
 
          $serviceId = $service->id;

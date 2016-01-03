@@ -40,6 +40,7 @@ class ServiceTestamentSeeder extends Seeder
 
          $service->name = 'Testamento';
          $service->service_type = 2;
+         $service->icon_path = 'img/icons/services/testamento.ico'; 
          $service->save();
          /* Generamos El servicio y sus viculaciones */
          $serviceId = $service->id;

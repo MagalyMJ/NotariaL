@@ -36,7 +36,12 @@
                 <td class="text-center"> {{ $payment->payment_type }} </td>
                 <td class="text-center"> ${{ $payment->amount_to_pay }} </td>
                 <td class="text-center"> {{ $payment->created_at }} </td>
-                <td class="text-center"> <a class="input budget-button button_normal" href="{{route('PdfPayment',$payment->id ) }}" target="_blank" >Imprimir</a></td>
+                <td class="text-center"> 
+                  <a class="budget-button button_normal" href="{{route('PdfPayment',$payment->id ) }}" target="_blank" >
+                    <img class="title_icon" src="{{ asset('img/icons/system/pdf.ico') }}" alt="Imprimir">
+                    <p>Imprimir</p>
+                  </a>
+                </td>
 
               </tr>
           @endforeach
@@ -44,8 +49,14 @@
         </tbody>
         </table>
     <section class = "action_buttons">
-      <a class="input budget-button button_normal"  href="{{route('Payment_Create',$ServiceCase->id) }}"> Hacer Pago </a>        
-      <a class="input budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}">Detalles Caso</a>
+      <a class="budget-button button_normal"  href="{{route('Payment_Create',$ServiceCase->id) }}"> 
+        <img class="title_icon" src="{{ asset('img/icons/system/pago.ico') }}" alt="Hacer Pago">
+        <p>Hacer Pago </p>
+      </a>        
+      <a class="budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}">
+        <img class="title_icon" src="{{ asset('img/icons/system/detalle_de_Tramite.ico') }}" alt="Detalles">
+        <p>Detalles Tramite</p>
+      </a>
     </section>
   </div>
 

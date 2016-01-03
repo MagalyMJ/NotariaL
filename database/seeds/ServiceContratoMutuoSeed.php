@@ -59,7 +59,8 @@ class ServiceContratoMutuoSeed extends Seeder
 
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Contrato mutuo con Interés y Garantía Hipotecaria';
-         $service->service_type = 1; 
+         $service->service_type = 1;
+         $service->icon_path = 'img/icons/services/contrato_Mutuo.ico';  
          $service->save();
 
          $serviceId = $service->id;

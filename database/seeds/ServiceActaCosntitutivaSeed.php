@@ -47,6 +47,7 @@ class ServiceActaCosntitutivaSeed extends Seeder
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Acta Constitutiva';
          $service->service_type = 2; 
+         $service->icon_path = 'img/icons/services/acta_Constitutiva.ico'; 
          $service->save();
 
          $serviceId = $service->id;

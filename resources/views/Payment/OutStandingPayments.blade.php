@@ -26,7 +26,12 @@
                 <td class="text-center"> {{ $Case->N_write}} </td>
                 <td class="text-center">$ {{ $Case->budget->total }} </td>
                 <td class="text-center">$ {{ $Case->remaining }} </td>
-                <td class="text-center"> <a class="input budget-button button_normal"  href="{{route('Case_Payments',$Case->id) }}">Detalles</a></td>
+                <td class="text-center"> 
+                  <a class="budget-button button_normal"  href="{{route('Case_Payments',$Case->id) }}">
+                    <img class="title_icon" src="{{ asset('img/icons/system/detalle_de_Tramite.ico') }}" alt="Detalles">
+                      <p>Detalles</p>
+                  </a>
+                </td>
               </tr>
           @endforeach
           

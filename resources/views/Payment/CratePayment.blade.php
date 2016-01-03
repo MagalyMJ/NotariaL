@@ -26,8 +26,15 @@
       		<input name="amount_to_pay" class="input" id="amount_to_pay" type="number" step="0.01" autocomplete="off" value="" />
      </div>
       <section class = "action_buttons">  
-      	<input type="submit" value="Guardar" class="input budget-button button_normal">
-        <a class="input budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
+      	<button type="submit"  class="budget-button button_normal" style=" margin: 0px;"> 
+          <img class="title_icon" src="{{ asset('img/icons/system/check.ico') }}" alt="Guardar">
+          <p>Guardar</p>
+        </button>
+
+        <a class="budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}" style=" margin-top: 0px;"> 
+          <img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cancelar">
+          <p> Cancelar </p>
+       </a>
       </section>
    </div>
    </form>

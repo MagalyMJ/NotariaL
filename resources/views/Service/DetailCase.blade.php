@@ -6,14 +6,20 @@
 
 <div class="block_container">
 		
-		<h1>Nº Folio {{$ServiceCase->id}}</h1>
-		<h3>{{$ServiceCase->service->name}}</h3>
+	<h1>Nº Folio {{$ServiceCase->id}}</h1>
+	<section class="title_continer">
+		<img class="title_icon" src="{{ asset($ServiceCase->service->icon_path) }}" alt="">
+		<h3 class="title" >{{$ServiceCase->service->name}}</h3>
+	</section>
 	<div class="flex-container">
 
 		<section class="caseDetail" >
 
 			<div id="partisipans_thisCase" class="Detail_participants" >
-			<h2>Participantes</h2>
+				<section class="title_continer">
+					<img class="title_icon" src="{{ asset('img/icons/system/participantes.ico') }}" alt="">
+					<h2 class="title" >Participantes</h2>
+				</section>
 			@foreach ($ServiceCase->customer()->orderBy('participants_type')->get() as $customerSelect)
     			<div>
     				
@@ -28,15 +34,20 @@
 					@endforeach
 			</div>
 			<section class = "action_buttons">
-				<a class="input budget-button button_normal"  href="{{route('Select_customer_InExisting_Case',$ServiceCase->id) }}">+ Participantes</a> 		   
+				<a class="budget-button button_big"  href="{{route('Select_customer_InExisting_Case',$ServiceCase->id) }}">
+					<img class="title_icon" src="{{ asset('img/icons/system/mas_Participantes.ico') }}" alt="Agregar más Participantes">
+					<p>Agregar Participantes</p>
+				</a>
 			</section>
 		</section>
 
 		<div>
 			<section class="caseDetail " >
 				<div id="thisCase_Data" class="Detail_general " >
-				
-					<h3>Detalles de Tramite</h3>
+					<section class="title_continer">
+						<img class="title_icon" src="{{ asset('img/icons/system/detalle_de_Tramite.ico') }}" alt="">
+						<h3 class="title" >Detalles de Tramite</h3>
+					</section>
 					<div class="flex-container">
 						<div>
 							<p class="text-center"><strong> Detalle de Servicio:</strong>  {{ $ServiceCase->service_detail}} </p>		
@@ -51,7 +62,11 @@
 						</div>
 					</div>
 					<section class = "action_buttons">
-						<a class="input budget-button button_normal"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> Editar </a> 		   
+						<a class="budget-button button_normal"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> 
+							<img class="title_icon" src="{{ asset('img/icons/system/edit_file.ico') }}" alt="Editar Datos del Tramite">
+							<p>Editar</p> 
+						</a> 		   
+					
 					</section>
 				</div>
 
@@ -60,8 +75,10 @@
 
 			<section class="caseDetail" >
 				<div id="budget_thisCase" class="Detail_budeget" >
-				
-					<h3>Datos Generales de Presupuesto</h3>
+					<section class="title_continer">
+						<img class="title_icon" src="{{ asset('img/icons/system/generales_Presupuesto.ico') }}" alt="">
+						<h3 class="title">Datos Generales de Presupuesto</h3>
+					</section>
 					<div class="flex-container">
 						<div>
 							<p class="text-center"><strong>Honorarios:</strong> ${{ $ServiceCase->budget->fee }} </p>		
@@ -81,11 +98,20 @@
 				
 					<section class = "action_buttons">
 
-						<a class="input budget-button button_normal"  href="{{route('PdfBuget',$ServiceCase->budget->id) }}" target="_blank">PDF</a>
+						<a class="budget-button button_normal"  href="{{route('PdfBuget',$ServiceCase->budget->id) }}" target="_blank">
+							<img class="title_icon" src="{{ asset('img/icons/system/pdf.ico') }}" alt="Generar PDF">
+							<p>PDF</p> 
+						</a>
 						
-						<a class="input budget-button button_big"  href="{{route('EditBudget',$ServiceCase->budget->id) }}">Crear Presupuesto</a> 
+						<a class="budget-button button_big"  href="{{route('EditBudget',$ServiceCase->budget->id) }}">
+							<img class="title_icon" src="{{ asset('img/icons/system/edit_Presupuesto.ico') }}" alt="Editar Datos del Presupuesto">
+							<p>Editar Presupuesto</p> 
+						</a> 
 							   
-						<a class="input budget-button button_normal"  href="{{route('Case_Payments',$ServiceCase->id) }}"> Pagos </a> 		   
+						<a class="budget-button button_normal"  href="{{route('Case_Payments',$ServiceCase->id) }}"> 
+							<img class="title_icon" src="{{ asset('img/icons/system/pago.ico') }}" alt="Editar Datos del Presupuesto">
+							<p>Pagos</p> 
+						</a> 		   
 					</section>
 
 				</div>	

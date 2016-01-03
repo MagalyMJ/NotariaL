@@ -47,6 +47,7 @@ class ServiceCancelacionHipotecaSeed extends Seeder
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Cancelacion de Hipoteca';
          $service->service_type = 2; 
+         $service->icon_path = 'img/icons/services/cancelacion_Hipoteca.ico';  
          $service->save();
 
          $serviceId = $service->id;
