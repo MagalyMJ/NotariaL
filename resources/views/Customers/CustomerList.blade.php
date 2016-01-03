@@ -9,7 +9,10 @@
 		<h1>Clientes</h1>
 		<section class = "action_buttons">
 			
-				  <a class="input budget-button button_normal" href="{{ route('Create_Customer') }}">Nuevo Cliente</a>
+				  <a class="budget-button button_normal" href="{{ route('Create_Customer') }}">
+				  	<img class="title_icon" src="{{ asset('img/icons/system/registrocliente.ico') }}" alt="Nuevo Cliente">
+              		<p>Nuevo Cliente</p> 
+				  </a>
 				  
 		</section>
 			<table class="table-fill">
@@ -35,7 +38,12 @@
     					<tr>
     						<td class="text-center"> {{ $customer->id }} </td>
                 			<td class="text-center"> {{ $customer->name." ".$customer->fathers_last_name." ".$customer->mothers_last_name }} </td>
-    						<td class="text-center"> <a class="input budget-button button_normal" href="{{ route('Customer_Show_path',$customer->id ) }}">Tramites</a></td>
+    						<td class="text-center"> 
+    							<a class="budget-button button_normal" href="{{ route('Customer_Show_path',$customer->id ) }}">
+    								<img class="title_icon" src="{{ asset('img/icons/system/nuevotramite.ico') }}" alt="Tramites">
+				  					<p>Tramites</p>
+    							</a>
+    						</td>
     					</tr>
     			
 					@endforeach

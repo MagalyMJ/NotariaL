@@ -6,7 +6,7 @@
         <div class = "block shadow aling_block">    
             <a href="{{ route('show_all_case_by_progres') }}">
                 <div class="module_icon">
-                    <img style="width: 150px; margin-left: 50px; height: 150px;" src="{{ asset('img/icons/avance.ico') }}" alt="">
+                    <img style="width: 150px; margin-left: 50px; height: 150px;" src="{{ asset('img/icons/system/avance.ico') }}" alt="">
                 </div>  
                 <h3 class="title_module">
                     Avances 
@@ -16,7 +16,7 @@
         <div class = "block shadow aling_block">    
             <a href="{{ route('show_all_case_by_notice') }}">
                 <div class="module_icon">
-                    <img style="width: 150px;height: 150px;" src="{{ asset('img/icons/avisos.ico') }}" alt="">
+                    <img style="width: 150px;height: 150px;" src="{{ asset('img/icons/system/avisos.ico') }}" alt="">
                 </div>  
                 <h3 class="title_module">
                     Avisos
@@ -26,7 +26,7 @@
         <div class = "block shadow aling_block">    
             <a href="{{route('Out_Standing_Payments') }}">
                 <div class="module_icon">
-                    <img style="width: 150px;height:150px;" src="{{ asset('img/icons/pendientesdepago.ico') }}" alt="">
+                    <img style="width: 150px;height:150px;" src="{{ asset('img/icons/system/pendientesdepago.ico') }}" alt="">
                 </div>  
                 <h3 class="title_module">
                     Pendientes de Pago
@@ -35,7 +35,7 @@
         </div>
         <div class = "block disabled aling_block">    
             <div class="module_icon">
-                <img style="width: 150px;height:150px;" src="{{ asset('img/icons/agenda.ico') }}" alt="">
+                <img style="width: 150px;height:150px;" src="{{ asset('img/icons/system/agenda.ico') }}" alt="">
             </div>  
             <h3 class="title_module">
                 Agenda
@@ -43,7 +43,7 @@
         </div>
         <div class = "block disabled  aling_block">    
             <div class="module_icon">
-                <img style="width: 150px;height:150px;" src="{{ asset('img/icons/comiciones.ico') }}" alt="">
+                <img style="width: 150px;height:150px;" src="{{ asset('img/icons/system/comiciones.ico') }}" alt="">
             </div>  
             <h3 class="title_module">
                 Comisiones
@@ -52,7 +52,7 @@
         <div class = "block shadow aling_block">    
            <a href="{{ route('Customer_List') }}">
                 <div class="module_icon">
-                    <img style="width: 150px;height:150px;" src="{{ asset('img/icons/clientes.ico') }}" alt="">
+                    <img style="width: 150px;height:150px;" src="{{ asset('img/icons/system/clientes.ico') }}" alt="">
                 </div>  
                 <h3 class="title_module">
                     Clientes

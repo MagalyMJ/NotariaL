@@ -60,8 +60,13 @@
         </div>
         <section class = "action_buttons">
           <div class="action_buttons_diplay">
-            <input type="submit" value="Registrar" class="input budget-button button_normal">
-            <a class="input budget-button button_normal" href="{{route('Customer_List') }}"> Cancelar </a>
+            <button type="submit" class="budget-button button_normal">
+              <img class="title_icon" src="{{ asset('img/icons/system/check.ico') }}" alt="Nuevo Registro">
+              <p> Registrar </p> 
+            </button>
+            <a class="budget-button button_normal" href="{{route('Customer_List') }}"> 
+              <img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cacelar">
+              <p> Cancelar </p> </a>
           </div>
         </section>
   </form>

@@ -13,7 +13,10 @@
 		
 		<section class = "action_buttons">
 			
-				  <a class="input budget-button button_normal" href="{{route('Select_Customers_toCase',$service->id) }}">Nuevo Tramite</a>
+				  <a class="button button_normal" href="{{route('Select_Customers_toCase',$service->id) }}">
+					<img class="title_icon" src="{{ asset('img/icons/system/nuevotramite.ico') }}" alt="Nuevo Tramite">
+				  	<p>Nuevo Tramite</p>
+				  </a>
 				  
 		</section>
 			<table class="table-fill">
@@ -67,7 +70,11 @@
 							</td>
     						<td class="text-center"> ${{ $case_service->budget->total }} </td>
     						<td class="text-center"> {{ $case_service->observations }} </td>
-    						<td class="text-center"> <a class="input budget-button button_normal" href="{{route('Show_Case_path',$case_service->id) }}"> Detalles </a></td>
+    						<td class="text-center"> 
+    						<a class="budget-button button_normal" href="{{route('Show_Case_path',$case_service->id) }}"> 
+								<img class="title_icon" src="{{ asset('img/icons/system/detalle_de_Tramite.ico') }}" alt="Detalles">
+        						<p>Detalles</p>
+    						</a></td>
     					</tr>
 
 					@endforeach

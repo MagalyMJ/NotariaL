@@ -61,8 +61,14 @@
 
     <section class = "action_buttons">
       <div class="action_buttons_diplay">
-        <input type="submit" value="Guardar" class="input budget-button ">
-        <a class="input budget-button button_normal" href="{{route('Show_Case_path',$Budget->case_service->id) }}"> Cancelar </a>
+        <button type="submit" class="button_normal budget-button ">
+          <img class="title_icon" src="{{ asset('img/icons/system/check.ico') }}" alt="Guardar">
+          <p>Guardar</p>
+        </button>
+        <a class="budget-button button_normal" href="{{route('Show_Case_path',$Budget->case_service->id) }}">
+          <img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cancelar">
+          <p> Cancelar </p>
+        </a>
       </div>
     </section>
     </form>

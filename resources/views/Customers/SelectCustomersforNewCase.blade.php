@@ -11,9 +11,18 @@
 
 			<section class = "action_buttons">
 
-				  <a class="input budget-button button_normal" href="{{route('New_Customer_path',$id_service) }}"> Nuevo Cliente </a>
-				  <input id="new_case_service" name="customers" type="submit" onClick="newCase()" value="Crear Tramite" class="input budget-button button_normal">
-				  <a class="input budget-button button_normal" href="{{route('home') }}"> Cancelar </a>
+				  <a class="budget-button button_normal" href="{{route('New_Customer_path',$id_service) }}"> 
+					<img class="title_icon" src="{{ asset('img/icons/system/registrocliente.ico') }}" alt="Nuevo Cliete">
+				  	<p>Nuevo Cliente</p> 
+				  </a>
+				  <button id="new_case_service" name="customers" type="submit" onClick="newCase()" class="budget-button button_normal"> 
+					<img class="title_icon" src="{{ asset('img/icons/system/nuevotramite.ico') }}" alt="Nuevo Tramite">
+						<p> Crear Tramite </p>
+				  </button>
+				  <a class="budget-button button_normal" href="{{route('home') }}">
+					<img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cancelar">
+				  	<p> Cancelar </p>
+				  </a>
 				  
 			</section>
 			<table id="customers_Table" class="table-fill">

@@ -52,7 +52,12 @@
     						<td class="text-center"> {{ $case_service->service->name }} </td>
     						<td class="text-center"> ${{ $case_service->budget->total }} </td>
     						<td class="text-center"> {{ $case_service->observations }} </td>
-    						<td class="text-center"> <a class="input budget-button button_normal" href="{{route('Show_Case_path',$case_service->id) }}"> Detalles </a></td>
+    						<td class="text-center"> 
+    							<a class="budget-button button_normal" href="{{route('Show_Case_path',$case_service->id) }}"> 
+    								<img class="title_icon" src="{{ asset('img/icons/system/detalle_de_Tramite.ico') }}" alt="Detalles">
+                      				<p>Detalles</p>
+    							</a>
+    						</td>
     					</tr>
 					@endforeach
 				</tbody>
