@@ -6,7 +6,7 @@
 
 <div class="block_container">
 		
-	<h1>Nº Folio {{$ServiceCase->id}}</h1>
+	<h1>Tramite Nº {{$ServiceCase->id}}</h1>
 	<section class="title_continer">
 		<img class="title_icon" src="{{ asset($ServiceCase->service->icon_path) }}" alt="">
 		<h3 class="title" >{{$ServiceCase->service->name}}</h3>

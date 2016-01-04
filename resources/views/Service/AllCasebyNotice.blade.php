@@ -5,8 +5,11 @@
 	Parametros: Objeto Service encotrado por id, Array CaseService filtrado por atributo service_id,
 -->
 	<div class="block_container">
-
-		<h1> Avisos </h1>
+		
+		<section class="title_continer">
+			<img class="title_icon" src="{{ asset('img/icons/system/avisos.ico') }}" alt=""> 
+			<h1>Avisos</h1>
+		</section>
 			<table class="table-fill">
 				<thead>
 					<tr>

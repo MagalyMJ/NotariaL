@@ -1,8 +1,7 @@
 @extends('layouts.homedefault')
 
 @section('content')
-    <section id="mainsection" class = "mainsection main_left">
-        <div class="block_container">
+    <div class="block_container">
         <div class = "block shadow aling_block">    
             <a href="{{ route('show_all_case_by_progres') }}">
                 <div class="module_icon">
@@ -59,8 +58,8 @@
                 </h3>
             </a>
         </div>
-        </div>
-    </section>
+    </div>
+   
     <script>
         document.getElementById("detection").onmouseover =function(){
             document.getElementById("mainsection").classList.remove("main_left")

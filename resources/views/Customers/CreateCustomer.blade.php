@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="block_container">
-<h1>Registro de Nuevo Cliente</h1>
+  <section class="title_continer">
+    <img class="title_icon" src="{{ asset('img/icons/system/registrocliente.ico') }}" alt=""> 
+    <h1>Registro de Nuevo Cliente</h1>
+  </section>
+  
  <div class="form_container"> 
 
  <form action="{{ route('Create_Customer_Store') }}" method='post' class="form_data">  

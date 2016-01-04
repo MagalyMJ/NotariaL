@@ -3,8 +3,16 @@
 @section('content') 
 <div class="block_container">
 
-  <h1>Presupuesto del Folio Nº {{ $Budget->case_service->id}}</h1>
-  <h1>{{ $Budget->case_service->service->name}}</h1>
+ 
+  <section class="title_continer">
+        <img class="title_icon" src="{{ asset('img/icons/system/edit_Presupuesto.ico') }}" alt=""> 
+         <h1>Presupuesto del Folio Nº {{ $Budget->case_service->id}}</h1>
+  </section>
+  <section class="title_continer">
+        <img class="title_icon" src="{{ asset($Budget->case_service->service->icon_path) }}" alt=""> 
+        <h1>{{ $Budget->case_service->service->name}}</h1>
+  </section>
+  
 
  <div class="form_container"> 
  <form id="Edit_budget" action="{{route('UpdateBudget',$Budget->id) }}" method='post' class="form_data">  

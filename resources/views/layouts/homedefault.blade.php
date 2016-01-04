@@ -157,9 +157,9 @@
         </il>
     </ul>
   <section id="mainsection" class = "mainsection main_left background">
-    <div class="watermarkc">
+    
 	   @yield('content')
-    </div>
+    
  </section>
      
  
