@@ -46,6 +46,7 @@ class ServiceActaAsambleaSeed extends Seeder
 
          $service->name = 'Protocolización de Acta de Asamblea';
          $service->service_type = 2; 
+         $service->icon_path = 'img/icons/services/protocolizacion_Asamblea.ico';  
          $service->save();
 
          $serviceId = $service->id;

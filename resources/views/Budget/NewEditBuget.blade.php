@@ -3,8 +3,16 @@
 @section('content') 
 <div class="block_container">
 
-  <h1>Presupuesto del Folio Nº {{ $Budget->case_service->id}}</h1>
-  <h1>{{ $Budget->case_service->service->name}}</h1>
+ 
+  <section class="title_continer">
+        <img class="title_icon" src="{{ asset('img/icons/system/edit_Presupuesto.ico') }}" alt=""> 
+         <h1>Presupuesto del Folio Nº {{ $Budget->case_service->id}}</h1>
+  </section>
+  <section class="title_continer">
+        <img class="title_icon" src="{{ asset($Budget->case_service->service->icon_path) }}" alt=""> 
+        <h1>{{ $Budget->case_service->service->name}}</h1>
+  </section>
+  
 
  <div class="form_container"> 
  <form id="Edit_budget" action="{{route('UpdateBudget',$Budget->id) }}" method='post' class="form_data">  
@@ -61,8 +69,14 @@
 
     <section class = "action_buttons">
       <div class="action_buttons_diplay">
-        <input type="submit" value="Guardar" class="input budget-button ">
-        <a class="input budget-button button_normal" href="{{route('Show_Case_path',$Budget->case_service->id) }}"> Cancelar </a>
+        <button type="submit" class="button_normal budget-button ">
+          <img class="title_icon" src="{{ asset('img/icons/system/check.ico') }}" alt="Guardar">
+          <p>Guardar</p>
+        </button>
+        <a class="budget-button button_normal" href="{{route('Show_Case_path',$Budget->case_service->id) }}">
+          <img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cancelar">
+          <p> Cancelar </p>
+        </a>
       </div>
     </section>
     </form>

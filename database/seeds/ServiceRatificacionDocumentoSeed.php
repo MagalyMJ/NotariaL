@@ -41,6 +41,7 @@ class ServiceRatificacionDocumentoSeed extends Seeder
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Cotejo y Ratificacion';
          $service->service_type = 2; 
+         $service->icon_path = 'img/icons/services/cotejo_y_Ratificacion.ico';  
          $service->save();
 
          $serviceId = $service->id;

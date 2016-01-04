@@ -68,6 +68,7 @@ class ServicePermutasSeed extends Seeder
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Permutas';
          $service->service_type = 1; 
+         $service->icon_path = 'img/icons/services/permutas.ico';  
          $service->save();
 
          $serviceId = $service->id;

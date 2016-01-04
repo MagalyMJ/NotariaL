@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="block_container">
- <h1>Registro de Nuevo Cliente para un nuevo Tramite</h1>
+ 
+ <section class="title_continer">
+    <img class="title_icon" src="{{ asset('img/icons/system/registrocliente.ico') }}" alt=""> 
+    <h1>Registro de Nuevo Cliente para un Nuevo Tramite</h1>
+ </section>
  <div class="form_container"> 
 
  <form action="{{ route('customer_new_path') }}" method='post' class="form_data">  
@@ -62,8 +66,14 @@
       <section class = "action_buttons">
           <div class="action_buttons_diplay">
             <input id="id_service" name="id_service" type="hidden" value="{{$id_service}}">
-            <input type="submit" value="Registrar" class="input budget-button button_normal">
-            <a class="input budget-button button_normal" href="{{route('home') }}"> Cancelar </a>
+            <button type="submit" class="budget-button button_normal">
+              <img class="title_icon" src="{{ asset('img/icons/system/check.ico') }}" alt="Nuevo Registro">
+              <p> Registrar </p> 
+            </button>
+            <a class="budget-button button_normal" href="{{route('home') }}"> 
+              <img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cancelar">
+              <p> Cancelar </p> 
+            </a>
           </div>
       </section>
   </form>

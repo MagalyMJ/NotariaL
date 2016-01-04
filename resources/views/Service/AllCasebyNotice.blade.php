@@ -5,8 +5,11 @@
 	Parametros: Objeto Service encotrado por id, Array CaseService filtrado por atributo service_id,
 -->
 	<div class="block_container">
-
-		<h1> Avisos </h1>
+		
+		<section class="title_continer">
+			<img class="title_icon" src="{{ asset('img/icons/system/avisos.ico') }}" alt=""> 
+			<h1>Avisos</h1>
+		</section>
 			<table class="table-fill">
 				<thead>
 					<tr>
@@ -64,7 +67,12 @@
 							</td>
     						<td class="text-center"> {{ $case_service->service->name }} </td>
     						<td class="text-center"> {{ $case_service->notices }} aviso</td>
-    						<td class="text-center"> <a class="input budget-button button_normal" href="{{route('Show_Case_path',$case_service->id) }}">Detalles</a></td>
+    						<td class="text-center"> 
+    							<a class="budget-button button_normal" href="{{route('Show_Case_path',$case_service->id) }}">
+    								<img class="title_icon" src="{{ asset('img/icons/system/detalle_de_Tramite.ico') }}" alt="Detalles">
+        							<p>Detalles</p>
+    							</a>
+    						</td>
     					</tr>
     				</a>
 					@endforeach

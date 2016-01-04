@@ -4,8 +4,11 @@
 
 	<div class="block_container">
 
-		<h1>Folio Nº {{$ServiceCase->id}}</h1>
-		<h3>{{$ServiceCase->service->name}}</h3>
+		<h1>Tramite Nº {{$ServiceCase->id}}</h1>
+		<section class="title_continer">
+    		<img class="title_icon" src="{{ asset($ServiceCase->service->icon_path) }}" alt=""> 
+    		<h2>{{$ServiceCase->service->name}}</h2>
+  		</section>
 
 	 <form id="Edit_Case" action="{{route('Update_Case_path',$ServiceCase->id) }}" method='post' class="form_data">  
    		{{csrf_field()}}
@@ -24,7 +27,10 @@
 						<br> <strong>Documentos Entregados: </strong>
 						{{ $customerSelect->pivot->documents_list }}
     				</p>				
-    				<a class="input budget-button button_normal" href="{{route('Edit_CustomerinCase',array($ServiceCase->id, $customerSelect->id) ) }}"> Documentos </a>
+    				<a class="budget-button button_big" href="{{route('Edit_CustomerinCase',array($ServiceCase->id, $customerSelect->id) ) }}"> 
+    					<img class="title_icon" src="{{ asset('img/icons/system/edit_file.ico') }}" alt="Documentos">
+              			<p>Documentos</p>   
+              		</a>
     			</div>
 					@endforeach
 		</div>
@@ -71,8 +77,14 @@
 		</div>
 
 		<section class = "action_buttons">	
-    	  <input type="submit" value="Guardar" class="input budget-button button_normal">
-    	  <a class="input budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
+    	  <button type="submit" class="budget-button button_normal">
+    	 	 <img class="title_icon" src="{{ asset('img/icons/system/check.ico') }}" alt="Nuevo Registro">
+             <p> Guardar </p> 
+            </button>
+    	  <a class="budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}"> 
+    	  		<img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cancelar">
+              	<p> Cancelar </p>  
+          </a>
 		</section>
     </form>
 	</div>

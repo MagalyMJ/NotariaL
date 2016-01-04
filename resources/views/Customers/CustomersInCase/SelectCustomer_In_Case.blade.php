@@ -3,11 +3,23 @@
 @section('content')
 <!-- Parametros: Array Customers, $id_caseService, -->
 	<div class="block_container">
-	<h2>Seleccionar cliente para un Tramite existente</h2>
+	<section class="title_continer">
+		<img class="title_icon" src="{{ asset('img/icons/system/selectcustomer.ico') }}" alt=""> 
+		<h2 class="title">Seleccionar Cliente para un Tramite Existente</h2>
+	</section>	
 	<section class = "action_buttons">
-		<a class="input budget-button button_normal" href="{{route('New_Customer_inCase',$id_caseService) }}"> Nuevo cliente </a>
-		<input id="more_cusotmers_inThis" name="customers" type="submit" onClick="more_customers_inThisCase()" value="Asignar al Tramite" class="input budget-button">				  
-		<a class="input budget-button button_normal" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
+		<a class="budget-button button_normal" href="{{route('New_Customer_inCase',$id_caseService) }}">
+			<img class="title_icon" src="{{ asset('img/icons/system/registrocliente.ico') }}" alt="Nuevo Cliete">
+			<p>Nuevo Cliente</p> 
+		</a>
+		<button id="more_cusotmers_inThis" name="customers" type="submit" onClick="more_customers_inThisCase()" class="budget-button button_big">
+			<img class="title_icon" src="{{ asset('img/icons/system/nuevotramite.ico') }}" alt="Asignar al Tramite">
+			<p>Asignar al Tramite</p>
+		</button>				  
+		<a class="budget-button button_normal" href="{{route('Show_Case_path',$id_caseService) }}"> 
+			<img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cancelar">
+			<p> Cancelar </p>
+		</a>
 	</section>
 			<table id="customers_Table" class="table-fill">
 				<thead>

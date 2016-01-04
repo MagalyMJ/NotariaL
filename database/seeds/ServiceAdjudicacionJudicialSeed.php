@@ -54,6 +54,7 @@ class ServiceAdjudicacionJudicialSeed extends Seeder
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Adjudicación Judicial';
          $service->service_type = 1; 
+         $service->icon_path = 'img/icons/services/adjudicacion_Judicial.ico';  
          $service->save();
 
          $serviceId = $service->id;

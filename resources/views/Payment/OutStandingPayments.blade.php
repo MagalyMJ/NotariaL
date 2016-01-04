@@ -3,7 +3,11 @@
 @section('content')
 
   <div class="block_container">
-    <h1>Pagos Pendientes</h1>
+    
+    <section class="title_continer">
+      <img class="title_icon" src="{{ asset('img/icons/system/pendientesdepago.ico') }}" alt=""> 
+      <h1>Pagos Pendientes</h1>
+    </section>
 
     <table id="customers_Table" class="table-fill">
         <thead>
@@ -26,7 +30,12 @@
                 <td class="text-center"> {{ $Case->N_write}} </td>
                 <td class="text-center">$ {{ $Case->budget->total }} </td>
                 <td class="text-center">$ {{ $Case->remaining }} </td>
-                <td class="text-center"> <a class="input budget-button button_normal"  href="{{route('Case_Payments',$Case->id) }}">Detalles</a></td>
+                <td class="text-center"> 
+                  <a class="budget-button button_normal"  href="{{route('Case_Payments',$Case->id) }}">
+                    <img class="title_icon" src="{{ asset('img/icons/system/detalle_de_Tramite.ico') }}" alt="Detalles">
+                      <p>Detalles</p>
+                  </a>
+                </td>
               </tr>
           @endforeach
           

@@ -60,7 +60,8 @@ class ServiceIntestamentariaSeed extends Seeder
   
         /* Asignamos los datos para Crear el Servicio*/
          $service->name = 'Sucesiónes Intestamentaría';
-         $service->service_type = 1; 
+         $service->service_type = 1;
+         $service->icon_path = 'img/icons/services/sucesion_Intestamentaria.ico';   
          $service->save();
 
          $serviceId = $service->id;

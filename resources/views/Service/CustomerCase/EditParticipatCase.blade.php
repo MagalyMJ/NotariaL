@@ -6,12 +6,15 @@
 
 	<div class="block_container">
 
-		<h1>Folio Nº {{$ServiceCase->id}}</h1>
-		<h3>{{$ServiceCase->service->name}}</h3>
-
+		<h1>Tramite Nº {{$ServiceCase->id}}</h1>
+		
+    <section class="title_continer">
+      <img class="title_icon" src="{{ asset($ServiceCase->service->icon_path) }}" alt="">
+      <h2>{{$ServiceCase->service->name}}</h2>
+    </section>
    
 
-		<h3>Participante</h3>
+		<h3>Participante(s)</h3>
 
     	<h3 class="text-center"> <strong>{{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }}</strong></h3>
     			 
@@ -39,8 +42,14 @@
     		</form>
 	
 		<section class = "action_buttons">
-    	  <input type="submit" value="Guardar" class="input budget-button button_normal" onClick="UpdateDocuments()">
-    	  <a class="input budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}"> Cancelar </a>
+    	  <button type="submit" class="budget-button button_normal" onClick="UpdateDocuments()">
+    	  	<img class="title_icon" src="{{ asset('img/icons/system/check.ico') }}" alt="Guardar Registro">
+             <p> Guardar </p> 
+    	  </button>
+    	  <a class="budget-button button_normal" href="{{route('Show_Case_path',$ServiceCase->id) }}"> 
+    	  		<img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cancelar">
+            	<p> Cancelar </p>
+           </a>
 		</section>
    
 	</div>
