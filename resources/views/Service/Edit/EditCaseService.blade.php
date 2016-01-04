@@ -4,8 +4,11 @@
 
 	<div class="block_container">
 
-		<h1>Folio Nº {{$ServiceCase->id}}</h1>
-		<h2>{{$ServiceCase->service->name}}</h2>
+		<h1>Tramite Nº {{$ServiceCase->id}}</h1>
+		<section class="title_continer">
+    		<img class="title_icon" src="{{ asset($ServiceCase->service->icon_path) }}" alt=""> 
+    		<h2>{{$ServiceCase->service->name}}</h2>
+  		</section>
 
 	 <form id="Edit_Case" action="{{route('Update_Case_path',$ServiceCase->id) }}" method='post' class="form_data">  
    		{{csrf_field()}}

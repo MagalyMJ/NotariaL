@@ -3,7 +3,11 @@
 @section('content')
 
   <div class="block_container">
-    <h1>Pagos Pendientes</h1>
+    
+    <section class="title_continer">
+      <img class="title_icon" src="{{ asset('img/icons/system/pendientesdepago.ico') }}" alt=""> 
+      <h1>Pagos Pendientes</h1>
+    </section>
 
     <table id="customers_Table" class="table-fill">
         <thead>

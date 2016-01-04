@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="block_container">
-<h1>Registro de Nuevo Cliente para un tramite exitente</h1>
+
+ <section class="title_continer">
+    <img class="title_icon" src="{{ asset('img/icons/system/registrocliente.ico') }}" alt=""> 
+   <h1>Registro de Nuevo Cliente para un tramite exitente</h1>
+ </section>
+
  <div class="form_container"> 
 
  <form action="{{ route('New_Customer_inCase',$id_caseService) }}" method='post' class="form_data aling_block">  
@@ -60,8 +65,15 @@
         </div>
         <section class = "action_buttons">
           <div class="action_buttons_diplay">
-            <input type="submit" value="Registrar" class="input budget-button button_normal">
-            <a class="input budget-button button_normal" href="{{route('Show_Case_path',$id_caseService) }}"> Cancelar </a>
+            <button type="submit" class="budget-button button_normal">
+              <img class="title_icon" src="{{ asset('img/icons/system/check.ico') }}" alt="Registrar">
+              <p>Registrar</p>
+            </button>
+
+            <a class="budget-button button_normal" href="{{route('Show_Case_path',$id_caseService) }}"> 
+              <img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cancelar">
+              <p> Cancelar </p>
+            </a>
           </div>
         </section>
 

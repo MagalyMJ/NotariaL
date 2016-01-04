@@ -6,7 +6,11 @@
 -->
 	<div class="block_container">
 
-		<h1> Tramites </h1>
+		
+		<section class="title_continer">
+			<img class="title_icon" src="{{ asset('img/icons/system/avance.ico') }}" alt=""> 
+			<h1>Tramites</h1>
+		</section>
 			<table class="table-fill">
 				<thead>
 					<tr>

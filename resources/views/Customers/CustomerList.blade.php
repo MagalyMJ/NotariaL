@@ -6,7 +6,11 @@
 -->
 	<div class="block_container">
 
-		<h1>Clientes</h1>
+		<section class="title_continer">
+      		<img class="title_icon" src="{{ asset('img/icons/system/clientes.ico') }}" alt=""> 
+     	 	<h1>Clientes</h1>
+    	</section>
+
 		<section class = "action_buttons">
 			
 				  <a class="budget-button button_normal" href="{{ route('Create_Customer') }}">

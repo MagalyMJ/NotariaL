@@ -6,12 +6,15 @@
 
 	<div class="block_container">
 
-		<h1>Folio Nº {{$ServiceCase->id}}</h1>
-		<h3>{{$ServiceCase->service->name}}</h3>
-
+		<h1>Tramite Nº {{$ServiceCase->id}}</h1>
+		
+    <section class="title_continer">
+      <img class="title_icon" src="{{ asset($ServiceCase->service->icon_path) }}" alt="">
+      <h2>{{$ServiceCase->service->name}}</h2>
+    </section>
    
 
-		<h3>Participante</h3>
+		<h3>Participante(s)</h3>
 
     	<h3 class="text-center"> <strong>{{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }}</strong></h3>
     			 
