@@ -207,8 +207,9 @@ button{
   margin: 10px;
 }
 .title_icon{
-   width: 32px; 
+  width: 32px; 
   height: 32px;
+  margin-right: 8px;
 }
 /*Detail Case*/
 .flex-container {
@@ -423,7 +424,7 @@ button{
   justify-content: space-around;
 }
 .form_data .input {
-  margin: 10px 0 10px 10px;
+  margin: 10px 0 10px 0;
   border: 1px solid #bbb;
 }
 .form_data select {
