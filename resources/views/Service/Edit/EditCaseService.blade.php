@@ -13,16 +13,24 @@
 	 <form id="Edit_Case" action="{{route('Update_Case_path',$ServiceCase->id) }}" method='post' class="form_data">  
    		{{csrf_field()}}
 		<div class="long">
-			<label for="service_detail">Detalle del Servicio</label> 
+			<label for="service_detail">Detalle del Tramite</label> 
       		<input name="service_detail"class="input long" id="service_detail" type="text" autocomplete="off" value="{{ $ServiceCase->service_detail}}" />
      	</div>
       <div class="form_data_participans">
-		<h3>Participantes</h3>
+		<section class="title_continer">
+					<img class="title_icon" src="{{ asset('img/icons/system/participantes.ico') }}" alt="">
+					<h3 class="title" >Participantes</h3>
+				</section>
 			@foreach ($ServiceCase->customer()->orderBy('participants_type')->get() as $customerSelect)
+    			
     			<div class="form_data_participans_detail">
     				
 					<p class="text-center"> 
-						<strong>{{$customerSelect->pivot->participants_type}}: </strong>
+						<section class="title_continer">
+							<img class="title_icon" src="{{ asset('img/icons/system/participantes.ico') }}" alt="">
+							<strong>{{$customerSelect->pivot->participants_type}}</strong>
+						</section>
+						
     					{{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }} 
 						<br> <strong>Documentos Entregados: </strong>
 						{{ $customerSelect->pivot->documents_list }}
