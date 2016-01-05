@@ -6,7 +6,10 @@
 -->
 	<div class="block_container">
 
-		<h1>{{ $customer->name." ".$customer->fathers_last_name." ".$customer->mothers_last_name }} </h1>
+		<section class="title_continer">
+				<img class="title_icon" src="{{ asset('img/icons/system/participantes.ico') }}" alt="">
+				<h1>{{ $customer->name." ".$customer->fathers_last_name." ".$customer->mothers_last_name }} </h1>
+		</section>
 		<section>	
 		 <p>RFC: {{ $customer->rfc }}</p>
 	     <p>Teléfono: {{$customer->phone}} </p>
@@ -25,7 +28,12 @@
 				  
 		</section>
 			<table class="table-fill">
-				<caption class="text-center"> <h2>Tramites de {{ $customer->name." ".$customer->fathers_last_name." ".$customer->mothers_last_name }}</h2></caption>
+				<caption class="text-center"> 
+					<section class="title_continer ">
+						<img class="title_icon" src="{{ asset('img/icons/system/nuevotramite.ico') }}" alt="">
+						<h2>Tramites de {{ $customer->name." ".$customer->fathers_last_name." ".$customer->mothers_last_name }}</h2>
+					</section>
+				</caption>
 				<thead>
 					<tr>
 						<th class="text-center"> 

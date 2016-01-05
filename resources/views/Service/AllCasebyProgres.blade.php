@@ -23,7 +23,7 @@
 							
 						{!! Form::close() !!}
 						</th>
-						<th class="text-center">  Nº Escritura
+						<th class="text-center th_medium">  Nº Escritura
 						<!-- Buscador por Numero de Escritura -->
 						{!! Form::open(array('route' =>'show_all_case_by_progres','method' => 'Get','class' => 'form_search')) !!}
 							
