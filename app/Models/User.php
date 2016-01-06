@@ -41,6 +41,6 @@ class User extends Model implements AuthenticatableContract,
 
     public function budget()
     {
-        return $this->hasOne(Budget::class);
+        return $this->hasMany(Budget::class);
     }
 }
