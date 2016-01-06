@@ -12,10 +12,10 @@
       <img class="title_icon" src="{{ asset($ServiceCase->service->icon_path) }}" alt="">
       <h2>{{$ServiceCase->service->name}}</h2>
     </section>
-   
-
-		<h3>Participante(s)</h3>
-
+    <section class="title_continer">
+      <img class="title_icon" src="{{ asset('img/icons/system/participantes.ico') }}" alt="">
+		  <h3>Participante(s)</h3>
+    </section>
     	<h3 class="text-center"> <strong>{{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }}</strong></h3>
     			 
  		<form  id='customerDocuments' method='POST'>  

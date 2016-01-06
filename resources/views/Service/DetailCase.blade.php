@@ -24,7 +24,7 @@
     			<div>
     				
     			<p class="text-center"> 
-					<strong>{{$customerSelect->pivot->participants_type}}: </strong>
+					<strong>{{$customerSelect->pivot->participants_type}} </strong>
     				{{ $customerSelect->name .' '. $customerSelect->fathers_last_name .' '. $customerSelect->mothers_last_name }} 
 					<br> <strong>Documentos Entregados: </strong>
 					{{ $customerSelect->pivot->documents_list }}

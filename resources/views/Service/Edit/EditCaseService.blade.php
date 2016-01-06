@@ -27,7 +27,6 @@
     				
 					<p class="text-center"> 
 						<section class="title_continer">
-							<img class="title_icon" src="{{ asset('img/icons/system/participantes.ico') }}" alt="">
 							<strong>{{$customerSelect->pivot->participants_type}}</strong>
 						</section>
 						
