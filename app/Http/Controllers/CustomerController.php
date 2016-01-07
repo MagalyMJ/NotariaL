@@ -149,15 +149,12 @@ class CustomerController extends Controller
                 //Le Relacionamos el Cliente que Se Registro
                 $CreateCase->customer()->attach($customer->id);
 
-                //Le Buscamos Un USUARIO (el primer con permiso de manager) Sustituri por quien tenga la secion.
-                $User = User::where('user_type','manager')->first();
-
-
+                
                 //creamos un presupuesto vacio y lo asignamos
                 $CaseBudget = new Budget;
                 $CaseBudget->save();
                 $CaseBudget->case_service()->save($CreateCase);
-                $User->budget()->save($CaseBudget);
+                
                 //
 
                 return Redirect::route('Show_Case_path', array('id_caseService' => $CreateCase->id ));
