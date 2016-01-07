@@ -29,6 +29,28 @@ class UsersTableSeeder extends Seeder
         'email' => 'tester@gmail.com',
         'password' => bcrypt('123456789'),
         'remember_token' => str_random(10),
+            ]);
+        // Insercion Directa 
+        DB::table('users')->insert([
+        'name' => 'Beto',
+        'fathers_last_name' => 'Araiza',
+        'mothers_last_name' => '',
+        'user_name' => 'beto13',
+        'user_type' => 2,
+        'email' => 'betoaraiza7@gmail.com',
+        'password' => bcrypt('123456789'),
+        'remember_token' => str_random(10),
+            ]);
+        // Insercion Directa 
+        DB::table('users')->insert([
+        'name' => 'Ivan',
+        'fathers_last_name' => '',
+        'mothers_last_name' => '',
+        'user_name' => 'ivan07',
+        'user_type' => 2,
+        'email' => 'ivan@gmail.com',
+        'password' => bcrypt('123456789'),
+        'remember_token' => str_random(10),
          	]);
     }
 }
