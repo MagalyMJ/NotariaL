@@ -34,10 +34,13 @@
 						<br> <strong>Documentos Entregados: </strong>
 						{{ $customerSelect->pivot->documents_list }}
     				</p>				
-    				<a class="budget-button button_big" href="{{route('Edit_CustomerinCase',array($ServiceCase->id, $customerSelect->id) ) }}"> 
+              		<button class="budget-button button_normal" 
+              			formaction = "{{route('Edit_CustomerinCase',array($ServiceCase->id, $customerSelect->id) ) }}"
+              			formmethod="get"
+              			type="submit">
     					<img class="title_icon" src="{{ asset('img/icons/system/edit_file.ico') }}" alt="Documentos">
-              			<p>Documentos</p>   
-              		</a>
+             			<p>Documentos</p> 
+            		</button>
     			</div>
 					@endforeach
 		</div>

@@ -225,6 +225,72 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->saveDetailCase($request,$id);
+
+        return Redirect::route('Show_Case_path', array('id_caseService' => $UpdateCase->id));
+     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified a Customer documents .
+     *  and saving the edit detail case form 
+     * @param  int  $id_caseService,$id_customer
+     * @param  Request  $request
+     * @return Response
+     */
+    public function editPariticipantData(Request $request,$id_caseService ,$id_customer)
+    {
+        //
+        
+        $this->saveDetailCase($request,$id_caseService);
+         $editCase = CaseService::find($id_caseService);
+        
+         $customerSelect = $editCase->customer->where('pivot.customer_id', (int)$id_customer)->first();
+         
+
+        return view('Service.CustomerCase.EditParticipatCase',[ 'ServiceCase' => $editCase ,'customerSelect' => $customerSelect]);
+
+
+    }   
+     /**
+     * Show the form for editing the specified a Customer documents .
+     *
+     * @param  int  $id_caseService,$id_customer 
+     * @param  Request  $request
+     * @return Response
+     */
+    public function updatePariticipantData(Request $request,$id_caseService ,$id_customer)
+    {
+        //se Modifican los atributos de la tabla pivote 
+
+         $UpdateCase = CaseService::find($id_caseService);
+
+         $UpdateCase->customer()->updateExistingPivot( (int)$id_customer, array('participants_type' => $request->participant_type ,'documents_list' => $request->documents_selected)); 
+         
+         //dd($customerSelect);
+         return Redirect::route('Edit_Case_path', array('id_caseService' => $UpdateCase->id));
+    }
+
+    /**
+     * Update the specified resource in storage, if you needed in other route.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return 
+     */
+    public function saveDetailCase(Request $request, $id)
+    {
+        //
         //dd($request);
         $UpdateCase = CaseService::find($id);
 
@@ -256,57 +322,7 @@ class ServiceController extends Controller
         $UpdateCase->signature = $request->signature;
 
         $UpdateCase->save();
-
-        return Redirect::route('Show_Case_path', array('id_caseService' => $UpdateCase->id));
-     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
-    /**
-     * Show the form for editing the specified a Customer documents .
-     *
-     * @param  int  $id_caseService,$id_customer
-     * @return Response
-     */
-    public function editPariticipantData($id_caseService ,$id_customer)
-    {
-        //
-         $editCase = CaseService::find($id_caseService);
-        
-         $customerSelect = $editCase->customer->where('pivot.customer_id', (int)$id_customer)->first();
-         
-         // dd($editCase ,$customerSelect);
-
-        return view('Service.CustomerCase.EditParticipatCase',[ 'ServiceCase' => $editCase ,'customerSelect' => $customerSelect]);
-
-
-    }   
-     /**
-     * Show the form for editing the specified a Customer documents .
-     *
-     * @param  int  $id_caseService,$id_customer 
-     * @param  Request  $request
-     * @return Response
-     */
-    public function updatePariticipantData(Request $request,$id_caseService ,$id_customer)
-    {
-        //se Modifican los atributos de la tabla pivote 
-
-         $UpdateCase = CaseService::find($id_caseService);
-
-         $UpdateCase->customer()->updateExistingPivot( (int)$id_customer, array('participants_type' => $request->participant_type ,'documents_list' => $request->documents_selected)); 
-         
-         //dd($customerSelect);
-         return Redirect::route('Edit_Case_path', array('id_caseService' => $UpdateCase->id));
-    }
 
 }
