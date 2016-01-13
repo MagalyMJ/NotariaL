@@ -234,7 +234,7 @@ class ServiceController extends Controller
         //
         $this->saveDetailCase($request,$id);
 
-        return Redirect::route('Show_Case_path', array('id_caseService' => $UpdateCase->id));
+        return Redirect::route('Show_Case_path', array('id_caseService' => $id));
      }
 
     /**
