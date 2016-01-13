@@ -3,6 +3,7 @@
 namespace NotiAPP\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class CaseService extends Model
 {
@@ -258,6 +259,19 @@ class CaseService extends Model
         }
 
     } 
+    /**
+    * Evaluoa si el usuario logueado es el mismo que tiene asignado o si es un administrador
+    * @return int
+    */
+    public function isMyuser(){
+        // vericando que el usuario que creo el tramite es quien puede editar
+        if (Auth::user()->id == $this->budget->user_id || Auth::user()->is('admin')){
+            return true;
+
+            }else{
+                return false;
+            }
+    }
 
     /**
     * Scope para hacer una busqueda de casos por id 

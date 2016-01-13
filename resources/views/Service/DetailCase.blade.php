@@ -1,7 +1,10 @@
 @extends('layouts.homedefault')
 
 @section('content')
-<!-- Mostrara Todos los Casos Activos del servicio-Post  obtenido -->
+<!-- Mostrara Los detalles de un caso en particular
+	$SeriveCase objets
+	$CanEdit boolean
+	-->
 
 
 <div class="block_container">
@@ -33,12 +36,14 @@
     			</div>
 					@endforeach
 			</div>
-			<section class = "action_buttons">
-				<a class="budget-button button_big"  href="{{route('Select_customer_InExisting_Case',$ServiceCase->id) }}">
-					<img class="title_icon" src="{{ asset('img/icons/system/mas_Participantes.ico') }}" alt="Agregar más Participantes">
-					<p>Agregar Participantes</p>
-				</a>
-			</section>
+			@if($CanEdit)
+				<section class = "action_buttons">
+					<a class="budget-button button_big"  href="{{route('Select_customer_InExisting_Case',$ServiceCase->id) }}">
+						<img class="title_icon" src="{{ asset('img/icons/system/mas_Participantes.ico') }}" alt="Agregar más Participantes">
+						<p>Agregar Participantes</p>
+					</a>
+				</section>
+			@endif
 		</section>
 
 		<div>
@@ -61,13 +66,15 @@
 							<p class="text-center observation"><strong> Observaciones:</strong>  {{ $ServiceCase->observations}} </p>	
 						</div>
 					</div>
-					<section class = "action_buttons">
-						<a class="budget-button button_normal"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> 
-							<img class="title_icon" src="{{ asset('img/icons/system/edit_file.ico') }}" alt="Editar Datos del Tramite">
-							<p>Editar</p> 
-						</a> 		   
-					
-					</section>
+					@if($CanEdit)
+						<section class = "action_buttons">
+							<a class="budget-button button_normal"  href="{{route('Edit_Case_path',$ServiceCase->id) }}"> 
+								<img class="title_icon" src="{{ asset('img/icons/system/edit_file.ico') }}" alt="Editar Datos del Tramite">
+								<p>Editar</p> 
+							</a> 		   
+						
+						</section>
+					@endif
 				</div>
 
 			
@@ -102,7 +109,7 @@
 							<img class="title_icon" src="{{ asset('img/icons/system/pdf.ico') }}" alt="Generar PDF">
 							<p>PDF</p> 
 						</a>
-						
+						@if($CanEdit)
 						<a class="budget-button button_big"  href="{{route('EditBudget',$ServiceCase->budget->id) }}">
 							<img class="title_icon" src="{{ asset('img/icons/system/edit_Presupuesto.ico') }}" alt="Editar Datos del Presupuesto">
 							<p>Editar Presupuesto</p> 
@@ -111,7 +118,8 @@
 						<a class="budget-button button_normal"  href="{{route('Case_Payments',$ServiceCase->id) }}"> 
 							<img class="title_icon" src="{{ asset('img/icons/system/pago.ico') }}" alt="Editar Datos del Presupuesto">
 							<p>Pagos</p> 
-						</a> 		   
+						</a> 
+						@endif		   
 					</section>
 
 				</div>	

@@ -7,12 +7,15 @@ use Illuminate\Support\Facades\Redirect;
 
 use NotiAPP\Http\Requests;
 use NotiAPP\Http\Controllers\Controller;
+
 use NotiAPP\Models\Customer;
 use NotiAPP\Models\Address;
 use NotiAPP\Models\CaseService;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Budget;
 use NotiAPP\Models\User;
+
+use Auth;
 
 class CustomerController extends Controller
 {
@@ -155,6 +158,11 @@ class CustomerController extends Controller
                 $CaseBudget->save();
                 $CaseBudget->case_service()->save($CreateCase);
                 
+                // obtenemos el usuario que esta logueado y lo asignamos al presupuesto
+
+                    $user = Auth::user();
+                    $user->budget()->save($CaseBudget);
+                
                 //
 
                 return Redirect::route('Show_Case_path', array('id_caseService' => $CreateCase->id ));
@@ -235,7 +243,7 @@ class CustomerController extends Controller
         //
          $addCustumer = new Customer;
         $addres = new Address;
-        //cuando no provenga de la creacion de un caso, si no de otro modulo, Solo registramos al cliente 
+        //cuando no provenga de la creacion de un caso, si no que se dece agregar un caso existente, Solo registramos al cliente 
             //no le asignamos un caso. 
             $addCustumer->name = $request->name;
                 $addCustumer->fathers_last_name = $request->fathers_last_name;

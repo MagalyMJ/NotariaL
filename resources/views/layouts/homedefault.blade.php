@@ -155,6 +155,12 @@
                 <p>Cotejo y Ratificacion</p>
             </a>
         </il>
+        <il class="menu_service">
+           <a class="menu_service_link" href="{{route('close_session')}}">
+                <img class="menu_service_img"  src="{{ asset('img/icons/system/log_Out.png') }}" alt="">           
+                <p>LogOut</p>
+            </a>
+        </il>
     </ul>
   <section id="mainsection" class = "mainsection main_left background">
     

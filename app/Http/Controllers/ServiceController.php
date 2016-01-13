@@ -14,9 +14,11 @@ use NotiAPP\Models\Participant;
 use NotiAPP\Models\CaseService;
 use NotiAPP\Models\Service;
 use NotiAPP\Models\Budget;
+use NotiAPP\Models\User;
 
 use Response;
 use Input;
+use Auth;
 
 class ServiceController extends Controller
 {
@@ -135,7 +137,10 @@ class ServiceController extends Controller
         $CaseBudget = new Budget;
         $CaseBudget->save();
         $CaseBudget->case_service()->save($CreateCase);
+        // obtenemos el usuario que esta logueado y lo asignamos al presupuesto
 
+        $user = Auth::user();
+        $user->budget()->save($CaseBudget);
 
         //Por cada id de cliente que nos proporcionen asignamos al caso 
         foreach ($Sleectedcustomers as $customerSelect => $id) {
@@ -189,7 +194,9 @@ class ServiceController extends Controller
 
         $ShowCase = CaseService::find($id_caseService);
 
-        return view('Service.DetailCase',['ServiceCase' => $ShowCase ]);
+        $canedit = $ShowCase->isMyuser();
+
+        return view('Service.DetailCase',['ServiceCase' => $ShowCase, 'CanEdit' => $canedit]);
 
     }
 
