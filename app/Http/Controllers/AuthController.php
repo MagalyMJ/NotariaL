@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 
 use NotiAPP\Http\Requests;
 use NotiAPP\Http\Controllers\Controller;
-
+use Session;
 class AuthController extends Controller
 {
       /**
@@ -65,49 +65,17 @@ class AuthController extends Controller
         }
         return Redirect::route('home');
     }
-
     /**
-     * Display the specified resource.
+     * Metodo para hacer un cierre de secion basico 
      *
-     * @param  int  $id
-     * @return Response
+     * @return Redirect
      */
-    public function show($id)
+    public function getLogout()
     {
-        //
-    }
+        auth()->logout();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        Session::flush(); 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('auth_show_path');
     }
 }

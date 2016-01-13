@@ -194,7 +194,9 @@ class ServiceController extends Controller
 
         $ShowCase = CaseService::find($id_caseService);
 
-        return view('Service.DetailCase',['ServiceCase' => $ShowCase ]);
+        $canedit = $ShowCase->isMyuser();
+
+        return view('Service.DetailCase',['ServiceCase' => $ShowCase, 'CanEdit' => $canedit]);
 
     }
 
