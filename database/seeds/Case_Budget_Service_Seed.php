@@ -64,7 +64,7 @@ class Case_Budget_Service_Seed extends Seeder
          $CaseBudget->save();
 
         // //el creador del prespupuesto tiene que ser un usuario
-         $user = User::find(rand(1,10));
+         $user = User::find(1);
 
          $user->budget()->save($CaseBudget);
 

@@ -145,6 +145,11 @@ return [
         * Para el manjeo de HTML
         */
         Collective\Html\HtmlServiceProvider::class,
+        
+        /**
+        * Manejo de roles y permisos
+        */
+        Bican\Roles\RolesServiceProvider::class,
 
         /*
          * Application Service Providers...

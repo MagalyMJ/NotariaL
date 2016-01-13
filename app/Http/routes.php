@@ -21,12 +21,21 @@ Route::get('login',[
 
 	'as' =>'auth_show_path',
  	]);
+
 //Autenticacion de Login
 Route::post('login',[
 
 	'uses' => 'AuthController@store',
 
 	'as' =>'auth_store_path',
+ 	]);
+
+// Cierre de seccion;
+	Route::get('logout',[
+
+		'uses' => 'AuthController@getLogout',
+
+		'as' =>'close_session',
  	]);
 
 
@@ -54,19 +63,21 @@ Route::post('servicio',[
 	]);
 
 
-//Para generar un nuevo caso del servicio seleccionado
+//Para generar un nuevo tramite del servicio seleccionado
 Route::get('clientes/{id_service}',[
 	'uses' => 'ServiceController@SelectCustomers',
+	'middleware' => ['moderatoradmin'],
 	'as' => 'Select_Customers_toCase'
 	]);
-//Para ver los detalles de un caso 
-Route::get('caso/{id_caseService}',[
+//Para ver los detalles de un tramite 
+Route::get('tramite/{id_caseService}',[
 	'uses' =>'ServiceController@show',
 	'as' => 'Show_Case_path',
 	]);
-//El formulario para editar el caso
-Route::get('caso/{id_caseService}/edit',[
+//El formulario para editar el tramite
+Route::get('tramite/{id_caseService}/edit',[
 	'uses' =>'ServiceController@edit',
+	'middleware' => ['canedit'],
 	'as' => 'Edit_Case_path',
 	]);
 //Actualizamos los datos que nos manden 
@@ -85,6 +96,7 @@ Route::post('nuevo/{id_service}/caso/',[
 Route::get('clientes/',[
 	'uses' => 'CustomerController@index',
 	'as' => 'Customer_List']);
+
 //Mostrar el datos especificos del cliente
 Route::get('cliente/{id_customer}',[
 	'uses' => 'CustomerController@show',
@@ -100,18 +112,20 @@ Route::get('registro/cliente/',[
 	'uses' => 'CustomerController@createNew',
 	'as' => 'Create_Customer']);
 
-	//Mostrar el formulario para registrar un Nuevo cliente;
+//registrar un Nuevo cliente tomado del formulario;
 Route::post('registro/cliente/',[
 	'uses' => 'CustomerController@store',
 	'as' => 'Create_Customer_Store']);
 
 
-//Mostrar el formulario para registrar un Nuevo cliente en un caso exitente,;
-Route::get('cliente/nuevo/caso/{id_caseService}',[
+//Mostrar el formulario para registrar un Nuevo cliente en un tramite exitente,;
+Route::get('cliente/nuevo/tramite/{id_caseService}',[
 	'uses' => 'CustomerController@createNewToCase',
+	'middleware' => ['canedit'],
 	'as' => 'New_Customer_inCase']);
-//Mostrar el formulario para registrar un Nuevo cliente en un caso exitente,;
-Route::post('cliente/nuevo/caso/{id_caseService}',[
+
+//Registrar un Nuevo cliente en un tramite exitente,;
+Route::post('cliente/nuevo/tramite/{id_caseService}',[
 	'uses' => 'CustomerController@storeNewToCase',
 	'as' => 'New_Customer_inCase']);
 
@@ -121,9 +135,10 @@ Route::post('cliente/nuevo',[
 	'uses' => 'CustomerController@addCustumer',
 	'as' => 'customer_new_path',
 	]);
-//la vista en la cual se peude seleccionar uno o varios participantes al caso seleccionado
-Route::get('clientes/caso/{id_caseService}',[
+//la vista en la cual se peude seleccionar uno o varios participantes al tramite seleccionado
+Route::get('clientes/tramite/{id_caseService}',[
 	'uses' => 'CustomerController@AddCustomersToCase',
+	'middleware' => ['canedit'],
 	'as' => 'Select_customer_InExisting_Case'
 	]);
 //Para guardar uno o varios participantes al caso seleccionado
@@ -136,7 +151,9 @@ Route::post('clientes/caso/{id_caseService}',[
 //Mostrar el formulario para registrar los documentos y tipo de participante a un cliente
 Route::get('caso/{id_caseService}/cliente/{id_customer}',[
 	'uses' => 'ServiceController@editPariticipantData',
+	'middleware' => ['canedit'],
 	'as' => 'Edit_CustomerinCase']);
+
 //manda el request del formulario para registrar los documentos y tipo de participante a un cliente
 Route::post('caso/{id_caseService}/cliente/{id_customer}',[
 	'uses' => 'ServiceController@updatePariticipantData',
@@ -144,10 +161,12 @@ Route::post('caso/{id_caseService}/cliente/{id_customer}',[
 
 
 //Muestra el formularo  para editar un presupesto
-Route::get('presupuesto/{id_presupuesto}',[
+Route::get('presupuesto/{id_caseService}',[
 	'uses' =>'BudgetController@edit',
+	'middleware' => ['canedit'],
 	'as' => 'EditBudget',
 	]);
+
 Route::post('presupuesto/{id_presupuesto}',[
 	'uses' =>'BudgetController@update',
 	'as' => 'UpdateBudget',
@@ -170,7 +189,9 @@ Route::get('PagosPendientes/', [
 //Muestra el Formulario para crar un pago nuevo 
 Route::get('Pago/{id_caseService}', [
 		'uses' =>'PaymentController@create',
+		'middleware' => ['canedit'],
 		'as' => 'Payment_Create',]);
+
 Route::post('Pago/{id_caseService}', [
 		'uses' =>'PaymentController@store',
 		'as' => 'Payment_Store',]);
@@ -180,9 +201,14 @@ Route::get('Pago/PDF/{id_presupuesto}', [
 		'uses' =>'PaymentController@show',
 		'as' => 'PdfPayment',]);
 
-// Route::get('Presupuestopdf', [
-// 		'uses' =>'PDFController@bugetPDF',
-// 		'as' => 'PdfBuget',]);
+
+
+//Rutas de Error 
+
+Route::get('Error/AccesoDenegado',function()
+{
+    return View::make('errors.AccesDeniedUser');
+});
 
 
 

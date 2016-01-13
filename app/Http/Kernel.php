@@ -29,5 +29,12 @@ class Kernel extends HttpKernel
         'auth' => \NotiAPP\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \NotiAPP\Http\Middleware\RedirectIfAuthenticated::class,
+
+        'role' => \Bican\Roles\Middleware\VerifyRole::class,
+        'permission' => \Bican\Roles\Middleware\VerifyPermission::class,
+        'level' => \Bican\Roles\Middleware\VerifyLevel::class,
+
+        'moderatoradmin' => \NotiAPP\Http\Middleware\AdminAndModeratorMiddleware::class,
+        'canedit' => \NotiAPP\Http\Middleware\CanEdit::class,
     ];
 }

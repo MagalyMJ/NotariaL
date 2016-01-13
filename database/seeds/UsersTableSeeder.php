@@ -17,12 +17,54 @@ class UsersTableSeeder extends Seeder
         // seria para siempre tener un numero determinado 
         // User::truncate();
 
-        factory(NotiAPP\Models\User::class,10)->create();
+        //factory(NotiAPP\Models\User::class,10)->create();
 
-        // Insercion Directa 
-        //DB::table('users')->insert([
-        // 	'name' => 'Alex',
-        // 	'fathers_last_name' => 'Medina'
-        // 	]);
+        $user = new User();
+        $user->name = "Beto";
+        $user->fathers_last_name = "Araiza";
+        $user->mothers_last_name = "";
+        $user->user_name = "beto13";
+        $user->email = "betoaraiza7@gmail.com";
+        $user->password = bcrypt('123456789');
+        $user->remember_token = str_random(10);
+        $user->save();
+        $user->attachRole(2);
+        $user->save();
+
+        $user = new User();
+        $user->name = "Ivan";
+        $user->fathers_last_name = "";
+        $user->mothers_last_name = "";
+        $user->user_name= "ivan07";
+        $user->email="ivan@gmail.com";
+        $user->password = bcrypt('123456789');
+        $user->remember_token = str_random(10);
+        $user->save();
+        $user->attachRole(2);
+        $user->save();
+
+        $user = new User();
+        $user->name = "tester";
+        $user->fathers_last_name = "tester";
+        $user->mothers_last_name = "tester";
+        $user->user_name= "tester";
+        $user->email="test@gmail.com";
+        $user->password = bcrypt('123456789');
+        $user->remember_token = str_random(10);
+        $user->save();
+        $user->attachRole(1);
+        $user->save();
+
+        $user = new User();
+        $user->name = "user";
+        $user->fathers_last_name = "user";
+        $user->mothers_last_name = "user";
+        $user->user_name = "user";
+        $user->email="user@gmail.com";
+        $user->password = bcrypt('123456789');
+        $user->remember_token = str_random(10);
+        $user->save();
+        $user->attachRole(3);
+        $user->save();
     }
 }
