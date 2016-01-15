@@ -1,0 +1,77 @@
+@extends('layouts.homedefault')
+
+@section('content')
+
+<!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<style type="text/css"> 
+    .next{
+        background: red;
+    }
+    .prev {
+        background: green;
+    }
+    .glyphicon-chevron-right:before {
+  content: "\e250";
+}
+.glyphicon-chevron-left:before {
+  content: "\e251";}
+</style>
+
+<script type="text/javascript">
+$(function () {
+    $('input[name="time"]').daterangepicker({
+        // "minDate": moment('<?php echo date('Y-m-d G')?>'),
+        "timePicker": true,
+        "timePicker24Hour": true,
+        "timePickerIncrement": 15,
+        "autoApply": true,
+        // "singleDatePicker":true,
+        "locale": {
+            "format": "YYYY-MM-DD HH:mm:ss",
+            "separator": " - ",
+        }
+    });
+});
+</script>
+
+
+     <div class="block_container">
+     
+        <section class="title_continer">
+            <img class="title_icon" src="{{ asset('img/icons/system/agenda.ico') }}" alt=""> 
+        <h1> Nuevo evento</h1>    
+        </section>
+
+            <form id="new_event_form" action="{{route('update_event',$event->id) }}" method='post' class="form_data">  
+                {{csrf_field()}}
+                <div class="formborder form_data_general">
+                    <div>
+                        <label for="name">Nombre</label> 
+                        <input name="name" class="input long" id="name" type="text" autocomplete="off" value="{{ $event->name }}" />
+                
+                        <label for="title">Titulo</label> 
+                        <input name="title" class="input long" id="title" type="text" autocomplete="off" value="{{ $event->title }}" />
+                        
+                        <label for="id_time">Tiempo</label> 
+                        <input name="time" id="id_time" class="input long" value="{{ $event->start.' - '. $event->end }}">
+                    </div>
+                    <section class = "action_buttons">  
+                        <button type="submit"  class="budget-button button_normal" style="margin: 0px;"> 
+                          <img class="title_icon" src="{{ asset('img/icons/system/check.ico') }}" alt="Guardar">
+                          <p>Guardar</p>
+                        </button>
+
+                        <a class="budget-button button_normal" href="{{route('calendar') }}" style=" margin-top: 0px;"> 
+                          <img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Cancelar">
+                          <p> Cancelar </p>
+                       </a>
+                    </section>
+                </div>
+        </form>
+        
+     </div>
+@stop

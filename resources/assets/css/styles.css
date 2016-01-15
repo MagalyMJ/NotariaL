@@ -511,6 +511,7 @@ button{
   min-height: 75px;
   padding: 15px 0px 0px 15px;
   margin-left: 20px;
+  margin-bottom: 15px;
   display: block;
 }
 .action_buttons_diplay{

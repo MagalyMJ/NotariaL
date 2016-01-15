@@ -14,7 +14,8 @@ elixir(function(mix) {
     mix.styles([
         'normalize.css',
         'styles.css',
-        'styleicon.css'
+        'styleicon.css',
+        'daterangepiker.css',
     ]).version('public/css/all.css');
 });
 

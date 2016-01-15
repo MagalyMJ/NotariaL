@@ -32,13 +32,15 @@
                 </h3>
             </a>
         </div>
-        <div class = "block disabled aling_block">    
-            <div class="module_icon">
-                <img style="width: 150px;height:150px;" src="{{ asset('img/icons/system/agenda.ico') }}" alt="">
-            </div>  
-            <h3 class="title_module">
-                Agenda
-            </h3>
+        <div class = "block shadow aling_block"> 
+            <a href="{{route('calendar') }}">   
+                <div class="module_icon">
+                    <img style="width: 150px;height:150px;" src="{{ asset('img/icons/system/agenda.ico') }}" alt="">
+                </div>  
+                <h3 class="title_module">
+                    Agenda
+                </h3>
+            </a>
         </div>
         <div class = "block disabled  aling_block">    
             <div class="module_icon">
