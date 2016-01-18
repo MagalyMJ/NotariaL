@@ -37,11 +37,48 @@ class UsersTableSeeder extends Seeder
         $user->mothers_last_name = "";
         $user->user_name= "ivan07";
         $user->email="ivan@gmail.com";
-        $user->password = bcrypt('123456789');
+        $user->password = bcrypt('90Ntrstd');
         $user->remember_token = str_random(10);
         $user->save();
         $user->attachRole(2);
         $user->save();
+
+        $user = new User();
+        $user->name = "Joel";
+        $user->fathers_last_name = "";
+        $user->mothers_last_name = "";
+        $user->user_name= "joel04";
+        $user->email="ivan@gmail.com";
+        $user->password = bcrypt('7haVr5fr');
+        $user->remember_token = str_random(10);
+        $user->save();
+        $user->attachRole(2);
+        $user->save();
+
+        $user = new User();
+        $user->name = "Taide";
+        $user->fathers_last_name = "";
+        $user->mothers_last_name = "";
+        $user->user_name= "taide10";
+        $user->email="ivan@gmail.com";
+        $user->password = bcrypt('6grYfa8r');
+        $user->remember_token = str_random(10);
+        $user->save();
+        $user->attachRole(2);
+        $user->save();
+
+        $user = new User();
+        $user->name = "Juan Carlos";
+        $user->fathers_last_name = "";
+        $user->mothers_last_name = "";
+        $user->user_name= "juanC06";
+        $user->email="ivan@gmail.com";
+        $user->password = bcrypt('3hrDf28r');
+        $user->remember_token = str_random(10);
+        $user->save();
+        $user->attachRole(2);
+        $user->save();
+
 
         $user = new User();
         $user->name = "tester";
