@@ -80,6 +80,7 @@
 			
 			</section>
 
+			@if($CanEdit)
 			<section class="caseDetail" >
 				<div id="budget_thisCase" class="Detail_budeget" >
 					<section class="title_continer">
@@ -103,13 +104,14 @@
 						</div>		
 					</div>
 				
+					
 					<section class = "action_buttons">
 
 						<a class="budget-button button_normal"  href="{{route('PdfBuget',$ServiceCase->budget->id) }}" target="_blank">
 							<img class="title_icon" src="{{ asset('img/icons/system/pdf.ico') }}" alt="Generar PDF">
 							<p>PDF</p> 
 						</a>
-						@if($CanEdit)
+						
 						<a class="budget-button button_big"  href="{{route('EditBudget',$ServiceCase->budget->id) }}">
 							<img class="title_icon" src="{{ asset('img/icons/system/edit_Presupuesto.ico') }}" alt="Editar Datos del Presupuesto">
 							<p>Editar Presupuesto</p> 
@@ -119,11 +121,12 @@
 							<img class="title_icon" src="{{ asset('img/icons/system/pago.ico') }}" alt="Editar Datos del Presupuesto">
 							<p>Pagos</p> 
 						</a> 
-						@endif		   
+							   
 					</section>
-
+				
 				</div>	
 			</section>
+		@endif	
 		</div>
 
 
