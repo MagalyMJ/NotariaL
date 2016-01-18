@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
         $user->fathers_last_name = "Araiza";
         $user->mothers_last_name = "";
         $user->user_name = "beto13";
-        $user->email = "";
+        $user->email = "betoaraiza7@gmail.com";
         $user->password = bcrypt('123456789');
         $user->remember_token = str_random(10);
         $user->save();
@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
         $user->fathers_last_name = "";
         $user->mothers_last_name = "";
         $user->user_name= "ivan07";
-        $user->email="";
+        $user->email="ivan@gmail.com";
         $user->password = bcrypt('90Ntrstd');
         $user->remember_token = str_random(10);
         $user->save();
@@ -48,7 +48,7 @@ class UsersTableSeeder extends Seeder
         $user->fathers_last_name = "";
         $user->mothers_last_name = "";
         $user->user_name= "joel04";
-        $user->email="";
+        $user->email="joel@gmail.com";
         $user->password = bcrypt('7haVr5fr');
         $user->remember_token = str_random(10);
         $user->save();
@@ -60,7 +60,7 @@ class UsersTableSeeder extends Seeder
         $user->fathers_last_name = "";
         $user->mothers_last_name = "";
         $user->user_name= "taide10";
-        $user->email="";
+        $user->email="taide@gmail.com";
         $user->password = bcrypt('6grYfa8r');
         $user->remember_token = str_random(10);
         $user->save();
@@ -72,7 +72,7 @@ class UsersTableSeeder extends Seeder
         $user->fathers_last_name = "";
         $user->mothers_last_name = "";
         $user->user_name= "juanC06";
-        $user->email="";
+        $user->email="juan@gmail.com";
         $user->password = bcrypt('3hrDf28r');
         $user->remember_token = str_random(10);
         $user->save();
