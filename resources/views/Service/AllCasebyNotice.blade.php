@@ -13,7 +13,7 @@
 			<table class="table-fill">
 				<thead>
 					<tr>
-						<th class="text-center"> Nº Folio
+						<th class="text-center"> Nº Trámite
 						<!-- Buscador por Folio -->
 						{!! Form::open(array('route' =>'show_all_case_by_notice','method' => 'Get','class' => 'form_search')) !!}
 							

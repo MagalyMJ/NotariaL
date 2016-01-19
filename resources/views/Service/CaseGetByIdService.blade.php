@@ -15,14 +15,14 @@
 			
 				  <a class="button button_normal" href="{{route('Select_Customers_toCase',$service->id) }}">
 					<img class="title_icon" src="{{ asset('img/icons/system/nuevotramite.ico') }}" alt="Nuevo Tramite">
-				  	<p>Nuevo Tramite</p>
+				  	<p>Nuevo Trámite</p>
 				  </a>
 				  
 		</section>
 			<table class="table-fill">
 				<thead>
 					<tr>
-						<th class="text-center"> Nº Folio
+						<th class="text-center"> Nº Trámite
 						<!-- Buscador por Folio -->
 						{!! Form::open(array('route' =>array('service_show_path',$service->id ),'method' => 'Get','class' => 'form_search')) !!}
 							
