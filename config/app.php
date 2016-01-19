@@ -150,7 +150,10 @@ return [
         * Manejo de roles y permisos
         */
         Bican\Roles\RolesServiceProvider::class,
-
+        /**
+        * Manejo de agenda
+        */
+        MaddHatter\LaravelFullcalendar\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -211,6 +214,7 @@ return [
         'PDF'      => Barryvdh\DomPDF\ServiceProvider::class,
         'Form' => Collective\Html\FormFacade::class,
         'HtmlCollective' => Collective\Html\HtmlFacade::class,
+        'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
 
     ],
 
