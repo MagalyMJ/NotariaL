@@ -211,6 +211,36 @@ Route::get('Error/AccesoDenegado',function()
 });
 
 
+// Agenda
+// Muestra en formato PDF los datos de un pago.
+Route::get('Agenda/', [
+		'uses' =>'EventController@index',
+		'as' => 'calendar',]);
+
+Route::get('Agenda/listado', [
+		'uses' =>'EventController@events',
+		'as' => 'events_list',]);
+
+Route::get('Agenda/Evento/nuevo', [
+		'uses' =>'EventController@create',
+		'as' => 'new_event',]);
+
+Route::post('Agenda/Evento/nuevo', [
+		'uses' =>'EventController@store',
+		'as' => 'store_event',]);
+
+Route::get('Agenda/Evento/edit/{id_evento}', [
+		'uses' =>'EventController@edit',
+		'as' => 'edit_event',]);
+
+Route::post('Agenda/Evento/edit/{id_evento}', [
+		'uses' =>'EventController@update',
+		'as' => 'update_event',]);
+
+Route::get('Agenda/Evento/delete/{id_evento}', [
+		'uses' =>'EventController@destroy',
+		'as' => 'destroy_event',]);
+
 
 
 
