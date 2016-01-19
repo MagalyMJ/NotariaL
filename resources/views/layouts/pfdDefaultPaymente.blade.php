@@ -23,13 +23,13 @@
 
           <div>Notaria Publica 55</div>
           <div><span>Lugar:</span> Montes Himalaya 304 Fraccionamiento Los Bosques</div>
-          <div><span>Tel:</span>0000000</div>
-          <div><span>EMAIL</span><a href="mailto:company@example.com">company@example.com</a></div>
+          <div><span>Tel:</span>146.18.26</div>
+          <div><span>EMAIL</span><a href="mailto:venturadavila@gmail.com">venturadavila@gmail.com</a></div>
   
 
         <div><span>Servicio</span> {{ $ServiceCase->service->name}} </div>
         <div><span>Cliente</span> {{ $ServiceCase->customer->first()->name .' '.$ServiceCase->customer->first()->fathers_last_name .' '. $ServiceCase->customer->first()->mothers_last_name }}</div>
-        <div><span>Folio</span>{{ $ServiceCase->id}} </div>
+        <div><span>Tramite</span>{{ $ServiceCase->id}} </div>
        <!--    <div><span>EMAIL</span></div> -->
         <div><span>Fecha</span> {{ $date }} </div>
       </div>
