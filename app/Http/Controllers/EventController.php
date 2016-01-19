@@ -52,14 +52,12 @@ class EventController extends Controller
     {
         //
         
-        $time = explode(" - ", $request->time);
-
          $event = new Event;
          $event->name = $request->name;
          $event->title = $request->title;
-         $event->start = $time[0];
-         $event->end = $time[1];
-
+         $event->start = $request->time;
+         $event->end = $request->time;
+         $event->observations = $request->description;
          $event->save();
 
          $request->session()->flash('success', 'The event was successfully saved!');
@@ -100,15 +98,16 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $time = explode(" - ", $request->input('time'));
-          
+
          $event = Event::findOrFail($id);
-         $event->name = $request->input('name');
-         $event->title = $request->input('title');
-         $event->start = new \DateTime($time[0]);
-         $event->end = new \DateTime($time[1]);
+         $event->name = $request->name;
+         $event->title = $request->title;
+         $event->start = $request->time;
+         $event->end = $request->time;
+         $event->observations = $request->description;
          $event->save();
-          
+        
+        $request->session()->flash('success', 'The event was successfully saved!');
         return Redirect::route('calendar');
     }
 

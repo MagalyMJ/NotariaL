@@ -14,8 +14,8 @@
             <th class="text-center">#</th>
             <th class="text-center">Nombre</th>
             <th class="text-center">Titulo</th>
-            <th class="text-center" style="padding-left: 100px;padding-right: 100px;">Fecha Inicio</th>
-            <th class="text-center " style="padding-left: 100px;padding-right: 100px;">Fecha Fin</th>
+            <th class="text-center" style="padding-left: 100px;padding-right: 100px;">Fecha</th>
+            <th class="text-center ">Observaciones</th>
             <th class="text-center "> Actions </th>
           </tr>
         </thead>
@@ -29,8 +29,8 @@
                 <td class="text-center"> {{ $event->name  }} </td>
                 <td class="text-center"> {{ $event->title }} </td>
                 <td class="text-center"> {{ $event->start }} </td>
-                <td class="text-center"> {{ $event->end }} </td>
-               
+                <td class="text-center"> {{ $event->observations}} </td>
+			
                 <td class="text-center"> 
                   <a class="budget-button button_normal" href="{{route('edit_event',$event->id) }}" >
                     <img class="title_icon" src="{{ asset('img/icons/system/edit.ico') }}" alt="Editar">

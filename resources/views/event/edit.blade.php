@@ -8,17 +8,6 @@
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <style type="text/css"> 
-    .next{
-        background: red;
-    }
-    .prev {
-        background: green;
-    }
-    .glyphicon-chevron-right:before {
-  content: "\e250";
-}
-.glyphicon-chevron-left:before {
-  content: "\e251";}
 </style>
 
 <script type="text/javascript">
@@ -29,7 +18,7 @@ $(function () {
         "timePicker24Hour": true,
         "timePickerIncrement": 15,
         "autoApply": true,
-        // "singleDatePicker":true,
+        "singleDatePicker":true,
         "locale": {
             "format": "YYYY-MM-DD HH:mm:ss",
             "separator": " - ",
@@ -57,7 +46,10 @@ $(function () {
                         <input name="title" class="input long" id="title" type="text" autocomplete="off" value="{{ $event->title }}" />
                         
                         <label for="id_time">Tiempo</label> 
-                        <input name="time" id="id_time" class="input long" value="{{ $event->start.' - '. $event->end }}">
+                        <input name="time" id="id_time" class="input long" value="{{ $event->start }}">
+                        
+                        <textarea rows="4" cols="40" name="description" placeholder="Observaciones" class="message_area" value="">{{ $event->observations }}</textarea>
+
                     </div>
                     <section class = "action_buttons">  
                         <button type="submit"  class="budget-button button_normal" style="margin: 0px;"> 

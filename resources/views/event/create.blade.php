@@ -43,6 +43,9 @@ $(function () {
                         
                         <label for="id_time">Tiempo</label> 
                         <input name="time" id="id_time" class="input long" >
+                        
+                        <textarea rows="4" cols="40" name="description" placeholder="Observaciones" class="message_area" value=""></textarea>
+
                     </div>
                     <section class = "action_buttons">  
                         <button type="submit"  class="budget-button button_normal" style="margin: 0px;"> 

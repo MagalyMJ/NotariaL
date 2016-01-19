@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->boolean('isAllDay');
             $table->string('title',50);
             $table->string('name',25);
+            $table->string('observations');
             $table->timestamp('start');
             $table->timestamp('end')->nullable();
             $table->timestamps();
