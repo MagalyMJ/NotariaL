@@ -15,14 +15,14 @@
 			
 				  <a class="button button_normal" href="{{route('Select_Customers_toCase',$service->id) }}">
 					<img class="title_icon" src="{{ asset('img/icons/system/nuevotramite.ico') }}" alt="Nuevo Tramite">
-				  	<p>Nuevo Tramite</p>
+				  	<p>Nuevo Trámite</p>
 				  </a>
 				  
 		</section>
 			<table class="table-fill">
 				<thead>
 					<tr>
-						<th class="text-center"> Nº Folio
+						<th class="text-center"> Nº Trámite
 						<!-- Buscador por Folio -->
 						{!! Form::open(array('route' =>array('service_show_path',$service->id ),'method' => 'Get','class' => 'form_search')) !!}
 							
@@ -39,7 +39,8 @@
 						{!! Form::close() !!}
 						</th>
 						<th class="text-center">Avance</th>
-						<th class="text-center th_big"> Cliente
+						<th class="text-center"><p>Fecha de creación</p></th>
+						<th class="text-center "> Cliente
 						<!-- Buscador por el nombre de algun cliente relacionado -->
 						{!! Form::open(array('route' =>array('service_show_path',$service->id ),'method' => 'Get','class' => 'form_search')) !!}
 							
@@ -49,7 +50,7 @@
 
 						</th>
 						<th class="text-center">Total de Operación</th>
-						<th class="text-center th_medium">Observaciones</th>
+						<th class="text-center">Observaciones</th>
 						<th class="text-center">Detalles</th>
 
 					</tr>
@@ -62,6 +63,7 @@
     						<td class="text-center"> {{ $case_service->id }} </td>
                 			<td class="text-center"> {{ $case_service->N_write}} </td>
     						<td class="text-center"> {{ $case_service->progress }} %</td>
+    						<td class="text-center"> {{ $case_service->created_at }} </td>
 							<td class="text-center"> 
 								@foreach($case_service->customer->all() as $customerCase )
     								{{ $customerCase->name." ".$customerCase->fathers_last_name." ".$customerCase->mothers_last_name }} 

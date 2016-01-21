@@ -305,6 +305,8 @@ class CustomerController extends Controller
     public function edit($id)
     {
         //
+        $customer = Customer::find($id);
+       return view('Customers.edit',[ 'customer' => $customer, 'address'=> $customer->address[0]]);
 
     }
 
@@ -318,6 +320,29 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $customer = Customer::find($id);
+
+        $customer->name = $request->name;
+        $customer->fathers_last_name = $request->fathers_last_name;
+        $customer->mothers_last_name = $request->mothers_last_name;
+        $customer->rfc = $request->rfc;
+        $customer->from = $request->from;
+        $customer->birthdate = $request->birth_day;
+        $customer->occupation = $request->occupation;
+        $customer->marital_status = $request->marital_status;
+        $customer->phone = $request->phone;
+        $customer->save();
+
+        //como solo mostramos una direccion solo usamos la primera del arreglo        
+        $addres = Address::find($customer->address[0]->id);
+        $addres->street = $request->street;
+        $addres->number = $request->number;
+        $addres->colony = $request->colony;
+        $addres->postal_code = $request->postal_code;
+        $addres->save();
+
+         return Redirect::route('Customer_Show_path', array('id_customer' => $customer->id));
+
     }
 
     /**

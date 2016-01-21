@@ -677,6 +677,10 @@ button{
   text-align: center;
   vertical-align: text-top;
 }
+.table-fill th.text-center p{
+      width: 180px;
+      margin: 0; 
+}
 
 .table-fill th.text-right {
   text-align: right;

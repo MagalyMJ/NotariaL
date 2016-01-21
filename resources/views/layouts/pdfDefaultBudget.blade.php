@@ -21,8 +21,8 @@
        
           <div>Notaria Publica 55</div>
           <div><span>Lugar:</span> Montes Himalaya 304 Fraccionamiento Los Bosques</div>
-          <div><span>Tel:</span>0000000</div>
-          <div><span>EMAIL</span><a href="mailto:company@example.com">company@example.com</a></div>
+          <div><span>Tel:</span>146.18.26</div>
+          <div><span>EMAIL</span><a href="mailto:venturadavila@gmail.com">venturadavila@gmail.com</a></div>
   
 
         <div><span>Servicio</span> {{ $Budget->case_service->service->name}} </div>

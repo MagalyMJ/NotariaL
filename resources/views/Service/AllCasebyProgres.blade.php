@@ -15,7 +15,7 @@
 				<thead>
 					<tr>
 						<th class="text-center"> 
-								Nº Folio 
+								Nº Trámite 
 						<!-- Buscador por Folio -->
 						{!! Form::open(array('route' =>'show_all_case_by_progres','method' => 'Get','class' => 'form_search')) !!}
 							
