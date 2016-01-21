@@ -82,5 +82,5 @@
     </form>
   </div> 
  </div> 
-<script src="{{ asset('js/Budget.js')}}" language="javascript" type="text/javascript"></script>
+<script src="{{ asset('js/index.js')}}" language="javascript" type="text/javascript"></script>
  @stop
