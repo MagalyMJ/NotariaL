@@ -13,9 +13,9 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.styles([
         'normalize.css',
-        'styles.css',
         'styleicon.css',
         'daterangepiker.css',
+        'styles.css',
     ]).version('public/css/all.css');
 });
 

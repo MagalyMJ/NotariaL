@@ -23,8 +23,15 @@
 		</section>
 		<section class = "action_buttons">
 			
-			<!-- 	  <a class="input budget-button button_normal" href="">Editar</a>
-				  <a class="input budget-button button_normal" href="">Eliminar </a> -->
+		  <a class="budget-button button_normal" href="{{ route('Edit_customer',$customer->id ) }}">
+		  	<img class="title_icon" src="{{ asset('img/icons/system/edit.ico') }}" alt="Editar">
+              <p> Editar </p> 
+          	</a>
+		  
+		  <!-- <a class="budget-button button_normal" href="{{route('Customer_Show_path',$customer->id ) }}"> 
+              <img class="title_icon" src="{{ asset('img/icons/system/cancel.ico') }}" alt="Eliminar">
+              <p> Eliminar </p> 
+           </a> -->
 				  
 		</section>
 			<table class="table-fill">

@@ -147,6 +147,15 @@ Route::post('clientes/caso/{id_caseService}',[
 	'as' => 'Update_customer_InExisting_Case'
 	]);
 
+Route::get('cliente/edit/{id_customer}',[
+	'uses' => 'CustomerController@edit',
+	'as' => 'Edit_customer'
+	]);
+Route::post('cliente/edit/{id_customer}',[
+	'uses' => 'CustomerController@update',
+	'as' => 'Update_customer'
+	]);
+
 
 //Mostrar el formulario para registrar los documentos y tipo de participante a un cliente
 Route::get('caso/{id_caseService}/cliente/{id_customer}',[
