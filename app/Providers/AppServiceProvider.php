@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace NotiAPP\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -136,14 +136,31 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        /*
+         * PDF Generator
+         */
+        Barryvdh\DomPDF\ServiceProvider::class,
 
+        /*
+        * Para el manjeo de HTML
+        */
+        Collective\Html\HtmlServiceProvider::class,
+        
+        /**
+        * Manejo de roles y permisos
+        */
+        Bican\Roles\RolesServiceProvider::class,
+        /**
+        * Manejo de agenda
+        */
+        MaddHatter\LaravelFullcalendar\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        NotiAPP\Providers\AppServiceProvider::class,
+        NotiAPP\Providers\AuthServiceProvider::class,
+        NotiAPP\Providers\EventServiceProvider::class,
+        NotiAPP\Providers\RouteServiceProvider::class,
 
     ],
 
@@ -193,6 +210,11 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        
+        'PDF'      => Barryvdh\DomPDF\ServiceProvider::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'HtmlCollective' => Collective\Html\HtmlFacade::class,
+        'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
 
     ],
 

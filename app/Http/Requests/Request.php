@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace NotiAPP\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
